@@ -1,0 +1,177 @@
+\RequirePackage[l2tabu, orthodox]{nag} %Package complains about uses of old functions, make sure you write modern latex
+\documentclass[letterpaper,12pt,twoside,openright]{report} %twoside an openright make the doucment look like a "real textbook" style formatting
+\usepackage[english,canadian]{babel}
+\usepackage{amsmath} %AMS Math Package
+\usepackage{amssymb} %AMS Math Symbols
+\usepackage[all,warning]{onlyamsmath}%Warn about non-ams math useage, suggest improvements
+\usepackage[letterpaper,twoside,top=3.8cm,bottom=2.5cm,inner=2.5cm,outer=3.8cm]{geometry} %Sets up basic page dimensions
+\usepackage[tracking=true,kerning=true,expansion=true,spacing=true]{microtype} %makes type look better
+\microtypecontext{spacing=nonfrench}
+\usepackage{booktabs} %makes tables look better with nicer borders
+\usepackage{siunitx} %provides standard printing for SI units
+\usepackage[breaklinks,hidelinks]{hyperref} %Provides clickable links
+\usepackage[capitalize,noabbrev]{cleveref} %Allows use of \cref, which knows what kind of ref you're making, so you don't have to write EQN and such
+\usepackage{ifpdf} %Conditions for if pdftex is running
+\usepackage[T1]{fontenc} %upgrades font encodings
+\usepackage[utf8]{inputenc}%Tells latex the file is saved as UTF-8 (make sure it is!)
+\usepackage{lmodern} %improved version of computer modern font
+\usepackage{multirow} %Allows for mulirow a.k.a. grouped cells in tables
+\usepackage{fixltx2e} %Fixings bugs in latex2e that aren't fixed due to breaking backwards compatability
+\usepackage{upgreek} %Provides upright (non italic) greek fonts
+\usepackage{gensymb} %Provides  \de­gree, \cel­sius, \pert­hou­sand, \mi­cro and \ohm amongst others
+\usepackage{textcomp}
+\usepackage{textgreek} %Provides \textbeta and similar greek letters in text mode
+%\usepackage[section]{placeins} %Fixes placement of figures so they don't cross section boundaries
+\usepackage[section,subsection,subsubsection]{extraplaceins} %Modified version of placeins which works at section, subsection and subsubsection
+\usepackage{verbatim}%Fixes bugs in \verbatim, and provides \begin{comment} and \verbatiminput for including files
+\usepackage{syntonly}%Provides syntax-only latex runs, useful for when the document starts getting big!
+\usepackage{csquotes}
+\usepackage{float} %Fixes up floats (figures) and provides the H placement modifier (place the float RIGHT HERE). with great power...
+\usepackage[style=numeric-comp,backend=biber,sorting=none,backref=true,maxnames=99,alldates=iso8601]{biblatex} %Sets up the referencing system, standard numeric ordering, prints the page numbers refereced as a back reference, prints all names, makes dates iso dates
+\addbibresource{library.bib} %This is how you add your bib files
+\usepackage[english]{isodate}%Convert any date formats to ISO style
+\usepackage{listing}%Package for listing sourcecode with syntax highlighting
+\usepackage{ellipsis}%Fix \ldots and similar commands, bugs with spacing and such
+\usepackage{graphicx} %Standard graphics spackage
+\setkeys{Gin}{width=0.75\textwidth} %Sets default width of \includegraphics{}
+\usepackage{lastpage} %Used to count the number of pages for the descriptive note
+\usepackage{nomencl} %Used to generate the Abbreviations page
+\usepackage[raggedright]{titlesec} %This fixes hypenation in long chapter/section titles
+
+\pdfminorversion=5 %This sets the PDF versions allowing better compression
+\pdfobjcompresslevel=3
+\pdfcompresslevel=9
+
+\usepackage{subcaption} %The standard method to do figures with a), b) and such
+\usepackage{fancyhdr} %Package for changing header/footer
+\usepackage{lineno} %Allows labeling of line numbers throughout document
+\usepackage{makeidx} %For generating index files
+\usepackage{lipsum} %Prints junk text with \lipsum
+\usepackage{setspace} %Provides \doublespacing command
+\usepackage{todonotes} %Provides \todo{something} which puts labels in magin and \missingfigure{something} to put in placeholder figures
+
+\widowpenalty=300 %Prevent widows (single sentences at end of page)
+\clubpenalty=300 %Prevent orphans (single sentences on empty pages)
+%\doublespacing %Uncomment to turn on double spacing
+\onehalfspacing %Double spacing is crazy large, don't do it.
+%\linenumbers %Uncomment to turn on line numbers
+%\syntaxonly %Uncomment to only check compile for syntax PRODUCES NO OUTPUT
+\setlength{\headheight}{15pt} %Fixes header height
+
+\hypersetup{
+    unicode=true,
+    pdftoolbar=true,
+    pdfmenubar=true,
+    pdffitwindow=false,
+    pdfstartview={FitV},
+    pdftitle={Thesis Example},
+    pdfauthor={Gabriel A. Devenyi},
+    pdfsubject={Subject},
+    pdfkeywords={keyword1} {key2} {key3},
+    pdfnewwindow=true,
+    colorlinks=false,
+    linkcolor=red,
+    citecolor=green,
+    filecolor=magenta,
+    urlcolor=cyan
+}
+%\graphicspath{{graphics/}} %Uncomment if you want to hide all figure files in a graphics/ subdirectory
+
+\title{Thesis Example}
+\author{Gabriel A. Devenyi}
+\date{\today}
+
+%This stuff is used to generate a nomenclature section
+\makeindex
+\renewcommand{\nomname}{List of Abbreviations and Symbols}
+\renewcommand{\nomlabel}[1]{\textbf{#1}}
+\makenomenclature
+\raggedbottom
+\begin{document}
+
+\begin{titlepage} %Half-title page for McMaster Formatting, Max 60 Characters
+    \thispagestyle{empty}
+    \topskip0pt
+    \vspace*{\fill}
+    \begin{center}{\Large
+    \uppercase{Thesis Example}}
+    \end{center}
+    \vspace*{\fill}
+    \setcounter{page}{0} %This page needs to be "unnumbered" so we give it number zero
+\end{titlepage}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{titlepage} %Titlepage
+\thispagestyle{empty}
+\pagenumbering{roman}
+\centering
+\vspace*{\fill} %This makes text vertically centered
+{\Large \uppercase{Thesis Example}\\
+\vfill
+By GABRIEL A.\ DEVENYI, B.\ ENG.\\}
+\vfill
+A Thesis Submitted to the School of Graduate Studies in Partial Fulfilment of
+the Requirements for the Degree Doctor of Philosophy
+\vfill%This pushes copyright to the bottom
+McMaster University \textcopyright{} Copyright by Gabriel A.\ Devenyi, November 2013
+\end{titlepage}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+{\noindent McMaster University DOCTOR OF PHILOSOPHY (2013) Hamilton, Ontario (Engineering Physics)\\
+TITLE: Thesis Example\\
+AUTHOR: Gabriel A. Devenyi, B.Eng. (McMaster University)\\
+SUPERVISOR: Professor John S. Preston\\
+NUMBER OF PAGES: ix,~\pageref{LastPage}}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+    \begin{abstract}
+        \thispagestyle{plain}
+        \setcounter{page}{3}
+            This is where the abstract proper goes. The page number of this page may need be abused to number correctly.
+    \end{abstract}
+
+    \renewcommand{\abstractname}{Acknowledgements}
+    \begin{abstract} \setcounter{page}{4} \thispagestyle{plain}
+        Here, we abuse the abstract command to create an acknowledgements. The page number of this page may need be abused to number correctly.
+    \end{abstract}
+    
+    \setcounter{secnumdepth}{3} %Make TOC include subsubsections
+    \tableofcontents %Prints table of contents
+    {\listoffigures \let\cleardoublepage\clearpage %This fixes up an extra blank page
+    \printnomenclature} %Print glossary/nomenclature/abbreviations
+
+    \renewcommand{\abstractname}{Declaration of Academic Achievement}
+    \begin{abstract} \thispagestyle{plain} \setcounter{page}{9} %This page number needs to be manually set properly after the tableofcontents is generated
+        Here, we abuse the abstract command to create the declaration of academic achievement. The page number of this page will need be abused to number correctly.
+    \end{abstract}
+    
+    \listoftodos %Uncomment this to generate a list of todos (useful for keeping track of things)
+    \pagenumbering{arabic} %Reset page numbering
+
+%Fix all the header/footer according to McMaster Requirements
+    \pagestyle{fancy}
+    \fancyhead{}
+    \fancyfoot{}
+    \fancyhead[RE,LO]{McMaster University --- Engineering Physics}
+    \fancyhead[LE,RO]{PhD Thesis --- Gabriel A. Devenyi}
+    \fancyfoot[CE,CO]{\thepage}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%Thesis starts here
+
+%For large LaTeX documents, it is best practice to separate the material into smaller files so that it is easier to handle, use \include to insert each file into the overall document
+
+\chapter{Chapter 1}
+%\include{chapter1}
+This chapter is about \cite{example}.
+\todo{Write a chapter here}
+
+\chapter{Chapter 2}
+%\include{chapter2}
+
+\nomenclature{EXPL}{Example Definition of Abbreviation}%
+
+\printbibliography
+%\printindex
+
+\appendix
+\chapter{Appendix A}
+\end{document}

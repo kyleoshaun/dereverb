@@ -1,0 +1,113 @@
+
+\documentclass[12pt]{report}
+\usepackage{jrl_thesis}
+\usepackage{fancyheadings}
+\usepackage{natbib}
+\usepackage{setspace}               % this package defines the spacing of your thesis and should be included
+             % your information goes here
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage[pdftex]{graphicx}
+\usepackage{subcaption}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{verbatim}
+\usepackage{cleveref}
+\usepackage{listings}
+%\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\usepackage{pdfpages}
+
+%\usepackage{amssymb}
+%\usepackage[colorinlistoftodos]{todonotes}
+%\usepackage{xcolor}
+%\usepackage{fancyhdr}
+
+
+\graphicspath{{./figures/}}
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% add all other packages that you need to use here.
+
+% ********************************
+\begin{document}
+\beforepreface                      % command to create the parts of your thesis that come before the preface like title and etc.
+\include{dedic}
+\include{lay}
+
+
+\include{definitions}  
+
+  \include{abstr}
+  \include{acknowledgements}
+  \include{notation}
+
+
+
+
+
+\afterpreface                      % command to create the parts of your thesis that come after your preface like contents and etc.
+
+  \include{chap1}                  % the first chapter
+        \setcounter{figure}{0}
+        \setcounter{equation}{0}
+        \setcounter{table}{0}
+
+  % add other chapters go here. don't forget to reset the counters each time!
+
+\include{chap2}
+        \setcounter{figure}{0}
+        \setcounter{equation}{0}
+        \setcounter{table}{0}
+
+
+\include{chap3}
+        \setcounter{figure}{0}
+        \setcounter{equation}{0}
+        \setcounter{table}{0}
+
+
+
+\include{chap4}
+        \setcounter{figure}{0}
+        \setcounter{equation}{0}
+        \setcounter{table}{0}
+
+
+ \include{appendix}               % you can include your appendix if you have any!
+
+\bibliographystyle{natbib}
+\bibliography{references}        % your list of references
+
+\label{NumDocumentPages}
+
+\end{document}
+% ********************************
