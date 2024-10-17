@@ -1,5 +1,7 @@
 addpath('../../samples/')
 addpath('../../AIR_Databases/AIR_1_4_BinauralDatabase/')
+addpath('../../AIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/')
+addpath('../../AIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/office_II/')
 
 close all
 clear
@@ -17,7 +19,7 @@ rng(724); % Reproduce specific seed
 test_stage2_alone       = false;
 stage_1_on_clean_speech = false;
 stage_1_on_8_mics       = false;
-stage_1_on_4_mics       = true;
+stage_1_on_4_mics       = false;
 
 adjust_gain_ambiguity   = true;
 apply_time_alignment    = false;
@@ -32,13 +34,13 @@ SNR_dB                  = 300;
 % NOTE: MC-LPC stage performance is highly influenced by length of signal
 %       Even if stage 1 is bypassed (For very long signals stage 1 bypassed
 %       Results in nearly zero forcing)
-num_loops_s_frame = round(5000000 / length(s_frame));
+num_loops_s_frame = round(8.8*fs / length(s_frame));
 s_frame = repmat(s_frame, num_loops_s_frame, 1);
 
 if test_stage2_alone
     % Set s_frame to white noise (rather than speech) to skip source whitening and
     % debug MC-LPC alone
-    s_frame = randn(5000000,1); 
+    s_frame = randn(1000000,1); 
     % Note: The longer the channel IR, the more data is needed,
     % Length 5000000 will give near zero forcing for L_channel = 1000 (This is 312 sec at fs=16kHz though)
 end
@@ -58,12 +60,9 @@ freqs_welch         = w_welch .* (fs / (2*pi));
 %% Channel
 
 % Exponential decay curve
-L_channel = 1000;
+L_channel = 4000;
 tau = L_channel/4;
 exp_decay = exp(-1 .* (1:L_channel)' ./ tau);
-
-p2 = round(L_channel * 1.25); % Stage 2 MC-LPC order
-p1 = round(p2 + L_channel * 1.25); % Stage 1 Source Whitening order
 
 % Option 1: Generate random AIR
 b_air_2 = randn(L_channel,1);
@@ -107,12 +106,76 @@ end
 % b_air_2 = [zeros(delay_2,1) ; b_air_2  ; zeros(delay_1,1)];
 
 % Option 2: Real AIR
-% [b_air_1, b_air_2] = load_real_AIR(fs);
-% a_air_1 = 1;
-% a_air_2 = 1;
+% Channels:
+% - 1: Left Front
+% - 2: Right Front
+% - 3: Left Middle
+% - 4: Right Middle
+% - 5: Left Rear
+% - 6: Front Rear
+head_orientation = 2;
+speaker_loc      = 'A';
+data_set         = 'bte';
+HRIR_data = loadHRIR('office_II', head_orientation, speaker_loc, data_set);
+if HRIR_data.fs ~= fs
+    [resample_p, resample_q] = rat(fs / HRIR_data.fs);
+    HRIR_data.data = resample(HRIR_data.data, resample_p, resample_q);
+end
+
+b_air_1 = HRIR_data.data(:,1);
+b_air_2 = HRIR_data.data(:,2);
+b_air_3 = HRIR_data.data(:,3);
+b_air_4 = HRIR_data.data(:,4);
+b_air_5 = HRIR_data.data(:,5);
+b_air_6 = HRIR_data.data(:,6);
+b_air_7 = b_air_5;
+b_air_8 = b_air_6;
+
+trunc_length = 4000;
+tof_bulk = 1;
+b_air_1 = b_air_1(tof_bulk:trunc_length);
+b_air_2 = b_air_2(tof_bulk:trunc_length);
+b_air_3 = b_air_3(tof_bulk:trunc_length);
+b_air_4 = b_air_4(tof_bulk:trunc_length);
+b_air_5 = b_air_5(tof_bulk:trunc_length);
+b_air_6 = b_air_6(tof_bulk:trunc_length);
+
+tof_1 = 107;
+tof_2 = 105;
+tof_3 = 108;
+tof_4 = 105;
+tof_5 = 108;
+tof_6 = 106;
+
+% Zero out onset
+% b_air_1(1:tof_1) = zeros(tof_1,1);
+% b_air_2(1:tof_2) = zeros(tof_2,1);
+% b_air_3(1:tof_3) = zeros(tof_3,1);
+% b_air_4(1:tof_4) = zeros(tof_4,1);
+% b_air_5(1:tof_5) = zeros(tof_5,1);
+% b_air_6(1:tof_6) = zeros(tof_6,1);
+
+% Manual time alignment via removal of delay
+min_tof = min([tof_1, tof_2, tof_3, tof_4, tof_5, tof_6]);
+delay_1 = tof_1 - min_tof;
+delay_2 = tof_2 - min_tof;
+delay_3 = tof_3 - min_tof;
+delay_4 = tof_4 - min_tof;
+delay_5 = tof_5 - min_tof;
+delay_6 = tof_6 - min_tof;
+b_air_1 = [b_air_1((delay_1+1):end) ; zeros(delay_1,1)];
+b_air_2 = [b_air_2((delay_2+1):end) ; zeros(delay_2,1)];
+b_air_3 = [b_air_3((delay_3+1):end) ; zeros(delay_3,1)];
+b_air_4 = [b_air_4((delay_4+1):end) ; zeros(delay_4,1)];
+b_air_5 = [b_air_5((delay_5+1):end) ; zeros(delay_5,1)];
+b_air_6 = [b_air_6((delay_6+1):end) ; zeros(delay_6,1)];
 
 L_channel = length(b_air_1);
+p2 = round(L_channel * 1.25); % Stage 2 MC-LPC order
+p1 = round(p2 + L_channel * 1.25); % Stage 1 Source Whitening order
+%p1 = 200;
 
+%% Compute Microphone Signals
 
 % Compute reverberant signals
 y1_frame = filter(b_air_1, a_air_1, s_frame);
@@ -139,6 +202,92 @@ if stage_1_on_4_mics || stage_1_on_8_mics
     y7_frame = y7_frame + noise_mag .* randn(length(y7_frame), 1);
     y8_frame = y8_frame + noise_mag .* randn(length(y8_frame), 1);
 end
+
+%% Interfering talker
+
+[sv_frame,fs] = audioread("SA2.wav");
+
+num_loops_s_frame = round(10*fs / length(sv_frame));
+sv_frame = repmat(sv_frame, num_loops_s_frame, 1);
+
+% Option 2: Real AIR
+% Channels:
+% - 1: Left Front
+% - 2: Right Front
+% - 3: Left Middle
+% - 4: Right Middle
+% - 5: Left Rear
+% - 6: Front Rear
+head_orientation = 2;
+speaker_loc      = 'C';
+data_set         = 'bte';
+HRIR_data = loadHRIR('office_II', head_orientation, speaker_loc, data_set);
+if HRIR_data.fs ~= fs
+    [resample_p, resample_q] = rat(fs / HRIR_data.fs);
+    HRIR_data.data = resample(HRIR_data.data, resample_p, resample_q);
+end
+
+b_air_v_1 = HRIR_data.data(:,1);
+b_air_v_2 = HRIR_data.data(:,2);
+b_air_v_3 = HRIR_data.data(:,3);
+b_air_v_4 = HRIR_data.data(:,4);
+b_air_v_5 = HRIR_data.data(:,5);
+b_air_v_6 = HRIR_data.data(:,6);
+b_air_v_7 = b_air_v_5;
+b_air_v_8 = b_air_v_6;
+
+b_air_v_1 = b_air_v_1(tof_bulk:trunc_length);
+b_air_v_2 = b_air_v_2(tof_bulk:trunc_length);
+b_air_v_3 = b_air_v_3(tof_bulk:trunc_length);
+b_air_v_4 = b_air_v_4(tof_bulk:trunc_length);
+b_air_v_5 = b_air_v_5(tof_bulk:trunc_length);
+b_air_v_6 = b_air_v_6(tof_bulk:trunc_length);
+b_air_v_7 = b_air_v_7(tof_bulk:trunc_length);
+b_air_v_8 = b_air_v_8(tof_bulk:trunc_length);
+
+% Compute reverberant signals
+v1_frame = filter(b_air_v_1, 1, sv_frame);
+v2_frame = filter(b_air_v_2, 1, sv_frame);
+if stage_1_on_4_mics || stage_1_on_8_mics
+    v3_frame = filter(b_air_v_3, 1, sv_frame);
+    v4_frame = filter(b_air_v_4, 1, sv_frame);
+    v5_frame = filter(b_air_v_5, 1, sv_frame);
+    v6_frame = filter(b_air_v_6, 1, sv_frame);
+    v7_frame = filter(b_air_v_7, 1, sv_frame);
+    v8_frame = filter(b_air_v_8, 1, sv_frame);
+end
+
+% Add measurement noise
+% NOTE: This is essentially regularizing (biasing) R_mc so dont make it unrealistically high
+noise_mag = rms(sv_frame) .* 10 ^ (-1*SNR_dB / 20);
+v1_frame = v1_frame + noise_mag .* randn(length(v1_frame), 1);
+v2_frame = v2_frame + noise_mag .* randn(length(v2_frame), 1);
+if stage_1_on_4_mics || stage_1_on_8_mics
+    v3_frame = v3_frame + noise_mag .* randn(length(v3_frame), 1);
+    v4_frame = v4_frame + noise_mag .* randn(length(v4_frame), 1);
+    v5_frame = v5_frame + noise_mag .* randn(length(v5_frame), 1);
+    v6_frame = v6_frame + noise_mag .* randn(length(v6_frame), 1);
+    v7_frame = v7_frame + noise_mag .* randn(length(v7_frame), 1);
+    v8_frame = v8_frame + noise_mag .* randn(length(v8_frame), 1);
+end
+
+% y1_frame = [y1_frame ; v1_frame];
+% y2_frame = [y2_frame ; v2_frame];
+% y3_frame = [y3_frame ; v3_frame];
+% y4_frame = [y4_frame ; v4_frame];
+% y5_frame = [y5_frame ; v5_frame];
+% y6_frame = [y6_frame ; v6_frame];
+% y7_frame = [y7_frame ; v7_frame];
+% y8_frame = [y8_frame ; v8_frame];
+% 
+% s_frame = [s_frame ; sv_frame];
+
+
+%% MINT: Ideal solution based on known AIRs
+
+tau = 108;
+h_air_list = [b_air_1 b_air_2];
+MINT(h_air_list, tau);
 
 
 
@@ -232,7 +381,7 @@ sgtitle("EXAMPLE ONLY: Results of LPC on Clean Speech (Source, not reverberant)"
 
 %% Stage 1: Source Whitening
 
-L          = length(s_frame);
+L          = length(y1_frame);
 w_hamming  = hamming(L);
 
 y1_w = y1_frame .* w_hamming;
@@ -426,6 +575,17 @@ while min(abs(h0)) < coeff_thresh
     
     h_pred_2_from_1 = [0 alpha_mc(2, 1:2:(2*p2-1))];
     h_pred_2_from_2 = [0 alpha_mc(2, 2:2:2*p2)];
+
+    M = 2;
+    h_pred_1_from_1 = [0 alpha_mc(1, 1:M:((p2-1)*M+1))];
+    h_pred_1_from_2 = [0 alpha_mc(1, 2:M:((p2-1)*M+2))];
+    % h_pred_1_from_3 = [0 alpha_mc(1, 3:M:((M-1)*p2+3))];
+    % h_pred_1_from_4 = [0 alpha_mc(1, 4:M:((M-1)*p2+4))];
+    % h_pred_1_from_5 = [0 alpha_mc(1, 5:M:((M-1)*p2+5))];
+    % h_pred_1_from_6 = [0 alpha_mc(1, 6:M:((M-1)*p2+6))];
+
+    h_pred_2_from_1 = [0 alpha_mc(2, 1:M:((p2-1)*M+1))];
+    h_pred_2_from_2 = [0 alpha_mc(2, 2:M:((p2-1)*M+2))];
 
     x1_est = filter(h_pred_1_from_1, 1, x1_frame) + ...
              filter(h_pred_1_from_2, 1, x2_frame);
