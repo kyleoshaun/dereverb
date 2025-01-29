@@ -1,8 +1,9 @@
 This is BibTeX, Version 0.99d (TeX Live 2024)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
-A level-1 auxiliary file: definitions.aux
 A level-1 auxiliary file: dedic.aux
+A level-1 auxiliary file: lay.aux
+A level-1 auxiliary file: definitions.aux
 A level-1 auxiliary file: abstr.aux
 A level-1 auxiliary file: acknowledgements.aux
 A level-1 auxiliary file: notation.aux
@@ -10,49 +11,64 @@ A level-1 auxiliary file: chap1.aux
 A level-1 auxiliary file: chap2.aux
 A level-1 auxiliary file: chap3.aux
 A level-1 auxiliary file: chap4.aux
+A level-1 auxiliary file: chap5.aux
 A level-1 auxiliary file: appendix.aux
 The style file: natbib.bst
-I found no \citation commands---while reading file thesis.aux
 Database file #1: references.bib
-You've used 0 entries,
+Repeated entry---line 662 of file references.bib
+ : @article{maamar2006partial
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 683 of file references.bib
+ : @article{haneda1997multiple
+ :                            ,
+I'm skipping whatever remains of this entry
+Warning--empty author in ansi1997methods
+Warning--empty journal in george2010measuring
+Warning--empty author in iec2003sti
+Warning--empty author in itu2003pesq
+Warning--empty author in itu2011polqa
+Warning--empty journal in lavandier2023towards
+Warning--empty journal in roberts2003effects
+You've used 82 entries,
             2150 wiz_defined-function locations,
-            505 strings with 3938 characters,
-and the built_in function-call counts, 17 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
-int.to.chr$ -- 1
+            984 strings with 18948 characters,
+and the built_in function-call counts, 34694 in all, are:
+= -- 3612
+> -- 1232
+< -- 55
++ -- 368
+- -- 339
+* -- 2985
+:= -- 5774
+add.period$ -- 253
+call.type$ -- 82
+change.case$ -- 514
+chr.to.int$ -- 81
+cite$ -- 89
+duplicate$ -- 1495
+empty$ -- 2618
+format.name$ -- 469
+if$ -- 7078
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+missing$ -- 86
+newline$ -- 410
+num.names$ -- 234
+pop$ -- 522
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 518
 quote$ -- 0
-skip$ -- 1
+skip$ -- 985
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 2741
+swap$ -- 315
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
+type$ -- 476
+warning$ -- 7
+while$ -- 281
 width$ -- 0
-write$ -- 2
-(There was 1 error message)
+write$ -- 1062
+(There were 2 error messages)

@@ -1,3 +1,509 @@
 \begin{thebibliography}{}
 
+\bibitem[Andersen {\em et~al.}(2018)]{andersen2018refinement}
+Andersen, A.~H., de~Haan, J.~M., Tan, Z.-H., and Jensen, J. (2018).
+\newblock Refinement and validation of the binaural short time objective
+  intelligibility measure for spatially diverse conditions.
+\newblock {\em Speech Communication}, {\bf 102}, 1--13.
+
+\bibitem[ASA/ANSI S3.5-1997(1997)]{ansi1997methods}
+ASA/ANSI S3.5-1997 (1997).
+\newblock {Methods for Calculation of the Speech Intelligibility Index}.
+\newblock Standard, American National Standards Institute, New York, NY.
+
+\bibitem[Atal and Hanauer(1971)]{atal1971speech}
+Atal, B.~S. and Hanauer, S.~L. (1971).
+\newblock Speech analysis and synthesis by linear prediction of the speech
+  wave.
+\newblock {\em The journal of the acoustical society of America}, {\bf 50}(2B),
+  637--655.
+
+\bibitem[Atal and Schroeder(1970)]{atal1970adaptive}
+Atal, B.~S. and Schroeder, M.~R. (1970).
+\newblock Adaptive predictive coding of speech signals.
+\newblock {\em Bell System Technical Journal}, {\bf 49}(8), 1973--1986.
+
+\bibitem[Bean and Craven(1989)]{bean1989loudspeaker}
+Bean, C. and Craven, P.~G. (1989).
+\newblock Loudspeaker and room correction using digital signal processing.
+\newblock In {\em Audio Engineering Society Convention 86}. Audio Engineering
+  Society.
+
+\bibitem[Beranek and Mellow(2012)]{beranek2012acoustics}
+Beranek, L.~L. and Mellow, T. (2012).
+\newblock {\em Acoustics: sound fields and transducers}.
+\newblock Academic Press.
+
+\bibitem[Beutelmann and Brand(2006)]{beutelmann2006prediction}
+Beutelmann, R. and Brand, T. (2006).
+\newblock Prediction of speech intelligibility in spatial noise and
+  reverberation for normal-hearing and hearing-impaired listeners.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 120}(1),
+  331--342.
+
+\bibitem[Brannmark and Ahl{\'e}n(2009)]{brannmark2009spatially}
+Brannmark, L.-J. and Ahl{\'e}n, A. (2009).
+\newblock Spatially robust audio compensation based on simo feedforward
+  control.
+\newblock {\em IEEE Transactions on Signal Processing}, {\bf 57}(5),
+  1689--1702.
+
+\bibitem[Bronkhorst(2000)]{bronkhorst2000cocktail}
+Bronkhorst, A.~W. (2000).
+\newblock The cocktail party phenomenon: A review of research on speech
+  intelligibility in multiple-talker conditions.
+\newblock {\em Acta acustica united with acustica}, {\bf 86}(1), 117--128.
+
+\bibitem[Bruce {\em et~al.}(2018)]{bruce2018phenomenological}
+Bruce, I.~C., Erfani, Y., and Zilany, M.~S. (2018).
+\newblock A phenomenological model of the synapse between the inner hair cell
+  and auditory nerve: Implications of limited neurotransmitter release sites.
+\newblock {\em Hearing research}, {\bf 360}, 40--54.
+
+\bibitem[Cherry(1953)]{cherry1953some}
+Cherry, E.~C. (1953).
+\newblock Some experiments on the recognition of speech, with one and with two
+  ears.
+\newblock {\em The Journal of the acoustical society of America}, {\bf 25}(5),
+  975--979.
+
+\bibitem[Clarkson {\em et~al.}(1985)]{clarkson1985spectral}
+Clarkson, P.~M., Mourjopoulos, J., and Hammond, J. (1985).
+\newblock Spectral, phase, and transient equalization for audio systems.
+\newblock {\em Journal of the Audio Engineering Society}, {\bf 33}(3),
+  127--132.
+
+\bibitem[Ding and Li(2018)]{ding2018blind}
+Ding, Z. and Li, Y. (2018).
+\newblock {\em Blind equalization and identification}.
+\newblock CRC press.
+
+\bibitem[Durlach(1960)]{durlach1960note}
+Durlach, N. (1960).
+\newblock Note on the equalization and cancellation theory of binaural masking
+  level differences.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 32}(8),
+  1075--1076.
+
+\bibitem[Elliott and Nelson(1989)]{elliott1989multiple}
+Elliott, S.~J. and Nelson, P.~A. (1989).
+\newblock Multiple-point equalization in a room using adaptive digital filters.
+\newblock {\em Journal of the Audio Engineering Society}, {\bf 37}(11),
+  899--907.
+
+\bibitem[Farhang-Boroujeny(2013)]{farhang2013adaptive}
+Farhang-Boroujeny, B. (2013).
+\newblock {\em Adaptive filters: theory and applications}.
+\newblock John wiley \& sons.
+
+\bibitem[Ford(1978)]{ford1978optimum}
+Ford, W.~T. (1978).
+\newblock Optimum mixed delay spiking filters.
+\newblock {\em Geophysics}, {\bf 43}(1), 125--132.
+
+\bibitem[George {\em et~al.}(2010)]{george2010measuring}
+George, E.~L., Goverts, S.~T., Festen, J.~M., and Houtgast, T. (2010).
+\newblock Measuring the effects of reverberation and noise on sentence
+  intelligibility for hearing-impaired listeners.
+
+\bibitem[Godard(1980)]{godard1980self}
+Godard, D. (1980).
+\newblock Self-recovering equalization and carrier tracking in two-dimensional
+  data communication systems.
+\newblock {\em IEEE transactions on communications}, {\bf 28}(11), 1867--1875.
+
+\bibitem[Haas(1951)]{haas1951einflubeta}
+Haas, H. (1951).
+\newblock {\"U}ber den einflu$\beta$ eines einfachechos auf die h{\"o}rsamkeit
+  von sprache.
+\newblock {\em Acta Acustica united with Acustica}, {\bf 1}(2), 49--58.
+
+\bibitem[Haneda {\em et~al.}(1997)]{haneda1997multiple}
+Haneda, Y., Makino, S., and Kaneda, Y. (1997).
+\newblock Multiple-point equalization of room transfer functions by using
+  common acoustical poles.
+\newblock {\em IEEE transactions on speech and audio processing}, {\bf 5}(4),
+  325--333.
+
+\bibitem[Hines and Harte(2010)]{hines2010speech}
+Hines, A. and Harte, N. (2010).
+\newblock Speech intelligibility from image processing.
+\newblock {\em Speech Communication}, {\bf 52}(9), 736--752.
+
+\bibitem[Hines and Harte(2012)]{hines2012speech}
+Hines, A. and Harte, N. (2012).
+\newblock Speech intelligibility prediction using a neurogram similarity index
+  measure.
+\newblock {\em Speech Communication}, {\bf 54}(2), 306--320.
+
+\bibitem[Hines {\em et~al.}(2013)]{hines2013robustness}
+Hines, A., Skoglund, J., Kokaram, A., and Harte, N. (2013).
+\newblock Robustness of speech quality metrics to background noise and network
+  degradations: Comparing visqol, pesq and polqa.
+\newblock In {\em 2013 IEEE International Conference on Acoustics, Speech and
+  Signal Processing}, pages 3697--3701. IEEE.
+
+\bibitem[Hines {\em et~al.}(2015)]{hines2015visqol}
+Hines, A., Skoglund, J., Kokaram, A.~C., and Harte, N. (2015).
+\newblock Visqol: an objective speech quality model.
+\newblock {\em EURASIP Journal on Audio, Speech, and Music Processing}, {\bf
+  2015}, 1--18.
+
+\bibitem[IEC 60268-16:2020(2003)]{iec2003sti}
+IEC 60268-16:2020 (2003).
+\newblock {Sound system equipment--Part 16: Objective rating of speech
+  intelligibility by speech transmission index}.
+\newblock Standard, International Electrotechnical Commission.
+
+\bibitem[ITU P.862(2001)]{itu2003pesq}
+ITU P.862 (2001).
+\newblock {Perceptual evaluation of speech quality (PESQ): An objective method
+  for end-to-end speech quality assessment of narrow-band telephone networks
+  and speech codecs}.
+\newblock Standard, International Telecommunication Union.
+
+\bibitem[ITU P.863(2011)]{itu2011polqa}
+ITU P.863 (2011).
+\newblock {Perceptual objective listening quality assessment }.
+\newblock Standard, International Telecommunication Union.
+
+\bibitem[Johansen and Rubak(1996)]{johansen1996excess}
+Johansen, L.~G. and Rubak, P. (1996).
+\newblock The excess phase in loudspeaker/room transfer functions: Can it be
+  ignored in equalization tasks?
+\newblock In {\em Audio Engineering Society Convention 100}. Audio Engineering
+  Society.
+
+\bibitem[Karjalainen and Paatero(2006)]{karjalainen2006equalization}
+Karjalainen, M. and Paatero, T. (2006).
+\newblock Equalization of loudspeaker and room responses using kautz filters:
+  Direct least squares design.
+\newblock {\em EURASIP Journal on Advances in Signal Processing}, {\bf 2007},
+  1--13.
+
+\bibitem[Kates and Arehart(2022)]{kates2022overview}
+Kates, J.~M. and Arehart, K.~H. (2022).
+\newblock An overview of the haspi and hasqi metrics for predicting speech
+  intelligibility and speech quality for normal hearing, hearing loss, and
+  hearing aids.
+\newblock {\em Hearing research}, {\bf 426}, 108608.
+
+\bibitem[Kirkeby {\em et~al.}(1996)]{kirkeby1996fast}
+Kirkeby, O., Nelson, P.~A., Hamada, H., Orduna-Bustamante, F., and
+  de~Acoustica, S. (1996).
+\newblock Fast deconvolution of multi-channel systems using regularisation.
+\newblock {\em PROCEEDINGS-INSTITUTE OF ACOUSTICS}, {\bf 18}, 2829--2832.
+
+\bibitem[Kormylo and Jain(1974)]{kormylo1974twopass}
+Kormylo, J. and Jain, V. (1974).
+\newblock Two-pass recursive digital filter with zero phase shift.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  {\bf 22}(5), 384--387.
+
+\bibitem[Kryter(1962)]{kryter1962methods}
+Kryter, K.~D. (1962).
+\newblock Methods for the calculation and use of the articulation index.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 34}(11),
+  1689--1697.
+
+\bibitem[Kulp(1988)]{kulp1988digital}
+Kulp, B.~D. (1988).
+\newblock Digital equalization using fourier transform techniques.
+\newblock In {\em Audio Engineering Society Convention 85}. Audio Engineering
+  Society.
+
+\bibitem[Kuttruff(2016)]{kuttruff2016room}
+Kuttruff, H. (2016).
+\newblock {\em Room acoustics}.
+\newblock Crc Press.
+
+\bibitem[Lavandier {\em et~al.}(2023)]{lavandier2023towards}
+Lavandier, M., Kates, J., and Arehart, K. (2023).
+\newblock Towards a binaural hearing aid speech perception index (haspi):
+  predictions of anechoic spatial release from masking for normal-hearing
+  listeners.
+
+\bibitem[Leclere {\em et~al.}(2015)]{leclere2015speech}
+Leclere, T., Lavandier, M., and Culling, J.~F. (2015).
+\newblock Speech intelligibility prediction in reverberation: Towards an
+  integrated model of speech transmission, spatial unmasking, and binaural
+  de-reverberation.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 137}(6),
+  3335--3345.
+
+\bibitem[Lewicki(2002)]{lewicki2002coding}
+Lewicki, M.~S. (2002).
+\newblock Efficient coding of natural sounds.
+\newblock {\em Nature Neuroscience}, {\bf 5}(4), 356–363.
+
+\bibitem[Litovsky(2012)]{litovsky2012spatial}
+Litovsky, R.~Y. (2012).
+\newblock Spatial release from masking.
+\newblock {\em Acoust. Today}, {\bf 8}(2), 18--25.
+
+\bibitem[Litovsky {\em et~al.}(1999)]{litovsky1999precedence}
+Litovsky, R.~Y., Colburn, H.~S., Yost, W.~A., and Guzman, S.~J. (1999).
+\newblock The precedence effect.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 106}(4),
+  1633--1654.
+
+\bibitem[Lucky(1965)]{lucky1965automatic}
+Lucky, R.~W. (1965).
+\newblock Automatic equalization for digital communication.
+\newblock {\em Bell System Technical Journal}, {\bf 44}(4), 547--588.
+
+\bibitem[Maamar {\em et~al.}(2006)]{maamar2006partial}
+Maamar, A., Kale, I., Krukowski, A., and Daoud, B. (2006).
+\newblock Partial equalization of non-minimum-phase impulse responses.
+\newblock {\em EURASIP Journal on Advances in Signal Processing}, {\bf 2006},
+  1--8.
+
+\bibitem[Mei {\em et~al.}(2009)]{mei2009room}
+Mei, T., Mertins, A., and Kallinger, M. (2009).
+\newblock Room impulse response reshaping/shortening based on least mean
+  squares optimizationwith infinity norm constraint.
+\newblock In {\em 2009 16th International Conference on Digital Signal
+  Processing}, pages 1--6. IEEE.
+
+\bibitem[Miyoshi and Kaneda(1986)]{miyoshi1986inverse}
+Miyoshi, M. and Kaneda, Y. (1986).
+\newblock Inverse control of room acoustics using multiple loudspeakers and/or
+  microphones.
+\newblock In {\em ICASSP'86. IEEE International Conference on Acoustics,
+  Speech, and Signal Processing}, volume~11, pages 917--920. IEEE.
+
+\bibitem[Miyoshi and Kaneda(1988)]{miyoshi1988inverse}
+Miyoshi, M. and Kaneda, Y. (1988).
+\newblock Inverse filtering of room acoustics.
+\newblock {\em IEEE Transactions on acoustics, speech, and signal processing},
+  {\bf 36}(2), 145--152.
+
+\bibitem[Mourjopoulos(1985)]{mourjopoulos1985variation}
+Mourjopoulos, J. (1985).
+\newblock On the variation and invertibility of room impulse response
+  functions.
+\newblock {\em Journal of Sound and Vibration}, {\bf 102}(2), 217--228.
+
+\bibitem[Mourjopoulos and Paraskevas(1991)]{mourjopoulos1991pole}
+Mourjopoulos, J. and Paraskevas, M. (1991).
+\newblock Pole and zero modeling of room transfer functions.
+\newblock {\em Journal of Sound and Vibration}, {\bf 146}(2), 281--302.
+
+\bibitem[Mourjopoulos {\em et~al.}(1982)]{mourjopoulos1982comparative}
+Mourjopoulos, J., Clarkson, P., and Hammond, J. (1982).
+\newblock A comparative study of least-squares and homomorphic techniques for
+  the inversion of mixed phase signals.
+\newblock In {\em ICASSP'82. IEEE International Conference on Acoustics,
+  Speech, and Signal Processing}, volume~7, pages 1858--1861. IEEE.
+
+\bibitem[Nakajima {\em et~al.}(1997)]{nakajima1997sound}
+Nakajima, H., Miyoshi, M., and Tohyama, M. (1997).
+\newblock Sound field control by indefinite mint filters.
+\newblock {\em IEICE transactions on fundamentals of electronics,
+  communications and computer sciences}, {\bf 80}(5), 821--824.
+
+\bibitem[Neely and Allen(1979)]{neely1979invertibility}
+Neely, S.~T. and Allen, J.~B. (1979).
+\newblock Invertibility of a room impulse response.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 66}(1),
+  165--169.
+
+\bibitem[Ohlenforst {\em et~al.}(2017)]{ohlenforst2017effects}
+Ohlenforst, B., Zekveld, A.~A., Jansma, E.~P., Wang, Y., Naylor, G., Lorens,
+  A., Lunner, T., and Kramer, S.~E. (2017).
+\newblock Effects of hearing impairment and hearing aid amplification on
+  listening effort: A systematic review.
+\newblock {\em Ear and hearing}, {\bf 38}(3), 267--281.
+
+\bibitem[Omura {\em et~al.}(1999)]{omura1999compensating}
+Omura, M., Yada, M., Saruwatari, H., Kajita, S., Takeda, K., and Itakura, F.
+  (1999).
+\newblock Compensating of room acoustic transfer functions affected by change
+  of room temperature.
+\newblock In {\em 1999 IEEE International Conference on Acoustics, Speech, and
+  Signal Processing. Proceedings. ICASSP99 (Cat. No. 99CH36258)}, volume~2,
+  pages 941--944. IEEE.
+
+\bibitem[Pickles(2013)]{pickles2013}
+Pickles, J.~O. (2013).
+\newblock {\em An introduction to the physiology of hearing}.
+\newblock Brill, Leiden ; Boston.
+
+\bibitem[Quatieri(2002)]{quatieri2002discrete}
+Quatieri, T.~F. (2002).
+\newblock {\em Discrete-time speech signal processing: principles and
+  practice}.
+\newblock Pearson Education India.
+
+\bibitem[Radlovic and Kennedy(2000)]{radlovic2000nonminimum}
+Radlovic, B.~D. and Kennedy, R.~A. (2000).
+\newblock Nonminimum-phase equalization and its subjective importance in room
+  acoustics.
+\newblock {\em IEEE Transactions on Speech and Audio Processing}, {\bf 8}(6),
+  728--737.
+
+\bibitem[Reinhart and Souza(2018)]{reinhart2018listener}
+Reinhart, P.~N. and Souza, P.~E. (2018).
+\newblock Listener factors associated with individual susceptibility to
+  reverberation.
+\newblock {\em Journal of the American Academy of Audiology}, {\bf 29}(01),
+  073--082.
+
+\bibitem[Rennies {\em et~al.}(2022a)]{rennies2022joint}
+Rennies, J., R{\"o}ttges, S., Huber, R., Hauth, C.~F., and Brand, T. (2022a).
+\newblock A joint framework for blind prediction of binaural speech
+  intelligibility and perceived listening effort.
+\newblock {\em Hearing Research}, {\bf 426}, 108598.
+
+\bibitem[Rennies {\em et~al.}(2022b)]{rennies2022spatio}
+Rennies, J., Warzybok, A., Kollmeier, B., and Brand, T. (2022b).
+\newblock Spatio-temporal integration of speech reflections in hearing-impaired
+  listeners.
+\newblock {\em Trends in Hearing}, {\bf 26}, 23312165221143901.
+
+\bibitem[Risoud {\em et~al.}(2018)]{risoud2018localization}
+Risoud, M., Hanson, J.-N., Gauvrit, F., Renard, C., Lemesre, P.-E., Bonne,
+  N.-X., and Vincent, C. (2018).
+\newblock Sound source localization.
+\newblock {\em European annals of otorhinolaryngology, head and neck diseases},
+  {\bf 135}(4), 259--264.
+
+\bibitem[Roberts {\em et~al.}(2003)]{roberts2003effects}
+Roberts, R.~A., Koehnke, J., and Besing, J. (2003).
+\newblock Effects of noise and reverberation on the precedence effect in
+  listeners with normal hearing and impaired hearing.
+
+\bibitem[Sabine(1922)]{sabine1922collected}
+Sabine, W.~C. (1922).
+\newblock {\em Collected papers on acoustics}.
+\newblock Harvard university press.
+
+\bibitem[Saito {\em et~al.}(1967)]{saito1967theoretical}
+Saito, S., Itakura, F., {\em et~al.} (1967).
+\newblock Theoretical consideration of the statistical optimum recognition of
+  the spectral density of speech.
+\newblock {\em J. Acoust. Soc. Japan}.
+
+\bibitem[Sato(1975)]{sato1975method}
+Sato, Y. (1975).
+\newblock A method of self-recovering equalization for multilevel
+  amplitude-modulation systems.
+\newblock {\em IEEE Transactions on communications}, {\bf 23}(6), 679--682.
+
+\bibitem[Schepker {\em et~al.}(2016)]{schepker2016perceived}
+Schepker, H., Haeder, K., Rennies, J., and Holube, I. (2016).
+\newblock Perceived listening effort and speech intelligibility in
+  reverberation and noise for hearing-impaired listeners.
+\newblock {\em International journal of audiology}, {\bf 55}(12), 738--747.
+
+\bibitem[Schroeder and Kuttruff(1962)]{schroeder1962frequency}
+Schroeder, M.~R. and Kuttruff, K. (1962).
+\newblock On frequency response curves in rooms. comparison of experimental,
+  theoretical, and monte carlo results for the average frequency spacing
+  between maxima.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 34}(1),
+  76--80.
+
+\bibitem[Shapiro {\em et~al.}(2021)]{shapiro2021hearing}
+Shapiro, S.~B., Noij, K.~S., Naples, J.~G., and Samy, R.~N. (2021).
+\newblock Hearing loss and tinnitus.
+\newblock {\em Medical Clinics}, {\bf 105}(5), 799--811.
+
+\bibitem[Shields {\em et~al.}(2023)]{shields2023exploring}
+Shields, C., Sladen, M., Bruce, I.~A., Kluk, K., and Nichani, J. (2023).
+\newblock Exploring the correlations between measures of listening effort in
+  adults and children: a systematic review with narrative synthesis.
+\newblock {\em Trends in Hearing}, {\bf 27}, 23312165221137116.
+
+\bibitem[Srinivasan {\em et~al.}(2017)]{srinivasan2017role}
+Srinivasan, N.~K., Stansell, M., and Gallun, F.~J. (2017).
+\newblock The role of early and late reflections on spatial release from
+  masking: Effects of age and hearing loss.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 141}(3),
+  EL185--EL191.
+
+\bibitem[Taal {\em et~al.}(2010)]{taal2010short}
+Taal, C.~H., Hendriks, R.~C., Heusdens, R., and Jensen, J. (2010).
+\newblock A short-time objective intelligibility measure for time-frequency
+  weighted noisy speech.
+\newblock In {\em 2010 IEEE international conference on acoustics, speech and
+  signal processing}, pages 4214--4217. IEEE.
+
+\bibitem[Toole and Olive(1988)]{toole1988modification}
+Toole, F.~E. and Olive, S.~E. (1988).
+\newblock The modification of timbre by resonances: Perception and measurement.
+\newblock {\em Journal of the Audio Engineering Society}, {\bf 36}(3),
+  122--142.
+
+\bibitem[Torcoli {\em et~al.}(2021)]{torcoli2021objective}
+Torcoli, M., Kastner, T., and Herre, J. (2021).
+\newblock Objective measures of perceptual audio quality reviewed: An
+  evaluation of their application domain dependence.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, {\bf 29}, 1530--1541.
+
+\bibitem[Treitel and Robinson(1966)]{treitel1966design}
+Treitel, S. and Robinson, E. (1966).
+\newblock The design of high-resolution digital filters.
+\newblock {\em IEEE Transactions on geoscience Electronics}, {\bf 4}(1),
+  25--38.
+
+\bibitem[Tsironis {\em et~al.}(2024)]{tsironis2024adaptation}
+Tsironis, A., Vlahou, E., Kontou, P., Bagos, P., and Kop{\v{c}}o, N. (2024).
+\newblock Adaptation to reverberation for speech perception: A systematic
+  review.
+\newblock {\em Trends in Hearing}, {\bf 28}, 23312165241273399.
+
+\bibitem[van Wijngaarden and Drullman(2008)]{van2008binaural}
+van Wijngaarden, S.~J. and Drullman, R. (2008).
+\newblock Binaural intelligibility prediction based on the speech transmission
+  index.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 123}(6),
+  4514--4523.
+
+\bibitem[Wallach {\em et~al.}(1949)]{wallach1949precedence}
+Wallach, H., Newman, E.~B., and Rosenzweig, M.~R. (1949).
+\newblock A precedence effect in sound localization.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf
+  21}(4\_Supplement), 468--468.
+
+\bibitem[Wiener(1949)]{wiener1949extrapolation}
+Wiener, N. (1949).
+\newblock {\em Extrapolation, interpolation, and smoothing of stationary time
+  series: with engineering applications}.
+\newblock The MIT press.
+
+\bibitem[Winn and Teece(2021)]{winn2021listening}
+Winn, M.~B. and Teece, K.~H. (2021).
+\newblock Listening effort is not the same as speech intelligibility score.
+\newblock {\em Trends in Hearing}, {\bf 25}, 23312165211027688.
+
+\bibitem[Wirtzfeld {\em et~al.}(2017)]{wirtzfeld2017predictions}
+Wirtzfeld, M.~R., Ibrahim, R.~A., and Bruce, I.~C. (2017).
+\newblock Predictions of speech chimaera intelligibility using auditory nerve
+  mean-rate and spike-timing neural cues.
+\newblock {\em Journal of the Association for Research in Otolaryngology}, {\bf
+  18}, 687--710.
+
+\bibitem[Xia {\em et~al.}(2018)]{xia2018effects}
+Xia, J., Xu, B., Pentony, S., Xu, J., and Swaminathan, J. (2018).
+\newblock Effects of reverberation and noise on speech intelligibility in
+  normal-hearing and aided hearing-impaired listeners.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 143}(3),
+  1523--1533.
+
+\bibitem[Zilany and Bruce(2007)]{zilany2007predictions}
+Zilany, M.~S. and Bruce, I.~C. (2007).
+\newblock Predictions of speech intelligibility with a model of the normal and
+  impaired auditory-periphery.
+\newblock In {\em 2007 3rd International IEEE/EMBS Conference on Neural
+  Engineering}, pages 481--485. IEEE.
+
+\bibitem[Zilany {\em et~al.}(2014)]{zilany2014updated}
+Zilany, M.~S., Bruce, I.~C., and Carney, L.~H. (2014).
+\newblock Updated parameters and expanded simulation options for a model of the
+  auditory periphery.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 135}(1),
+  283--286.
+
 \end{thebibliography}
