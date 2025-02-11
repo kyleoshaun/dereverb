@@ -1,7 +1,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Block diagram for supervised optimal filtering, which attempts to produce a desired output, $d(n)$, from a known input, $x(n)$}}{79}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Block diagram for supervised inverse filtering / equalization, which attempts to produce reproduce the known input, $s(n)$, to an unknown system $G(z)$, from the measured system output, $m(n)$, using a filter, $H(z)$}}{79}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Block diagram for supervised inverse filtering / equalization, which attempts to produce reproduce the known input, $s(n)$, to an unknown system $G(z)$, from the measured system output, $m(n)$, using a filter, $H(z)$}}{80}{figure.caption.8}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Block diagram for supervised blind deconvolution, which attempts to produce reproduce the unknown input, $s(n)$, to an unknown system $G(z)$, from the measured system output, $m(n)$, including additive noise $v(n)$, using a filter, $H(z)$}}{85}{figure.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

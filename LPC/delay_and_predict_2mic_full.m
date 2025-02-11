@@ -1,7 +1,7 @@
 addpath('../../samples/')
-addpath('../../AIR_Databases/AIR_1_4_BinauralDatabase/')
-addpath('../../AIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/')
-addpath('../../AIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/office_II/')
+addpath('../../RIR_Databases/RIR_1_4_BinauralDatabase/')
+addpath('../../RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/')
+addpath('../../RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/office_II/')
 
 close all
 clear
@@ -15,8 +15,10 @@ rng(724); % Reproduce specific seed
 
 %% Parameters
 
+M = 2;
+
 % Script Modes (Ordered by decreasing presedence)
-test_stage2_alone       = false;
+test_stage2_alone       = true;
 stage_1_on_clean_speech = false;
 stage_1_on_8_mics       = false;
 stage_1_on_4_mics       = false;
@@ -35,7 +37,7 @@ SNR_dB                  = 300;
 %       Even if stage 1 is bypassed (For very long signals stage 1 bypassed
 %       Results in nearly zero forcing)
 num_loops_s_frame = round(8.8*fs / length(s_frame));
-s_frame = repmat(s_frame, num_loops_s_frame, 1);
+%s_frame = repmat(s_frame, num_loops_s_frame, 1);
 
 if test_stage2_alone
     % Set s_frame to white noise (rather than speech) to skip source whitening and
@@ -56,56 +58,57 @@ Nover_welch = Nfft_welch / 4;
 [Sm_frame, w_welch] = pwelch(s_frame, Nwin_welch, Nover_welch, Nfft_welch);
 freqs_welch         = w_welch .* (fs / (2*pi));
 
-
 %% Channel
 
 % Exponential decay curve
-L_channel = 4000;
+L_channel = 100;
 tau = L_channel/4;
 exp_decay = exp(-1 .* (1:L_channel)' ./ tau);
 
-% Option 1: Generate random AIR
-b_air_2 = randn(L_channel,1);
-b_air_1 = randn(L_channel,1);
-b_air_3 = randn(L_channel,1);
-b_air_4 = randn(L_channel,1);
-b_air_5 = randn(L_channel,1);
-b_air_6 = randn(L_channel,1);
-b_air_7 = randn(L_channel,1);
-b_air_8 = randn(L_channel,1);
+% Option 1: Generate random RIR
+b_rir_1 = randn(L_channel,1);
+b_rir_2 = randn(L_channel,1);
+b_rir_3 = randn(L_channel,1);
+b_rir_4 = randn(L_channel,1);
+b_rir_5 = randn(L_channel,1);
+b_rir_6 = randn(L_channel,1);
+b_rir_7 = randn(L_channel,1);
+b_rir_8 = randn(L_channel,1);
 
-a_air_1 = 1;
-a_air_2 = 1;
-a_air_3 = 1;
-a_air_4 = 1;
-a_air_5 = 1;
-a_air_6 = 1;
-a_air_7 = 1;
-a_air_8 = 1;
+a_rir_1 = 1;
+a_rir_2 = 1;
+a_rir_3 = 1;
+a_rir_4 = 1;
+a_rir_5 = 1;
+a_rir_6 = 1;
+a_rir_7 = 1;
+a_rir_8 = 1;
 
-% Apply synthetic exponential decay to AIRs
-b_air_1 = b_air_1(1:L_channel) .* exp_decay;
-b_air_2 = b_air_2(1:L_channel) .* exp_decay;
+% Apply synthetic exponential decay to RIRs
+b_rir_1 = b_rir_1(1:L_channel) .* exp_decay;
+b_rir_2 = b_rir_2(1:L_channel) .* exp_decay;
 if stage_1_on_4_mics || stage_1_on_8_mics
-    b_air_3 = b_air_3(1:L_channel) .* exp_decay;
-    b_air_4 = b_air_4(1:L_channel) .* exp_decay;
-    b_air_5 = b_air_5(1:L_channel) .* exp_decay;
-    b_air_6 = b_air_6(1:L_channel) .* exp_decay;
-    b_air_7 = b_air_7(1:L_channel) .* exp_decay;
-    b_air_8 = b_air_8(1:L_channel) .* exp_decay;
+    b_rir_3 = b_rir_3(1:L_channel) .* exp_decay;
+    b_rir_4 = b_rir_4(1:L_channel) .* exp_decay;
+    b_rir_5 = b_rir_5(1:L_channel) .* exp_decay;
+    b_rir_6 = b_rir_6(1:L_channel) .* exp_decay;
+    b_rir_7 = b_rir_7(1:L_channel) .* exp_decay;
+    b_rir_8 = b_rir_8(1:L_channel) .* exp_decay;
 end
 
-% Synthetic 2-sided AIR
-%b_air_1 = [flip(b_air_1) ; b_air_1];
-%b_air_2 = [flip(b_air_2) ; b_air_2];
+% Synthetic 2-sided RIR
+%b_rir_1 = [flip(b_rir_1) ; b_rir_1];
+%b_rir_2 = [flip(b_rir_2) ; b_rir_2];
 
 % % Add Synthetic time delay
 % delay_1 = 0;
 % delay_2 = 0;
-% b_air_1 = [zeros(delay_1,1) ; b_air_1 ; zeros(delay_2,1)];
-% b_air_2 = [zeros(delay_2,1) ; b_air_2  ; zeros(delay_1,1)];
+% b_rir_1 = [zeros(delay_1,1) ; b_rir_1 ; zeros(delay_2,1)];
+% b_rir_2 = [zeros(delay_2,1) ; b_rir_2  ; zeros(delay_1,1)];
 
-% Option 2: Real AIR
+real_rir = 0;
+if real_rir
+% Option 2: Real RIR
 % Channels:
 % - 1: Left Front
 % - 2: Right Front
@@ -122,23 +125,28 @@ if HRIR_data.fs ~= fs
     HRIR_data.data = resample(HRIR_data.data, resample_p, resample_q);
 end
 
-b_air_1 = HRIR_data.data(:,1);
-b_air_2 = HRIR_data.data(:,2);
-b_air_3 = HRIR_data.data(:,3);
-b_air_4 = HRIR_data.data(:,4);
-b_air_5 = HRIR_data.data(:,5);
-b_air_6 = HRIR_data.data(:,6);
-b_air_7 = b_air_5;
-b_air_8 = b_air_6;
+b_rir_1 = HRIR_data.data(:,1);
+b_rir_2 = HRIR_data.data(:,2);
+b_rir_3 = HRIR_data.data(:,3);
+b_rir_4 = HRIR_data.data(:,4);
+b_rir_5 = HRIR_data.data(:,5);
+b_rir_6 = HRIR_data.data(:,6);
+b_rir_7 = b_rir_5;
+b_rir_8 = b_rir_6;
 
-trunc_length = 4000;
+end
+
+trunc_length = length(b_rir_1);
 tof_bulk = 1;
-b_air_1 = b_air_1(tof_bulk:trunc_length);
-b_air_2 = b_air_2(tof_bulk:trunc_length);
-b_air_3 = b_air_3(tof_bulk:trunc_length);
-b_air_4 = b_air_4(tof_bulk:trunc_length);
-b_air_5 = b_air_5(tof_bulk:trunc_length);
-b_air_6 = b_air_6(tof_bulk:trunc_length);
+b_rir_1 = b_rir_1(tof_bulk:trunc_length);
+b_rir_2 = b_rir_2(tof_bulk:trunc_length);
+b_rir_3 = b_rir_3(tof_bulk:trunc_length);
+b_rir_4 = b_rir_4(tof_bulk:trunc_length);
+b_rir_5 = b_rir_5(tof_bulk:trunc_length);
+b_rir_6 = b_rir_6(tof_bulk:trunc_length);
+
+manual_time_align = 0;
+if manual_time_align
 
 tof_1 = 107;
 tof_2 = 105;
@@ -148,12 +156,12 @@ tof_5 = 108;
 tof_6 = 106;
 
 % Zero out onset
-% b_air_1(1:tof_1) = zeros(tof_1,1);
-% b_air_2(1:tof_2) = zeros(tof_2,1);
-% b_air_3(1:tof_3) = zeros(tof_3,1);
-% b_air_4(1:tof_4) = zeros(tof_4,1);
-% b_air_5(1:tof_5) = zeros(tof_5,1);
-% b_air_6(1:tof_6) = zeros(tof_6,1);
+% b_rir_1(1:tof_1) = zeros(tof_1,1);
+% b_rir_2(1:tof_2) = zeros(tof_2,1);
+% b_rir_3(1:tof_3) = zeros(tof_3,1);
+% b_rir_4(1:tof_4) = zeros(tof_4,1);
+% b_rir_5(1:tof_5) = zeros(tof_5,1);
+% b_rir_6(1:tof_6) = zeros(tof_6,1);
 
 % Manual time alignment via removal of delay
 min_tof = min([tof_1, tof_2, tof_3, tof_4, tof_5, tof_6]);
@@ -163,31 +171,99 @@ delay_3 = tof_3 - min_tof;
 delay_4 = tof_4 - min_tof;
 delay_5 = tof_5 - min_tof;
 delay_6 = tof_6 - min_tof;
-b_air_1 = [b_air_1((delay_1+1):end) ; zeros(delay_1,1)];
-b_air_2 = [b_air_2((delay_2+1):end) ; zeros(delay_2,1)];
-b_air_3 = [b_air_3((delay_3+1):end) ; zeros(delay_3,1)];
-b_air_4 = [b_air_4((delay_4+1):end) ; zeros(delay_4,1)];
-b_air_5 = [b_air_5((delay_5+1):end) ; zeros(delay_5,1)];
-b_air_6 = [b_air_6((delay_6+1):end) ; zeros(delay_6,1)];
+b_rir_1 = [b_rir_1((delay_1+1):end) ; zeros(delay_1,1)];
+b_rir_2 = [b_rir_2((delay_2+1):end) ; zeros(delay_2,1)];
+b_rir_3 = [b_rir_3((delay_3+1):end) ; zeros(delay_3,1)];
+b_rir_4 = [b_rir_4((delay_4+1):end) ; zeros(delay_4,1)];
+b_rir_5 = [b_rir_5((delay_5+1):end) ; zeros(delay_5,1)];
+b_rir_6 = [b_rir_6((delay_6+1):end) ; zeros(delay_6,1)];
 
-L_channel = length(b_air_1);
+end
+
+
+
+% Prediction Orders
+L_channel = length(b_rir_1);
 p2 = round(L_channel * 1.25); % Stage 2 MC-LPC order
 p1 = round(p2 + L_channel * 1.25); % Stage 1 Source Whitening order
-%p1 = 200;
 
 %% Compute Microphone Signals
 
 % Compute reverberant signals
-y1_frame = filter(b_air_1, a_air_1, s_frame);
-y2_frame = filter(b_air_2, a_air_2, s_frame);
+y1_frame = filter(b_rir_1, a_rir_1, s_frame);
+y2_frame = filter(b_rir_2, a_rir_2, s_frame);
 if stage_1_on_4_mics || stage_1_on_8_mics
-    y3_frame = filter(b_air_3, a_air_3, s_frame);
-    y4_frame = filter(b_air_4, a_air_4, s_frame);
-    y5_frame = filter(b_air_5, a_air_5, s_frame);
-    y6_frame = filter(b_air_6, a_air_6, s_frame);
-    y7_frame = filter(b_air_7, a_air_7, s_frame);
-    y8_frame = filter(b_air_8, a_air_8, s_frame);
+    y3_frame = filter(b_rir_3, a_rir_3, s_frame);
+    y4_frame = filter(b_rir_4, a_rir_4, s_frame);
+    y5_frame = filter(b_rir_5, a_rir_5, s_frame);
+    y6_frame = filter(b_rir_6, a_rir_6, s_frame);
+    y7_frame = filter(b_rir_7, a_rir_7, s_frame);
+    y8_frame = filter(b_rir_8, a_rir_8, s_frame);
 end
+
+% TEMP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[Sm_frame, w_welch] = pwelch(s_frame .* hamming(length(s_frame)), Nwin_welch, Nover_welch, Nfft_welch);
+freqs_welch         = w_welch .* (fs / (2*pi));
+
+[Y1m_frame, w_welch] = pwelch(y1_frame .* hamming(length(y1_frame)), Nwin_welch, Nover_welch, Nfft_welch);
+freqs_welch          = w_welch .* (fs / (2*pi));
+
+[Y1m_frame, w_welch] = pwelch(y1_frame .* hamming(length(y1_frame)), Nwin_welch, Nover_welch, Nfft_welch);
+freqs_welch          = w_welch .* (fs / (2*pi));
+
+[H_channel_1, w_freqz]  = freqz(b_rir_1, a_rir_1, Nfft);
+Hm_channel_1 = abs(H_channel_1);
+Hp_channel_1  = angle(H_channel_1);
+freqs_freqz   = w_freqz * (fs / (2*pi));
+
+s_impulse = zeros(10*fs,1);
+s_impulse(1) = 1;
+h1 = filter(b_rir_1, a_rir_1, s_impulse);
+
+[r_s, lags_s] = xcorr(s_frame, s_frame);
+[r_y1, lags_y1] = xcorr(y1_frame, y1_frame);
+[r_h1, lags_h1] = xcorr(h1, h1);
+
+figure()
+subplot(1,3,1)
+plot(freqs_welch, 10*log10(Sm_frame))
+ylabel('dB')
+xlabel('Frequency [Hz]')
+title('Long-Term PSD of Speech (3.6 sec)')
+grid on;
+
+subplot(1,3,2)
+plot(freqs_freqz ./ 1000, 20*log10(Hm_channel_1));
+title('RTF Magnitude Response')
+xlabel('Frequency [kHz]')
+ylabel('dB')
+grid on;
+
+subplot(1,3,3)
+plot(freqs_welch, 10*log10(Y1m_frame))
+ylabel('dB')
+xlabel('Frequency [Hz]')
+title('Long-Term PSD of Reverberant Speech (3.6 sec)')
+grid on;
+
+figure()
+subplot(1,3,1)
+plot(lags_s .* (1000/fs),r_s);
+xlabel('lag [msec]')
+title('Long-Term autocorrelation of Speech (3.6 sec)')
+
+subplot(1,3,2)
+plot(lags_h1 .* (1000/fs),r_h1);
+xlabel('lag [msec]')
+title('Autocorrelation of RIR')
+
+subplot(1,3,3)
+plot(lags_y1 .* (1000/fs),r_y1);
+xlabel('lag [msec]')
+title('Long-Term autocorrelation of Reverberant Speech (3.6 sec)')
+
+
+% TEMP END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Add measurement noise
 % NOTE: This is essentially regularizing (biasing) R_mc so dont make it unrealistically high
@@ -210,7 +286,7 @@ end
 num_loops_s_frame = round(10*fs / length(sv_frame));
 sv_frame = repmat(sv_frame, num_loops_s_frame, 1);
 
-% Option 2: Real AIR
+% Option 2: Real RIR
 % Channels:
 % - 1: Left Front
 % - 2: Right Front
@@ -227,34 +303,34 @@ if HRIR_data.fs ~= fs
     HRIR_data.data = resample(HRIR_data.data, resample_p, resample_q);
 end
 
-b_air_v_1 = HRIR_data.data(:,1);
-b_air_v_2 = HRIR_data.data(:,2);
-b_air_v_3 = HRIR_data.data(:,3);
-b_air_v_4 = HRIR_data.data(:,4);
-b_air_v_5 = HRIR_data.data(:,5);
-b_air_v_6 = HRIR_data.data(:,6);
-b_air_v_7 = b_air_v_5;
-b_air_v_8 = b_air_v_6;
+b_rir_v_1 = HRIR_data.data(:,1);
+b_rir_v_2 = HRIR_data.data(:,2);
+b_rir_v_3 = HRIR_data.data(:,3);
+b_rir_v_4 = HRIR_data.data(:,4);
+b_rir_v_5 = HRIR_data.data(:,5);
+b_rir_v_6 = HRIR_data.data(:,6);
+b_rir_v_7 = b_rir_v_5;
+b_rir_v_8 = b_rir_v_6;
 
-b_air_v_1 = b_air_v_1(tof_bulk:trunc_length);
-b_air_v_2 = b_air_v_2(tof_bulk:trunc_length);
-b_air_v_3 = b_air_v_3(tof_bulk:trunc_length);
-b_air_v_4 = b_air_v_4(tof_bulk:trunc_length);
-b_air_v_5 = b_air_v_5(tof_bulk:trunc_length);
-b_air_v_6 = b_air_v_6(tof_bulk:trunc_length);
-b_air_v_7 = b_air_v_7(tof_bulk:trunc_length);
-b_air_v_8 = b_air_v_8(tof_bulk:trunc_length);
+b_rir_v_1 = b_rir_v_1(tof_bulk:trunc_length);
+b_rir_v_2 = b_rir_v_2(tof_bulk:trunc_length);
+b_rir_v_3 = b_rir_v_3(tof_bulk:trunc_length);
+b_rir_v_4 = b_rir_v_4(tof_bulk:trunc_length);
+b_rir_v_5 = b_rir_v_5(tof_bulk:trunc_length);
+b_rir_v_6 = b_rir_v_6(tof_bulk:trunc_length);
+b_rir_v_7 = b_rir_v_7(tof_bulk:trunc_length);
+b_rir_v_8 = b_rir_v_8(tof_bulk:trunc_length);
 
 % Compute reverberant signals
-v1_frame = filter(b_air_v_1, 1, sv_frame);
-v2_frame = filter(b_air_v_2, 1, sv_frame);
+v1_frame = filter(b_rir_v_1, 1, sv_frame);
+v2_frame = filter(b_rir_v_2, 1, sv_frame);
 if stage_1_on_4_mics || stage_1_on_8_mics
-    v3_frame = filter(b_air_v_3, 1, sv_frame);
-    v4_frame = filter(b_air_v_4, 1, sv_frame);
-    v5_frame = filter(b_air_v_5, 1, sv_frame);
-    v6_frame = filter(b_air_v_6, 1, sv_frame);
-    v7_frame = filter(b_air_v_7, 1, sv_frame);
-    v8_frame = filter(b_air_v_8, 1, sv_frame);
+    v3_frame = filter(b_rir_v_3, 1, sv_frame);
+    v4_frame = filter(b_rir_v_4, 1, sv_frame);
+    v5_frame = filter(b_rir_v_5, 1, sv_frame);
+    v6_frame = filter(b_rir_v_6, 1, sv_frame);
+    v7_frame = filter(b_rir_v_7, 1, sv_frame);
+    v8_frame = filter(b_rir_v_8, 1, sv_frame);
 end
 
 % Add measurement noise
@@ -283,11 +359,11 @@ end
 % s_frame = [s_frame ; sv_frame];
 
 
-%% MINT: Ideal solution based on known AIRs
+%% MINT: Ideal solution based on known RIRs
 
 tau = 108;
-h_air_list = [b_air_1 b_air_2];
-MINT(h_air_list, tau);
+h_rir_list = [b_rir_1 b_rir_2];
+MINT(h_rir_list, tau);
 
 
 
@@ -576,7 +652,6 @@ while min(abs(h0)) < coeff_thresh
     h_pred_2_from_1 = [0 alpha_mc(2, 1:2:(2*p2-1))];
     h_pred_2_from_2 = [0 alpha_mc(2, 2:2:2*p2)];
 
-    M = 2;
     h_pred_1_from_1 = [0 alpha_mc(1, 1:M:((p2-1)*M+1))];
     h_pred_1_from_2 = [0 alpha_mc(1, 2:M:((p2-1)*M+2))];
     % h_pred_1_from_3 = [0 alpha_mc(1, 3:M:((M-1)*p2+3))];
@@ -705,11 +780,11 @@ sgtitle('Stage 2: MC-LPC Results')
 s_impulse = zeros(L_channel + p1 + p2,1);
 s_impulse(1) = 1;
 
-h_channel_1 = filter(b_air_1, a_air_1, s_impulse);
-h_channel_2 = filter(b_air_2, a_air_2, s_impulse);
+h_channel_1 = filter(b_rir_1, a_rir_1, s_impulse);
+h_channel_2 = filter(b_rir_2, a_rir_2, s_impulse);
 
-x1_frame = filter(b_air_1, a_air_1, s_impulse);
-x2_frame = filter(b_air_2, a_air_2, s_impulse);
+x1_frame = filter(b_rir_1, a_rir_1, s_impulse);
+x2_frame = filter(b_rir_2, a_rir_2, s_impulse);
 
 x1_frame = filter(delay_filter_1, 1, x1_frame);
 x2_frame = filter(delay_filter_2, 1, x2_frame);
@@ -729,11 +804,11 @@ Hm_dap  = abs(H_dap(1:(Nfft/2)));
 Hp_dap  = angle(H_dap(1:(Nfft/2)));
 freqs_fft = (0:(length(Hm_dap)-1))' .* (fs / Nfft);
 
-H_channel_1  = freqz(b_air_1, a_air_1, Nfft);
+H_channel_1  = freqz(b_rir_1, a_rir_1, Nfft);
 Hm_channel_1 = abs(H_channel_1);
 Hp_channel_1  = angle(H_channel_1);
 
-H_channel_2  = freqz(b_air_2, a_air_2, Nfft);
+H_channel_2  = freqz(b_rir_2, a_rir_2, Nfft);
 Hm_channel_2 = abs(H_channel_2);
 Hp_channel_2  = angle(H_channel_2);
 
@@ -844,10 +919,10 @@ ylabel('dB')
 
 % figure()
 % subplot(1,2,1)
-% zplane(b_air_1', a_air_1')
+% zplane(b_rir_1', a_rir_1')
 % title('Channel 1')
 % subplot(1,2,2)
-% zplane(b_air_2', a_air_2')
+% zplane(b_rir_2', a_rir_2')
 % title('Channel 2')
 
 figure()
@@ -864,23 +939,23 @@ ylabel('rad')
 
 %% Energy Decay Curve Comparison
 
-energy_air_1 = h_channel_1' * h_channel_1;
+energy_rir_1 = h_channel_1' * h_channel_1;
 energy_dap   = h_dap' * h_dap;
-edc_air_1    = zeros(length(h_channel_1), 1);
+edc_rir_1    = zeros(length(h_channel_1), 1);
 edc_dap      = zeros(length(h_channel_1), 1);
 for n = 1:length(h_channel_1)
 
-    edc_air_1(n) = energy_air_1;
+    edc_rir_1(n) = energy_rir_1;
     edc_dap(n)   = energy_dap;
 
-    energy_air_1 = energy_air_1 - h_channel_1(n)^2;
+    energy_rir_1 = energy_rir_1 - h_channel_1(n)^2;
     energy_dap   = energy_dap - h_dap(n)^2;
 end
 
 figure()
-plot((0:(length(h_channel_1)-1)) .* (1/fs), 20*log10(edc_air_1));
+plot((0:(length(h_channel_1)-1)) .* (1/fs), 20*log10(edc_rir_1));
 hold on;
-plot((0:(length(h_channel_1)-1)) .* (1/fs), 20*log10(edc_dap .* (max(edc_air_1) / max(edc_dap))));
+plot((0:(length(h_channel_1)-1)) .* (1/fs), 20*log10(edc_dap .* (max(edc_rir_1) / max(edc_dap))));
 ylim([-80 60])
 %xlim([0 (length(h_channel_1) * (1/fs))])
 xlabel('Time [sec]')
@@ -891,8 +966,8 @@ title('Energy Decay Curve')
 %% Temp
 
 [s_frame,fs] = audioread("SA1.wav");
-y1_frame = filter(b_air_1, a_air_1, s_frame);
-y2_frame = filter(b_air_2, a_air_2, s_frame);
+y1_frame = filter(b_rir_1, a_rir_1, s_frame);
+y2_frame = filter(b_rir_2, a_rir_2, s_frame);
 s_est_1_dap = y1_frame - ...
           ((filter(h_pred_1_from_1, 1, y1_frame) + ...
           filter(h_pred_1_from_2, 1, y2_frame)));

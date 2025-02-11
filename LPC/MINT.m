@@ -1,16 +1,10 @@
-function MINT(h_air_list, tau)
-% h_air_list: Columns = acoustic impulse responses
+function [H] = MINT(G_rir, tau, results_dir)
+% G_rir: Columns = acoustic impulse responses
 % tau: Desired EIR delay (Impulse appears at index tau+1)
-
-% Shuffle and save seed for reproducibility
-rng('shuffle')
-seed = abs(round(randn(1,1) * 10000));
-rng(seed);
-%rng(724); % Reproduce specific seed
 
 % L_h = AIR length (common to all channels, i.e., max AIR length, rest zero padded))
 % M   = Number of channels (Microphones)
-[L_h, M] = size(h_air_list);
+[L_h, M] = size(G_rir);
 
 % Compute EQ FIR length (per channnel)
 if (M > 1)
@@ -21,12 +15,12 @@ end
 
 
 % Construct multichannel sylvester filter matrix H = [H1 H2 ... HM]
-H = [];
+G = [];
 for ch_idx = 1:M
-    h_air_i = h_air_list(:, ch_idx);
-    H_i = sylvester_matrix(h_air_i, L_g);
+    g_rir_i = G_rir(:, ch_idx);
+    G_i = sylvester_matrix(g_rir_i, L_g);
 
-    H = [H H_i];
+    G = [G G_i];
 end
 
 % Desired Equalized impulse response (EIR)
@@ -35,7 +29,7 @@ d = zeros(L_d, 1); % EIR
 d(tau+1) = 1;
 
 % Compute MINT
-g_mint = pinv(H) * d;
+h_mint = pinv(G) * d;
 
 %fprintf("cond(H) = %d\n", cond(H))
 
@@ -43,16 +37,19 @@ g_mint = pinv(H) * d;
 
 % Extract individual EQ Filters (per channel) and compute EIR
 eir = zeros(L_d,1);
+H = [];
 for ch_idx = 1:M
-    h_air_i = h_air_list(:, ch_idx);
-    g_mint_i = g_mint((((ch_idx-1)*L_g)+1):(ch_idx*L_g));
-    y_i = conv(h_air_i, g_mint_i);
+    g_rir_i = G_rir(:, ch_idx);
+    h_mint_i = h_mint((((ch_idx-1)*L_g)+1):(ch_idx*L_g));
+    y_i = conv(g_rir_i, h_mint_i);
+
+    H = [H h_mint_i];
 
     eir = eir + y_i;
 end
 
-h_air_1 = h_air_list(:, 1);
-h_air_2 = h_air_list(:, 2);
+g_rir_1 = G_rir(:, 1);
+g_rir_2 = G_rir(:, 2);
 
 % figure()
 % subplot(3,1,1)
@@ -68,14 +65,14 @@ h_air_2 = h_air_list(:, 2);
 
 
 figure()
-subplot(3,1,1)
-plot(h_air_1)
-title('AIR 1')
-subplot(3,1,2)
-plot(h_air_2)
-title('AIR 2')
-subplot(3,1,3)
+subplot(2,1,1)
+plot(g_rir_1)
+title('RIR 1')
+subplot(2,1,2)
 plot(eir)
 title('EIR')
 sgtitle('MINT Results')
+
+saveas(gcf, sprintf('%s/MINT.fig', results_dir));
+
 

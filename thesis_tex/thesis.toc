@@ -55,10 +55,10 @@
 \contentsline {subsubsection}{\numberline {2.2.2.4}Least Squares Optimization Approaches to Room Response Equalization}{71}{subsubsection.2.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.3}Multiple Input-Output Inverse Theorem (MINT)}{73}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Blind Deconvolution Problem}{78}{subsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.4.1}The Wiener Filter (Supervised Optimal Filtering)}{78}{subsubsection.2.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.2.4.1}The Wiener Filter (Supervised Optimal Filtering)}{79}{subsubsection.2.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.2.4.2}Supervised Adaptive Filtering}{82}{subsubsection.2.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.2.4.3}Blind Deconvolution}{85}{subsubsection.2.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.2.4.4}Practical Blind Deconvolution in Wireless Systems}{86}{subsubsection.2.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.2.4.4}Practical Blind Deconvolution in Wireless Systems}{87}{subsubsection.2.2.4.4}%
 \contentsline {subsection}{\numberline {2.2.5}HOS Methods for Blind Deconvolution}{88}{subsection.2.2.5}%
 \contentsline {subsection}{\numberline {2.2.6}SOS Methods for Blind Deconvolution}{88}{subsection.2.2.6}%
 \contentsline {subsubsection}{\numberline {2.2.6.1}Subspace Methods}{88}{subsubsection.2.2.6.1}%
