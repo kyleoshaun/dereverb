@@ -248,7 +248,7 @@ where $M$ is the number of loudspeakers.
 
  \cite{miyoshi1986inverse} proved that in order to be invertible (i.e., in order for $G$ to be full rank), there could not be any zeros that were common to all RTFs. It was therefore shown that a MINT equalizer can achieve perfect zero-delay equalization, even when the individual RTFs are non-minimum phase, provided the equalizer filter lengths are sufficiently long and the individual RTFs do not have common zeros anywhere in the z-plane. This result is different from single channel methods which only approach perfect equalization of non-minimum phase channels as the modeling delay approaches infinity. 
  
- It is interesting to note that FIR channels would inheritly have inverse filters that are all-pole and therefore IIR. Single channel FIR equalization of a FIR channel will thus always be approximate, even if the channel is minimum phase. This makes sense intuitively, but \cite{miyoshi1986inverse} also proved this numerically by demonstrating that the matrix formulation of the single channel equalization problem is always overdetermined regardless of equalizer filter length. Remarkably, the MINT can acheive perfect equalization of a FIR channel with individual FIR equalizer filters that are shorter in length than the FIR channels. It is important to remember that real RTFs are not generally speaking FIR, so the MINT is still approximate. However, for a sufficiently long FIR measurement of the true RIR, the residual reflections may be considered negligible.The MINT was proven to greatly outperform the single channel least squares equalization method, acheiving more than \qty{40}{dB} additional reverberation attenuation accross all frequencies.
+ It is interesting to note that FIR channels would inheritly have inverse filters that are all-pole and therefore IIR. Single channel FIR equalization of a FIR channel will thus always be approximate, even if the channel is minimum phase. This makes sense intuitively, but \cite{miyoshi1986inverse} also proved this numerically by demonstrating that the matrix formulation of the single channel equalization problem is always overdetermined regardless of equalizer filter length. Remarkably, the MINT can acheive perfect equalization of a FIR channel with individual FIR equalizer filters that are shorter in length than the FIR channels. It is important to remember that real RTFs are not generally speaking FIR, so the MINT is still approximate. However, for a sufficiently long FIR measurement of the true RIR, the residual reflections may be considered negligible.The MINT was proven to greatly outperform the single channel least squares equalization method, acheiving more than \qty{40}{\decibel} additional reverberation attenuation accross all frequencies.
  
 In an extended discussion of the MINT,  \cite{miyoshi1988inverse} explored the MIMO case for sound reproduction as shown in (figure)
 
@@ -441,8 +441,13 @@ These algorithms laid the groundwork for the approaches used in practice, most o
 \subsection{SOS Methods for Blind Deconvolution}
 
 \subsubsection{Subspace Methods}
-\subsubsection{MC-LPC-based approaches}
+
+\subsubsection{MC-LPC-based approaches} \label{section_dap}
+
 \subsubsection{STFT Spectrum Estimation (Furuya 2007)}
+
 \subsubsection{Estimation Theory Approaches (BSI using estimation theory)|}
+
 \subsection{Adaptive Implementations}
+
 \subsection{Subband Implementations}

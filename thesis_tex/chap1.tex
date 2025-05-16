@@ -69,6 +69,7 @@ Where $h(t)$ is the RIR, $t_d$ is the time of the direct sound, and $t_0$ repres
 
 \[C_{t_e} = 10\log_{10}\left(\frac{\int_{t_d}^{t_d+t_e}h^2(t)dt}{\int_{t_d+t_e}^{\infty}h^2(t)dt}\right)\;\;\unit{\decibel}\]
 
+
 Where $t_d$ is the time of the direct sound, and $t_e$ is the duration after the direct sound defined as early reflections (i.e., around \qty{50}{\milli\second} for speech). Another related metric is definition ($D_{t_e}$, commonly $D50$) which is the ratio of direct and early energy to total RIR energy, i.e.,
 
 \[D_{t_e} = 10\log_{10}\left(\frac{\int_{t_d}^{t_d+t_e}h^2(t)dt}{\int_{0}^{\infty}h^2(t)dt}\right)\;\;\unit{\decibel}\]
@@ -564,7 +565,7 @@ In speech spectrum analysis, it may be desirable to use a lower prediction order
 
 \section{Speech Perception in Adverse Conditions}
 
-\subsection{Characterizing Speech Perception}
+\subsection{Characterizing Speech Perception} \label{section_perception}
 
 As a whole, speech perception describes a listerner's ability to hear and understand what is being said by a talker. This is directly dependent on the listener's ability to detect the presence of the acoustic speech signal, and decode the speech cues to accurately reconstruct the spoken utterances. There are several characteristics of speech perception which are related but distinct: speech audibility, speech intelligibility and listening effort.
 
@@ -632,7 +633,7 @@ The precedence effect also includes an adaptive mechanism called the build-up ef
 
 Hearing impaired listeners have been shown to experience less of the benefits of the precedence effect \citep{roberts2003effects, rennies2022spatio}. Research into the physiological explanations for this is ongoing, but it is generally thought to be related to reduction of temporal resolution in impaired auditory systems. This contributes to the difficulties hearing impaired listeners experience in reverberant environments.  
 
-\subsubsection{Spatial Release From Masking}
+\subsubsection{Spatial Release From Masking} \label{section_srm}
 
 Another key perceptual adaptation involved in handling adverse listening conditions is spatial release from masking (SRM), which was reviewed by  \cite{litovsky2012spatial}. This phenominon encompasses several mechanisms by which the auditory system leverages the spatial diversity between the ears to process spatially separated sound sources. In the presence of many interfering acoustic signals, a normal hearing auditory system has a strong ability to isolate the target talker and maintain speech perception. This phenomena was originally explored by \cite{cherry1953some}, who referred to it as the "cocktail party effect", and has since been largely attributed to SRM. Since this effect leverages spatial diversity, speech perception is better in noisy environments if the maskers are separated spatially (i.e., not co-located). 
 
@@ -658,7 +659,7 @@ While evaluations of SI, LE and SQ involving test participants are the most effe
 
 When selecting a prediction metric for a study, careful attention must be given to ensure that the metric is suitable for the test conditions and the processing performed by the system under test (SUT). Since this thesis is focused on speech perception of hearing aid users in reverberant environments, it is important to include metrics that incorporate some modeling of the auditory system and the impacts of hearing loss (i.e., frequency tuning and non-linearities). If the metric does not include any modeling of the non-linearities in the human auditory system, it will not accurately predict the target speech perception metric accross a wide range of input levels, under non-linear distortions or under non-linear hearing aid processing such as dynamic range compression or statistical time frequency masking. Additionally, it is important to include binaural metrics that are capable of representing the perceptual adaptations that are key to speech perception in reverberant environments (i.e., the precedence effect and SRM).
 
-\subsection{Objective Predictors of Speech Intelligibility}
+\subsection{Objective Predictors of Speech Intelligibility} \label{section_si_metrics}
 
 Objective predictors of SI generally consist of a signal analysis procedure which generates an intelligibility-related metric, and often provide a function that maps this objective metric to a prediction of subjective SI. Since the mapping between objective metrics and subjective SI ratings varies depending on the SI metric definition (e.g., phonemes or words identified correctly) and due to other factors such as participant knowledge of context, the map function is usually separate from the objective metric itself. The mapping is often non-linear due to floor and ceiling effects at 0\% and 100\% intelligibility respectively.
 
@@ -698,7 +699,7 @@ ANF spike patterns are often visualized via a neurogram which is a 2D representa
 
 Where $r$ is the reference image, $d$ is the degraded image, $l$ is luminance, $c$ is contrast, $s$ is structure, and $\alpha$, $\beta$ and $\gamma$ are weights.
 
-\cite{hines2012speech} developed the neurogram similarity index measure (NSIM) which improved upon the SSIM, providing optimal weighting values, and separately defining the mean-rate NSIM and spike timing NSIM for the respective neurogram types. The NSIM also dropped the contrast parameter for simplicity, since it was shown to have very little correlation to subjective speech intelligibility. \textbf{To do: How is NSIM mapped to an estimate of subjective SI?}
+\cite{hines2012speech} developed the neurogram similarity index measure (NSIM) which improved upon the SSIM, providing optimal weighting values, and separately defining the mean-rate NSIM (MR NSIM)and fine timing NSIM (FT NSIM )for the respective neurogram types. The NSIM also dropped the contrast parameter for simplicity, since it was shown to have very little correlation to subjective speech intelligibility. \textbf{To do: How is NSIM mapped to an estimate of subjective SI?}
 
 \cite{zilany2007predictions} extended the model to better represent how the central auditory system analyzes the effective spectrogram generated by the cochlear analysis and extracts the spectro-temporal modulation cues that are used to decode speech. This process is modeled as a bank of modulation-sensitive filters (i.e., a modulation filter bank), each having a corresponding impulse response called a spectro-temporal response field (STRF). Each STRF is centred around a certain time/frequency and is sensitive to a specific spectral modulation frequency (scale, i.e., density, in cycles/oct) and a specific temporal modulation frequency (rate, i.e., velocity, in Hz). The result is a 4D complex-valued analysis generated by convolving the auditory spectrogram with the bank of STRFs. This analysis is performed on the test signal and the clean reference signal, and the two results are compared by a 4-dimensional distance metric, resulting in the so-called spectro-temporal modulation index (STMI).
 
