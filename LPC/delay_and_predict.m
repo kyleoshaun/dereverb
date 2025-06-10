@@ -1,5 +1,9 @@
-function [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs, s1_enable, results_dir, num_cpus)
+function [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs, s1_enable, s1_on_clean_speech, results_dir)
 % Run Delay-and-Predict dereverberation with parallelized for loops
+%
+% Syntax
+%   [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs, s1_enable, results_dir)
+%
 % Inputs:
 % - Y: Reverberant microphone signal matrix (Each column is a different microphone signal)
 % - s_ref: Clean speech (only used if stage_1_on_clean_speech is enabled)
@@ -7,8 +11,8 @@ function [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs,
 % - p2: Prediction order for multichannel linear prediction stage
 % - fs: Sample rate (Hz)
 % - s1_enable: Set to true to enable stage 1 of delay-and-predict (source whitening)
+% - s1_on_clean_speech: Set to true to compute source whitening filter using clean speech (not blind)
 % - results_dir: Directory to save results
-% - num_cpus: Number of CPU cores to use for parallelization
 % Outputs:
 % - s_est: Estimate of clean speech (Blind etimate of s_ref from Y)
 % - dap_equalizer_struct.H: Equalizer filters (Each column is the filter applied to the corresponding microphone signal)
@@ -28,10 +32,8 @@ end
 M = size(Y,2); % Number of channels = number of columns (number of reverberant signals)
 
 % Script Modes
-stage_1_on_clean_speech = false;
 apply_time_alignment    = false;
-
-reg_factor              = 10^-6;
+%reg_factor              = 10^-6; % Unused
 
 % FFT/PSD params for plots
 Nfft = 4096;
@@ -47,15 +49,18 @@ fprintf(" - Number of Microphones (M) = %.0f\n", M)
 fprintf(" - Source whitening order (p1) = %.0f\n", p1)
 fprintf(" - Multichannel Linear Prediction order (p2) = %.0f\n", p2)
 fprintf(" - Source whitening Enabled? = %.0f\n", s1_enable)
-fprintf(" - Source whitening on clean speech? = %.0f\n", stage_1_on_clean_speech)
-fprintf(" - MC-LP Regularization Factor = %d (Currently unused)\n", reg_factor)
-fprintf(" - Time Alignment Applied? = %.0f\n\n", apply_time_alignment)
-
-%% Start Parallelization Pool
-
-parpool(num_cpus);
+fprintf(" - Source whitening on clean speech? = %.0f\n", s1_on_clean_speech)
+%fprintf(" - MC-LP Regularization Factor = %d (Currently unused)\n", reg_factor)
+%fprintf(" - Time Alignment Applied? = %.0f\n\n", apply_time_alignment)
 
 %% LPC on clean speech (Not actually used in algo, just for reference)
+
+alpha_s = 0; % Placeholder for when this is disabled
+
+if s1_on_clean_speech
+
+fprintf("\nRunning Stage 1 (Source Whitening) on CLEAN SPEECH ... ");
+
 
 L          = length(s_ref);
 w_hamming  = hamming(L);
@@ -67,16 +72,39 @@ s_w = [zeros(p1,1) ; s_w ; zeros(p1,1)];
 % Biased autocorr calc because unbiased xcorr introduces a changing scale factor (n-|m|)
 % which differs from the set up of the autocorrelation method for LPC
 % (required for a stable inverse filter)
-[r_s, lags] = xcorr(s_w, s_w, 'biased', p1); 
+[phi_s, lags] = xcorr(s_w, s_w, 'biased', p1); 
 idx_lag0    = find(lags==0);
 
-R_s = toeplitz(r_s(idx_lag0:(idx_lag0+p1-1)));
-r_s = r_s((idx_lag0+1):(idx_lag0+p1));
+R_s = toeplitz(phi_s(idx_lag0:(idx_lag0+p1-1)));
+r_s = phi_s((idx_lag0+1):(idx_lag0+p1));
 
 alpha_s = R_s \ r_s; % Option 1: Solve by gaussian elimination
 %alpha_s = pinv(R_s) * r_s; % Option 2: Solve by pseudo-inverse
 
+
+% Compute source-whitened reverberant microphone signals
+X = filter([1 ; -1*alpha_s], 1, Y); % Apply source-whitening prediction error filter to each column
+
+% Apply prediction error filter to clean speech to see how well source is whitened (for ref only)
+s_ref_whitened = filter([1 ; -1*alpha_s], 1, s_ref);
+
+fprintf("Done")
+
+% Clear large variables no longer needed
+varData = whos('R_s');
+memory_info.R_s_size  = size(R_s);
+memory_info.R_s_bytes = varData.bytes;
+memory_info.R_s_type  = varData.class;
+memory_info.R_s_cond  = cond(R_s);
+clear R_s
+clear r_s
+clear phi_s
+
 %% Stage 1: Source Whitening
+
+alpha_ym = 0; % Placeholder for when this is disabled
+
+else
 
 fprintf("\nRunning Stage 1 (Source Whitening) ... ");
 
@@ -92,7 +120,7 @@ end
 % Compute autocorrelation for each reverberant microphone signal
 phi_Y = zeros(2*p1+1, M);
 for ch = 1:M
-    phi_Y(:,ch) = xcorr(Y_w(:,ch), 'biased', p1);
+    [phi_Y(:,ch), lags] = xcorr(Y_w(:,ch), 'biased', p1);
 end
 idx_lag0     = find(lags==0);
 
@@ -107,20 +135,24 @@ alpha_ym = R_ym \ r_ym; % Option 1: Solve by Gaussian elimination
 %e_y1_m = filter([1 ; -1*alpha_ym], 1, y1_frame);
 
 % Compute source-whitened reverberant microphone signals
-if (stage_1_on_clean_speech)
-    X = filter([1 ; -1*alpha_s], 1, Y); % Apply source-whitening prediction error filter to each column
-else
-    X = filter([1 ; -1*alpha_ym], 1, Y);  % Apply source-whitening prediction error filter to each column
-end
+X = filter([1 ; -1*alpha_ym], 1, Y);  % Apply source-whitening prediction error filter to each column
 
 % Apply prediction error filter to clean speech to see how well source is whitened (for ref only)
-if (stage_1_on_clean_speech)
-    s_ref_whitened = filter([1 ; -1*alpha_s], 1, s_ref);
-else
-    s_ref_whitened = filter([1 ; -1*alpha_ym], 1, s_ref);
-end
+s_ref_whitened = filter([1 ; -1*alpha_ym], 1, s_ref);
 
 fprintf("Done")
+
+% Clear large variables no longer needed
+varData = whos('R_ym');
+memory_info.R_ym_size  = size(R_ym);
+memory_info.R_ym_bytes = varData.bytes;
+memory_info.R_ym_type  = varData.class;
+memory_info.R_ym_cond  = cond(R_ym);
+clear R_ym
+clear r_ym
+clear phi_ym
+
+end
 
 %% Stage 1 Plots (For first 2 channels)
 
@@ -137,7 +169,7 @@ X2m = pwelch(x2, Nwin_welch, Nover_welch, Nfft_welch);
 S_ref_whitened_m = pwelch(s_ref_whitened, Nwin_welch, Nover_welch, Nfft_welch);
 
 
-if stage_1_on_clean_speech
+if s1_on_clean_speech
     [V_s, w_freqz] = freqz(1, [1 ; -1*alpha_s], Nfft); 
     freqs_freqz   = w_freqz * (fs / (2*pi));
 
@@ -150,12 +182,12 @@ if stage_1_on_clean_speech
     ylabel('dB')
     %title('Vocal Tract model')
     legend('Clean Speech Spectrum (Not reverberant)', 'LPC Inverse Filter')
-    title('Spectrum Estimation')
+    title('Source Spectrum Estimation')
     subplot(2,1,2)
     plot(freqs_welch ./ 1000, 10*log10(S_ref_whitened_m));
     xlabel('Frequency [kHz]')
     ylabel('dB')
-    title('Whitened Source (ref only)')
+    title('Whitened Source Spectrum')
     sgtitle("Stage 1: Results of LPC on Clean Speech (NOT BLIND)")
 
     saveas(gcf, sprintf('%s/S1_SourceWhiteningLPC.fig', results_dir));
@@ -177,7 +209,7 @@ else
     plot(freqs_welch ./ 1000, 10*log10(S_ref_whitened_m));
     xlabel('Frequency [kHz]')
     ylabel('dB')
-    title('Whitened Source (ref only)')
+    title('Whitened Clean Speech Spectrum')
     sgtitle("Stage 1: Results of LPC on Reverberant Speech (Blind, Avg over channels)")
 
     saveas(gcf, sprintf('%s/S1_SourceWhiteningLPC.fig', results_dir));
@@ -230,7 +262,7 @@ end
 
 %% STAGE 2: MULTI-CHANNEL LINEAR PREDICTION ON SOURCE-WHITENED REVERBERANT SIGNALS
 
-fprintf("\nRunning Stage 2 (Multichannel Linear Prediction):")
+fprintf("\nRunning Stage 2 (Multichannel Linear Prediction) ... ")
 
 if s1_enable == false
     % Perform MC-LPC directly on reverberant signals (not source-whitened)
@@ -253,7 +285,7 @@ while min(abs(h0)) < coeff_thresh
 
     delay_comp = delay_comp + 1;
 
-    fprintf("\n  Iteration %.0f ... ", delay_comp);
+    %fprintf("\n  Iteration %.0f ... ", delay_comp);
 
     for ch = 1:M
         if abs(h0(ch)) > coeff_thresh
@@ -361,7 +393,18 @@ while min(abs(h0)) < coeff_thresh
     alpha_mc = r_mc * pinv(R_mc); % Option 2: Solve by pseudo inverse
     %alpha_mc = r_mc * ((inv(R_mc'*R_mc))*R_mc'); % Pseudo inverse for over-determined system
     %alpha_mc = r_mc * (R_mc'*(inv(R_mc*R_mc'))); % Pseudo inverse for under-determined system
-    
+  
+
+    % Clear large variables no longer needed
+    varData = whos('R_mc');
+    memory_info.R_mc_size  = size(R_mc);
+    memory_info.R_mc_bytes = varData.bytes;
+    memory_info.R_mc_type  = varData.class;
+    memory_info.R_s_cond   = cond(R_mc);
+    clear R_mc
+    clear r_mc
+    clear phi_X
+
     % Extract individual (single-channel) prediction Filters
     % and put them into the rows of a matrix H
     H = zeros(p2+1, M*M);
@@ -427,7 +470,7 @@ while min(abs(h0)) < coeff_thresh
     [V,D] = eig(R_res_0);
     h0 = V(:, find(diag(D) == max(diag(D)))); % Estimated vector coefficient of SIMO channel
 
-    fprintf("Done");
+    %fprintf("Done");
 
     if apply_time_alignment ~= true
         break;
@@ -453,7 +496,7 @@ if apply_time_alignment
     end
 end
 
-fprintf("\nDone")
+fprintf("Done")
 
 
 %fprintf("cond(R_mc) = %d\n", cond(R_mc));
@@ -482,12 +525,14 @@ save(sprintf('%s/X.mat', results_dir),'X');
 save(sprintf('%s/X.mat', results_dir),'X');
 save(sprintf('%s/Y.mat', results_dir),'Y');
 save(sprintf('%s/dap_equalizer_struct.mat', results_dir),'dap_equalizer_struct');
-save(sprintf('%s/R_mc.mat', results_dir),'R_mc');
-save(sprintf('%s/r_mc.mat', results_dir),'r_mc');
+%save(sprintf('%s/R_mc.mat', results_dir),'R_mc', '-v7.3'); % MAT v7.3 for large matrix
+%save(sprintf('%s/r_mc.mat', results_dir),'r_mc');
+%save(sprintf('%s/R_ym.mat', results_dir),'R_ym', '-v7.3'); % MAT v7.3 for large matrix
+%save(sprintf('%s/r_ym.mat', results_dir),'r_ym');
+%save(sprintf('%s/R_s.mat', results_dir),'R_s', '-v7.3'); % MAT v7.3 for large matrix
+%save(sprintf('%s/r_s.mat', results_dir),'r_s');
+save(sprintf('%s/memory_info.mat', results_dir),'memory_info');
 save(sprintf('%s/alpha_s.mat', results_dir),'alpha_s');
 save(sprintf('%s/alpha_ym.mat', results_dir),'alpha_ym');
-
-delete(gcp('nocreate'))
-
     
 end

@@ -63,7 +63,7 @@ freqs_welch         = w_welch .* (fs / (2*pi));
 % Exponential decay curve
 L_channel = 100;
 tau = L_channel/4;
-exp_decay = exp(-1 .* (1:L_channel)' ./ tau);
+exp_decay = exp(-1 .* (0:(L_channel-1))' ./ tau);
 
 % Option 1: Generate random RIR
 b_rir_1 = randn(L_channel,1);

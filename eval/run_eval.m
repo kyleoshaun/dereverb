@@ -1,90 +1,129 @@
-function run_eval(M, enable_source_whitening)
-% Inputs
-% - M: Number of Microphones
-% - enable_source_whitening: Set to true to enable stage 1 of delay-and-predict (source whitening)
+function [metrics] = run_eval(source_data, noise_data, interf_data, fs, N60, s1_enable, s1_on_clean_speech, HL_NH, HL_HI, h_ha_NH, h_ha_HI, results_dir)
+% Run DAP-dereverb algorithm for specified speech/noise/interference/reverb conditions
+% and compute all SI/SQ metrics for the resulting unprocessed/processed signals.
+%
+% Syntax:
+%   [metrics] = run_eval(source_data, noise_data, interf_data, fs, N60, enable_source_whitening, HL_NH, HL_HI)
+%
+% Inputs:
+% - source_data.signal:   Clean Speech Signal
+% - source_data.rir_data: M-channel RIR data for source (cols = RIRs, M cols) 
+% - source_data.memo:     Descriptor string (for file naming)
+% - source_data.rir_memo: Short Descriptor for room (for file naming)
+% - source_data.rir_desc: Long Descriptor for room (for log)
+% - source_data.stimdb:   Source signal level to at the ear drum in dB SPL
+%                         This function will automatically calibrate the 
+%                         source signal level accordingly
+% 
+% - noise_data.enable:    Enable Noise
+% - noise_data.signals:   M-channel noise signal data (cols = signals, M cols) -- cols length must match clean speech
+% - noise_data.SNR_dB:       Signal-to-noise ratio (dB)
+% - noise_data.memo:      Descriptor string (for file naming)
+%
+% - interf_data.enable:   Enable interference signal (secondary talker)
+% - interf_data.signal:   Secondary clean speech signal (length must match clean speech)
+% - interf_data.rir_data: M-channel RIR data for interfering talker 
+% - interf_data.SIR_dB:      Signal-to-interference ratio (dB)
+% - interf_data.memo:     Descriptor string (for file naming)
+%
+% - fs:  Sample rate for stimuli (Hz)
+% - N60: T60 reverb time in samples (N60 = T60 * fs) for source_data.rir_data
+% - s1_enable: 1 to enable the source-whitening stage in DAP-dereverb algo
+% - s1_on_clean_speech: 1 to enable computation of DAP source whitening filter using clean speech (not blind)
+% - HL_NH: Hearing loss vector for normal hearing listener (typically all zeros). dB loss at 6 audiometric frequencies: [250 500 1000 2000 4000 6000] Hz
+% - HL_HI: Hearing loss vector for hearing impaired listener. dB loss at 6 audiometric frequencies: [250 500 1000 2000 4000 6000] Hz
+% - h_ha_NH: Hearing Aid gain (FIR Filter, fs = 24 kHz) for NH listener
+% - h_ha_HI: Hearing Aid gain (FIR Filter, fs = 24 kHz) for HI listener
+% - results_dir: Directory for saving results
+%
+% Outputs:
+% - metrics.metrics_unproc_NH: All SI/SQ metrics for HL=HL_NH before DAP-dereverb (reverberant/unprocessed)
+% - metrics.metrics_proc_NH:   All SI/SQ metrics for HL=HL_NH after DAP-dereverb (dereverberated/processed)
+% - metrics.metrics_unproc_HI: All SI/SQ metrics for HL=HL_HI before DAP-dereverb (reverberant/unprocessed)
+% - metrics.metrics_proc_HI:   All SI/SQ metrics for HL=HL_HI after DAP-dereverb (dereverberated/processed)
+% - metrics.metrics_physical_unproc:   All physical metrics (not perceptual, e.g., DRR)
+% - metrics.metrics_physical_proc:     All physical metrics (not perceptual, e.g., DRR)
+%
+% Note:
+% - Channel Indexing convention: ch1 = Left1, ch2 = right1, ch3=left2, ch4=right2, ...
 
-%% Notes
-%
-% - All Plots/Metrics describing the "equalized response" or "energy decay"
-%   should be taken with a grain of salt since overwhitening of the speech signal
-%   due to inaccuracies in the source whitening stage will appear as un-equalized
-%   reverb when really it is not
-%
-% TODO: 
-% - Figure out why the time alignment isnt working (Add sample delay to 
-%   2-channel setup with L_channel = 10 to see).
-%   --> Update: Definitely seems to be broken, also in old scripts --
-%               review delay filter updates in original paper
-%   --> Update: Even with manual time alignment of the RIRs, 
-%               it doesnt seem to work, is this really to do with time alignment at all?
-% - Save log to file
-% - Save figures to file
-%
-% Questions
-% - Why does MC-LP break down over a certain T60? Does this maybe correspond
-%   to channels becoming non-minimimum phase (Note however that just because
-%   the individual channels are non-minimum phase doenst mean the MINT filter would
-%   include non-minimum phase EQs -- should check this). If MINT includes
-%   non-minimum phase EQs, would benefit from covariance method and/or delay.
-% - Why does reverb get worse in some cases when running on real speech
-%   (not just overwhiten), it seems weird because when S1 is disabled 
-%   it works well so whats the diff? Is this just the conditioning of R_mc 
-%   due to how white the source is? Does this get better by regularizing R_mc?
-%   What about S1 on clean speech?
-%
-%
+%%  Calling Script must include
 
-addpath('../../samples/')
-addpath('../../RIR_Databases/RIR_1_4_BinauralDatabase/')
-addpath('../../RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/')
-addpath('../../RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/office_II/')
-addpath('../../RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/courtyard/')
-addpath('../../RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/cafeteria/')
-addpath('../../RIR_Databases/MYRiAD_V2/tools/MATLAB')
-addpath('../../dereverb/LPC/')
-addpath('../utilities/matlab')
-
-% Shuffle and save seed for reproducibility
-rng('shuffle')
-seed = abs(round(randn(1,1) * 10000));
-rng(seed);
-rng(724); % Reproduce specific seed
+% code_folder = "../../"; % Change this
+% 
+% addpath(sprintf('%s/dereverb/eval/', code_folder))
+%
+% addpath(sprintf('%s/dereverb/LPC/', code_folder))
+% addpath(sprintf('%s/dereverb/utilities/matlab', code_folder))
+% addpath(sprintf('%s/metrics/', code_folder))
+% 
+% addpath(sprintf('%s/samples', code_folder))
+% addpath(sprintf('%s/RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/', code_folder))
+% addpath(sprintf('%s/RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/office_II/', code_folder))
+% addpath(sprintf('%s/RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/courtyard/', code_folder))
+% 
+% % Integration of EC with BEZ model
+% addpath(sprintf("%s/metrics/BSIM2020_EC_BEZ2018a_model/", code_folder))
+% 
+% % HASPI/HASQI
+% addpath(sprintf("%s/metrics/HASPIv2_HASQIv2_HAAQIv1_Common/", code_folder))
+% 
+% % BSIM
+% addpath(sprintf('%s/metrics/BSIM_2020/', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/vad/', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/PreProc/', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/gammatonegram/', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/auditory/', code_folder))
+% 
+% addpath(genpath(sprintf('%s/metrics/BSIM_2020/Anechoic/', code_folder)))
+% addpath(sprintf('%s/metrics/BSIM_2020/functions/', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/functions/gammatonefilter/', code_folder))
+% addpath(sprintf('%s/metrics/BSIM_2020/functions/ltfat/', code_folder))
+% 
+% % Model (BEZ2018a)
+% addpath(sprintf('%s/metrics/BEZ2018a_model/', code_folder))
+% 
+% % Other
+% addpath(sprintf('%s/metrics/NSIM_Papers_ExampleCode 2/NSIMforBEZ2018a_model/', code_folder))
+% addpath(sprintf('%s/metrics/STMI_Papers_ExampleCode 1/STMIforBEZ2018a_model', code_folder))
 
 %% Parameters
 
-num_cpus = 10;
+% Extract Source Data
+s              = source_data.signal;
+G_source       = source_data.rir_data;
+[L_channel, M] = size(G_source);
+source_memo    = source_data.memo;
+rir_memo       = source_data.rir_memo;
+rir_desc       = source_data.rir_desc;
 
-adjust_gain_ambiguity   = true;
-SNR_dB                  = 300;
-
-% Choose Source signal
-source = "SA1.WAV";
-%[s,fs] = audioread("assgn1.wav");
-%[s,fs] = audioread("SA1_phoneme.wav");
-
-[s,fs] = audioread(source);
-
-% Loop to synthetically increase length
-% NOTE: MC-LPC stage performance is highly influenced by length of signal
-%       Even if stage 1 is bypassed (For very long signals stage 1 bypassed
-%       Results in nearly zero forcing)
-num_loops_s = round(8.8*fs / length(s));
-s = repmat(s, num_loops_s, 1);
-
-if enable_source_whitening == false
-    % Set s to white noise (rather than speech) to skip source whitening and
-    % debug MC-LPC alone
-    s = randn(8.8*fs,1); 
-    % Note: The longer the channel IR, the more data is needed,
-    % Length 5000000 will give near zero forcing for L_channel = 1000 (This is 312 sec at fs=16kHz though)
-    source = "white noise";
+noise_memo = "NONE";
+if noise_data.enable
+    snr_db               = noise_data.SNR_dB;
+    noise_memo           = sprintf("%s%.0fdB", noise_data.memo, snr_db);
+else
+    snr_db = Inf;
 end
 
-% Generate randomly shaped noise for speech
-% s = randn(140800,1); 
-% h_speech = randn(4,1);
-% s = filter(h_speech, 1, s);
+interf_memo = "NONE";
+if interf_data.enable
+    sir_db        = interf_data.SIR_dB;
+    interf_memo   = sprintf("%s%.0fdB", interf_data.memo, sir_db);
+else
+    sir_db = Inf;
+end
 
+% Prediction Orders
+T60_max = 1000 / 1000;
+N60_max = T60_max * fs;
+p2 = round(N60_max / (M-1)); % Stage 2 MC-LPC order (Fixed)
+%p2 = round(N60 / (M-1)); % Stage 2 MC-LPC order (Adaptive)
+p1 = round(1.25*p2*(M-1)); % Stage 1 Source Whitening order
+
+adjust_gain_ambiguity   = true;
 
 % FFT/PSD params for plots
 Nfft = 4096;
@@ -94,489 +133,23 @@ Nwin_welch  = Nfft_welch / 2;
 Nover_welch = Nfft_welch / 4;
 
 [Sm, w_welch] = pwelch(s, Nwin_welch, Nover_welch, Nfft_welch);
-freqs_welch         = w_welch .* (fs / (2*pi));
-
-%% Channel
-
-channel_memo = "synthetic (exponentially decaying white noise)";
-
-% Exponential decay curve
-T60 = 250 / 1000;
-N60 = T60 * fs;
-L_channel = round(N60*1.5);
-%tau = L_channel/4;
-tau = N60 / log(10^1.5); % -ln(10^(-30/20)) = ln(10^1.5)
-exp_decay = exp(-1 .* (1:L_channel)' ./ tau);
-
-% Option 1: Generate random RIR
-b_rir_1 = randn(L_channel,1);
-b_rir_2 = randn(L_channel,1);
-b_rir_3 = randn(L_channel,1);
-b_rir_4 = randn(L_channel,1);
-b_rir_5 = randn(L_channel,1);
-b_rir_6 = randn(L_channel,1);
-b_rir_7 = randn(L_channel,1);
-b_rir_8 = randn(L_channel,1);
-
-a_rir_1 = 1;
-a_rir_2 = 1;
-a_rir_3 = 1;
-a_rir_4 = 1;
-a_rir_5 = 1;
-a_rir_6 = 1;
-a_rir_7 = 1;
-a_rir_8 = 1;
-
-% Apply synthetic exponential decay to RIRs
-b_rir_1 = b_rir_1(1:L_channel) .* exp_decay;
-b_rir_2 = b_rir_2(1:L_channel) .* exp_decay;
-b_rir_3 = b_rir_3(1:L_channel) .* exp_decay;
-b_rir_4 = b_rir_4(1:L_channel) .* exp_decay;
-b_rir_5 = b_rir_5(1:L_channel) .* exp_decay;
-b_rir_6 = b_rir_6(1:L_channel) .* exp_decay;
-b_rir_7 = b_rir_7(1:L_channel) .* exp_decay;
-b_rir_8 = b_rir_8(1:L_channel) .* exp_decay;
-
-% Synthetic 2-sided RIR
-%b_rir_1 = [flip(b_rir_1) ; b_rir_1];
-%b_rir_2 = [flip(b_rir_2) ; b_rir_2];
-
-% % Add Synthetic time delay
-delay_1 = 0;
-delay_2 = 0;
-delay_3 = 0;
-delay_4 = 0;
-delay_5 = 0;
-delay_6 = 0;
-delay_7 = 0;
-delay_8 = 0;
-max_delay = max([delay_1 delay_2 delay_3 delay_4 delay_5 delay_6 delay_7 delay_8]);
-b_rir_1 = [zeros(delay_1,1) ; b_rir_1 ; zeros((max_delay - delay_1),1)];
-b_rir_2 = [zeros(delay_2,1) ; b_rir_2 ; zeros((max_delay - delay_2),1)];
-b_rir_3 = [zeros(delay_3,1) ; b_rir_3 ; zeros((max_delay - delay_3),1)];
-b_rir_4 = [zeros(delay_4,1) ; b_rir_4 ; zeros((max_delay - delay_4),1)];
-b_rir_5 = [zeros(delay_5,1) ; b_rir_5 ; zeros((max_delay - delay_5),1)];
-b_rir_6 = [zeros(delay_6,1) ; b_rir_6 ; zeros((max_delay - delay_6),1)];
-b_rir_7 = [zeros(delay_7,1) ; b_rir_7 ; zeros((max_delay - delay_7),1)];
-b_rir_8 = [zeros(delay_8,1) ; b_rir_8 ; zeros((max_delay - delay_8),1)];
-
-rir_memo = "synthRIR";
-
-real_rir = 0;
-RIR_database = 1; % 0 = HRIR, 1 = MYRiAD
-if real_rir
-rir_memo = "realRIR";
-channel_memo = "Measured RIR";
-% Option 2: Real RIR
-
-if RIR_database == 0 % HRIR Database
-
-    if M > 6
-        error("HRIR RIR Database only supports up to 6 microphones")
-    end
-
-    % Channels:
-    % - 1: Left Front
-    % - 2: Right Front
-    % - 3: Left Middle
-    % - 4: Right Middle
-    % - 5: Left Rear
-    % - 6: Front Rear
-    head_orientation = 1;
-    speaker_loc      = 'A';
-    data_set         = 'bte';
-    HRIR_data = loadHRIR('Courtyard', head_orientation, speaker_loc, data_set);
-    if HRIR_data.fs ~= fs
-        [resample_p, resample_q] = rat(fs / HRIR_data.fs);
-        HRIR_data.data = resample(HRIR_data.data, resample_p, resample_q);
-    end
-    
-    b_rir_1 = HRIR_data.data(:,1);
-    b_rir_2 = HRIR_data.data(:,2);
-    b_rir_3 = HRIR_data.data(:,3);
-    b_rir_4 = HRIR_data.data(:,4);
-    b_rir_5 = HRIR_data.data(:,5);
-    b_rir_6 = HRIR_data.data(:,6);
-    b_rir_7 = b_rir_5;
-    b_rir_8 = b_rir_6;
-
-    edc_1 = EDC(b_rir_1);
-    edc_2 = EDC(b_rir_2);
-    edc_3 = EDC(b_rir_3);
-    edc_4 = EDC(b_rir_4);
-    edc_5 = EDC(b_rir_5);
-    edc_6 = EDC(b_rir_6);
-    
-    figure()
-    subplot(1,2,1)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_1)
-    hold on;
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_2)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_3)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_4)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_5)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_6)
-    xlabel('Time [sec]')
-    legend('Channel 1', 'Channel 2', 'Channel 3', 'Channel 4', 'Channel 5', 'Channel 6')
-    title(sprintf('Real Measured RIRs (HRIR %s)', room))
-    
-    subplot(1,2,2)
-    plot((0:(length(edc_1)-1)) .* (1/fs), 10*log10(edc_1));
-    hold on;
-    plot((0:(length(edc_2)-1)) .* (1/fs), 10*log10(edc_2));
-    plot((0:(length(edc_3)-1)) .* (1/fs), 10*log10(edc_3));
-    plot((0:(length(edc_4)-1)) .* (1/fs), 10*log10(edc_4));
-    plot((0:(length(edc_5)-1)) .* (1/fs), 10*log10(edc_5));
-    plot((0:(length(edc_6)-1)) .* (1/fs), 10*log10(edc_6));
-    grid on;
-    ylim([-65 6])
-    xlabel('Time [sec]')
-    ylabel('dB')
-    legend('Channel 1', 'Channel 2', 'Channel 3', 'Channel 4', 'Channel 5', 'Channel 6')
-    title(sprintf('Energy Decay Curve (HRIR %s)', room))
-
-else
-
-    if M > 4
-        error("MYRiAD RIR Database only supports up to 4 microphones")
-    end
-
-
-    MYRiAD = my_load_audio_data;
-    MYRiAD_audio = MYRiAD.data{1};
-    fs_MYRiAD = 44100;
-
-    if fs_MYRiAD ~= fs
-        [resample_p, resample_q] = rat(fs / fs_MYRiAD);
-        MYRiAD_audio = resample(MYRiAD_audio, resample_p, resample_q);
-    end
-    
-    b_rir_1 = MYRiAD_audio(:,1);
-    b_rir_2 = MYRiAD_audio(:,2);
-    b_rir_3 = MYRiAD_audio(:,3);
-    b_rir_4 = MYRiAD_audio(:,4);
-    b_rir_5 = b_rir_1;
-    b_rir_6 = b_rir_2;
-    b_rir_7 = b_rir_3;
-    b_rir_8 = b_rir_4;
-    
-    edc_1 = EDC(b_rir_1);
-    edc_2 = EDC(b_rir_2);
-    edc_3 = EDC(b_rir_3);
-    edc_4 = EDC(b_rir_4);
-    
-    figure()
-    subplot(1,2,1)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_1)
-    hold on;
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_2)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_3)
-    plot((0:(length(b_rir_1)-1)) .* (1/fs), b_rir_4)
-    xlabel('Time [sec]')
-    legend('Channel 1', 'Channel 2', 'Channel 3', 'Channel 4')
-    title(sprintf('Real Measured RIRs (MYRiAD SAL)'))
-    
-    subplot(1,2,2)
-    plot((0:(length(edc_1)-1)) .* (1/fs), 10*log10(edc_1));
-    hold on;
-    plot((0:(length(edc_2)-1)) .* (1/fs), 10*log10(edc_2));
-    plot((0:(length(edc_3)-1)) .* (1/fs), 10*log10(edc_3));
-    plot((0:(length(edc_4)-1)) .* (1/fs), 10*log10(edc_4));
-    grid on;
-    ylim([-65 6])
-    xlabel('Time [sec]')
-    ylabel('dB')
-    legend('Channel 1', 'Channel 2', 'Channel 3', 'Channel 4')
-    title(sprintf('Energy Decay Curve (MYRiAD SAL)'))
-
-end
-
-% Remove measurement noise manually (dont want to convolve this, it isnt really part of the RIR)
-meas_noise_db_thresh = 15; % -15 dB considered measurement noise
-[b_rir_1, tof_1_est] = remove_air_meas_noise(b_rir_1, meas_noise_db_thresh);
-[b_rir_2, tof_2_est] = remove_air_meas_noise(b_rir_2, meas_noise_db_thresh);
-[b_rir_3, tof_3_est] = remove_air_meas_noise(b_rir_3, meas_noise_db_thresh);
-[b_rir_4, tof_4_est] = remove_air_meas_noise(b_rir_4, meas_noise_db_thresh);
-[b_rir_5, tof_5_est] = remove_air_meas_noise(b_rir_5, meas_noise_db_thresh);
-[b_rir_6, tof_6_est] = remove_air_meas_noise(b_rir_6, meas_noise_db_thresh);
-[b_rir_7, tof_7_est] = remove_air_meas_noise(b_rir_7, meas_noise_db_thresh);
-[b_rir_8, tof_8_est] = remove_air_meas_noise(b_rir_8, meas_noise_db_thresh);
-
-% Compensate Delays
-tofs_est   = [tof_1_est tof_2_est tof_3_est tof_4_est tof_5_est tof_6_est tof_7_est tof_8_est];
-max_tof    = max(tofs_est);
-delays_tof = max_tof - tofs_est;
-max_delay  = max_tof - min(tofs_est);
-b_rir_1    = [zeros(delays_tof(1),1) ; b_rir_1 ; zeros((max_delay - delays_tof(1)),1)];
-b_rir_2    = [zeros(delays_tof(2),1) ; b_rir_2 ; zeros((max_delay - delays_tof(2)),1)];
-b_rir_3    = [zeros(delays_tof(3),1) ; b_rir_3 ; zeros((max_delay - delays_tof(3)),1)];
-b_rir_4    = [zeros(delays_tof(4),1) ; b_rir_4 ; zeros((max_delay - delays_tof(4)),1)];
-b_rir_5    = [zeros(delays_tof(5),1) ; b_rir_5 ; zeros((max_delay - delays_tof(5)),1)];
-b_rir_6    = [zeros(delays_tof(6),1) ; b_rir_6 ; zeros((max_delay - delays_tof(6)),1)];
-b_rir_7    = [zeros(delays_tof(7),1) ; b_rir_7 ; zeros((max_delay - delays_tof(7)),1)];
-b_rir_8    = [zeros(delays_tof(8),1) ; b_rir_8 ; zeros((max_delay - delays_tof(8)),1)];
-
-
-% Truncate to shorten
-% trunc_length = length(b_rir_1);
-% tof_bulk = 1;
-% b_rir_1 = b_rir_1(tof_bulk:trunc_length);
-% b_rir_2 = b_rir_2(tof_bulk:trunc_length);
-% b_rir_3 = b_rir_3(tof_bulk:trunc_length);
-% b_rir_4 = b_rir_4(tof_bulk:trunc_length);
-% b_rir_5 = b_rir_5(tof_bulk:trunc_length);
-% b_rir_6 = b_rir_6(tof_bulk:trunc_length);
-
-% figure()
-% subplot(6,1,1)
-% plot(b_rir_1)
-% subplot(6,1,2)
-% plot(b_rir_2)
-% subplot(6,1,3)
-% plot(b_rir_3)
-% subplot(6,1,4)
-% plot(b_rir_4)
-% subplot(6,1,5)
-% plot(b_rir_5)
-% subplot(6,1,6)
-% plot(b_rir_6)
-% sgtitle('Real Measured RIRs after conditioning')
-
-end
-
-auto_time_align = 0;
-if auto_time_align
-
-fprintf("Manually Time-Aligning RIRs...\n")
-
-[r_21, lags_21] = xcorr(b_rir_2, b_rir_1);
-[r_31, lags_31] = xcorr(b_rir_3, b_rir_1);
-[r_41, lags_41] = xcorr(b_rir_4, b_rir_1);
-[r_51, lags_51] = xcorr(b_rir_5, b_rir_1);
-[r_61, lags_61] = xcorr(b_rir_6, b_rir_1);
-[r_71, lags_71] = xcorr(b_rir_7, b_rir_1);
-[r_81, lags_81] = xcorr(b_rir_8, b_rir_1);
-
-tofs_est = [ ...
-0 ...
-lags_21(find(abs(r_21) == max(abs(r_21)))) ...
-lags_31(find(abs(r_31) == max(abs(r_31)))) ...
-lags_41(find(abs(r_41) == max(abs(r_41)))) ...
-lags_51(find(abs(r_51) == max(abs(r_51)))) ...
-lags_61(find(abs(r_61) == max(abs(r_61)))) ...
-lags_71(find(abs(r_71) == max(abs(r_71)))) ...
-lags_81(find(abs(r_81) == max(abs(r_81)))) ...
-];
-
-fprintf("  - Estimated Time of Flights Before Alignment = [")
-for ch = 1:M
-    fprintf("%.0f ", tofs_est(ch));
-end
-fprintf("]\n");
-
-total_avg_time_removed = 0;
-total_avg_time_added   = 0;
-%while (max(abs(tofs)) ~= 0) % Perfectly aligned
-while (sum(abs(tofs_est) ~= 0) > 2) % Most channels are perfectly aligned
-    
-    % Manual time alignment via addition of delay
-    max_tof = max(tofs_est);
-    delays_tof  = max_tof - tofs_est;
-    b_rir_1 = [zeros(delays_tof(1),1) ; b_rir_1(1:(end-delays_tof(1)))];
-    b_rir_2 = [zeros(delays_tof(2),1) ; b_rir_2(1:(end-delays_tof(2)))];
-    b_rir_3 = [zeros(delays_tof(3),1) ; b_rir_3(1:(end-delays_tof(3)))];
-    b_rir_4 = [zeros(delays_tof(4),1) ; b_rir_4(1:(end-delays_tof(4)))];
-    b_rir_5 = [zeros(delays_tof(5),1) ; b_rir_5(1:(end-delays_tof(5)))];
-    b_rir_6 = [zeros(delays_tof(6),1) ; b_rir_6(1:(end-delays_tof(6)))];
-    b_rir_7 = [zeros(delays_tof(7),1) ; b_rir_7(1:(end-delays_tof(7)))];
-    b_rir_8 = [zeros(delays_tof(8),1) ; b_rir_8(1:(end-delays_tof(8)))];
-    total_avg_time_added = total_avg_time_added + mean(delays_tof);
-    
-    % Manual time alignment via removal of delay
-    % min_tof_est  = min(tofs_est);
-    % rel_tofs_est = tofs_est - min_tof_est; 
-    % b_rir_1 = [b_rir_1((rel_tofs_est(1)+1):end) ; zeros(rel_tofs_est(1),1)];
-    % b_rir_2 = [b_rir_2((rel_tofs_est(2)+1):end) ; zeros(rel_tofs_est(2),1)];
-    % b_rir_3 = [b_rir_3((rel_tofs_est(3)+1):end) ; zeros(rel_tofs_est(3),1)];
-    % b_rir_4 = [b_rir_4((rel_tofs_est(4)+1):end) ; zeros(rel_tofs_est(4),1)];
-    % b_rir_5 = [b_rir_5((rel_tofs_est(5)+1):end) ; zeros(rel_tofs_est(5),1)];
-    % b_rir_6 = [b_rir_6((rel_tofs_est(6)+1):end) ; zeros(rel_tofs_est(6),1)];
-    % b_rir_7 = [b_rir_7((rel_tofs_est(7)+1):end) ; zeros(rel_tofs_est(7),1)];
-    % b_rir_8 = [b_rir_8((rel_tofs_est(8)+1):end) ; zeros(rel_tofs_est(8),1)];
-    % total_avg_time_removed = total_avg_time_removed + mean(rel_tofs_est);
-    
-    
-    % Re-estimate TOFs to show results
-    [r_21, lags_21] = xcorr(b_rir_2, b_rir_1);
-    [r_31, lags_31] = xcorr(b_rir_3, b_rir_1);
-    [r_41, lags_41] = xcorr(b_rir_4, b_rir_1);
-    [r_51, lags_51] = xcorr(b_rir_5, b_rir_1);
-    [r_61, lags_61] = xcorr(b_rir_6, b_rir_1);
-    [r_71, lags_71] = xcorr(b_rir_7, b_rir_1);
-    [r_81, lags_81] = xcorr(b_rir_8, b_rir_1);
-    
-    tofs_est = [ ...
-    0 ...
-    lags_21(find(abs(r_21) == max(abs(r_21)))) ...
-    lags_31(find(abs(r_31) == max(abs(r_31)))) ...
-    lags_41(find(abs(r_41) == max(abs(r_41)))) ...
-    lags_51(find(abs(r_51) == max(abs(r_51)))) ...
-    lags_61(find(abs(r_61) == max(abs(r_61)))) ...
-    lags_71(find(abs(r_71) == max(abs(r_71)))) ...
-    lags_81(find(abs(r_81) == max(abs(r_81)))) ...
-    ];
-    
-    fprintf("  - Estimated Time of Flights After Alignment = [")
-    for ch = 1:M
-        fprintf("%.0f ", tofs_est(ch));
-    end
-    fprintf("]\n");
-
-    %break;
-end
-
-fprintf("Done (Total avg time removed = %.2f Total avg delay added = %.2f\n", total_avg_time_removed, total_avg_time_added);
-
-
-
-end
-
+freqs_welch   = w_welch .* (fs / (2*pi));
 
 %% Compute Microphone Signals
 
-% Compute reverberant signals
-y1 = filter(b_rir_1, a_rir_1, s);
-y2 = filter(b_rir_2, a_rir_2, s);
-y3 = filter(b_rir_3, a_rir_3, s);
-y4 = filter(b_rir_4, a_rir_4, s);
-y5 = filter(b_rir_5, a_rir_5, s);
-y6 = filter(b_rir_6, a_rir_6, s);
-y7 = filter(b_rir_7, a_rir_7, s);
-y8 = filter(b_rir_8, a_rir_8, s);
-
-% Add measurement noise
-% NOTE: This is essentially regularizing (biasing) R_mc so dont make it unrealistically high
-noise_mag = rms(s) .* 10 ^ (-1*SNR_dB / 20);
-y1 = y1 + noise_mag .* randn(length(y1), 1);
-y2 = y2 + noise_mag .* randn(length(y2), 1);
-y3 = y3 + noise_mag .* randn(length(y3), 1);
-y4 = y4 + noise_mag .* randn(length(y4), 1);
-y5 = y5 + noise_mag .* randn(length(y5), 1);
-y6 = y6 + noise_mag .* randn(length(y6), 1);
-y7 = y7 + noise_mag .* randn(length(y7), 1);
-y8 = y8 + noise_mag .* randn(length(y8), 1);
-
-%% Interfering talker
-
-% [sv,fs] = audioread("SA2.wav");
-% 
-% num_loops_s = round(10*fs / length(sv));
-% sv = repmat(sv, num_loops_s, 1);
-% 
-% % Option 2: Real RIR
-% % Channels:
-% % - 1: Left Front
-% % - 2: Right Front
-% % - 3: Left Middle
-% % - 4: Right Middle
-% % - 5: Left Rear
-% % - 6: Front Rear
-% head_orientation = 2;
-% speaker_loc      = 'C';
-% data_set         = 'bte';
-% HRIR_data = loadHRIR('office_II', head_orientation, speaker_loc, data_set);
-% if HRIR_data.fs ~= fs
-%     [resample_p, resample_q] = rat(fs / HRIR_data.fs);
-%     HRIR_data.data = resample(HRIR_data.data, resample_p, resample_q);
-% end
-% 
-% b_rir_v_1 = HRIR_data.data(:,1);
-% b_rir_v_2 = HRIR_data.data(:,2);
-% b_rir_v_3 = HRIR_data.data(:,3);
-% b_rir_v_4 = HRIR_data.data(:,4);
-% b_rir_v_5 = HRIR_data.data(:,5);
-% b_rir_v_6 = HRIR_data.data(:,6);
-% b_rir_v_7 = b_rir_v_5;
-% b_rir_v_8 = b_rir_v_6;
-% 
-% b_rir_v_1 = b_rir_v_1(tof_bulk:trunc_length);
-% b_rir_v_2 = b_rir_v_2(tof_bulk:trunc_length);
-% b_rir_v_3 = b_rir_v_3(tof_bulk:trunc_length);
-% b_rir_v_4 = b_rir_v_4(tof_bulk:trunc_length);
-% b_rir_v_5 = b_rir_v_5(tof_bulk:trunc_length);
-% b_rir_v_6 = b_rir_v_6(tof_bulk:trunc_length);
-% b_rir_v_7 = b_rir_v_7(tof_bulk:trunc_length);
-% b_rir_v_8 = b_rir_v_8(tof_bulk:trunc_length);
-% 
-% % Compute reverberant signals
-% v1 = filter(b_rir_v_1, 1, sv);
-% v2 = filter(b_rir_v_2, 1, sv);
-% v3 = filter(b_rir_v_3, 1, sv);
-% v4 = filter(b_rir_v_4, 1, sv);
-% v5 = filter(b_rir_v_5, 1, sv);
-% v6 = filter(b_rir_v_6, 1, sv);
-% v7 = filter(b_rir_v_7, 1, sv);
-% v8 = filter(b_rir_v_8, 1, sv);
-% 
-% % Add measurement noise
-% % NOTE: This is essentially regularizing (biasing) R_mc so dont make it unrealistically high
-% noise_mag = rms(sv) .* 10 ^ (-1*SNR_dB / 20);
-% v1 = v1 + noise_mag .* randn(length(v1), 1);
-% v2 = v2 + noise_mag .* randn(length(v2), 1);
-% v3 = v3 + noise_mag .* randn(length(v3), 1);
-% v4 = v4 + noise_mag .* randn(length(v4), 1);
-% v5 = v5 + noise_mag .* randn(length(v5), 1);
-% v6 = v6 + noise_mag .* randn(length(v6), 1);
-% v7 = v7 + noise_mag .* randn(length(v7), 1);
-% v8 = v8 + noise_mag .* randn(length(v8), 1);
-% 
-% % y1 = [y1 ; v1];
-% % y2 = [y2 ; v2];
-% % y3 = [y3 ; v3];
-% % y4 = [y4 ; v4];
-% % y5 = [y5 ; v5];
-% % y6 = [y6 ; v6];
-% % y7 = [y7 ; v7];
-% % y8 = [y8 ; v8];
-% % 
-% % s = [s ; sv];
+[Y, ~] = compute_mic_signals(source_data, noise_data, interf_data, fs);
 
 %% Run Delay-and-Predict
 
-% % TODO: Test why this isnt working
-% b_rir_1 = [0 ; b_rir_1];
-% b_rir_2 = [b_rir_2 ; 0];
-
-%b_rir_1 = [b_rir_1(2:end) ; 0];
-
-switch M
-    case 2
-        Y = [y1 y2];
-    case 3
-        Y = [y1 y2 y3];
-    case 4
-        Y = [y1 y2 y3 y4];
-    case 5
-        Y = [y1 y2 y3 y4 y5];
-    case 6
-        Y = [y1 y2 y3 y4 y5 y6];
-    case 7
-        Y = [y1 y2 y3 y4 y5 y6 y7];
-    case 8
-        Y = [y1 y2 y3 y4 y5 y6 y7 y8];
-end
-
-% Prediction Orders
-L_channel = length(b_rir_1);
-p2 = round(L_channel * 1.25 / (M-1)); % Stage 2 MC-LPC order
-p1 = 2*(L_channel+p2);%round(p2 + L_channel * 1.25); % Stage 1 Source Whitening order
+T60_msec = (N60/fs) * 1000;
 
 % Create Results Folder
 s1_memo = "1s1";
-if enable_source_whitening == false
+if s1_enable == false
     s1_memo = "0s1";
 end
-results_dir = sprintf('Results/dap_%s_%.0fM_%s_%.0fL_%.0fp1_%.0fp2_%.0fkFs_%s', rir_memo, M, s1_memo, L_channel, p1, p2, fs / 1000, datetime('today'));
+parent_results_dir = results_dir;
+results_dir = sprintf('%s/dap_rir%s_source%s_noise%s_interf%s_%.0fM_%s_%.0fT60_%.0fp1_%.0fp2_%.0fkFs_SNR%ddB_%s', parent_results_dir, rir_memo, source_memo, noise_memo, interf_memo, M, s1_memo, T60_msec, p1, p2, fs / 1000, snr_db, datetime('today'));
 if ~exist(results_dir,'Dir')
     mkdir(results_dir)
 end
@@ -588,18 +161,21 @@ if exist(diary_fullpath, 'file')
 end
 diary(diary_fullpath)
 
+audiowrite(sprintf('%s/s.wav', results_dir), s .* (0.5 / max(abs(s))), fs);
+
 fprintf("\nTest Conditions:\n")
-fprintf(" - Source Signal = %s\n", source)
-fprintf(" - RIR = %s\n", channel_memo)
-fprintf(" - L_channel = %.0f\n", L_channel)
-fprintf(" - SNR = %.0f\n", SNR_dB)
+fprintf(" - Source Signal = %s\n", source_data.memo)
+fprintf(" - Source length = %d\n", length(source_data.signal))
+fprintf(" - RIR = %s\n", source_data.rir_desc)
+fprintf(" - RIR length = %.0f\n", L_channel)
+fprintf(" - T60 = %.0f msec (N60 = %.0f samples)\n", T60_msec, N60)
+fprintf(" - Noise Enabled = %d\n", noise_data.enable)
+fprintf(" - SNR = %.0f dB\n", noise_data.SNR_dB)
+fprintf(" - Noise Signal = %s\n", noise_data.memo)
+fprintf(" - SIR = %.0f dB\n", interf_data.SIR_dB)
+fprintf(" - Interference Signal = %s\n", interf_data.enable)
 
-
-if num_cpus > 1
-    [s_est, dap_equalizer_struct] = delay_and_predict(Y, s, p1, p2, fs, enable_source_whitening, results_dir, num_cpus);
-else
-    [s_est, dap_equalizer_struct] = delay_and_predict_nopar(Y, s, p1, p2, fs, enable_source_whitening, results_dir);
-end
+[s_est, dap_equalizer_struct] = delay_and_predict(Y, s, p1, p2, fs, s1_enable, s1_on_clean_speech, results_dir);
 
 % Adjust for gain/scaling ambiguity
 if adjust_gain_ambiguity
@@ -611,35 +187,37 @@ delays = dap_equalizer_struct.delays;
 h0     = dap_equalizer_struct.h0;
 delay_comp = dap_equalizer_struct.delay_comp;
 
+% Save audio
+audiowrite(sprintf('%s/s_training.wav',     results_dir), s .* (0.5 / max(abs(s))), fs);
+audiowrite(sprintf('%s/y_training.wav',     results_dir), Y(:,1) .* (0.5 / max(abs(Y(:,1)))), fs);
+audiowrite(sprintf('%s/s_est_training.wav', results_dir), s_est .* (0.5 / max(abs(s_est))), fs);
+
+% [Tm, w_welch] = pwelch(s, Nwin_welch, Nover_welch, Nfft_welch);
+% [Tm2, w_welch] = pwelch(Y(:,1), Nwin_welch, Nover_welch, Nfft_welch);
+% [Tm3, w_welch] = pwelch(s_est, Nwin_welch, Nover_welch, Nfft_welch);
+% figure()
+% subplot(3,1,1)
+% plot(10*log10(Tm))
+% title("Clean Source")
+% subplot(3,1,2)
+% plot(10*log10(Tm2))
+% title("Reverberant")
+% subplot(3,1,3)
+% plot(10*log10(Tm3))
+% title("Dereverb")
+
 %% MINT: Ideal solution based on known RIRs
 
 run_MINT = 1;
 if run_MINT
-    fprintf("Running MINT ... ");
+    fprintf("Running MINT (USING SAME L_g = p2+1) ... ");
     tau = 0;
     
-    switch M
-        case 2
-            G = [b_rir_1 b_rir_2];
-        case 3
-            G = [b_rir_1 b_rir_2 b_rir_3];
-        case 4
-            G = [b_rir_1 b_rir_2 b_rir_3 b_rir_4];
-        case 5
-            G = [b_rir_1 b_rir_2 b_rir_3 b_rir_4 b_rir_5];
-        case 6
-            G = [b_rir_1 b_rir_2 b_rir_3 b_rir_4 b_rir_5 b_rir_6];
-        case 7
-            G = [b_rir_1 b_rir_2 b_rir_3 b_rir_4 b_rir_5 b_rir_6 b_rir_7];
-        case 8
-            G = [b_rir_1 b_rir_2 b_rir_3 b_rir_4 b_rir_5 b_rir_6 b_rir_7 b_rir_8];
-    end
-    
-    H_mint = MINT(G, tau, results_dir);
+    H_mint = MINT(G_source, tau, fs, p2+1, results_dir);
     
     save(sprintf('%s/H_mint.mat', results_dir),'H_mint');
 
-    fprintf("Done")
+    fprintf("Done\n\n")
 
 end
 
@@ -651,11 +229,10 @@ end
 %s_est = apply_dap_equalizer(dap_equalizer_struct, Y);
 %s_est = (rms(s) / rms(s_est)) .* s_est;
 
-
 e_est_dap = s - s_est;
 
-Sm          = pwelch(s,   Nwin_welch, Nover_welch, Nfft_welch);
-S_est_dap_m = pwelch(s_est, Nwin_welch, Nover_welch, Nfft_welch);
+Sm          = pwelch(s,         Nwin_welch, Nover_welch, Nfft_welch);
+S_est_dap_m = pwelch(s_est,     Nwin_welch, Nover_welch, Nfft_welch);
 E_est_dap_m = pwelch(e_est_dap, Nwin_welch, Nover_welch, Nfft_welch);
 
 ylim_max = max([max(abs(s)), max(abs(s_est)), max(abs(e_est_dap))]) * 1.2;
@@ -675,6 +252,7 @@ title('Error')
 sgtitle('Stage 2: MC-LPC Results')
 
 saveas(gcf, sprintf('%s/S2_MCLPC_TD.fig', results_dir));
+my_export_gcf(sprintf('%s/S2_MCLPC_TD.eps', results_dir), "TD_SIGNAL")
 
 figure()
 subplot(2,1,1)
@@ -693,45 +271,23 @@ ylabel('dB')
 sgtitle('Stage 2: MC-LPC Results')
 
 saveas(gcf, sprintf('%s/S2_MCLPC_FD.fig', results_dir));
+my_export_gcf(sprintf('%s/S2_MCLPC_FD.eps', results_dir), "FD_SIGNAL")
 
-%% Generate/Plot IR for total DAP system (pass impulse through)
+%% Generate/Plot IR for total DAP system (pass impulse through) and for DAP system alone
 
-s_impulse = zeros(L_channel + p1 + p2,1);
-s_impulse(1) = 1;
+eir = apply_dap_equalizer(dap_equalizer_struct, G_source);
 
-g_channel_1 = filter(b_rir_1, a_rir_1, s_impulse);
-g_channel_2 = filter(b_rir_2, a_rir_2, s_impulse);
-g_channel_3 = filter(b_rir_3, a_rir_3, s_impulse);
-g_channel_4 = filter(b_rir_4, a_rir_4, s_impulse);
-g_channel_5 = filter(b_rir_5, a_rir_5, s_impulse);
-g_channel_6 = filter(b_rir_6, a_rir_6, s_impulse);
-g_channel_7 = filter(b_rir_7, a_rir_7, s_impulse);
-g_channel_8 = filter(b_rir_8, a_rir_8, s_impulse);
-
-switch M
-    case 2
-        G = [g_channel_1 g_channel_2];
-    case 3
-        G = [g_channel_1 g_channel_2 g_channel_3];
-    case 4
-        G = [g_channel_1 g_channel_2 g_channel_3 g_channel_4];
-    case 5
-        G = [g_channel_1 g_channel_2 g_channel_3 g_channel_4 g_channel_5];
-    case 6
-        G = [g_channel_1 g_channel_2 g_channel_3 g_channel_4 g_channel_5 g_channel_6];
-    case 7
-        G = [g_channel_1 g_channel_2 g_channel_3 g_channel_4 g_channel_5 g_channel_6 g_channel_7];
-    case 8
-        G = [g_channel_1 g_channel_2 g_channel_3 g_channel_4 g_channel_5 g_channel_6 g_channel_7 g_channel_8];
+S_imp    = zeros(length(G_source(:,1)),M);
+for ch = 1:M
+    S_imp(1,ch) = 1;
 end
+ir_dap   = apply_dap_equalizer(dap_equalizer_struct, S_imp);
 
-eir = apply_dap_equalizer(dap_equalizer_struct, G);
-
-[G_channel_1, freqs_freqz] = freqz(b_rir_1, a_rir_1, Nfft, fs);
+[G_channel_1, freqs_freqz] = freqz(G_source(:,1), 1, Nfft, fs);
 Gm_channel_1 = abs(G_channel_1);
 Gp_channel_1 = angle(G_channel_1);
 
-G_channel_2  = freqz(b_rir_2, a_rir_2, Nfft);
+G_channel_2  = freqz(G_source(:,2), 1, Nfft);
 Gm_channel_2 = abs(G_channel_2);
 Gp_channel_2 = angle(G_channel_2);
 
@@ -740,29 +296,29 @@ EIRm  = abs(EIRft(1:(Nfft/2)));
 EIRp  = angle(EIRft(1:(Nfft/2)));
 freqs_fft = (0:(length(EIRm)-1))' .* (fs / Nfft);
 
+IR_DAPft = fft(ir_dap, Nfft);
+IR_DAPm  = abs(IR_DAPft(1:(Nfft/2)));
+IR_DAPp  = angle(IR_DAPft(1:(Nfft/2)));
+freqs_fft = (0:(length(IR_DAPm)-1))' .* (fs / Nfft);
+
+ylim_min = min((max(eir(:,1))*-0.05), (min(eir(:,1))*1.1));
 figure()
 subplot(2,1,1)
-stem((0:(length(g_channel_1)-1)) .* (1/fs), g_channel_1);
-xlabel('Time [sec]')
-title("Channel 1 Impulse Response")
-subplot(2,1,2)
-stem((0:(length(eir)-1)) .* (1/fs), eir);
-xlabel('Time [sec]')
-title("Equalized Impulse Response (Stem Plot)")
-
-saveas(gcf, sprintf('%s/EIR_stem.fig', results_dir));
-
-figure()
-subplot(2,1,1)
-plot((0:(length(g_channel_1)-1)) .* (1/fs), g_channel_1);
+plot((0:(length(G_source(:,1))-1)) .* (1/fs), G_source(:,1));
+xlim([((length(G_source(:,1))/fs) * -0.02) Inf])
+ylim([(min(G_source(:,1))*1.1) (max(G_source(:,1))*1.1)])
 xlabel('Time [sec]')
 title("Channel 1 Impulse Response")
 subplot(2,1,2)
 plot((0:(length(eir)-1)) .* (1/fs), eir);
+xlim([((length(eir(:,1))/fs) * -0.02) Inf])
+ylim([ylim_min (max(eir(:,1))*1.1)])
 xlabel('Time [sec]')
 title("Equalized Impulse Response")
 
 saveas(gcf, sprintf('%s/EIR.fig', results_dir));
+my_export_gcf(sprintf('%s/EIR.eps', results_dir), "TD_SIGNAL")
+
 
 figure()
 subplot(1,2,1)
@@ -777,39 +333,52 @@ xlabel('Frequency [kHz]')
 ylabel('rad')
 
 saveas(gcf, sprintf('%s/RTF.fig', results_dir));
-
-% figure()
-% subplot(1,2,1)
-% zplane(b_rir_1', a_rir_1')
-% title('Channel 1')
-% subplot(1,2,2)
-% zplane(b_rir_2', a_rir_2')
-% title('Channel 2')
+my_export_gcf(sprintf('%s/RTF.eps', results_dir), "FD_SIGNAL")
 
 figure()
 subplot(2,1,1)
 plot(freqs_fft ./ 1000, 20*log10(EIRm));
+ylim([(20*log10(mean(EIRm)) - 3) (20*log10(mean(EIRm)) + 3)])
 title('Equalized magnitude Response')
 xlabel('Frequency [kHz]')
 ylabel('dB')
 subplot(2,1,2)
 plot(freqs_fft ./ 1000, unwrap(EIRp));
+ylim([-1 1])
 title('Equalized phase response')
 xlabel('Frequency [kHz]')
 ylabel('rad')
 
 saveas(gcf, sprintf('%s/Equalized_RTF.fig', results_dir));
+my_export_gcf(sprintf('%s/Equalized_RTF.eps', results_dir), "FD_SIGNAL")
+
+figure()
+subplot(2,1,1)
+plot((0:(length(ir_dap)-1)) .* (1/fs), ir_dap);
+xlim([((length(ir_dap)/fs) * -0.02) Inf])
+ylim([(min(ir_dap)*1.1) (max(ir_dap)*1.1)])
+xlabel("Full Delay-and-Predict Equalizer Impulse Response")
+subplot(2,1,2)
+plot(freqs_fft ./ 1000, 20*log10(IR_DAPm));
+title('Full Delay-and-Predict Equalizer Magnitude Response')
+xlabel('Frequency [kHz]')
+ylabel('dB')
+
+saveas(gcf, sprintf('%s/dap_ir_mr.fig', results_dir));
+my_export_gcf(sprintf('%s/dap_ir_mr.eps', results_dir), "FD_SIGNAL")
 
 %% Energy Decay Curve Comparison
 
-edc_rir_1 = EDC(g_channel_1);
+edc_rir_1 = EDC(G_source(:,1));
 edc_dap   = EDC(eir);
 
+
 figure()
-plot((0:(length(g_channel_1)-1)) .* (1/fs), 20*log10(edc_rir_1));
+plot((0:(length(G_source(:,1))-1)) .* (1/fs), 10*log10(edc_rir_1));
 hold on;
-plot((0:(length(g_channel_1)-1)) .* (1/fs), 20*log10(edc_dap .* (max(edc_rir_1) / max(edc_dap))));
-ylim([-80 60])
+plot((0:(length(G_source(:,1))-1)) .* (1/fs), 10*log10(edc_dap .* (max(edc_rir_1) / max(edc_dap))));
+ylim([-70 6])
+xlim([((length(G_source(:,1))/fs) * -0.02) Inf])
 %xlim([0 (length(h_channel_1) * (1/fs))])
 xlabel('Time [sec]')
 ylabel('Energy remaining [dB]')
@@ -817,6 +386,7 @@ legend('Reverb Energy', 'Equalized Reverb Energy')
 title('Energy Decay Curve')
 
 saveas(gcf, sprintf('%s/EDC.fig', results_dir));
+my_export_gcf(sprintf('%s/EDC.eps', results_dir), "TD_SIGNAL")
 
 %% Spectrogram Results
 
@@ -828,7 +398,7 @@ N_fft     = N_window;
 % Compute Spectrograms
 window = hamming(N_window);
 [S_spec, f_S, t_S] = spectrogram(s, window, N_overlap, N_fft, fs);
-[Y_spec, f_Y, t_Y] = spectrogram(y1, window, N_overlap, N_fft, fs);
+[Y_spec, f_Y, t_Y] = spectrogram(Y(:,1), window, N_overlap, N_fft, fs);
 [S_est_spec, f_S_est, t_S_est] = spectrogram(s_est, window, N_overlap, N_fft, fs);
 
 figure()
@@ -856,134 +426,222 @@ set(get(hcb,'ylabel'),'string','SPL')
 xlabel('Time [msec]')
 ylabel('Frequency [kHz]')
 title('De-reverberated Speech')
-sgtitle('Dereverberation Results')
+sgtitle('Dereverberation Training Results')
 
 saveas(gcf, sprintf('%s/Spectrogram.fig', results_dir));
+my_export_gcf(sprintf('%s/Spectrogram.eps', results_dir), "SPECTROGRAM")
 
 %% Extra plots
 
-enable_extra_plots = 0;
+enable_extra_plots = 1;
 if enable_extra_plots
 
-y1 = filter(b_rir_1, a_rir_1, s_impulse);
-y2 = filter(b_rir_2, a_rir_2, s_impulse);
+% NOTE: Assumes M = 4
+if M ~= 4
+    error("Extra plots only work for M=4")
+end
 
-y1 = filter([zeros(delays(1),1) ; 1], 1, y1);
-y2 = filter([zeros(delays(2),1) ; 1], 1, y2);
+g1 = G_source(:,1);
+g2 = G_source(:,2);
+g3 = G_source(:,3);
+g4 = G_source(:,4);
+
+g1 = filter([zeros(delays(1),1) ; 1], 1, g1);
+g2 = filter([zeros(delays(2),1) ; 1], 1, g2);
+g3 = filter([zeros(delays(3),1) ; 1], 1, g3);
+g4 = filter([zeros(delays(4),1) ; 1], 1, g4);
 
 h_pred_1_from_1 = H(:,1);
 h_pred_1_from_2 = H(:,2);
-h_pred_2_from_1 = H(:,3);
-h_pred_2_from_2 = H(:,4);
+h_pred_1_from_3 = H(:,3);
+h_pred_1_from_4 = H(:,4);
 
-h_1_dap = y1 - ...
-          ((filter(h_pred_1_from_1, 1, y1) + ...
-            filter(h_pred_1_from_2, 1, y2)));
+h_pred_2_from_1 = H(:,5);
+h_pred_2_from_2 = H(:,6);
+h_pred_2_from_3 = H(:,7);
+h_pred_2_from_4 = H(:,8);
 
-h_2_dap = y2 - ...
-          ((filter(h_pred_2_from_1, 1, y1) + ...
-            filter(h_pred_2_from_2, 1, y2)));
-%
-% eir = h_1_dap .* h0(1) + h_2_dap .* h0(2);
+h_pred_3_from_1 = H(:,9);
+h_pred_3_from_2 = H(:,10);
+h_pred_3_from_3 = H(:,11);
+h_pred_3_from_4 = H(:,12);
 
-H_pred_1_from_1  = freqz(h_pred_1_from_1, 1, Nfft);
-Hm_pred_1_from_1 = abs(H_pred_1_from_1);
-Hp_pred_1_from_1 = angle(H_pred_1_from_1);
+h_pred_4_from_1 = H(:,13);
+h_pred_4_from_2 = H(:,14);
+h_pred_4_from_3 = H(:,15);
+h_pred_4_from_4 = H(:,16);
 
-H_pred_1_from_2  = freqz(h_pred_1_from_2, 1, Nfft);
-Hm_pred_1_from_2 = abs(H_pred_1_from_2);
-Hp_pred_1_from_2 = angle(H_pred_1_from_2);
+eir_1 = g1 - ((filter(h_pred_1_from_1, 1, g1)) + ...
+              (filter(h_pred_1_from_2, 1, g2)) + ...
+              (filter(h_pred_1_from_3, 1, g3)) + ...
+              (filter(h_pred_1_from_4, 1, g4)));
 
-H_pred_2_from_1  = freqz(h_pred_2_from_1, 1, Nfft);
-Hm_pred_2_from_1 = abs(H_pred_2_from_1);
-Hp_pred_2_from_1 = angle(H_pred_2_from_1);
+eir_2 = g2 - ((filter(h_pred_2_from_1, 1, g1)) + ...
+              (filter(h_pred_2_from_2, 1, g2)) + ...
+              (filter(h_pred_2_from_3, 1, g3)) + ...
+              (filter(h_pred_2_from_4, 1, g4)));
 
-H_pred_2_from_2  = freqz(h_pred_2_from_2, 1, Nfft);
-Hm_pred_2_from_2 = abs(H_pred_2_from_2);
-Hp_pred_2_from_2 = angle(H_pred_2_from_2);
+eir_3 = g3 - ((filter(h_pred_3_from_1, 1, g1)) + ...
+              (filter(h_pred_3_from_2, 1, g2)) + ...
+              (filter(h_pred_3_from_3, 1, g3)) + ...
+              (filter(h_pred_3_from_4, 1, g4)));
+
+eir_4 = g4 - ((filter(h_pred_4_from_1, 1, g1)) + ...
+              (filter(h_pred_4_from_2, 1, g2)) + ...
+              (filter(h_pred_4_from_3, 1, g3)) + ...
+              (filter(h_pred_4_from_4, 1, g4)));
+
+
+% eir = eir_1 .* h0(1) + ...
+%       eir_2 .* h0(2) + ...
+%       eir_3 .* h0(3) + ...
+%       eir_4 .* h0(4);
+
+EIR_1  = freqz(eir_1, 1, Nfft);
+EIR_2  = freqz(eir_2, 1, Nfft);
+EIR_3  = freqz(eir_3, 1, Nfft);
+EIR_4  = freqz(eir_4, 1, Nfft);
+
+EIR_1_m = abs(EIR_1);
+EIR_2_m = abs(EIR_2);
+EIR_3_m = abs(EIR_3);
+EIR_4_m = abs(EIR_4);
+
+rir_ylim_max = max([max(g1) ; max(g2) ; max(g3) ; max(g4)]);
+rir_ylim_min = min(1.1*min([min(g1) ; min(g2) ; min(g3) ; min(g4)]), rir_ylim_max*-0.05);
+
+eir_ylim_max = max([max(eir_1) ; max(eir_2) ; max(eir_3) ; max(eir_4)]);
+eir_ylim_min = min(1.1*min([min(eir_1) ; min(eir_2) ; min(eir_3) ; min(eir_4)]), eir_ylim_max*-0.05);
+
+fig_size = [10 10 1300 600];
 
 figure()
-subplot(5,1,1)
-plot((0:(length(h_channel_1)-1)) .* (1/fs), h_channel_1);
-xlabel('Time [sec]')
-title("Channel 1 Impulse Response")
-subplot(5,1,2)
-plot((0:(length(h_channel_2)-1)) .* (1/fs), h_channel_2);
-xlabel('Time [sec]')
-title("Channel 2 Impulse Response")
-subplot(5,1,3)
-plot((0:(length(h_1_dap)-1)) .* (1/fs), h_1_dap);
-xlabel('Time [sec]')
-title("h 1 dap Equalized Impulse Response")
-subplot(5,1,4)
-plot((0:(length(h_2_dap)-1)) .* (1/fs), h_2_dap);
-xlabel('Time [sec]')
-title("h 2 dap Equalized Impulse Response")
-subplot(5,1,5)
-plot((0:(length(h_dap)-1)) .* (1/fs), h_dap);
-xlabel('Time [sec]')
-title("h dap Equalized Impulse Response")
+set(gcf,'Position',fig_size)
 
-saveas(gcf, sprintf('%s/EIR_2.fig', results_dir));
+subplot(4,2,1)
+plot((0:(length(g1)-1)) .* (1/fs), g1);
+ylim([rir_ylim_min rir_ylim_max])
+xlim([((length(g1)/fs) * -0.02) Inf])
+xlabel('Time [sec]')
+title("Impulse Response (Channel 1)")
+subplot(4,2,2)
+plot((0:(length(eir_1)-1)) .* (1/fs), eir_1);
+xlim([((length(eir_1)/fs) * -0.02) Inf])
+ylim([eir_ylim_min eir_ylim_max])
+xlabel('Time [sec]')
+title("Equalized Impulse Response (MC-LP Prediction of Channel 1)")
+
+subplot(4,2,3)
+plot((0:(length(g2)-1)) .* (1/fs), g2);
+xlim([((length(g2)/fs) * -0.02) Inf])
+ylim([rir_ylim_min rir_ylim_max])
+xlabel('Time [sec]')
+title("Impulse Response (Channel 2)")
+subplot(4,2,4)
+plot((0:(length(eir_2)-1)) .* (1/fs), eir_2);
+xlim([((length(eir_2)/fs) * -0.02) Inf])
+ylim([eir_ylim_min eir_ylim_max])
+xlabel('Time [sec]')
+title("Equalized Impulse Response (MC-LP Prediction of Channel 2)")
+
+subplot(4,2,5)
+plot((0:(length(g3)-1)) .* (1/fs), g3);
+xlim([((length(g3)/fs) * -0.02) Inf])
+ylim([rir_ylim_min rir_ylim_max])
+xlabel('Time [sec]')
+title("Impulse Response (Channel 3)")
+subplot(4,2,6)
+plot((0:(length(eir_3)-1)) .* (1/fs), eir_3);
+xlim([((length(eir_3)/fs) * -0.02) Inf])
+ylim([eir_ylim_min eir_ylim_max])
+xlabel('Time [sec]')
+title("Equalized Impulse Response (MC-LP Prediction of Channel 3)")
+
+subplot(4,2,7)
+plot((0:(length(g4)-1)) .* (1/fs), g4);
+xlim([((length(g4)/fs) * -0.02) Inf])
+ylim([rir_ylim_min rir_ylim_max])
+xlabel('Time [sec]')
+title("Impulse Response (Channel 1)")
+subplot(4,2,8)
+plot((0:(length(eir_4)-1)) .* (1/fs), eir_4);
+xlim([((length(eir_4)/fs) * -0.02) Inf])
+ylim([eir_ylim_min eir_ylim_max])
+xlabel('Time [sec]')
+title("Equalized Impulse Response (MC-LP Prediction of Channel 4)")
+
+saveas(gcf, sprintf('%s/MC_EIR.fig', results_dir));
+my_export_gcf(sprintf('%s/MC_EIR.eps', results_dir), "TD_SIGNAL")
 
 figure()
 subplot(2,2,1)
-plot(freqs_freqz ./ 1000, 20*log10(Hm_pred_1_from_1))
-title('Prediction Filter h pred 1 from 1')
-xlabel('Frequency [kHz]')
-ylabel('dB')
-subplot(2,2,3)
-plot(freqs_freqz ./ 1000, 20*log10(Hm_pred_1_from_2))
-title('Prediction Filter h pred 1 from 2')
+plot(freqs_freqz ./ 1000, 20*log10(EIR_1_m))
+title('Equalized RTF (MC-LP of Channel 1)')
 xlabel('Frequency [kHz]')
 ylabel('dB')
 subplot(2,2,2)
-plot(freqs_freqz ./ 1000, 20*log10(Hm_pred_2_from_1))
-title('Prediction Filter h pred 2 from 1')
+plot(freqs_freqz ./ 1000, 20*log10(EIR_2_m))
+title('Equalized RTF (MC-LP of Channel 2)')
+xlabel('Frequency [kHz]')
+ylabel('dB')
+subplot(2,2,3)
+plot(freqs_freqz ./ 1000, 20*log10(EIR_3_m))
+title('Equalized RTF (MC-LP of Channel 3)')
 xlabel('Frequency [kHz]')
 ylabel('dB')
 subplot(2,2,4)
-plot(freqs_freqz ./ 1000, 20*log10(Hm_pred_2_from_2))
-title('Prediction Filter h pred 2 from 2')
+plot(freqs_freqz ./ 1000, 20*log10(EIR_4_m))
+title('Equalized RTF (MC-LP of Channel 4)')
 xlabel('Frequency [kHz]')
 ylabel('dB')
 
-saveas(gcf, sprintf('%s/PredictionFilters.fig', results_dir));
+saveas(gcf, sprintf('%s/MC_Equalized_RTF.fig', results_dir));
+my_export_gcf(sprintf('%s/MC_Equalized_RTF.eps', results_dir), "FD_SIGNAL")
 
 end % Extra plots
 
-%% Test: Apply dereverb to an actual speech signal 
+%% Test: Apply dereverb to a short speech signal SA2.wav
+%  NOTE: A DAP-EQ that over-whitens SA1.WAV due to p1 being too low will
+%        not over-whiten SA2.WAV, it will actually add a reverb-like effect
+%        to SA2.WAV
 
-[s,fs] = audioread("SA1.WAV");
+[s,fs] = audioread("SA2.WAV");
+source_data.signal = s;
 
-% Compute reverberant signals
-y1 = filter(b_rir_1, a_rir_1, s);
-y2 = filter(b_rir_2, a_rir_2, s);
-y3 = filter(b_rir_3, a_rir_3, s);
-y4 = filter(b_rir_4, a_rir_4, s);
-y5 = filter(b_rir_5, a_rir_5, s);
-y6 = filter(b_rir_6, a_rir_6, s);
-y7 = filter(b_rir_7, a_rir_7, s);
-y8 = filter(b_rir_8, a_rir_8, s);
+% Run Metrics on reverb only
+noise_data_noNoise.enable    = false;
+noise_data_noNoise.signals   = [];
+noise_data_noNoise.SNR_dB    = Inf;
+noise_data_noNoise.memo      = "no noise";
 
-switch M
-    case 2
-        Y = [y1 y2];
-    case 3
-        Y = [y1 y2 y3];
-    case 4
-        Y = [y1 y2 y3 y4];
-    case 5
-        Y = [y1 y2 y3 y4 y5];
-    case 6
-        Y = [y1 y2 y3 y4 y5 y6];
-    case 7
-        Y = [y1 y2 y3 y4 y5 y6 y7];
-    case 8
-        Y = [y1 y2 y3 y4 y5 y6 y7 y8];
-end
+interf_data_noInterf.enable   = false;
+interf_data_noInterf.signal   = [0];
+interf_data_noInterf.rir_data = [0];
+interf_data_noInterf.SIR_dB   = Inf;
+
+[Y, refstim] = compute_mic_signals(source_data, noise_data_noNoise, interf_data_noInterf, fs);
 
 s_est = apply_dap_equalizer(dap_equalizer_struct, Y);
+
+% Adjust for gain/scaling ambiguity
+if adjust_gain_ambiguity
+    s_est = (rms(refstim) / rms(s_est)) .* s_est;
+end
+
+% Save audio
+audiowrite(sprintf('%s/s_test_SA2.wav',     results_dir), s .* (0.5 / max(abs(s))),      fs);
+audiowrite(sprintf('%s/y_test_SA2.wav',     results_dir), Y(:,1) .* (0.5 / max(abs(Y(:,1)))), fs);
+audiowrite(sprintf('%s/s_test_est_SA2.wav', results_dir), s_est .* (0.5 / max(abs(s_est))),  fs);
+
+% Compute MINT Signal Results
+% s_est_MINT = apply_dap_equalizer(dap_equalizer_struct, Y);
+s_est_MINT = zeros(size(Y(:, 1)));
+for ch_idx = 1:M
+    y_ch       = Y(:, ch_idx);
+    h_mint_ch  = H_mint(:, ch_idx);
+    s_est_MINT = s_est_MINT + filter(h_mint_ch, 1, y_ch);
+end
+
 
 % Spectrogram Parameters
 N_window  = 256;
@@ -992,9 +650,10 @@ N_fft     = N_window;
 
 % Compute Spectrograms
 window = hamming(N_window);
-[S_spec, f_S, t_S] = spectrogram(s, window, N_overlap, N_fft, fs);
-[Y_spec, f_Y, t_Y] = spectrogram(y1, window, N_overlap, N_fft, fs);
+[S_spec, f_S, t_S] = spectrogram(refstim, window, N_overlap, N_fft, fs);
+[Y_spec, f_Y, t_Y] = spectrogram(Y(:,1), window, N_overlap, N_fft, fs);
 [S_est_spec, f_S_est, t_S_est] = spectrogram(s_est, window, N_overlap, N_fft, fs);
+[S_est_MINT_spec, f_S_est_MINT, t_S_est_MINT] = spectrogram(s_est_MINT, window, N_overlap, N_fft, fs);
 
 figure()
 subplot(3,1,1)
@@ -1021,15 +680,125 @@ set(get(hcb,'ylabel'),'string','SPL')
 xlabel('Time [msec]')
 ylabel('Frequency [kHz]')
 title('De-reverberated Speech')
-sgtitle('Dereverberation Results (Reapplied DAP-EQ to SA1.wav)')
+sgtitle('Dereverberation Results (Reapplied DAP-EQ to SA2.wav, without noise)')
 
-saveas(gcf, sprintf('%s/Spectrogram_reappliedToSA1.fig', results_dir));
+saveas(gcf, sprintf('%s/Spectrogram_reappliedToSA2.fig', results_dir));
+my_export_gcf(sprintf('%s/Spectrogram_reappliedToSA2.eps', results_dir), "SPECTROGRAM")
+
+% MINT Spectrogram Results
+figure()
+subplot(3,1,1)
+imagesc(t_S*1000, f_S/1e3, 20*log10(abs(S_spec)/sum(window)*sqrt(2)/20e-6));
+axis xy; axis tight;
+hcb = colorbar;
+set(get(hcb,'ylabel'),'string','SPL')
+xlabel('Time [msec]')
+ylabel('Frequency [kHz]')
+title('Clean Speech')
+subplot(3,1,2)
+imagesc(t_Y*1000, f_Y/1e3, 20*log10(abs(Y_spec)/sum(window)*sqrt(2)/20e-6));
+axis xy; axis tight;
+hcb = colorbar;
+set(get(hcb,'ylabel'),'string','SPL')
+xlabel('Time [msec]')
+ylabel('Frequency [kHz]')
+title('Reverberant Speech')
+subplot(3,1,3)
+imagesc(t_S_est_MINT*1000, f_S_est_MINT/1e3, 20*log10(abs(S_est_MINT_spec)/sum(window)*sqrt(2)/20e-6));
+axis xy; axis tight;
+hcb = colorbar;
+set(get(hcb,'ylabel'),'string','SPL')
+xlabel('Time [msec]')
+ylabel('Frequency [kHz]')
+title('De-reverberated Speech (MINT)')
+sgtitle('MINT Dereverberation Results (Reapplied DAP-EQ to SA2.wav, without noise)')
+
+saveas(gcf, sprintf('%s/Spectrogram_MINT_reappliedToSA2.fig', results_dir));
+my_export_gcf(sprintf('%s/Spectrogram_MINT_reappliedToSA2.eps', results_dir), "SPECTROGRAM")
+
+
+%% Compute SI/SQ Metrics (Without noise)
+
+stimdb          = source_data.stimdb; % dB SPL
+Fs_stim         = fs;
+test_reverb     = Y(:,1);
+test_processed  = s_est;
+
+[metrics_unproc_NH, ~] = run_all_metrics(refstim, test_reverb,    Fs_stim, HL_NH, stimdb, h_ha_NH);
+[metrics_proc_NH,   ~] = run_all_metrics(refstim, test_processed, Fs_stim, HL_NH, stimdb, h_ha_NH);
+
+[metrics_unproc_HI, ~] = run_all_metrics(refstim, test_reverb,    Fs_stim, HL_HI, stimdb, h_ha_HI);
+[metrics_proc_HI,   ~] = run_all_metrics(refstim, test_processed, Fs_stim, HL_HI, stimdb, h_ha_HI);
+
+% audiowrite(sprintf('%s/ec_out_unproc.wav', results_dir), ec_out_unproc .* (0.5 / max(abs(ec_out_unproc))), fs);
+% audiowrite(sprintf('%s/ec_out_proc.wav',   results_dir), ec_out_proc .* (0.5 / max(abs(ec_out_proc))),   fs);
+% 
+% audiowrite(sprintf('%s/test_stim_unproc_postNALR.wav', results_dir), ...
+%            nalr_struct_unproc_HI.teststim_left_post_nalr .* ...
+%            (0.5 / max(abs(nalr_struct_unproc_HI.teststim_left_post_nalr))), fs);
+% audiowrite(sprintf('%s/test_stim_proc_postNALR.wav',   results_dir), ...
+%            nalr_struct_proc_HI.teststim_left_post_nalr .* ...
+%            (0.5 / max(abs(nalr_struct_proc_HI.teststim_left_post_nalr))), fs);
+
+%% Physical metrics of reverb
+
+C50_unproc = clarity(G_source(:,1), fs);
+C50_proc   = clarity(eir, fs);
+
+metrics_physical_unproc.C50 = C50_unproc;
+metrics_physical_proc.C50   = C50_proc;
+
+%% LOG RESULTS
+
+fprintf("\n")
+fprintf("Results for NH Listener:")
+fprintf("\nunprocessed metric --> processed metric\n")
+fprintf("SI RESULTS: -----------------------------------\n")
+fprintf("HASPI         = %.8f --> %.8f\n", metrics_unproc_NH.HASPI,         metrics_proc_NH.HASPI);
+fprintf("STOI          = %.8f --> %.8f\n", metrics_unproc_NH.STOI,          metrics_proc_NH.STOI);
+fprintf("NSIM_FT       = %.8f --> %.8f\n", metrics_unproc_NH.NSIM_FT,       metrics_proc_NH.NSIM_FT);
+fprintf("NSIM_MR       = %.8f --> %.8f\n", metrics_unproc_NH.NSIM_MR,       metrics_proc_NH.NSIM_MR);
+fprintf("STMI          = %.8f --> %.8f\n", metrics_unproc_NH.STMI,          metrics_proc_NH.STMI);
+fprintf("-----------------------------------------------")
+fprintf("\n")
+fprintf("SQ RESULTS: -----------------------------------\n")
+fprintf("HASQI         = %.8f --> %.8f\n", metrics_unproc_NH.HASQI,          metrics_proc_NH.HASQI);
+fprintf("VISQOL        = %.8f --> %.8f\n", metrics_unproc_NH.VISQOL,         metrics_proc_NH.VISQOL);
+fprintf("-----------------------------------------------\n")
+fprintf("\n")
+fprintf("\n")
+fprintf("Results for HI Listener:")
+fprintf("\nunprocessed metric --> processed metric\n")
+fprintf("SI RESULTS: -----------------------------------\n")
+fprintf("HASPI         = %.8f --> %.8f\n", metrics_unproc_HI.HASPI,         metrics_proc_HI.HASPI);
+fprintf("STOI          = %.8f --> %.8f\n", metrics_unproc_HI.STOI,          metrics_proc_HI.STOI);
+fprintf("NSIM_FT       = %.8f --> %.8f\n", metrics_unproc_HI.NSIM_FT,       metrics_proc_HI.NSIM_FT);
+fprintf("NSIM_MR       = %.8f --> %.8f\n", metrics_unproc_HI.NSIM_MR,       metrics_proc_HI.NSIM_MR);
+fprintf("STMI          = %.8f --> %.8f\n", metrics_unproc_HI.STMI,          metrics_proc_HI.STMI);
+fprintf("-----------------------------------------------")
+fprintf("\n")
+fprintf("SQ RESULTS: -----------------------------------\n")
+fprintf("HASQI         = %.8f --> %.8f\n", metrics_unproc_HI.HASQI,          metrics_proc_HI.HASQI);
+fprintf("VISQOL        = %.8f --> %.8f\n", metrics_unproc_HI.VISQOL,         metrics_proc_HI.VISQOL);
+fprintf("-----------------------------------------------\n")
+fprintf("\n")
+fprintf("Physical Metrics Results ----------------------\n")
+fprintf("\nunprocessed metric --> processed metric\n")
+fprintf("Clarity (C50) = %.8f dB --> %.8f dB\n", 10*log10(metrics_physical_unproc.C50), 10*log10(metrics_physical_proc.C50));
+fprintf("-----------------------------------------------\n")
 
 %% Save results
 
+metrics.metrics_unproc_NH = metrics_unproc_NH;
+metrics.metrics_proc_NH   = metrics_proc_NH;
+
+metrics.metrics_unproc_HI = metrics_unproc_HI;
+metrics.metrics_proc_HI   = metrics_proc_HI;
+
+metrics.metrics_physical_unproc = metrics_physical_unproc;
+metrics.metrics_physical_proc   = metrics_physical_proc;
+
 % Stop logging console
 diary off;
-
-
 
 end

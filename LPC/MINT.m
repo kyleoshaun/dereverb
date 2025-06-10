@@ -1,17 +1,19 @@
-function [H] = MINT(G_rir, tau, results_dir)
+function [H] = MINT(G_rir, tau, fs, L_g, results_dir)
 % G_rir: Columns = acoustic impulse responses
 % tau: Desired EIR delay (Impulse appears at index tau+1)
+% fs: sample rate (Hz)
+% L_g: Per-channel FIR EQ length
 
 % L_h = AIR length (common to all channels, i.e., max AIR length, rest zero padded))
 % M   = Number of channels (Microphones)
 [L_h, M] = size(G_rir);
 
 % Compute EQ FIR length (per channnel)
-if (M > 1)
-    L_g = ceil(((L_h-1) / (M-1)) * 1.1); % Invidual EQ FIR length
-else
-    L_g = L_h - 1;
-end
+% if (M > 1)
+%     L_g = ceil(((L_h-1) / (M-1)) * 1.1); % Invidual EQ FIR length
+% else
+%     L_g = L_h - 1;
+% end
 
 
 % Construct multichannel sylvester filter matrix H = [H1 H2 ... HM]
@@ -49,7 +51,6 @@ for ch_idx = 1:M
 end
 
 g_rir_1 = G_rir(:, 1);
-g_rir_2 = G_rir(:, 2);
 
 % figure()
 % subplot(3,1,1)
@@ -64,15 +65,35 @@ g_rir_2 = G_rir(:, 2);
 % sgtitle('MINT Results')
 
 
+ylim_max = 1.2*max(abs(g_rir_1));
 figure()
 subplot(2,1,1)
-plot(g_rir_1)
-title('RIR 1')
+plot((0:(length(g_rir_1)-1)) .* (1/fs), g_rir_1)
+ylim([-ylim_max ylim_max])
+xlabel('Time [sec]')
+title('Channel 1 Impulse Response')
 subplot(2,1,2)
-plot(eir)
-title('EIR')
-sgtitle('MINT Results')
+plot((0:(length(eir)-1)) .* (1/fs), eir)
+ylim([-ylim_max ylim_max])
+xlabel('Time [sec]')
+title('Equalized Impulse Response (MINT)')
 
 saveas(gcf, sprintf('%s/MINT.fig', results_dir));
 
+edc_rir  = EDC(g_rir_1);
+edc_MINT = EDC(eir);
 
+figure()
+plot((0:(length(edc_rir)-1)) .* (1/fs), 10*log10(edc_rir));
+hold on;
+plot((0:(length(edc_MINT)-1)) .* (1/fs), 10*log10(edc_MINT .* (max(edc_rir) / max(edc_MINT))));
+ylim([-70 6])
+%xlim([0 (length(h_channel_1) * (1/fs))])
+xlabel('Time [sec]')
+ylabel('Energy remaining [dB]')
+legend('Reverb Energy', 'Equalized Reverb Energy')
+title('Energy Decay Curve (MINT)')
+
+saveas(gcf, sprintf('%s/EDC_MINT.fig', results_dir));
+
+end

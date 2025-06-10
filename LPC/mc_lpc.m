@@ -33,7 +33,7 @@ end
 % exponential decay curve
 %L_channel = 10;
 %tau = L_channel/4;
-%exp_decay = exp(-1 .* (1:L_channel)' ./ tau);
+%exp_decay = exp(-1 .* (0:(L_channel-1))' ./ tau);
 
 % Channel
 b_air_1 = [1 -0.50  0.42  0.05 -0.44     0]';
