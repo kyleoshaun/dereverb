@@ -1,4 +1,4 @@
-function [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs, s1_enable, s1_on_clean_speech, results_dir)
+function [s_est, dap_equalizer_struct] = delay_and_predict_wReg(Y, s_ref, p1, p2, fs, s1_enable, s1_on_clean_speech, results_dir)
 % Run Delay-and-Predict dereverberation with parallelized for loops
 %
 % Syntax
@@ -33,6 +33,16 @@ M = size(Y,2); % Number of channels = number of columns (number of reverberant s
 
 % Script Modes
 apply_time_alignment    = false;
+
+% Regularization Factor
+% Diagonal reg_matrix=reg_factor*I is applied to the autocorrelation matrices
+% used in both linear-prediction stages (i.e., R_ym and R_mc)
+% to improve numerical stability of algorithm at the cost of reduced cancellation
+% of lower energy reverb. This trade-off may be worth while since the low energy
+% part of the reverb tail is often close in magnitude to the noise floor
+% and therefore is cancelled effectively by the algorithm (in fact the resulting
+% equalizer often introduces low energy reverb)
+reg_factor = 10^-5;
 
 % FFT/PSD params for plots
 Nfft = 4096;
@@ -77,6 +87,10 @@ idx_lag0    = find(lags==0);
 R_s = toeplitz(phi_s(idx_lag0:(idx_lag0+p1-1)));
 r_s = phi_s((idx_lag0+1):(idx_lag0+p1));
 
+% Apply regularization factor to autocorrelation matrix
+reg_matrix = reg_factor .* eye(size(R_s));
+R_s       = R_s + reg_matrix;
+
 alpha_s = R_s \ r_s; % Option 1: Solve by gaussian elimination
 %alpha_s = pinv(R_s) * r_s; % Option 2: Solve by pseudo-inverse
 
@@ -94,7 +108,7 @@ varData = whos('R_s');
 memory_info.R_s_size  = size(R_s);
 memory_info.R_s_bytes = varData.bytes;
 memory_info.R_s_type  = varData.class;
-memory_info.R_s_cond  = cond(R_s);
+%memory_info.R_s_cond  = cond(R_s);
 clear R_s
 clear r_s
 clear phi_s
@@ -128,6 +142,10 @@ phi_ym = sum(phi_Y, 2); % Avg: Sum all autocorrelation functions (sum columns)
 R_ym = toeplitz(phi_ym(idx_lag0:(idx_lag0+p1-1)));
 r_ym = phi_ym((idx_lag0+1):(idx_lag0+p1));
 
+% Apply regularization factor to autocorrelation matrix
+reg_matrix = reg_factor .* eye(size(R_ym));
+R_ym       = R_ym + reg_matrix;
+
 alpha_ym = R_ym \ r_ym; % Option 1: Solve by Gaussian elimination
 %alpha_ym = pinv(R_ym) * r_ym; % Option 2: Solve by pseudo-inverse
 
@@ -146,7 +164,7 @@ varData = whos('R_ym');
 memory_info.R_ym_size  = size(R_ym);
 memory_info.R_ym_bytes = varData.bytes;
 memory_info.R_ym_type  = varData.class;
-memory_info.R_ym_cond  = cond(R_ym);
+%memory_info.R_ym_cond  = cond(R_ym);
 clear R_ym
 clear r_ym
 clear phi_ym
@@ -385,6 +403,10 @@ while min(abs(h0)) < coeff_thresh
         r_mc(:, col_0:col_1) = R_xx_k;
         k = k+1;
     end
+
+    % Apply regularization factor to autocorrelation matrix
+    reg_matrix = reg_factor .* eye(size(R_mc));
+    R_mc       = R_mc + reg_matrix;
     
     % Solve Multichannel Normal Equations
     % Note row formulation of system is used here, so aR = r (rather than Ra = r)
@@ -399,7 +421,7 @@ while min(abs(h0)) < coeff_thresh
     memory_info.R_mc_size  = size(R_mc);
     memory_info.R_mc_bytes = varData.bytes;
     memory_info.R_mc_type  = varData.class;
-    memory_info.R_mc_cond   = cond(R_mc);
+    %memory_info.R_mc_cond   = cond(R_mc);
     clear R_mc
     clear r_mc
     clear phi_X
@@ -496,6 +518,9 @@ if apply_time_alignment
 end
 
 fprintf("Done")
+
+
+%fprintf("cond(R_mc) = %d\n", cond(R_mc));
 
 %% Create equalizer structure (for output)
 dap_equalizer_struct.H          = H;
