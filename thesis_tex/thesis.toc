@@ -91,5 +91,7 @@
 \contentsline {subsection}{\numberline {4.1.5}Evaluation of Monaural Speech Intelligibility Metrics In Context of Reverberation}{134}{subsection.4.1.5}%
 \contentsline {section}{\numberline {4.2}Final Method Used}{140}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Delay-and-Predict Dereverberation Evaluation with Synthetic Reverberation}{140}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Delay-and-Predict Dereverberation Evaluation with Realistic Reverberation}{140}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{144}{chapter.5}%
+\contentsline {section}{\numberline {4.4}Delay-and-Predict Dereverberation Evaluation with Realistic Reverberation}{143}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Impact of Noise on Performance}{145}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Impact of an Interfering Talker on Performance}{151}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{153}{chapter.5}%
