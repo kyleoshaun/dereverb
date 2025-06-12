@@ -117,7 +117,7 @@ else
 end
 
 % Prediction Orders
-T60_max = 250 / 1000;%1000 / 1000;
+T60_max = 1000 / 1000;
 N60_max = T60_max * fs;
 p2 = round(N60_max / (M-1)); % Stage 2 MC-LPC order (Fixed)
 %p2 = round(N60 / (M-1)); % Stage 2 MC-LPC order (Adaptive)

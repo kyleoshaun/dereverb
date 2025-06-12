@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.5)  11 JUN 2025 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.5)  12 JUN 2025 10:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -516,7 +516,7 @@ File: pppdftex.def 2024/01/21 v0.5y Pdfpages driver for pdfTeX (AM)
 )
 \c@subsubsubsection=\count323
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 80.
+h' as default language. on input line 81.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
@@ -528,25 +528,25 @@ File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 (./chap3.aux) (./chap4.aux) (./chap5.aux) (./appendix.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-Package hyperref Info: Link coloring OFF on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+Package hyperref Info: Link coloring OFF on input line 81.
  (./thesis.out)
 (./thesis.out)
 \@outlinefile=\write3
@@ -588,7 +588,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 80.
+or `english'. on input line 81.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -608,22 +608,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.81 \beforepreface
+l.82 \beforepreface
                                          % command to create the parts of yo...
 [1{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
 
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 81
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 82
 .
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -669,7 +669,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \openout2 = `notation.aux'.
 
  (./notation.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 3--90
+Underfull \hbox (badness 10000) in paragraph at lines 3--91
 
  []
 
@@ -731,18 +731,6 @@ or per-fectly time-aligned
  []
 
 [16] [17]
-Overfull \hbox (4.05887pt too wide) in paragraph at lines 33--33
- [][] [][]\OT1/cmr/m/n/12 Delay-and-Predict dere-ver-ber-a-tion per-for-mance f
-or a 10.9 sec-ond speech 
- []
-
-
-Overfull \hbox (0.62509pt too wide) in paragraph at lines 33--33
- \OT1/cmr/m/n/12 same 3.6 sec-ound source 3 times to main-tain the same spec-tr
-um. Source 
- []
-
-
 Overfull \hbox (4.05887pt too wide) in paragraph at lines 34--34
  [][] [][]\OT1/cmr/m/n/12 Delay-and-Predict dere-ver-ber-a-tion per-for-mance f
 or a 10.9 sec-ond speech 
@@ -750,6 +738,18 @@ or a 10.9 sec-ond speech
 
 
 Overfull \hbox (0.62509pt too wide) in paragraph at lines 34--34
+ \OT1/cmr/m/n/12 same 3.6 sec-ound source 3 times to main-tain the same spec-tr
+um. Source 
+ []
+
+
+Overfull \hbox (4.05887pt too wide) in paragraph at lines 35--35
+ [][] [][]\OT1/cmr/m/n/12 Delay-and-Predict dere-ver-ber-a-tion per-for-mance f
+or a 10.9 sec-ond speech 
+ []
+
+
+Overfull \hbox (0.62509pt too wide) in paragraph at lines 35--35
  \OT1/cmr/m/n/12 same 3.6 sec-ound source 3 times to main-tain the same spec-tr
 um. Source 
  []
@@ -1335,12 +1335,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [78]
-<./figures/WienerFilter.png, id=1650, 755.32187pt x 192.21812pt>
+<./figures/WienerFilter.png, id=1658, 755.32187pt x 192.21812pt>
 File: ./figures/WienerFilter.png Graphic file (type png)
 <use ./figures/WienerFilter.png>
 Package pdftex.def Info: ./figures/WienerFilter.png  used on input line 281.
 (pdftex.def)             Requested size: 302.1234pt x 76.88588pt.
-<./figures/supervised_inverse_filter.png, id=1653, 1360.08125pt x 186.19562pt>
+<./figures/supervised_inverse_filter.png, id=1661, 1360.08125pt x 186.19562pt>
 File: ./figures/supervised_inverse_filter.png Graphic file (type png)
 <use ./figures/supervised_inverse_filter.png>
 Package pdftex.def Info: ./figures/supervised_inverse_filter.png  used on input
@@ -1402,7 +1402,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [84]
-<./figures/blind_deconvolution.png, id=1698, 1323.94624pt x 186.6975pt>
+<./figures/blind_deconvolution.png, id=1706, 1323.94624pt x 186.6975pt>
 File: ./figures/blind_deconvolution.png Graphic file (type png)
 <use ./figures/blind_deconvolution.png>
 Package pdftex.def Info: ./figures/blind_deconvolution.png  used on input line 
@@ -1459,7 +1459,7 @@ R_L_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 19.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EIR_L_div_M_minus_1-eps-converted-to.pdf, id=17
-29, 650.43pt x 578.16pt>
+37, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EIR_L_div_M_minus_1-eps-converted-to.pdf G
 raphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EIR_L_div_M_minus_1-eps-converted-to.pdf>
@@ -1480,7 +1480,7 @@ C_L_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EDC_L_div_M_minus_1-eps-converted-to.pdf, id=17
-30, 650.43pt x 578.16pt>
+38, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EDC_L_div_M_minus_1-eps-converted-to.pdf G
 raphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EDC_L_div_M_minus_1-eps-converted-to.pdf>
@@ -1501,7 +1501,7 @@ EIR_N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 35.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EIR_N60_div_M_minus_1-eps-converted-to.pdf, id=
-1731, 650.43pt x 578.16pt>
+1739, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EIR_N60_div_M_minus_1-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EIR_N60_div_M_minus_1-eps-converted-to.pdf>
@@ -1523,7 +1523,7 @@ EDC_N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 39.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EDC_N60_div_M_minus_1-eps-converted-to.pdf, id=
-1732, 650.43pt x 578.16pt>
+1740, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EDC_N60_div_M_minus_1-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EDC_N60_div_M_minus_1-eps-converted-to.pdf>
@@ -1545,7 +1545,7 @@ INT_EIR_0p75N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 51.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf,
- id=1733, 650.43pt x 578.16pt>
+ id=1741, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EIR_0p75N60_div_M_minus_1-eps-converted-to
 .pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EIR_0p75N60_div_M_minus_1-eps-converted-to.
@@ -1567,7 +1567,7 @@ INT_EDC_0p75N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 55.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf,
- id=1734, 650.43pt x 578.16pt>
+ id=1742, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EDC_0p75N60_div_M_minus_1-eps-converted-to
 .pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EDC_0p75N60_div_M_minus_1-eps-converted-to.
@@ -1589,7 +1589,7 @@ NT_EIR_0p5N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 67.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EIR_0p5N60_div_M_minus_1-eps-converted-to.pdf, 
-id=1735, 650.43pt x 578.16pt>
+id=1743, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EIR_0p5N60_div_M_minus_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EIR_0p5N60_div_M_minus_1-eps-converted-to.p
@@ -1611,7 +1611,7 @@ NT_EDC_0p5N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 71.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/MINT_EDC_0p5N60_div_M_minus_1-eps-converted-to.pdf, 
-id=1736, 650.43pt x 578.16pt>
+id=1744, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/MINT_EDC_0p5N60_div_M_minus_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/MINT_EDC_0p5N60_div_M_minus_1-eps-converted-to.p
@@ -1652,7 +1652,7 @@ S1_N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/S1_N60_div_
 M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/MC_LP_Order/S1_N60_div_M_minus_1-eps-converted-to.pdf, id=1811, 
+<./figures/ch3/MC_LP_Order/S1_N60_div_M_minus_1-eps-converted-to.pdf, id=1819, 
 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/S1_N60_div_M_minus_1-eps-converted-to.pdf Graph
 ic file (type pdf)
@@ -1674,7 +1674,7 @@ ualized_RTF_L_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 110.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/Equalized_RTF_L_div_M_minus_1-eps-converted-to.pdf, 
-id=1812, 650.43pt x 578.16pt>
+id=1820, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/Equalized_RTF_L_div_M_minus_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/Equalized_RTF_L_div_M_minus_1-eps-converted-to.p
@@ -1695,7 +1695,7 @@ EIR_L_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EIR_L_div_M_
 minus_1.eps>
 (epstopdf)             \includegraphics on input line 115.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/MC_LP_Order/EIR_L_div_M_minus_1-eps-converted-to.pdf, id=1813, 6
+<./figures/ch3/MC_LP_Order/EIR_L_div_M_minus_1-eps-converted-to.pdf, id=1821, 6
 50.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EIR_L_div_M_minus_1-eps-converted-to.pdf Graphi
 c file (type pdf)
@@ -1716,7 +1716,7 @@ EDC_L_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EDC_L_div_M_
 minus_1.eps>
 (epstopdf)             \includegraphics on input line 120.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/MC_LP_Order/EDC_L_div_M_minus_1-eps-converted-to.pdf, id=1814, 6
+<./figures/ch3/MC_LP_Order/EDC_L_div_M_minus_1-eps-converted-to.pdf, id=1822, 6
 50.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EDC_L_div_M_minus_1-eps-converted-to.pdf Graphi
 c file (type pdf)
@@ -1783,7 +1783,7 @@ EIR_N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EIR_N60_di
 v_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 141.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/MC_LP_Order/EIR_N60_div_M_minus_1-eps-converted-to.pdf, id=1829,
+<./figures/ch3/MC_LP_Order/EIR_N60_div_M_minus_1-eps-converted-to.pdf, id=1837,
  650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EIR_N60_div_M_minus_1-eps-converted-to.pdf Grap
 hic file (type pdf)
@@ -1804,7 +1804,7 @@ EDC_N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EDC_N60_di
 v_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 145.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/MC_LP_Order/EDC_N60_div_M_minus_1-eps-converted-to.pdf, id=1830,
+<./figures/ch3/MC_LP_Order/EDC_N60_div_M_minus_1-eps-converted-to.pdf, id=1838,
  650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EDC_N60_div_M_minus_1-eps-converted-to.pdf Grap
 hic file (type pdf)
@@ -1826,7 +1826,7 @@ EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EIR_0p
 (epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf, id=1
-831, 650.43pt x 578.16pt>
+839, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf>
@@ -1847,7 +1847,7 @@ EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EDC_0p
 (epstopdf)             \includegraphics on input line 153.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf, id=1
-832, 650.43pt x 578.16pt>
+840, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf>
@@ -1868,7 +1868,7 @@ N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 157.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/EIR_0p5N60_div_M_minus_1-eps-converted-to.pdf, id=18
-33, 650.43pt x 578.16pt>
+41, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EIR_0p5N60_div_M_minus_1-eps-converted-to.pdf G
 raphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EIR_0p5N60_div_M_minus_1-eps-converted-to.pdf>
@@ -1889,7 +1889,7 @@ N60_div_M_minus_1.eps>
 (epstopdf)             \includegraphics on input line 161.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/EDC_0p5N60_div_M_minus_1-eps-converted-to.pdf, id=18
-34, 650.43pt x 578.16pt>
+42, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/EDC_0p5N60_div_M_minus_1-eps-converted-to.pdf G
 raphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EDC_0p5N60_div_M_minus_1-eps-converted-to.pdf>
@@ -1934,7 +1934,7 @@ ning_Order/S1_p1_200-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Order/
 S1_p1_200.eps>
 (epstopdf)             \includegraphics on input line 194.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/Source_Whitening_Order/S1_p1_200-eps-converted-to.pdf, id=1918, 
+<./figures/ch3/Source_Whitening_Order/S1_p1_200-eps-converted-to.pdf, id=1926, 
 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/S1_p1_200-eps-converted-to.pdf Graph
 ic file (type pdf)
@@ -1956,7 +1956,7 @@ ning_Order/Equalized_RTF_p1_200.eps>
 (epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_200-eps-converted-to.pdf
-, id=1919, 650.43pt x 578.16pt>
+, id=1927, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_200-eps-converted-t
 o.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_200-eps-converted-to
@@ -1977,7 +1977,7 @@ ning_Order/EIR_p1_200-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Order
 /EIR_p1_200.eps>
 (epstopdf)             \includegraphics on input line 204.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/Source_Whitening_Order/EIR_p1_200-eps-converted-to.pdf, id=1920,
+<./figures/ch3/Source_Whitening_Order/EIR_p1_200-eps-converted-to.pdf, id=1928,
  650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EIR_p1_200-eps-converted-to.pdf Grap
 hic file (type pdf)
@@ -1998,7 +1998,7 @@ ning_Order/EDC_p1_200-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Order
 /EDC_p1_200.eps>
 (epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/Source_Whitening_Order/EDC_p1_200-eps-converted-to.pdf, id=1921,
+<./figures/ch3/Source_Whitening_Order/EDC_p1_200-eps-converted-to.pdf, id=1929,
  650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EDC_p1_200-eps-converted-to.pdf Grap
 hic file (type pdf)
@@ -2065,7 +2065,7 @@ ning_Order/EIR_p1_1000-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Orde
 r/EIR_p1_1000.eps>
 (epstopdf)             \includegraphics on input line 230.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/Source_Whitening_Order/EIR_p1_1000-eps-converted-to.pdf, id=1926
+<./figures/ch3/Source_Whitening_Order/EIR_p1_1000-eps-converted-to.pdf, id=1934
 , 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EIR_p1_1000-eps-converted-to.pdf Gra
 phic file (type pdf)
@@ -2086,7 +2086,7 @@ ning_Order/EDC_p1_1000-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Orde
 r/EDC_p1_1000.eps>
 (epstopdf)             \includegraphics on input line 234.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/Source_Whitening_Order/EDC_p1_1000-eps-converted-to.pdf, id=1927
+<./figures/ch3/Source_Whitening_Order/EDC_p1_1000-eps-converted-to.pdf, id=1935
 , 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EDC_p1_1000-eps-converted-to.pdf Gra
 phic file (type pdf)
@@ -2108,7 +2108,7 @@ ng_Order/EIR_p1_based_on_p2.eps>
 (epstopdf)             \includegraphics on input line 238.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/EIR_p1_based_on_p2-eps-converted-to.pdf, 
-id=1928, 650.43pt x 578.16pt>
+id=1936, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EIR_p1_based_on_p2-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EIR_p1_based_on_p2-eps-converted-to.p
@@ -2130,7 +2130,7 @@ ng_Order/EDC_p1_based_on_p2.eps>
 (epstopdf)             \includegraphics on input line 242.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/EDC_p1_based_on_p2-eps-converted-to.pdf, 
-id=1929, 650.43pt x 578.16pt>
+id=1937, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EDC_p1_based_on_p2-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EDC_p1_based_on_p2-eps-converted-to.p
@@ -2152,7 +2152,7 @@ er/EIR_p1_2x_p2.eps>
 (epstopdf)             \includegraphics on input line 246.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/EIR_p1_2x_p2-eps-converted-to.pdf, id=193
-0, 650.43pt x 578.16pt>
+8, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EIR_p1_2x_p2-eps-converted-to.pdf Gr
 aphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EIR_p1_2x_p2-eps-converted-to.pdf>
@@ -2173,7 +2173,7 @@ er/EDC_p1_2x_p2.eps>
 (epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/EDC_p1_2x_p2-eps-converted-to.pdf, id=193
-1, 650.43pt x 578.16pt>
+9, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/EDC_p1_2x_p2-eps-converted-to.pdf Gr
 aphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EDC_p1_2x_p2-eps-converted-to.pdf>
@@ -2220,7 +2220,7 @@ mple/FullExample_MINT_EDC.eps>
 (epstopdf)             \includegraphics on input line 269.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Spectrogram_Example/FullExample_MINT_EDC-eps-converted-to.pdf, i
-d=2021, 650.43pt x 578.16pt>
+d=2029, 650.43pt x 578.16pt>
 File: ./figures/ch3/Spectrogram_Example/FullExample_MINT_EDC-eps-converted-to.p
 df Graphic file (type pdf)
 <use ./figures/ch3/Spectrogram_Example/FullExample_MINT_EDC-eps-converted-to.pd
@@ -2242,7 +2242,7 @@ gram_Example/FullExample_MINT_Spectrogram.eps>
 (epstopdf)             \includegraphics on input line 273.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Spectrogram_Example/FullExample_MINT_Spectrogram-eps-converted-t
-o.pdf, id=2022, 1011.78pt x 722.7pt>
+o.pdf, id=2030, 1011.78pt x 722.7pt>
 File: ./figures/ch3/Spectrogram_Example/FullExample_MINT_Spectrogram-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Spectrogram_Example/FullExample_MINT_Spectrogram-eps-convert
@@ -2264,7 +2264,7 @@ _Example/FullExample_NotBlind_EDC.eps>
 (epstopdf)             \includegraphics on input line 284.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Spectrogram_Example/FullExample_NotBlind_EDC-eps-converted-to.pd
-f, id=2023, 650.43pt x 578.16pt>
+f, id=2031, 650.43pt x 578.16pt>
 File: ./figures/ch3/Spectrogram_Example/FullExample_NotBlind_EDC-eps-converted-
 to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Spectrogram_Example/FullExample_NotBlind_EDC-eps-converted-t
@@ -2286,7 +2286,7 @@ ctrogram_Example/FullExample_NotBlind_Spectrogram.eps>
 (epstopdf)             \includegraphics on input line 288.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Spectrogram_Example/FullExample_NotBlind_Spectrogram-eps-convert
-ed-to.pdf, id=2024, 1011.78pt x 722.7pt>
+ed-to.pdf, id=2032, 1011.78pt x 722.7pt>
 File: ./figures/ch3/Spectrogram_Example/FullExample_NotBlind_Spectrogram-eps-co
 nverted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Spectrogram_Example/FullExample_NotBlind_Spectrogram-eps-con
@@ -2308,7 +2308,7 @@ ample/FullExample_Blind_EDC.eps>
 (epstopdf)             \includegraphics on input line 299.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Spectrogram_Example/FullExample_Blind_EDC-eps-converted-to.pdf, 
-id=2025, 650.43pt x 578.16pt>
+id=2033, 650.43pt x 578.16pt>
 File: ./figures/ch3/Spectrogram_Example/FullExample_Blind_EDC-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Spectrogram_Example/FullExample_Blind_EDC-eps-converted-to.p
@@ -2330,7 +2330,7 @@ ogram_Example/FullExample_Blind_Spectrogram.eps>
 (epstopdf)             \includegraphics on input line 303.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Spectrogram_Example/FullExample_Blind_Spectrogram-eps-converted-
-to.pdf, id=2026, 1011.78pt x 722.7pt>
+to.pdf, id=2034, 1011.78pt x 722.7pt>
 File: ./figures/ch3/Spectrogram_Example/FullExample_Blind_Spectrogram-eps-conve
 rted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Spectrogram_Example/FullExample_Blind_Spectrogram-eps-conver
@@ -2364,7 +2364,7 @@ ourceLength_1_Blind.eps>
 (epstopdf)             \includegraphics on input line 331.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/S1_SourceLength_1_Blind-eps-converted-to.pdf, id=2
-072, 650.43pt x 578.16pt>
+080, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/S1_SourceLength_1_Blind-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_1_Blind-eps-converted-to.pdf>
@@ -2385,7 +2385,7 @@ Length/Equalized_RTF_SourceLength_1_Blind.eps>
 (epstopdf)             \includegraphics on input line 335.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_Blind-eps-converted-t
-o.pdf, id=2073, 650.43pt x 578.16pt>
+o.pdf, id=2081, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_Blind-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_Blind-eps-convert
@@ -2407,7 +2407,7 @@ _SourceLength_1_Blind.eps>
 (epstopdf)             \includegraphics on input line 339.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EDC_SourceLength_1_Blind-eps-converted-to.pdf, id=
-2074, 650.43pt x 578.16pt>
+2082, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EDC_SourceLength_1_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_1_Blind-eps-converted-to.pdf>
@@ -2429,7 +2429,7 @@ ourceLength_2_Blind.eps>
 (epstopdf)             \includegraphics on input line 343.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/S1_SourceLength_2_Blind-eps-converted-to.pdf, id=2
-075, 650.43pt x 578.16pt>
+083, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/S1_SourceLength_2_Blind-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_2_Blind-eps-converted-to.pdf>
@@ -2450,7 +2450,7 @@ Length/Equalized_RTF_SourceLength_2_Blind.eps>
 (epstopdf)             \includegraphics on input line 347.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_2_Blind-eps-converted-t
-o.pdf, id=2076, 650.43pt x 578.16pt>
+o.pdf, id=2084, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_2_Blind-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_2_Blind-eps-convert
@@ -2472,7 +2472,7 @@ _SourceLength_2_Blind.eps>
 (epstopdf)             \includegraphics on input line 351.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EDC_SourceLength_2_Blind-eps-converted-to.pdf, id=
-2077, 722.7pt x 578.16pt>
+2085, 722.7pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EDC_SourceLength_2_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_2_Blind-eps-converted-to.pdf>
@@ -2494,7 +2494,7 @@ ourceLength_3_Blind.eps>
 (epstopdf)             \includegraphics on input line 355.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/S1_SourceLength_3_Blind-eps-converted-to.pdf, id=2
-078, 650.43pt x 578.16pt>
+086, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/S1_SourceLength_3_Blind-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_3_Blind-eps-converted-to.pdf>
@@ -2515,7 +2515,7 @@ Length/Equalized_RTF_SourceLength_3_Blind.eps>
 (epstopdf)             \includegraphics on input line 359.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_Blind-eps-converted-t
-o.pdf, id=2079, 650.43pt x 578.16pt>
+o.pdf, id=2087, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_Blind-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_Blind-eps-convert
@@ -2537,7 +2537,7 @@ _SourceLength_3_Blind.eps>
 (epstopdf)             \includegraphics on input line 363.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EDC_SourceLength_3_Blind-eps-converted-to.pdf, id=
-2080, 650.43pt x 578.16pt>
+2088, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EDC_SourceLength_3_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_3_Blind-eps-converted-to.pdf>
@@ -2559,7 +2559,7 @@ ourceLength_4_Blind.eps>
 (epstopdf)             \includegraphics on input line 367.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/S1_SourceLength_4_Blind-eps-converted-to.pdf, id=2
-081, 650.43pt x 578.16pt>
+089, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/S1_SourceLength_4_Blind-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_4_Blind-eps-converted-to.pdf>
@@ -2580,7 +2580,7 @@ Length/Equalized_RTF_SourceLength_4_Blind.eps>
 (epstopdf)             \includegraphics on input line 371.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_4_Blind-eps-converted-t
-o.pdf, id=2082, 650.43pt x 578.16pt>
+o.pdf, id=2090, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_4_Blind-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_4_Blind-eps-convert
@@ -2602,7 +2602,7 @@ _SourceLength_4_Blind.eps>
 (epstopdf)             \includegraphics on input line 375.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EDC_SourceLength_4_Blind-eps-converted-to.pdf, id=
-2083, 722.7pt x 578.16pt>
+2091, 722.7pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EDC_SourceLength_4_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_4_Blind-eps-converted-to.pdf>
@@ -2660,7 +2660,7 @@ rum/S1_SourceSpectrum_100msecWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch
 (epstopdf)             \includegraphics on input line 414.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_100msecWhiteNoise_Blind-eps-co
-nverted-to.pdf, id=2213, 650.43pt x 578.16pt>
+nverted-to.pdf, id=2221, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_100msecWhiteNoise_Blind-e
 ps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_100msecWhiteNoise_Blind-ep
@@ -2683,7 +2683,7 @@ nd.eps>
 (epstopdf)             \includegraphics on input line 418.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_100msecWhiteNoise_B
-lind-eps-converted-to.pdf, id=2214, 650.43pt x 578.16pt>
+lind-eps-converted-to.pdf, id=2222, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_100msecWhiteNo
 ise_Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_100msecWhiteNoi
@@ -2705,7 +2705,7 @@ h3/Source_Spectrum/EDC_SourceSpectrum_100msecWhiteNoise_Blind.eps>
 (epstopdf)             \includegraphics on input line 422.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_100msecWhiteNoise_Blind-eps-c
-onverted-to.pdf, id=2215, 722.7pt x 578.16pt>
+onverted-to.pdf, id=2223, 722.7pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_100msecWhiteNoise_Blind-
 eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_100msecWhiteNoise_Blind-e
@@ -2727,7 +2727,7 @@ ource_Spectrum/S1_SourceSpectrum_1secWhiteNoise_Blind.eps>
 (epstopdf)             \includegraphics on input line 426.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_Blind-eps-conve
-rted-to.pdf, id=2216, 650.43pt x 578.16pt>
+rted-to.pdf, id=2224, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_Blind-eps-
 converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_Blind-eps-c
@@ -2750,7 +2750,7 @@ gures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_Blind.eps
 (epstopdf)             \includegraphics on input line 430.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_Blin
-d-eps-converted-to.pdf, id=2217, 650.43pt x 578.16pt>
+d-eps-converted-to.pdf, id=2225, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise
 _Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_
@@ -2772,7 +2772,7 @@ Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_Blind.eps>
 (epstopdf)             \includegraphics on input line 434.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_Blind-eps-conv
-erted-to.pdf, id=2218, 650.43pt x 578.16pt>
+erted-to.pdf, id=2226, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_Blind-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_Blind-eps-
@@ -2794,7 +2794,7 @@ Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_Blind.eps>
 (epstopdf)             \includegraphics on input line 438.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_Blind-eps-conv
-erted-to.pdf, id=2219, 650.43pt x 578.16pt>
+erted-to.pdf, id=2227, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_Blind-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_Blind-eps-
@@ -2817,7 +2817,7 @@ ps>
 (epstopdf)             \includegraphics on input line 442.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNoise_Bli
-nd-eps-converted-to.pdf, id=2220, 650.43pt x 578.16pt>
+nd-eps-converted-to.pdf, id=2228, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNois
 e_Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNoise
@@ -2839,7 +2839,7 @@ rum/EDC_SourceSpectrum_10secWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch3
 (epstopdf)             \includegraphics on input line 446.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_Blind-eps-con
-verted-to.pdf, id=2221, 650.43pt x 578.16pt>
+verted-to.pdf, id=2229, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_Blind-ep
 s-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_Blind-eps
@@ -2880,7 +2880,7 @@ ures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter1_Blind.eps>
 (epstopdf)             \includegraphics on input line 458.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter1_Blind
--eps-converted-to.pdf, id=2299, 650.43pt x 578.16pt>
+-eps-converted-to.pdf, id=2307, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter1_
 Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter1_B
@@ -2903,7 +2903,7 @@ se_filter1_Blind.eps>
 (epstopdf)             \includegraphics on input line 462.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNoise_fi
-lter1_Blind-eps-converted-to.pdf, id=2300, 650.43pt x 578.16pt>
+lter1_Blind-eps-converted-to.pdf, id=2308, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNoi
 se_filter1_Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNois
@@ -2927,7 +2927,7 @@ gures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter1_Blind.eps
 (epstopdf)             \includegraphics on input line 466.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter1_Blin
-d-eps-converted-to.pdf, id=2301, 650.43pt x 578.16pt>
+d-eps-converted-to.pdf, id=2309, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter1
 _Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter1_
@@ -2949,7 +2949,7 @@ ures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter2_Blind.eps>
 (epstopdf)             \includegraphics on input line 470.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter2_Blind
--eps-converted-to.pdf, id=2302, 650.43pt x 578.16pt>
+-eps-converted-to.pdf, id=2310, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter2_
 Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter2_B
@@ -2972,7 +2972,7 @@ se_filter2_Blind.eps>
 (epstopdf)             \includegraphics on input line 474.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNoise_fi
-lter2_Blind-eps-converted-to.pdf, id=2303, 650.43pt x 578.16pt>
+lter2_Blind-eps-converted-to.pdf, id=2311, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNoi
 se_filter2_Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNois
@@ -2996,7 +2996,7 @@ gures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter2_Blind.eps
 (epstopdf)             \includegraphics on input line 478.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter2_Blin
-d-eps-converted-to.pdf, id=2304, 650.43pt x 578.16pt>
+d-eps-converted-to.pdf, id=2312, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter2
 _Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter2_
@@ -3018,7 +3018,7 @@ ures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter3_Blind.eps>
 (epstopdf)             \includegraphics on input line 482.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter3_Blind
--eps-converted-to.pdf, id=2305, 650.43pt x 578.16pt>
+-eps-converted-to.pdf, id=2313, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter3_
 Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secShapedNoise_filter3_B
@@ -3041,7 +3041,7 @@ se_filter3_Blind.eps>
 (epstopdf)             \includegraphics on input line 486.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNoise_fi
-lter3_Blind-eps-converted-to.pdf, id=2306, 650.43pt x 578.16pt>
+lter3_Blind-eps-converted-to.pdf, id=2314, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNoi
 se_filter3_Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secShapedNois
@@ -3065,7 +3065,7 @@ gures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter3_Blind.eps
 (epstopdf)             \includegraphics on input line 490.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter3_Blin
-d-eps-converted-to.pdf, id=2307, 650.43pt x 578.16pt>
+d-eps-converted-to.pdf, id=2315, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter3
 _Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secShapedNoise_filter3_
@@ -3108,7 +3108,7 @@ ay.eps>
 (epstopdf)             \includegraphics on input line 514.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/MC_EIR_TimeAlignment_2sampleD
-elay-eps-converted-to.pdf, id=2385, 1156.32pt x 786.94pt>
+elay-eps-converted-to.pdf, id=2393, 1156.32pt x 786.94pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/MC_EIR_TimeAlignment_2sa
 mpleDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/MC_EIR_TimeAlignment_2sam
@@ -3140,7 +3140,7 @@ gures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_2sampleDelay.eps
 (epstopdf)             \includegraphics on input line 528.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_2sampleDela
-y-eps-converted-to.pdf, id=2398, 650.43pt x 578.16pt>
+y-eps-converted-to.pdf, id=2406, 650.43pt x 578.16pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_2sampl
 eDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_2sample
@@ -3163,7 +3163,7 @@ ent_2sampleDelay.eps>
 (epstopdf)             \includegraphics on input line 533.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/Equalized_RTF_TimeAlignment_2
-sampleDelay-eps-converted-to.pdf, id=2399, 650.43pt x 578.16pt>
+sampleDelay-eps-converted-to.pdf, id=2407, 650.43pt x 578.16pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/Equalized_RTF_TimeAlignm
 ent_2sampleDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/Equalized_RTF_TimeAlignme
@@ -3187,7 +3187,7 @@ gures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_2sampleDelay.eps
 (epstopdf)             \includegraphics on input line 538.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_2sampleDela
-y-eps-converted-to.pdf, id=2400, 650.43pt x 578.16pt>
+y-eps-converted-to.pdf, id=2408, 650.43pt x 578.16pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_2sampl
 eDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_2sample
@@ -3210,7 +3210,7 @@ ay.eps>
 (epstopdf)             \includegraphics on input line 549.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/MC_EIR_TimeAlignment_0sampleD
-elay-eps-converted-to.pdf, id=2401, 1156.32pt x 786.94pt>
+elay-eps-converted-to.pdf, id=2409, 1156.32pt x 786.94pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/MC_EIR_TimeAlignment_0sa
 mpleDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/MC_EIR_TimeAlignment_0sam
@@ -3233,7 +3233,7 @@ gures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_0sampleDelay.eps
 (epstopdf)             \includegraphics on input line 559.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_0sampleDela
-y-eps-converted-to.pdf, id=2402, 650.43pt x 578.16pt>
+y-eps-converted-to.pdf, id=2410, 650.43pt x 578.16pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_0sampl
 eDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/EIR_TimeAlignment_0sample
@@ -3256,7 +3256,7 @@ ent_0sampleDelay.eps>
 (epstopdf)             \includegraphics on input line 564.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/Equalized_RTF_TimeAlignment_0
-sampleDelay-eps-converted-to.pdf, id=2403, 650.43pt x 578.16pt>
+sampleDelay-eps-converted-to.pdf, id=2411, 650.43pt x 578.16pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/Equalized_RTF_TimeAlignm
 ent_0sampleDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/Equalized_RTF_TimeAlignme
@@ -3280,7 +3280,7 @@ gures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_0sampleDelay.eps
 (epstopdf)             \includegraphics on input line 569.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_0sampleDela
-y-eps-converted-to.pdf, id=2404, 650.43pt x 578.16pt>
+y-eps-converted-to.pdf, id=2412, 650.43pt x 578.16pt>
 File: ./figures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_0sampl
 eDelay-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Time_Alignment_and_Linear_Combiner/EDC_TimeAlignment_0sample
@@ -3301,91 +3301,93 @@ Equalized_RTF_TimeAlignment_2sampleDelay-eps-converted-to.pdf> <./figures/ch3/T
 ime_Alignment_and_Linear_Combiner/EDC_TimeAlignment_2sampleDelay-eps-converted-
 to.pdf> <./figures/ch3/Time_Alignment_and_Linear_Combiner/MC_EIR_TimeAlignment_
 0sampleDelay-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_ops_co
-mparison.eps>
-(epstopdf)                    date: 2025-06-04 12:13:51
-(epstopdf)                    size: 17699 bytes
-(epstopdf)             Output file: <./figures/ch3/complexity/complexity_ops_co
-mparison-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-06-04 12:26:42
-(epstopdf)                    size: 8572 bytes
-(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
-omplexity_ops_comparison-eps-converted-to.pdf ./figures/ch3/complexity/complexi
-ty_ops_comparison.eps>
-(epstopdf)             \includegraphics on input line 584.
+Package epstopdf Info: Source file: <./figures/ch3/Regularization/EIR_500T60_No
+Regularization.eps>
+(epstopdf)                    date: 2025-06-12 10:00:50
+(epstopdf)                    size: 581876 bytes
+(epstopdf)             Output file: <./figures/ch3/Regularization/EIR_500T60_No
+Regularization-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-12 10:18:29
+(epstopdf)                    size: 148205 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Regularizati
+on/EIR_500T60_NoRegularization-eps-converted-to.pdf ./figures/ch3/Regularizatio
+n/EIR_500T60_NoRegularization.eps>
+(epstopdf)             \includegraphics on input line 588.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pdf, id=24
-41, 722.7pt x 578.16pt>
-File: ./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pdf G
-raphic file (type pdf)
-<use ./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pdf>
-Package pdftex.def Info: ./figures/ch3/complexity/complexity_ops_comparison-eps
--converted-to.pdf  used on input line 584.
+<./figures/ch3/Regularization/EIR_500T60_NoRegularization-eps-converted-to.pdf,
+ id=2449, 722.7pt x 578.16pt>
+File: ./figures/ch3/Regularization/EIR_500T60_NoRegularization-eps-converted-to
+.pdf Graphic file (type pdf)
+<use ./figures/ch3/Regularization/EIR_500T60_NoRegularization-eps-converted-to.
+pdf>
+Package pdftex.def Info: ./figures/ch3/Regularization/EIR_500T60_NoRegularizati
+on-eps-converted-to.pdf  used on input line 588.
 (pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
-Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_ops_co
-mparison_zoomed.eps>
-(epstopdf)                    date: 2025-06-04 12:19:20
-(epstopdf)                    size: 17793 bytes
-(epstopdf)             Output file: <./figures/ch3/complexity/complexity_ops_co
-mparison_zoomed-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-06-04 12:26:42
-(epstopdf)                    size: 8630 bytes
-(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
-omplexity_ops_comparison_zoomed-eps-converted-to.pdf ./figures/ch3/complexity/c
-omplexity_ops_comparison_zoomed.eps>
-(epstopdf)             \includegraphics on input line 589.
+Package epstopdf Info: Source file: <./figures/ch3/Regularization/EDC_500T60_No
+Regularization.eps>
+(epstopdf)                    date: 2025-06-12 09:57:48
+(epstopdf)                    size: 455392 bytes
+(epstopdf)             Output file: <./figures/ch3/Regularization/EDC_500T60_No
+Regularization-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-12 10:18:53
+(epstopdf)                    size: 144325 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Regularizati
+on/EDC_500T60_NoRegularization-eps-converted-to.pdf ./figures/ch3/Regularizatio
+n/EDC_500T60_NoRegularization.eps>
+(epstopdf)             \includegraphics on input line 593.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-to.pdf
-, id=2442, 722.7pt x 578.16pt>
-File: ./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-t
-o.pdf Graphic file (type pdf)
-<use ./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-to
-.pdf>
-Package pdftex.def Info: ./figures/ch3/complexity/complexity_ops_comparison_zoo
-med-eps-converted-to.pdf  used on input line 589.
+<./figures/ch3/Regularization/EDC_500T60_NoRegularization-eps-converted-to.pdf,
+ id=2450, 722.7pt x 578.16pt>
+File: ./figures/ch3/Regularization/EDC_500T60_NoRegularization-eps-converted-to
+.pdf Graphic file (type pdf)
+<use ./figures/ch3/Regularization/EDC_500T60_NoRegularization-eps-converted-to.
+pdf>
+Package pdftex.def Info: ./figures/ch3/Regularization/EDC_500T60_NoRegularizati
+on-eps-converted-to.pdf  used on input line 593.
 (pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
-Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_mem_co
-mparison.eps>
-(epstopdf)                    date: 2025-06-04 12:11:29
-(epstopdf)                    size: 16411 bytes
-(epstopdf)             Output file: <./figures/ch3/complexity/complexity_mem_co
-mparison-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-06-04 12:26:43
-(epstopdf)                    size: 8049 bytes
-(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
-omplexity_mem_comparison-eps-converted-to.pdf ./figures/ch3/complexity/complexi
-ty_mem_comparison.eps>
+Package epstopdf Info: Source file: <./figures/ch3/Regularization/EIR_500T60_wR
+egularization.eps>
+(epstopdf)                    date: 2025-06-12 10:09:20
+(epstopdf)                    size: 585450 bytes
+(epstopdf)             Output file: <./figures/ch3/Regularization/EIR_500T60_wR
+egularization-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-12 10:18:30
+(epstopdf)                    size: 136405 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Regularizati
+on/EIR_500T60_wRegularization-eps-converted-to.pdf ./figures/ch3/Regularization
+/EIR_500T60_wRegularization.eps>
 (epstopdf)             \includegraphics on input line 599.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf, id=24
-43, 722.7pt x 578.16pt>
-File: ./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf G
-raphic file (type pdf)
-<use ./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf>
-Package pdftex.def Info: ./figures/ch3/complexity/complexity_mem_comparison-eps
--converted-to.pdf  used on input line 599.
-(pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
-Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_mem_co
-mparison_zoomed.eps>
-(epstopdf)                    date: 2025-06-04 12:19:35
-(epstopdf)                    size: 16998 bytes
-(epstopdf)             Output file: <./figures/ch3/complexity/complexity_mem_co
-mparison_zoomed-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-06-04 12:26:43
-(epstopdf)                    size: 8711 bytes
-(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
-omplexity_mem_comparison_zoomed-eps-converted-to.pdf ./figures/ch3/complexity/c
-omplexity_mem_comparison_zoomed.eps>
+<./figures/ch3/Regularization/EIR_500T60_wRegularization-eps-converted-to.pdf, 
+id=2451, 650.43pt x 578.16pt>
+File: ./figures/ch3/Regularization/EIR_500T60_wRegularization-eps-converted-to.
+pdf Graphic file (type pdf)
+<use ./figures/ch3/Regularization/EIR_500T60_wRegularization-eps-converted-to.p
+df>
+Package pdftex.def Info: ./figures/ch3/Regularization/EIR_500T60_wRegularizatio
+n-eps-converted-to.pdf  used on input line 599.
+(pdftex.def)             Requested size: 195.12767pt x 173.4405pt.
+Package epstopdf Info: Source file: <./figures/ch3/Regularization/EDC_500T60_wR
+egularization.eps>
+(epstopdf)                    date: 2025-06-12 10:08:31
+(epstopdf)                    size: 355786 bytes
+(epstopdf)             Output file: <./figures/ch3/Regularization/EDC_500T60_wR
+egularization-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-12 10:18:54
+(epstopdf)                    size: 116854 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Regularizati
+on/EDC_500T60_wRegularization-eps-converted-to.pdf ./figures/ch3/Regularization
+/EDC_500T60_wRegularization.eps>
 (epstopdf)             \includegraphics on input line 604.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-to.pdf
-, id=2444, 722.7pt x 578.16pt>
-File: ./figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-t
-o.pdf Graphic file (type pdf)
-<use ./figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-to
-.pdf>
-Package pdftex.def Info: ./figures/ch3/complexity/complexity_mem_comparison_zoo
-med-eps-converted-to.pdf  used on input line 604.
+<./figures/ch3/Regularization/EDC_500T60_wRegularization-eps-converted-to.pdf, 
+id=2452, 722.7pt x 578.16pt>
+File: ./figures/ch3/Regularization/EDC_500T60_wRegularization-eps-converted-to.
+pdf Graphic file (type pdf)
+<use ./figures/ch3/Regularization/EDC_500T60_wRegularization-eps-converted-to.p
+df>
+Package pdftex.def Info: ./figures/ch3/Regularization/EDC_500T60_wRegularizatio
+n-eps-converted-to.pdf  used on input line 604.
 (pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
 
 
@@ -3398,9 +3400,116 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 eDelay-eps-converted-to.pdf> <./figures/ch3/Time_Alignment_and_Linear_Combiner/
 Equalized_RTF_TimeAlignment_0sampleDelay-eps-converted-to.pdf> <./figures/ch3/T
 ime_Alignment_and_Linear_Combiner/EDC_TimeAlignment_0sampleDelay-eps-converted-
-to.pdf> <./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pd
-f> <./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-to.
-pdf>]
+to.pdf>]
+Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_ops_co
+mparison.eps>
+(epstopdf)                    date: 2025-06-04 12:13:51
+(epstopdf)                    size: 17699 bytes
+(epstopdf)             Output file: <./figures/ch3/complexity/complexity_ops_co
+mparison-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-04 12:26:42
+(epstopdf)                    size: 8572 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
+omplexity_ops_comparison-eps-converted-to.pdf ./figures/ch3/complexity/complexi
+ty_ops_comparison.eps>
+(epstopdf)             \includegraphics on input line 620.
+Package epstopdf Info: Output file is already uptodate.
+<./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pdf, id=24
+81, 722.7pt x 578.16pt>
+File: ./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pdf G
+raphic file (type pdf)
+<use ./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/ch3/complexity/complexity_ops_comparison-eps
+-converted-to.pdf  used on input line 620.
+(pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
+Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_ops_co
+mparison_zoomed.eps>
+(epstopdf)                    date: 2025-06-04 12:19:20
+(epstopdf)                    size: 17793 bytes
+(epstopdf)             Output file: <./figures/ch3/complexity/complexity_ops_co
+mparison_zoomed-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-04 12:26:42
+(epstopdf)                    size: 8630 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
+omplexity_ops_comparison_zoomed-eps-converted-to.pdf ./figures/ch3/complexity/c
+omplexity_ops_comparison_zoomed.eps>
+(epstopdf)             \includegraphics on input line 625.
+Package epstopdf Info: Output file is already uptodate.
+<./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-to.pdf
+, id=2482, 722.7pt x 578.16pt>
+File: ./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-t
+o.pdf Graphic file (type pdf)
+<use ./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-to
+.pdf>
+Package pdftex.def Info: ./figures/ch3/complexity/complexity_ops_comparison_zoo
+med-eps-converted-to.pdf  used on input line 625.
+(pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[106 <./figures/ch3/Regularization/EIR_500T60_NoRegularization-eps-converted-to
+.pdf> <./figures/ch3/Regularization/EDC_500T60_NoRegularization-eps-converted-t
+o.pdf> <./figures/ch3/Regularization/EIR_500T60_wRegularization-eps-converted-t
+o.pdf> <./figures/ch3/Regularization/EDC_500T60_wRegularization-eps-converted-t
+o.pdf>]
+Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_mem_co
+mparison.eps>
+(epstopdf)                    date: 2025-06-04 12:11:29
+(epstopdf)                    size: 16411 bytes
+(epstopdf)             Output file: <./figures/ch3/complexity/complexity_mem_co
+mparison-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-04 12:26:43
+(epstopdf)                    size: 8049 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
+omplexity_mem_comparison-eps-converted-to.pdf ./figures/ch3/complexity/complexi
+ty_mem_comparison.eps>
+(epstopdf)             \includegraphics on input line 635.
+Package epstopdf Info: Output file is already uptodate.
+<./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf, id=25
+20, 722.7pt x 578.16pt>
+File: ./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf G
+raphic file (type pdf)
+<use ./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf>
+Package pdftex.def Info: ./figures/ch3/complexity/complexity_mem_comparison-eps
+-converted-to.pdf  used on input line 635.
+(pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
+Package epstopdf Info: Source file: <./figures/ch3/complexity/complexity_mem_co
+mparison_zoomed.eps>
+(epstopdf)                    date: 2025-06-04 12:19:35
+(epstopdf)                    size: 16998 bytes
+(epstopdf)             Output file: <./figures/ch3/complexity/complexity_mem_co
+mparison_zoomed-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-06-04 12:26:43
+(epstopdf)                    size: 8711 bytes
+(epstopdf)             Command: <repstopdf --outfile=./figures/ch3/complexity/c
+omplexity_mem_comparison_zoomed-eps-converted-to.pdf ./figures/ch3/complexity/c
+omplexity_mem_comparison_zoomed.eps>
+(epstopdf)             \includegraphics on input line 640.
+Package epstopdf Info: Output file is already uptodate.
+<./figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-to.pdf
+, id=2521, 722.7pt x 578.16pt>
+File: ./figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-t
+o.pdf Graphic file (type pdf)
+<use ./figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-to
+.pdf>
+Package pdftex.def Info: ./figures/ch3/complexity/complexity_mem_comparison_zoo
+med-eps-converted-to.pdf  used on input line 640.
+(pdftex.def)             Requested size: 195.12767pt x 156.09645pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[107 <./figures/ch3/complexity/complexity_ops_comparison-eps-converted-to.pdf> 
+<./figures/ch3/complexity/complexity_ops_comparison_zoomed-eps-converted-to.pdf
+> <./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf> <./
+figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/Equalized_RTF_N6
 0_div_M_minus_1.eps>
 (epstopdf)                    date: 2025-05-11 09:50:39
@@ -3412,16 +3521,16 @@ Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/Equalized_RTF_N6
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 Equalized_RTF_N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/
 Equalized_RTF_N60_div_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 633.
+(epstopdf)             \includegraphics on input line 669.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/Equalized_RTF_N60_div_M_minus_1-eps-converted-to.pdf
-, id=2490, 650.43pt x 578.16pt>
+, id=2559, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/Equalized_RTF_N60_div_M_minus_1-eps-converted-t
 o.pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/Equalized_RTF_N60_div_M_minus_1-eps-converted-to
 .pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/Equalized_RTF_N60_div_M_minu
-s_1-eps-converted-to.pdf  used on input line 633.
+s_1-eps-converted-to.pdf  used on input line 669.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/EIR_N60_div_M_mi
 nus_1.eps>
@@ -3434,13 +3543,13 @@ nus_1-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 EIR_N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EIR_N60_di
 v_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 638.
+(epstopdf)             \includegraphics on input line 674.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/MC_LP_Order/EIR_N60_div_M_minus_1-eps-converted-to.pdf Grap
 hic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EIR_N60_div_M_minus_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/EIR_N60_div_M_minus_1-eps-co
-nverted-to.pdf  used on input line 638.
+nverted-to.pdf  used on input line 674.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/EDC_N60_div_M_mi
 nus_1.eps>
@@ -3453,24 +3562,14 @@ nus_1-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 EDC_N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EDC_N60_di
 v_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 643.
+(epstopdf)             \includegraphics on input line 679.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/MC_LP_Order/EDC_N60_div_M_minus_1-eps-converted-to.pdf Grap
 hic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EDC_N60_div_M_minus_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/EDC_N60_div_M_minus_1-eps-co
-nverted-to.pdf  used on input line 643.
+nverted-to.pdf  used on input line 679.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[106 <./figures/ch3/complexity/complexity_mem_comparison-eps-converted-to.pdf> 
-<./figures/ch3/complexity/complexity_mem_comparison_zoomed-eps-converted-to.pdf
->]
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/Equalized_RTF_0p
 75N60_div_M_minus_1.eps>
 (epstopdf)                    date: 2025-05-11 09:51:12
@@ -3482,16 +3581,16 @@ Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/Equalized_RTF_0p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 Equalized_RTF_0p75N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Or
 der/Equalized_RTF_0p75N60_div_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 661.
+(epstopdf)             \includegraphics on input line 697.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/Equalized_RTF_0p75N60_div_M_minus_1-eps-converted-to
-.pdf, id=2513, 650.43pt x 578.16pt>
+.pdf, id=2562, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/Equalized_RTF_0p75N60_div_M_minus_1-eps-convert
 ed-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/Equalized_RTF_0p75N60_div_M_minus_1-eps-converte
 d-to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/Equalized_RTF_0p75N60_div_M_
-minus_1-eps-converted-to.pdf  used on input line 661.
+minus_1-eps-converted-to.pdf  used on input line 697.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/EIR_0p75N60_div_
 M_minus_1.eps>
@@ -3504,13 +3603,13 @@ M_minus_1-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EIR_0p
 75N60_div_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 666.
+(epstopdf)             \includegraphics on input line 702.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/MC_LP_Order/EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EIR_0p75N60_div_M_minus_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/EIR_0p75N60_div_M_minus_1-ep
-s-converted-to.pdf  used on input line 666.
+s-converted-to.pdf  used on input line 702.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/EDC_0p75N60_div_
 M_minus_1.eps>
@@ -3523,14 +3622,23 @@ M_minus_1-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EDC_0p
 75N60_div_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 671.
+(epstopdf)             \includegraphics on input line 707.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/MC_LP_Order/EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EDC_0p75N60_div_M_minus_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/EDC_0p75N60_div_M_minus_1-ep
-s-converted-to.pdf  used on input line 671.
+s-converted-to.pdf  used on input line 707.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[108 <./figures/ch3/MC_LP_Order/Equalized_RTF_N60_div_M_minus_1-eps-converted-t
+o.pdf>]
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/Equalized_RTF_0p
 5N60_div_M_minus_1.eps>
 (epstopdf)                    date: 2025-05-11 09:51:41
@@ -3542,16 +3650,16 @@ Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/Equalized_RTF_0p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 Equalized_RTF_0p5N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Ord
 er/Equalized_RTF_0p5N60_div_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 689.
+(epstopdf)             \includegraphics on input line 725.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/MC_LP_Order/Equalized_RTF_0p5N60_div_M_minus_1-eps-converted-to.
-pdf, id=2516, 650.43pt x 578.16pt>
+pdf, id=2577, 650.43pt x 578.16pt>
 File: ./figures/ch3/MC_LP_Order/Equalized_RTF_0p5N60_div_M_minus_1-eps-converte
 d-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/Equalized_RTF_0p5N60_div_M_minus_1-eps-converted
 -to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/Equalized_RTF_0p5N60_div_M_m
-inus_1-eps-converted-to.pdf  used on input line 689.
+inus_1-eps-converted-to.pdf  used on input line 725.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/EIR_0p5N60_div_M
 _minus_1.eps>
@@ -3564,13 +3672,13 @@ _minus_1-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 EIR_0p5N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EIR_0p5
 N60_div_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 694.
+(epstopdf)             \includegraphics on input line 730.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/MC_LP_Order/EIR_0p5N60_div_M_minus_1-eps-converted-to.pdf G
 raphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EIR_0p5N60_div_M_minus_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/EIR_0p5N60_div_M_minus_1-eps
--converted-to.pdf  used on input line 694.
+-converted-to.pdf  used on input line 730.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
 Package epstopdf Info: Source file: <./figures/ch3/MC_LP_Order/EDC_0p5N60_div_M
 _minus_1.eps>
@@ -3583,24 +3691,14 @@ _minus_1-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/MC_LP_Order/
 EDC_0p5N60_div_M_minus_1-eps-converted-to.pdf ./figures/ch3/MC_LP_Order/EDC_0p5
 N60_div_M_minus_1.eps>
-(epstopdf)             \includegraphics on input line 699.
+(epstopdf)             \includegraphics on input line 735.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/MC_LP_Order/EDC_0p5N60_div_M_minus_1-eps-converted-to.pdf G
 raphic file (type pdf)
 <use ./figures/ch3/MC_LP_Order/EDC_0p5N60_div_M_minus_1-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/MC_LP_Order/EDC_0p5N60_div_M_minus_1-eps
--converted-to.pdf  used on input line 699.
+-converted-to.pdf  used on input line 735.
 (pdftex.def)             Requested size: 138.76157pt x 123.34038pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[107 <./figures/ch3/MC_LP_Order/Equalized_RTF_N60_div_M_minus_1-eps-converted-t
-o.pdf> <./figures/ch3/MC_LP_Order/Equalized_RTF_0p75N60_div_M_minus_1-eps-conve
-rted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/S1_p1
 _1000.eps>
 (epstopdf)                    date: 2025-05-11 10:41:32
@@ -3612,15 +3710,15 @@ _1000-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/S1_p1_1000-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Order
 /S1_p1_1000.eps>
-(epstopdf)             \includegraphics on input line 714.
+(epstopdf)             \includegraphics on input line 750.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/Source_Whitening_Order/S1_p1_1000-eps-converted-to.pdf, id=2540,
+<./figures/ch3/Source_Whitening_Order/S1_p1_1000-eps-converted-to.pdf, id=2580,
  650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/S1_p1_1000-eps-converted-to.pdf Grap
 hic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/S1_p1_1000-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/S1_p1_1000-eps-co
-nverted-to.pdf  used on input line 714.
+nverted-to.pdf  used on input line 750.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/Equal
 ized_RTF_p1_1000.eps>
@@ -3633,16 +3731,16 @@ ized_RTF_p1_1000-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/Equalized_RTF_p1_1000-eps-converted-to.pdf ./figures/ch3/Source_Whit
 ening_Order/Equalized_RTF_p1_1000.eps>
-(epstopdf)             \includegraphics on input line 719.
+(epstopdf)             \includegraphics on input line 755.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_1000-eps-converted-to.pd
-f, id=2541, 650.43pt x 578.16pt>
+f, id=2581, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_1000-eps-converted-
 to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_1000-eps-converted-t
 o.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_
-1000-eps-converted-to.pdf  used on input line 719.
+1000-eps-converted-to.pdf  used on input line 755.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EIR_p
 1_1000.eps>
@@ -3655,13 +3753,13 @@ Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EIR_p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/EIR_p1_1000-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Orde
 r/EIR_p1_1000.eps>
-(epstopdf)             \includegraphics on input line 724.
+(epstopdf)             \includegraphics on input line 760.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Whitening_Order/EIR_p1_1000-eps-converted-to.pdf Gra
 phic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EIR_p1_1000-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/EIR_p1_1000-eps-c
-onverted-to.pdf  used on input line 724.
+onverted-to.pdf  used on input line 760.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EDC_p
 1_1000.eps>
@@ -3674,13 +3772,13 @@ Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EDC_p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/EDC_p1_1000-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Orde
 r/EDC_p1_1000.eps>
-(epstopdf)             \includegraphics on input line 729.
+(epstopdf)             \includegraphics on input line 765.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Whitening_Order/EDC_p1_1000-eps-converted-to.pdf Gra
 phic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EDC_p1_1000-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/EDC_p1_1000-eps-c
-onverted-to.pdf  used on input line 729.
+onverted-to.pdf  used on input line 765.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -3689,8 +3787,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[108 <./figures/ch3/MC_LP_Order/Equalized_RTF_0p5N60_div_M_minus_1-eps-converte
-d-to.pdf>]
+[109 <./figures/ch3/MC_LP_Order/Equalized_RTF_0p75N60_div_M_minus_1-eps-convert
+ed-to.pdf> <./figures/ch3/MC_LP_Order/Equalized_RTF_0p5N60_div_M_minus_1-eps-co
+nverted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/S1_p1
 _based_on_p2.eps>
 (epstopdf)                    date: 2025-05-11 10:41:26
@@ -3702,16 +3801,16 @@ _based_on_p2-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/S1_p1_based_on_p2-eps-converted-to.pdf ./figures/ch3/Source_Whitenin
 g_Order/S1_p1_based_on_p2.eps>
-(epstopdf)             \includegraphics on input line 742.
+(epstopdf)             \includegraphics on input line 778.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/S1_p1_based_on_p2-eps-converted-to.pdf, i
-d=2554, 650.43pt x 578.16pt>
+d=2602, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/S1_p1_based_on_p2-eps-converted-to.p
 df Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/S1_p1_based_on_p2-eps-converted-to.pd
 f>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/S1_p1_based_on_p2
--eps-converted-to.pdf  used on input line 742.
+-eps-converted-to.pdf  used on input line 778.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/Equal
 ized_RTF_p1_based_on_p2.eps>
@@ -3724,16 +3823,16 @@ ized_RTF_p1_based_on_p2-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/Equalized_RTF_p1_based_on_p2-eps-converted-to.pdf ./figures/ch3/Sour
 ce_Whitening_Order/Equalized_RTF_p1_based_on_p2.eps>
-(epstopdf)             \includegraphics on input line 747.
+(epstopdf)             \includegraphics on input line 783.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_based_on_p2-eps-converte
-d-to.pdf, id=2555, 650.43pt x 578.16pt>
+d-to.pdf, id=2603, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_based_on_p2-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_based_on_p2-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_
-based_on_p2-eps-converted-to.pdf  used on input line 747.
+based_on_p2-eps-converted-to.pdf  used on input line 783.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EIR_p
 1_based_on_p2.eps>
@@ -3746,14 +3845,14 @@ Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EIR_p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/EIR_p1_based_on_p2-eps-converted-to.pdf ./figures/ch3/Source_Whiteni
 ng_Order/EIR_p1_based_on_p2.eps>
-(epstopdf)             \includegraphics on input line 752.
+(epstopdf)             \includegraphics on input line 788.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Whitening_Order/EIR_p1_based_on_p2-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EIR_p1_based_on_p2-eps-converted-to.p
 df>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/EIR_p1_based_on_p
-2-eps-converted-to.pdf  used on input line 752.
+2-eps-converted-to.pdf  used on input line 788.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EDC_p
 1_based_on_p2.eps>
@@ -3766,14 +3865,14 @@ Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EDC_p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/EDC_p1_based_on_p2-eps-converted-to.pdf ./figures/ch3/Source_Whiteni
 ng_Order/EDC_p1_based_on_p2.eps>
-(epstopdf)             \includegraphics on input line 757.
+(epstopdf)             \includegraphics on input line 793.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Whitening_Order/EDC_p1_based_on_p2-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EDC_p1_based_on_p2-eps-converted-to.p
 df>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/EDC_p1_based_on_p
-2-eps-converted-to.pdf  used on input line 757.
+2-eps-converted-to.pdf  used on input line 793.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -3782,7 +3881,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[109 <./figures/ch3/Source_Whitening_Order/S1_p1_1000-eps-converted-to.pdf> <./
+[110 <./figures/ch3/Source_Whitening_Order/S1_p1_1000-eps-converted-to.pdf> <./
 figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_1000-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/S1_p1
 _2x_p2.eps>
@@ -3795,15 +3894,15 @@ _2x_p2-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/S1_p1_2x_p2-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Orde
 r/S1_p1_2x_p2.eps>
-(epstopdf)             \includegraphics on input line 770.
+(epstopdf)             \includegraphics on input line 806.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch3/Source_Whitening_Order/S1_p1_2x_p2-eps-converted-to.pdf, id=2576
+<./figures/ch3/Source_Whitening_Order/S1_p1_2x_p2-eps-converted-to.pdf, id=2625
 , 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/S1_p1_2x_p2-eps-converted-to.pdf Gra
 phic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/S1_p1_2x_p2-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/S1_p1_2x_p2-eps-c
-onverted-to.pdf  used on input line 770.
+onverted-to.pdf  used on input line 806.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/Equal
 ized_RTF_p1_2x_p2.eps>
@@ -3816,16 +3915,16 @@ ized_RTF_p1_2x_p2-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/Equalized_RTF_p1_2x_p2-eps-converted-to.pdf ./figures/ch3/Source_Whi
 tening_Order/Equalized_RTF_p1_2x_p2.eps>
-(epstopdf)             \includegraphics on input line 775.
+(epstopdf)             \includegraphics on input line 811.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_2x_p2-eps-converted-to.p
-df, id=2577, 650.43pt x 578.16pt>
+df, id=2626, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_2x_p2-eps-converted
 -to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_2x_p2-eps-converted-
 to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_
-2x_p2-eps-converted-to.pdf  used on input line 775.
+2x_p2-eps-converted-to.pdf  used on input line 811.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EIR_p
 1_2x_p2.eps>
@@ -3838,13 +3937,13 @@ Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EIR_p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/EIR_p1_2x_p2-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Ord
 er/EIR_p1_2x_p2.eps>
-(epstopdf)             \includegraphics on input line 780.
+(epstopdf)             \includegraphics on input line 816.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Whitening_Order/EIR_p1_2x_p2-eps-converted-to.pdf Gr
 aphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EIR_p1_2x_p2-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/EIR_p1_2x_p2-eps-
-converted-to.pdf  used on input line 780.
+converted-to.pdf  used on input line 816.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EDC_p
 1_2x_p2.eps>
@@ -3857,13 +3956,13 @@ Package epstopdf Info: Source file: <./figures/ch3/Source_Whitening_Order/EDC_p
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_White
 ning_Order/EDC_p1_2x_p2-eps-converted-to.pdf ./figures/ch3/Source_Whitening_Ord
 er/EDC_p1_2x_p2.eps>
-(epstopdf)             \includegraphics on input line 785.
+(epstopdf)             \includegraphics on input line 821.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Whitening_Order/EDC_p1_2x_p2-eps-converted-to.pdf Gr
 aphic file (type pdf)
 <use ./figures/ch3/Source_Whitening_Order/EDC_p1_2x_p2-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Whitening_Order/EDC_p1_2x_p2-eps-
-converted-to.pdf  used on input line 785.
+converted-to.pdf  used on input line 821.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3871,7 +3970,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[110 <./figures/ch3/Source_Whitening_Order/S1_p1_based_on_p2-eps-converted-to.p
+[111 <./figures/ch3/Source_Whitening_Order/S1_p1_based_on_p2-eps-converted-to.p
 df> <./figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_based_on_p2-eps-conv
 erted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/S1_SourceLengt
@@ -3885,16 +3984,16 @@ h_1_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/S1_SourceLength_1_NotBlind-eps-converted-to.pdf ./figures/ch3/Source_Length/S
 1_SourceLength_1_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 802.
+(epstopdf)             \includegraphics on input line 838.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/S1_SourceLength_1_NotBlind-eps-converted-to.pdf, i
-d=2598, 650.43pt x 578.16pt>
+d=2647, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/S1_SourceLength_1_NotBlind-eps-converted-to.p
 df Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_1_NotBlind-eps-converted-to.pd
 f>
 Package pdftex.def Info: ./figures/ch3/Source_Length/S1_SourceLength_1_NotBlind
--eps-converted-to.pdf  used on input line 802.
+-eps-converted-to.pdf  used on input line 838.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/Equalized_RTF_
 SourceLength_1_NotBlind.eps>
@@ -3907,16 +4006,16 @@ SourceLength_1_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/Equalized_RTF_SourceLength_1_NotBlind-eps-converted-to.pdf ./figures/ch3/Sour
 ce_Length/Equalized_RTF_SourceLength_1_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 807.
+(epstopdf)             \includegraphics on input line 843.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_NotBlind-eps-converte
-d-to.pdf, id=2599, 650.43pt x 578.16pt>
+d-to.pdf, id=2648, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_NotBlind-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_NotBlind-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength
-_1_NotBlind-eps-converted-to.pdf  used on input line 807.
+_1_NotBlind-eps-converted-to.pdf  used on input line 843.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EIR_SourceLeng
 th_1_NotBlind.eps>
@@ -3929,16 +4028,16 @@ th_1_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EIR_SourceLength_1_NotBlind-eps-converted-to.pdf ./figures/ch3/Source_Length/
 EIR_SourceLength_1_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 812.
+(epstopdf)             \includegraphics on input line 848.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EIR_SourceLength_1_NotBlind-eps-converted-to.pdf, 
-id=2600, 650.43pt x 578.16pt>
+id=2649, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EIR_SourceLength_1_NotBlind-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EIR_SourceLength_1_NotBlind-eps-converted-to.p
 df>
 Package pdftex.def Info: ./figures/ch3/Source_Length/EIR_SourceLength_1_NotBlin
-d-eps-converted-to.pdf  used on input line 812.
+d-eps-converted-to.pdf  used on input line 848.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EDC_SourceLeng
 th_1_NotBlind.eps>
@@ -3951,16 +4050,16 @@ th_1_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EDC_SourceLength_1_NotBlind-eps-converted-to.pdf ./figures/ch3/Source_Length/
 EDC_SourceLength_1_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 817.
+(epstopdf)             \includegraphics on input line 853.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EDC_SourceLength_1_NotBlind-eps-converted-to.pdf, 
-id=2601, 650.43pt x 578.16pt>
+id=2650, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EDC_SourceLength_1_NotBlind-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_1_NotBlind-eps-converted-to.p
 df>
 Package pdftex.def Info: ./figures/ch3/Source_Length/EDC_SourceLength_1_NotBlin
-d-eps-converted-to.pdf  used on input line 817.
+d-eps-converted-to.pdf  used on input line 853.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -3969,7 +4068,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[111 <./figures/ch3/Source_Whitening_Order/S1_p1_2x_p2-eps-converted-to.pdf> <.
+[112 <./figures/ch3/Source_Whitening_Order/S1_p1_2x_p2-eps-converted-to.pdf> <.
 /figures/ch3/Source_Whitening_Order/Equalized_RTF_p1_2x_p2-eps-converted-to.pdf
 >]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/S1_SourceLengt
@@ -3983,13 +4082,13 @@ h_1_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/S1_SourceLength_1_Blind-eps-converted-to.pdf ./figures/ch3/Source_Length/S1_S
 ourceLength_1_Blind.eps>
-(epstopdf)             \includegraphics on input line 828.
+(epstopdf)             \includegraphics on input line 864.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Length/S1_SourceLength_1_Blind-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_1_Blind-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Length/S1_SourceLength_1_Blind-ep
-s-converted-to.pdf  used on input line 828.
+s-converted-to.pdf  used on input line 864.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/Equalized_RTF_
 SourceLength_1_Blind.eps>
@@ -4002,14 +4101,14 @@ SourceLength_1_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/Equalized_RTF_SourceLength_1_Blind-eps-converted-to.pdf ./figures/ch3/Source_
 Length/Equalized_RTF_SourceLength_1_Blind.eps>
-(epstopdf)             \includegraphics on input line 833.
+(epstopdf)             \includegraphics on input line 869.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_Blind-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_Blind-eps-convert
 ed-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength
-_1_Blind-eps-converted-to.pdf  used on input line 833.
+_1_Blind-eps-converted-to.pdf  used on input line 869.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EIR_SourceLeng
 th_1_Blind.eps>
@@ -4022,16 +4121,16 @@ th_1_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EIR_SourceLength_1_Blind-eps-converted-to.pdf ./figures/ch3/Source_Length/EIR
 _SourceLength_1_Blind.eps>
-(epstopdf)             \includegraphics on input line 838.
+(epstopdf)             \includegraphics on input line 874.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EIR_SourceLength_1_Blind-eps-converted-to.pdf, id=
-2623, 650.43pt x 578.16pt>
+2671, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EIR_SourceLength_1_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EIR_SourceLength_1_Blind-eps-converted-to.pdf>
 
 Package pdftex.def Info: ./figures/ch3/Source_Length/EIR_SourceLength_1_Blind-e
-ps-converted-to.pdf  used on input line 838.
+ps-converted-to.pdf  used on input line 874.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EDC_SourceLeng
 th_1_Blind.eps>
@@ -4044,14 +4143,14 @@ th_1_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EDC_SourceLength_1_Blind-eps-converted-to.pdf ./figures/ch3/Source_Length/EDC
 _SourceLength_1_Blind.eps>
-(epstopdf)             \includegraphics on input line 843.
+(epstopdf)             \includegraphics on input line 879.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Length/EDC_SourceLength_1_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_1_Blind-eps-converted-to.pdf>
 
 Package pdftex.def Info: ./figures/ch3/Source_Length/EDC_SourceLength_1_Blind-e
-ps-converted-to.pdf  used on input line 843.
+ps-converted-to.pdf  used on input line 879.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -4060,7 +4159,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[112 <./figures/ch3/Source_Length/S1_SourceLength_1_NotBlind-eps-converted-to.p
+[113 <./figures/ch3/Source_Length/S1_SourceLength_1_NotBlind-eps-converted-to.p
 df> <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_1_NotBlind-eps-conv
 erted-to.pdf> <./figures/ch3/Source_Length/EIR_SourceLength_1_NotBlind-eps-conv
 erted-to.pdf> <./figures/ch3/Source_Length/EDC_SourceLength_1_NotBlind-eps-conv
@@ -4076,16 +4175,16 @@ h_3_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/S1_SourceLength_3_NotBlind-eps-converted-to.pdf ./figures/ch3/Source_Length/S
 1_SourceLength_3_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 858.
+(epstopdf)             \includegraphics on input line 894.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/S1_SourceLength_3_NotBlind-eps-converted-to.pdf, i
-d=2660, 650.43pt x 578.16pt>
+d=2709, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/S1_SourceLength_3_NotBlind-eps-converted-to.p
 df Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_3_NotBlind-eps-converted-to.pd
 f>
 Package pdftex.def Info: ./figures/ch3/Source_Length/S1_SourceLength_3_NotBlind
--eps-converted-to.pdf  used on input line 858.
+-eps-converted-to.pdf  used on input line 894.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/Equalized_RTF_
 SourceLength_3_NotBlind.eps>
@@ -4098,16 +4197,16 @@ SourceLength_3_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/Equalized_RTF_SourceLength_3_NotBlind-eps-converted-to.pdf ./figures/ch3/Sour
 ce_Length/Equalized_RTF_SourceLength_3_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 863.
+(epstopdf)             \includegraphics on input line 899.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_NotBlind-eps-converte
-d-to.pdf, id=2661, 650.43pt x 578.16pt>
+d-to.pdf, id=2710, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_NotBlind-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_NotBlind-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength
-_3_NotBlind-eps-converted-to.pdf  used on input line 863.
+_3_NotBlind-eps-converted-to.pdf  used on input line 899.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EIR_SourceLeng
 th_3_NotBlind.eps>
@@ -4120,16 +4219,16 @@ th_3_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EIR_SourceLength_3_NotBlind-eps-converted-to.pdf ./figures/ch3/Source_Length/
 EIR_SourceLength_3_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 868.
+(epstopdf)             \includegraphics on input line 904.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EIR_SourceLength_3_NotBlind-eps-converted-to.pdf, 
-id=2662, 650.43pt x 578.16pt>
+id=2711, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EIR_SourceLength_3_NotBlind-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EIR_SourceLength_3_NotBlind-eps-converted-to.p
 df>
 Package pdftex.def Info: ./figures/ch3/Source_Length/EIR_SourceLength_3_NotBlin
-d-eps-converted-to.pdf  used on input line 868.
+d-eps-converted-to.pdf  used on input line 904.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EDC_SourceLeng
 th_3_NotBlind.eps>
@@ -4142,16 +4241,16 @@ th_3_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EDC_SourceLength_3_NotBlind-eps-converted-to.pdf ./figures/ch3/Source_Length/
 EDC_SourceLength_3_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 873.
+(epstopdf)             \includegraphics on input line 909.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EDC_SourceLength_3_NotBlind-eps-converted-to.pdf, 
-id=2663, 650.43pt x 578.16pt>
+id=2712, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EDC_SourceLength_3_NotBlind-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_3_NotBlind-eps-converted-to.p
 df>
 Package pdftex.def Info: ./figures/ch3/Source_Length/EDC_SourceLength_3_NotBlin
-d-eps-converted-to.pdf  used on input line 873.
+d-eps-converted-to.pdf  used on input line 909.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -4160,7 +4259,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[113 <./figures/ch3/Source_Length/EIR_SourceLength_1_Blind-eps-converted-to.pdf
+[114 <./figures/ch3/Source_Length/EIR_SourceLength_1_Blind-eps-converted-to.pdf
 >]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/S1_SourceLengt
 h_3_Blind.eps>
@@ -4173,13 +4272,13 @@ h_3_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/S1_SourceLength_3_Blind-eps-converted-to.pdf ./figures/ch3/Source_Length/S1_S
 ourceLength_3_Blind.eps>
-(epstopdf)             \includegraphics on input line 884.
+(epstopdf)             \includegraphics on input line 920.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Length/S1_SourceLength_3_Blind-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/S1_SourceLength_3_Blind-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Length/S1_SourceLength_3_Blind-ep
-s-converted-to.pdf  used on input line 884.
+s-converted-to.pdf  used on input line 920.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/Equalized_RTF_
 SourceLength_3_Blind.eps>
@@ -4192,14 +4291,14 @@ SourceLength_3_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/Equalized_RTF_SourceLength_3_Blind-eps-converted-to.pdf ./figures/ch3/Source_
 Length/Equalized_RTF_SourceLength_3_Blind.eps>
-(epstopdf)             \includegraphics on input line 889.
+(epstopdf)             \includegraphics on input line 925.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_Blind-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_Blind-eps-convert
 ed-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Length/Equalized_RTF_SourceLength
-_3_Blind-eps-converted-to.pdf  used on input line 889.
+_3_Blind-eps-converted-to.pdf  used on input line 925.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EIR_SourceLeng
 th_3_Blind.eps>
@@ -4212,16 +4311,16 @@ th_3_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EIR_SourceLength_3_Blind-eps-converted-to.pdf ./figures/ch3/Source_Length/EIR
 _SourceLength_3_Blind.eps>
-(epstopdf)             \includegraphics on input line 894.
+(epstopdf)             \includegraphics on input line 930.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Length/EIR_SourceLength_3_Blind-eps-converted-to.pdf, id=
-2677, 650.43pt x 578.16pt>
+2725, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Length/EIR_SourceLength_3_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EIR_SourceLength_3_Blind-eps-converted-to.pdf>
 
 Package pdftex.def Info: ./figures/ch3/Source_Length/EIR_SourceLength_3_Blind-e
-ps-converted-to.pdf  used on input line 894.
+ps-converted-to.pdf  used on input line 930.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Length/EDC_SourceLeng
 th_3_Blind.eps>
@@ -4234,14 +4333,14 @@ th_3_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Lengt
 h/EDC_SourceLength_3_Blind-eps-converted-to.pdf ./figures/ch3/Source_Length/EDC
 _SourceLength_3_Blind.eps>
-(epstopdf)             \includegraphics on input line 899.
+(epstopdf)             \includegraphics on input line 935.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Length/EDC_SourceLength_3_Blind-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch3/Source_Length/EDC_SourceLength_3_Blind-eps-converted-to.pdf>
 
 Package pdftex.def Info: ./figures/ch3/Source_Length/EDC_SourceLength_3_Blind-e
-ps-converted-to.pdf  used on input line 899.
+ps-converted-to.pdf  used on input line 935.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -4250,7 +4349,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[114 <./figures/ch3/Source_Length/S1_SourceLength_3_NotBlind-eps-converted-to.p
+[115 <./figures/ch3/Source_Length/S1_SourceLength_3_NotBlind-eps-converted-to.p
 df> <./figures/ch3/Source_Length/Equalized_RTF_SourceLength_3_NotBlind-eps-conv
 erted-to.pdf> <./figures/ch3/Source_Length/EIR_SourceLength_3_NotBlind-eps-conv
 erted-to.pdf> <./figures/ch3/Source_Length/EDC_SourceLength_3_NotBlind-eps-conv
@@ -4266,16 +4365,16 @@ ctrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/S1_SourceSpectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf ./figures/ch
 3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 914.
+(epstopdf)             \includegraphics on input line 950.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_NotBlind-eps-co
-nverted-to.pdf, id=2714, 650.43pt x 578.16pt>
+nverted-to.pdf, id=2763, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_NotBlind-e
 ps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_NotBlind-ep
 s-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWh
-iteNoise_NotBlind-eps-converted-to.pdf  used on input line 914.
+iteNoise_NotBlind-eps-converted-to.pdf  used on input line 950.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/Equalized_RT
 F_SourceSpectrum_1secWhiteNoise_NotBlind.eps>
@@ -4289,16 +4388,16 @@ F_SourceSpectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf>
 rum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf .
 /figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_NotBli
 nd.eps>
-(epstopdf)             \includegraphics on input line 919.
+(epstopdf)             \includegraphics on input line 955.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_NotB
-lind-eps-converted-to.pdf, id=2715, 650.43pt x 578.16pt>
+lind-eps-converted-to.pdf, id=2764, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise
 _NotBlind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_
 NotBlind-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpec
-trum_1secWhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 919.
+trum_1secWhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 955.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EIR_SourceSp
 ectrum_1secWhiteNoise_NotBlind.eps>
@@ -4311,16 +4410,16 @@ ectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EIR_SourceSpectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf ./figures/c
 h3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 924.
+(epstopdf)             \includegraphics on input line 960.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_NotBlind-eps-c
-onverted-to.pdf, id=2716, 650.43pt x 578.16pt>
+onverted-to.pdf, id=2765, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_NotBlind-
 eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_NotBlind-e
 ps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secW
-hiteNoise_NotBlind-eps-converted-to.pdf  used on input line 924.
+hiteNoise_NotBlind-eps-converted-to.pdf  used on input line 960.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EDC_SourceSp
 ectrum_1secWhiteNoise_NotBlind.eps>
@@ -4333,16 +4432,16 @@ ectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EDC_SourceSpectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf ./figures/c
 h3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 929.
+(epstopdf)             \includegraphics on input line 965.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_NotBlind-eps-c
-onverted-to.pdf, id=2717, 650.43pt x 578.16pt>
+onverted-to.pdf, id=2766, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_NotBlind-
 eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_NotBlind-e
 ps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secW
-hiteNoise_NotBlind-eps-converted-to.pdf  used on input line 929.
+hiteNoise_NotBlind-eps-converted-to.pdf  used on input line 965.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -4351,7 +4450,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[115 <./figures/ch3/Source_Length/EIR_SourceLength_3_Blind-eps-converted-to.pdf
+[116 <./figures/ch3/Source_Length/EIR_SourceLength_3_Blind-eps-converted-to.pdf
 >]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/S1_SourceSpe
 ctrum_1secWhiteNoise_Blind.eps>
@@ -4364,14 +4463,14 @@ ctrum_1secWhiteNoise_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/S1_SourceSpectrum_1secWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch3/S
 ource_Spectrum/S1_SourceSpectrum_1secWhiteNoise_Blind.eps>
-(epstopdf)             \includegraphics on input line 940.
+(epstopdf)             \includegraphics on input line 976.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_Blind-eps-
 converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_Blind-eps-c
 onverted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWh
-iteNoise_Blind-eps-converted-to.pdf  used on input line 940.
+iteNoise_Blind-eps-converted-to.pdf  used on input line 976.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/Equalized_RT
 F_SourceSpectrum_1secWhiteNoise_Blind.eps>
@@ -4385,14 +4484,14 @@ F_SourceSpectrum_1secWhiteNoise_Blind-eps-converted-to.pdf>
 rum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_Blind-eps-converted-to.pdf ./fi
 gures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_Blind.eps
 >
-(epstopdf)             \includegraphics on input line 945.
+(epstopdf)             \includegraphics on input line 981.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise
 _Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_1secWhiteNoise_
 Blind-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpec
-trum_1secWhiteNoise_Blind-eps-converted-to.pdf  used on input line 945.
+trum_1secWhiteNoise_Blind-eps-converted-to.pdf  used on input line 981.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EIR_SourceSp
 ectrum_1secWhiteNoise_Blind.eps>
@@ -4405,16 +4504,16 @@ ectrum_1secWhiteNoise_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EIR_SourceSpectrum_1secWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch3/
 Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_Blind.eps>
-(epstopdf)             \includegraphics on input line 950.
+(epstopdf)             \includegraphics on input line 986.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_Blind-eps-conv
-erted-to.pdf, id=2730, 650.43pt x 578.16pt>
+erted-to.pdf, id=2779, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_Blind-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_Blind-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secW
-hiteNoise_Blind-eps-converted-to.pdf  used on input line 950.
+hiteNoise_Blind-eps-converted-to.pdf  used on input line 986.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EDC_SourceSp
 ectrum_1secWhiteNoise_Blind.eps>
@@ -4427,14 +4526,14 @@ ectrum_1secWhiteNoise_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EDC_SourceSpectrum_1secWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch3/
 Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_Blind.eps>
-(epstopdf)             \includegraphics on input line 955.
+(epstopdf)             \includegraphics on input line 991.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_Blind-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secWhiteNoise_Blind-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_1secW
-hiteNoise_Blind-eps-converted-to.pdf  used on input line 955.
+hiteNoise_Blind-eps-converted-to.pdf  used on input line 991.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -4443,7 +4542,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[116 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_NotBlind-e
+[117 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_1secWhiteNoise_NotBlind-e
 ps-converted-to.pdf> <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectru
 m_1secWhiteNoise_NotBlind-eps-converted-to.pdf> <./figures/ch3/Source_Spectrum/
 EIR_SourceSpectrum_1secWhiteNoise_NotBlind-eps-converted-to.pdf> <./figures/ch3
@@ -4460,16 +4559,16 @@ ctrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/S1_SourceSpectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf ./figures/c
 h3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 969.
+(epstopdf)             \includegraphics on input line 1005.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_NotBlind-eps-c
-onverted-to.pdf, id=2768, 650.43pt x 578.16pt>
+onverted-to.pdf, id=2816, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_NotBlind-
 eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_NotBlind-e
 ps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secW
-hiteNoise_NotBlind-eps-converted-to.pdf  used on input line 969.
+hiteNoise_NotBlind-eps-converted-to.pdf  used on input line 1005.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/Equalized_RT
 F_SourceSpectrum_10secWhiteNoise_NotBlind.eps>
@@ -4483,16 +4582,16 @@ F_SourceSpectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf>
 rum/Equalized_RTF_SourceSpectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf 
 ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNoise_NotB
 lind.eps>
-(epstopdf)             \includegraphics on input line 974.
+(epstopdf)             \includegraphics on input line 1010.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNoise_Not
-Blind-eps-converted-to.pdf, id=2769, 650.43pt x 578.16pt>
+Blind-eps-converted-to.pdf, id=2817, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNois
 e_NotBlind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNoise
 _NotBlind-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpec
-trum_10secWhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 974.
+trum_10secWhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 1010.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EIR_SourceSp
 ectrum_10secWhiteNoise_NotBlind.eps>
@@ -4505,16 +4604,16 @@ ectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EIR_SourceSpectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf ./figures/
 ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 979.
+(epstopdf)             \includegraphics on input line 1015.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_NotBlind-eps-
-converted-to.pdf, id=2770, 650.43pt x 578.16pt>
+converted-to.pdf, id=2818, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_NotBlind
 -eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_NotBlind-
 eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10sec
-WhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 979.
+WhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 1015.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EDC_SourceSp
 ectrum_10secWhiteNoise_NotBlind.eps>
@@ -4527,16 +4626,16 @@ ectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EDC_SourceSpectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf ./figures/
 ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_NotBlind.eps>
-(epstopdf)             \includegraphics on input line 984.
+(epstopdf)             \includegraphics on input line 1020.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_NotBlind-eps-
-converted-to.pdf, id=2771, 650.43pt x 578.16pt>
+converted-to.pdf, id=2819, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_NotBlind
 -eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_NotBlind-
 eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10sec
-WhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 984.
+WhiteNoise_NotBlind-eps-converted-to.pdf  used on input line 1020.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -4545,7 +4644,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[117 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_Blind-eps
+[118 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_1secWhiteNoise_Blind-eps
 -converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/S1_SourceSpe
 ctrum_10secWhiteNoise_Blind.eps>
@@ -4558,14 +4657,14 @@ ctrum_10secWhiteNoise_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/S1_SourceSpectrum_10secWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch3/
 Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_Blind.eps>
-(epstopdf)             \includegraphics on input line 995.
+(epstopdf)             \includegraphics on input line 1031.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_Blind-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_Blind-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secW
-hiteNoise_Blind-eps-converted-to.pdf  used on input line 995.
+hiteNoise_Blind-eps-converted-to.pdf  used on input line 1031.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/Equalized_RT
 F_SourceSpectrum_10secWhiteNoise_Blind.eps>
@@ -4579,14 +4678,14 @@ F_SourceSpectrum_10secWhiteNoise_Blind-eps-converted-to.pdf>
 rum/Equalized_RTF_SourceSpectrum_10secWhiteNoise_Blind-eps-converted-to.pdf ./f
 igures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNoise_Blind.e
 ps>
-(epstopdf)             \includegraphics on input line 1000.
+(epstopdf)             \includegraphics on input line 1036.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNois
 e_Blind-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectrum_10secWhiteNoise
 _Blind-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpec
-trum_10secWhiteNoise_Blind-eps-converted-to.pdf  used on input line 1000.
+trum_10secWhiteNoise_Blind-eps-converted-to.pdf  used on input line 1036.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EIR_SourceSp
 ectrum_10secWhiteNoise_Blind.eps>
@@ -4599,16 +4698,16 @@ ectrum_10secWhiteNoise_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EIR_SourceSpectrum_10secWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch3
 /Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_Blind.eps>
-(epstopdf)             \includegraphics on input line 1005.
+(epstopdf)             \includegraphics on input line 1041.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_Blind-eps-con
-verted-to.pdf, id=2784, 650.43pt x 578.16pt>
+verted-to.pdf, id=2832, 650.43pt x 578.16pt>
 File: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_Blind-ep
 s-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_Blind-eps
 -converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10sec
-WhiteNoise_Blind-eps-converted-to.pdf  used on input line 1005.
+WhiteNoise_Blind-eps-converted-to.pdf  used on input line 1041.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 Package epstopdf Info: Source file: <./figures/ch3/Source_Spectrum/EDC_SourceSp
 ectrum_10secWhiteNoise_Blind.eps>
@@ -4621,14 +4720,14 @@ ectrum_10secWhiteNoise_Blind-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch3/Source_Spect
 rum/EDC_SourceSpectrum_10secWhiteNoise_Blind-eps-converted-to.pdf ./figures/ch3
 /Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_Blind.eps>
-(epstopdf)             \includegraphics on input line 1010.
+(epstopdf)             \includegraphics on input line 1046.
 Package epstopdf Info: Output file is already uptodate.
 File: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_Blind-ep
 s-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10secWhiteNoise_Blind-eps
 -converted-to.pdf>
 Package pdftex.def Info: ./figures/ch3/Source_Spectrum/EDC_SourceSpectrum_10sec
-WhiteNoise_Blind-eps-converted-to.pdf  used on input line 1010.
+WhiteNoise_Blind-eps-converted-to.pdf  used on input line 1046.
 (pdftex.def)             Requested size: 212.47617pt x 188.86136pt.
 
 
@@ -4637,7 +4736,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[118 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_NotBlind-
+[119 <./figures/ch3/Source_Spectrum/S1_SourceSpectrum_10secWhiteNoise_NotBlind-
 eps-converted-to.pdf> <./figures/ch3/Source_Spectrum/Equalized_RTF_SourceSpectr
 um_10secWhiteNoise_NotBlind-eps-converted-to.pdf> <./figures/ch3/Source_Spectru
 m/EIR_SourceSpectrum_10secWhiteNoise_NotBlind-eps-converted-to.pdf> <./figures/
@@ -4649,13 +4748,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[119 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_Blind-ep
+[120 <./figures/ch3/Source_Spectrum/EIR_SourceSpectrum_10secWhiteNoise_Blind-ep
 s-converted-to.pdf>]
 \openout2 = `chap4.aux'.
 
  (./chap4.tex
 Chapter 4.
-[120
+[121
 
 
 
@@ -4674,7 +4773,7 @@ s/RIR_EDC_Office-eps-converted-to.pdf ./figures/ch4/RIR_databases/RIR_EDC_Offic
 e.eps>
 (epstopdf)             \includegraphics on input line 25.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/RIR_databases/RIR_EDC_Office-eps-converted-to.pdf, id=2842, 1734
+<./figures/ch4/RIR_databases/RIR_EDC_Office-eps-converted-to.pdf, id=2891, 1734
 .48pt x 722.7pt>
 File: ./figures/ch4/RIR_databases/RIR_EDC_Office-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -4689,7 +4788,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[121]
+[122]
 Package epstopdf Info: Source file: <./figures/ch4/RIR_databases/RIR_EDC_Courty
 ard.eps>
 (epstopdf)                    date: 2025-05-11 11:33:40
@@ -4703,7 +4802,7 @@ s/RIR_EDC_Courtyard-eps-converted-to.pdf ./figures/ch4/RIR_databases/RIR_EDC_Co
 urtyard.eps>
 (epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/RIR_databases/RIR_EDC_Courtyard-eps-converted-to.pdf, id=2847, 1
+<./figures/ch4/RIR_databases/RIR_EDC_Courtyard-eps-converted-to.pdf, id=2896, 1
 734.48pt x 722.7pt>
 File: ./figures/ch4/RIR_databases/RIR_EDC_Courtyard-eps-converted-to.pdf Graphi
 c file (type pdf)
@@ -4718,7 +4817,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[122 <./figures/ch4/RIR_databases/RIR_EDC_Office-eps-converted-to.pdf> <./figur
+[123 <./figures/ch4/RIR_databases/RIR_EDC_Office-eps-converted-to.pdf> <./figur
 es/ch4/RIR_databases/RIR_EDC_Courtyard-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/RIR_databases/RIR_EDC_Cafete
 ria.eps>
@@ -4733,7 +4832,7 @@ s/RIR_EDC_Cafeteria-eps-converted-to.pdf ./figures/ch4/RIR_databases/RIR_EDC_Ca
 feteria.eps>
 (epstopdf)             \includegraphics on input line 58.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/RIR_databases/RIR_EDC_Cafeteria-eps-converted-to.pdf, id=2868, 1
+<./figures/ch4/RIR_databases/RIR_EDC_Cafeteria-eps-converted-to.pdf, id=2917, 1
 734.48pt x 722.7pt>
 File: ./figures/ch4/RIR_databases/RIR_EDC_Cafeteria-eps-converted-to.pdf Graphi
 c file (type pdf)
@@ -4754,7 +4853,7 @@ s/RIR_EDC_SAL-eps-converted-to.pdf ./figures/ch4/RIR_databases/RIR_EDC_SAL.eps>
 
 (epstopdf)             \includegraphics on input line 74.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/RIR_databases/RIR_EDC_SAL-eps-converted-to.pdf, id=2869, 1734.48
+<./figures/ch4/RIR_databases/RIR_EDC_SAL-eps-converted-to.pdf, id=2918, 1734.48
 pt x 722.7pt>
 File: ./figures/ch4/RIR_databases/RIR_EDC_SAL-eps-converted-to.pdf Graphic file
  (type pdf)
@@ -4769,7 +4868,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[123 <./figures/ch4/RIR_databases/RIR_EDC_Cafeteria-eps-converted-to.pdf>]
+[124 <./figures/ch4/RIR_databases/RIR_EDC_Cafeteria-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/EC_Eval/EC_SRM_NoiseDir.eps>
 
 (epstopdf)                    date: 2025-05-11 11:35:20
@@ -4782,7 +4881,7 @@ converted-to.pdf>
 RM_NoiseDir-eps-converted-to.pdf ./figures/ch4/EC_Eval/EC_SRM_NoiseDir.eps>
 (epstopdf)             \includegraphics on input line 104.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/EC_Eval/EC_SRM_NoiseDir-eps-converted-to.pdf, id=2882, 722.7pt x
+<./figures/ch4/EC_Eval/EC_SRM_NoiseDir-eps-converted-to.pdf, id=2931, 722.7pt x
  578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_NoiseDir-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -4797,7 +4896,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[124 <./figures/ch4/RIR_databases/RIR_EDC_SAL-eps-converted-to.pdf>]
+[125 <./figures/ch4/RIR_databases/RIR_EDC_SAL-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeec
 h_AnechoicNoise.eps>
 (epstopdf)                    date: 2025-05-11 11:05:31
@@ -4812,7 +4911,7 @@ RM_AnechoicSpeech_AnechoicNoise.eps>
 (epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_AnechoicNoise-eps-converted-to.pdf
-, id=2896, 722.7pt x 578.16pt>
+, id=2945, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_AnechoicNoise-eps-converted-t
 o.pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_AnechoicNoise-eps-converted-to
@@ -4834,7 +4933,7 @@ _AnechoicSpeech_ReverbNoise.eps>
 (epstopdf)             \includegraphics on input line 119.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_ReverbNoise-eps-converted-to.pdf, 
-id=2897, 722.7pt x 578.16pt>
+id=2946, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_ReverbNoise-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_ReverbNoise-eps-converted-to.p
@@ -4856,7 +4955,7 @@ val/EC_SRM_AnechoicSpeech_SpatialNoiseRecording.eps>
 (epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_SpatialNoiseRecording-eps-converte
-d-to.pdf, id=2898, 722.7pt x 578.16pt>
+d-to.pdf, id=2947, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_SpatialNoiseRecording-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_SpatialNoiseRecording-eps-conv
@@ -4878,7 +4977,7 @@ M_AnechoicSpeech_DiffuseNoise.eps>
 (epstopdf)             \includegraphics on input line 129.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_DiffuseNoise-eps-converted-to.pdf,
- id=2899, 722.7pt x 578.16pt>
+ id=2948, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_DiffuseNoise-eps-converted-to
 .pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_DiffuseNoise-eps-converted-to.
@@ -4893,7 +4992,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[125 <./figures/ch4/EC_Eval/EC_SRM_NoiseDir-eps-converted-to.pdf>]
+[126 <./figures/ch4/EC_Eval/EC_SRM_NoiseDir-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_
 AnechoicNoise.eps>
 (epstopdf)                    date: 2025-05-11 11:01:54
@@ -4908,7 +5007,7 @@ _ReverbSpeech_AnechoicNoise.eps>
 (epstopdf)             \includegraphics on input line 141.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_AnechoicNoise-eps-converted-to.pdf, 
-id=2913, 722.7pt x 578.16pt>
+id=2961, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_AnechoicNoise-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_AnechoicNoise-eps-converted-to.p
@@ -4930,7 +5029,7 @@ everbSpeech_ReverbNoise.eps>
 (epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_ReverbNoise-eps-converted-to.pdf, id
-=2914, 722.7pt x 578.16pt>
+=2962, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_ReverbNoise-eps-converted-to.pd
 f Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_ReverbNoise-eps-converted-to.pdf
@@ -4952,7 +5051,7 @@ l/EC_SRM_ReverbSpeech_SpatialNoiseRecording.eps>
 (epstopdf)             \includegraphics on input line 151.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_SpatialNoiseRecording-eps-converted-
-to.pdf, id=2915, 722.7pt x 578.16pt>
+to.pdf, id=2963, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_SpatialNoiseRecording-eps-conve
 rted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_SpatialNoiseRecording-eps-conver
@@ -4974,7 +5073,7 @@ ReverbSpeech_DiffuseNoise.eps>
 (epstopdf)             \includegraphics on input line 156.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_DiffuseNoise-eps-converted-to.pdf, i
-d=2916, 722.7pt x 578.16pt>
+d=2964, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_DiffuseNoise-eps-converted-to.p
 df Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_DiffuseNoise-eps-converted-to.pd
@@ -4989,7 +5088,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[126 <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_AnechoicNoise-eps-converted-t
+[127 <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_AnechoicNoise-eps-converted-t
 o.pdf> <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_ReverbNoise-eps-converted-t
 o.pdf> <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_SpatialNoiseRecording-eps-c
 onverted-to.pdf> <./figures/ch4/EC_Eval/EC_SRM_AnechoicSpeech_DiffuseNoise-eps-
@@ -5008,7 +5107,7 @@ M_DiffuseSpeech_AnechoicNoise.eps>
 (epstopdf)             \includegraphics on input line 168.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_AnechoicNoise-eps-converted-to.pdf,
- id=2953, 722.7pt x 578.16pt>
+ id=3001, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_AnechoicNoise-eps-converted-to
 .pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_AnechoicNoise-eps-converted-to.
@@ -5030,7 +5129,7 @@ DiffuseSpeech_ReverbNoise.eps>
 (epstopdf)             \includegraphics on input line 173.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_ReverbNoise-eps-converted-to.pdf, i
-d=2954, 722.7pt x 578.16pt>
+d=3002, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_ReverbNoise-eps-converted-to.p
 df Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_ReverbNoise-eps-converted-to.pd
@@ -5052,7 +5151,7 @@ al/EC_SRM_DiffuseSpeech_SpatialNoiseRecording.eps>
 (epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_SpatialNoiseRecording-eps-converted
--to.pdf, id=2955, 722.7pt x 578.16pt>
+-to.pdf, id=3003, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_SpatialNoiseRecording-eps-conv
 erted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_SpatialNoiseRecording-eps-conve
@@ -5074,7 +5173,7 @@ _DiffuseSpeech_DiffuseNoise.eps>
 (epstopdf)             \includegraphics on input line 183.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_DiffuseNoise-eps-converted-to.pdf, 
-id=2956, 722.7pt x 578.16pt>
+id=3004, 722.7pt x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_DiffuseNoise-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_DiffuseNoise-eps-converted-to.p
@@ -5089,7 +5188,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[127 <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_AnechoicNoise-eps-converted-to.
+[128 <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_AnechoicNoise-eps-converted-to.
 pdf> <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_ReverbNoise-eps-converted-to.pd
 f> <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_SpatialNoiseRecording-eps-convert
 ed-to.pdf> <./figures/ch4/EC_Eval/EC_SRM_ReverbSpeech_DiffuseNoise-eps-converte
@@ -5107,7 +5206,7 @@ RM_T60_SNRm12-eps-converted-to.pdf ./figures/ch4/EC_Eval/EC_SRM_T60_SNRm12.eps>
 
 (epstopdf)             \includegraphics on input line 198.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/EC_Eval/EC_SRM_T60_SNRm12-eps-converted-to.pdf, id=2993, 722.7pt
+<./figures/ch4/EC_Eval/EC_SRM_T60_SNRm12-eps-converted-to.pdf, id=3042, 722.7pt
  x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_T60_SNRm12-eps-converted-to.pdf Graphic file
  (type pdf)
@@ -5127,7 +5226,7 @@ converted-to.pdf>
 RM_T60_SNR0-eps-converted-to.pdf ./figures/ch4/EC_Eval/EC_SRM_T60_SNR0.eps>
 (epstopdf)             \includegraphics on input line 203.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/EC_Eval/EC_SRM_T60_SNR0-eps-converted-to.pdf, id=2994, 722.7pt x
+<./figures/ch4/EC_Eval/EC_SRM_T60_SNR0-eps-converted-to.pdf, id=3043, 722.7pt x
  578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_T60_SNR0-eps-converted-to.pdf Graphic file (
 type pdf)
@@ -5142,7 +5241,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[128 <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_AnechoicNoise-eps-converted-to
+[129 <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_AnechoicNoise-eps-converted-to
 .pdf> <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_ReverbNoise-eps-converted-to.
 pdf> <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_SpatialNoiseRecording-eps-conv
 erted-to.pdf> <./figures/ch4/EC_Eval/EC_SRM_DiffuseSpeech_DiffuseNoise-eps-conv
@@ -5158,7 +5257,7 @@ Package epstopdf Info: Source file: <./figures/ch4/EC_Eval/EC_ERs.eps>
 Rs-eps-converted-to.pdf ./figures/ch4/EC_Eval/EC_ERs.eps>
 (epstopdf)             \includegraphics on input line 218.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/EC_Eval/EC_ERs-eps-converted-to.pdf, id=3032, 722.7pt x 578.16pt
+<./figures/ch4/EC_Eval/EC_ERs-eps-converted-to.pdf, id=3080, 722.7pt x 578.16pt
 >
 File: ./figures/ch4/EC_Eval/EC_ERs-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -5173,7 +5272,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[129 <./figures/ch4/EC_Eval/EC_SRM_T60_SNRm12-eps-converted-to.pdf> <./figures/
+[130 <./figures/ch4/EC_Eval/EC_SRM_T60_SNRm12-eps-converted-to.pdf> <./figures/
 ch4/EC_Eval/EC_SRM_T60_SNR0-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/EC_Eval/EC_SRM_T60_SNR300.ep
 s>
@@ -5188,7 +5287,7 @@ RM_T60_SNR300-eps-converted-to.pdf ./figures/ch4/EC_Eval/EC_SRM_T60_SNR300.eps>
 
 (epstopdf)             \includegraphics on input line 234.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/EC_Eval/EC_SRM_T60_SNR300-eps-converted-to.pdf, id=3053, 722.7pt
+<./figures/ch4/EC_Eval/EC_SRM_T60_SNR300-eps-converted-to.pdf, id=3101, 722.7pt
  x 578.16pt>
 File: ./figures/ch4/EC_Eval/EC_SRM_T60_SNR300-eps-converted-to.pdf Graphic file
  (type pdf)
@@ -5203,14 +5302,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[130 <./figures/ch4/EC_Eval/EC_ERs-eps-converted-to.pdf>]
+[131 <./figures/ch4/EC_Eval/EC_ERs-eps-converted-to.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[131 <./figures/ch4/EC_Eval/EC_SRM_T60_SNR300-eps-converted-to.pdf>]
+[132 <./figures/ch4/EC_Eval/EC_SRM_T60_SNR300-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/HA_Gain_Eval/HearingAidGains
 .eps>
 (epstopdf)                    date: 2025-06-02 15:02:11
@@ -5224,7 +5323,7 @@ Package epstopdf Info: Source file: <./figures/ch4/HA_Gain_Eval/HearingAidGains
 s.eps>
 (epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/HA_Gain_Eval/HearingAidGains-eps-converted-to.pdf, id=3079, 722.
+<./figures/ch4/HA_Gain_Eval/HearingAidGains-eps-converted-to.pdf, id=3127, 722.
 7pt x 578.16pt>
 File: ./figures/ch4/HA_Gain_Eval/HearingAidGains-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -5246,7 +5345,7 @@ PI_v_T60_variousHAGains.eps>
 (epstopdf)             \includegraphics on input line 271.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/HA_Gain_Eval/HASPI_v_T60_variousHAGains-eps-converted-to.pdf, id
-=3080, 794.97pt x 578.16pt>
+=3128, 794.97pt x 578.16pt>
 File: ./figures/ch4/HA_Gain_Eval/HASPI_v_T60_variousHAGains-eps-converted-to.pd
 f Graphic file (type pdf)
 <use ./figures/ch4/HA_Gain_Eval/HASPI_v_T60_variousHAGains-eps-converted-to.pdf
@@ -5268,7 +5367,7 @@ SIM_FT_v_T60_variousHAGains.eps>
 (epstopdf)             \includegraphics on input line 276.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/HA_Gain_Eval/NSIM_FT_v_T60_variousHAGains-eps-converted-to.pdf, 
-id=3081, 794.97pt x 578.16pt>
+id=3129, 794.97pt x 578.16pt>
 File: ./figures/ch4/HA_Gain_Eval/NSIM_FT_v_T60_variousHAGains-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch4/HA_Gain_Eval/NSIM_FT_v_T60_variousHAGains-eps-converted-to.p
@@ -5290,7 +5389,7 @@ SIM_MR_v_T60_variousHAGains.eps>
 (epstopdf)             \includegraphics on input line 281.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/HA_Gain_Eval/NSIM_MR_v_T60_variousHAGains-eps-converted-to.pdf, 
-id=3082, 794.97pt x 578.16pt>
+id=3130, 794.97pt x 578.16pt>
 File: ./figures/ch4/HA_Gain_Eval/NSIM_MR_v_T60_variousHAGains-eps-converted-to.
 pdf Graphic file (type pdf)
 <use ./figures/ch4/HA_Gain_Eval/NSIM_MR_v_T60_variousHAGains-eps-converted-to.p
@@ -5312,7 +5411,7 @@ _v_T60_variousHAGains.eps>
 (epstopdf)             \includegraphics on input line 286.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/HA_Gain_Eval/STMI_v_T60_variousHAGains-eps-converted-to.pdf, id=
-3083, 794.97pt x 578.16pt>
+3131, 794.97pt x 578.16pt>
 File: ./figures/ch4/HA_Gain_Eval/STMI_v_T60_variousHAGains-eps-converted-to.pdf
  Graphic file (type pdf)
 <use ./figures/ch4/HA_Gain_Eval/STMI_v_T60_variousHAGains-eps-converted-to.pdf>
@@ -5327,7 +5426,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[132 <./figures/ch4/HA_Gain_Eval/HearingAidGains-eps-converted-to.pdf>]
+[133 <./figures/ch4/HA_Gain_Eval/HearingAidGains-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/Metrics_Eval/SIMetricsEval_S
 ynthetic.eps>
 (epstopdf)                    date: 2025-06-03 12:20:26
@@ -5341,8 +5440,8 @@ ynthetic-eps-converted-to.pdf>
 icsEval_Synthetic.eps>
 (epstopdf)             \includegraphics on input line 299.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic-eps-converted-to.pdf, id=30
-96, 1589.94pt x 650.43pt>
+<./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic-eps-converted-to.pdf, id=31
+44, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic-eps-converted-to.pdf G
 raphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic-eps-converted-to.pdf>
@@ -5356,7 +5455,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[133 <./figures/ch4/HA_Gain_Eval/HASPI_v_T60_variousHAGains-eps-converted-to.pd
+[134 <./figures/ch4/HA_Gain_Eval/HASPI_v_T60_variousHAGains-eps-converted-to.pd
 f> <./figures/ch4/HA_Gain_Eval/NSIM_FT_v_T60_variousHAGains-eps-converted-to.pd
 f> <./figures/ch4/HA_Gain_Eval/NSIM_MR_v_T60_variousHAGains-eps-converted-to.pd
 f> <./figures/ch4/HA_Gain_Eval/STMI_v_T60_variousHAGains-eps-converted-to.pdf>]
@@ -5374,7 +5473,7 @@ ynthetic_RealER-eps-converted-to.pdf>
 (epstopdf)             \includegraphics on input line 306.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER-eps-converted-to.pdf
-, id=3133, 1589.94pt x 650.43pt>
+, id=3182, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER-eps-converted-t
 o.pdf Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER-eps-converted-to
@@ -5388,7 +5487,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[134 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic-eps-converted-to.pdf>]
+[135 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/Metrics_Eval/SIMetricsEval_R
 eal.eps>
 (epstopdf)                    date: 2025-06-03 12:24:20
@@ -5402,7 +5501,7 @@ eal-eps-converted-to.pdf>
 al_Real.eps>
 (epstopdf)             \includegraphics on input line 313.
 Package epstopdf Info: Output file is already uptodate.
-<./figures/ch4/Metrics_Eval/SIMetricsEval_Real-eps-converted-to.pdf, id=3146, 1
+<./figures/ch4/Metrics_Eval/SIMetricsEval_Real-eps-converted-to.pdf, id=3195, 1
 589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_Real-eps-converted-to.pdf Graphi
 c file (type pdf)
@@ -5424,7 +5523,7 @@ uncationExample_RIR.eps>
 (epstopdf)             \includegraphics on input line 325.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SALTruncationExample_RIR-eps-converted-to.pdf, id=3
-147, 650.43pt x 578.16pt>
+196, 650.43pt x 578.16pt>
 File: ./figures/ch4/Metrics_Eval/SALTruncationExample_RIR-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SALTruncationExample_RIR-eps-converted-to.pdf>
@@ -5445,7 +5544,7 @@ uncationExample_EDC.eps>
 (epstopdf)             \includegraphics on input line 330.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SALTruncationExample_EDC-eps-converted-to.pdf, id=3
-148, 650.43pt x 578.16pt>
+197, 650.43pt x 578.16pt>
 File: ./figures/ch4/Metrics_Eval/SALTruncationExample_EDC-eps-converted-to.pdf 
 Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SALTruncationExample_EDC-eps-converted-to.pdf>
@@ -5458,7 +5557,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[135 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER-eps-converted-t
+[136 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER-eps-converted-t
 o.pdf> <./figures/ch4/Metrics_Eval/SIMetricsEval_Real-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/Metrics_Eval/SIMetricsEval_T
 runcatedSAL.eps>
@@ -5474,7 +5573,7 @@ etricsEval_TruncatedSAL.eps>
 (epstopdf)             \includegraphics on input line 338.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL-eps-converted-to.pdf, id
-=3170, 1589.94pt x 650.43pt>
+=3218, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL-eps-converted-to.pd
 f Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL-eps-converted-to.pdf
@@ -5496,7 +5595,7 @@ al/SAL_ERProcessingExample_Div2_RIR.eps>
 (epstopdf)             \includegraphics on input line 351.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_RIR-eps-converted-to.p
-df, id=3171, 650.43pt x 578.16pt>
+df, id=3219, 650.43pt x 578.16pt>
 File: ./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_RIR-eps-converted
 -to.pdf Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_RIR-eps-converted-
@@ -5518,7 +5617,7 @@ al/SAL_ERProcessingExample_Div2_EDC.eps>
 (epstopdf)             \includegraphics on input line 356.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_EDC-eps-converted-to.p
-df, id=3172, 650.43pt x 578.16pt>
+df, id=3220, 650.43pt x 578.16pt>
 File: ./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_EDC-eps-converted
 -to.pdf Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_EDC-eps-converted-
@@ -5533,7 +5632,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[136 <./figures/ch4/Metrics_Eval/SALTruncationExample_RIR-eps-converted-to.pdf>
+[137 <./figures/ch4/Metrics_Eval/SALTruncationExample_RIR-eps-converted-to.pdf>
  <./figures/ch4/Metrics_Eval/SALTruncationExample_EDC-eps-converted-to.pdf> <./
 figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/Metrics_Eval/SAL_ERProcessin
@@ -5550,7 +5649,7 @@ l/SAL_ERProcessingExample_Div2_SI.eps>
 (epstopdf)             \includegraphics on input line 366.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_SI-eps-converted-to.pd
-f, id=3201, 1589.94pt x 650.43pt>
+f, id=3250, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_SI-eps-converted-
 to.pdf Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_SI-eps-converted-t
@@ -5565,7 +5664,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[137 <./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_RIR-eps-converted
+[138 <./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_RIR-eps-converted
 -to.pdf> <./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_EDC-eps-conve
 rted-to.pdf> <./figures/ch4/Metrics_Eval/SAL_ERProcessingExample_Div2_SI-eps-co
 nverted-to.pdf>]
@@ -5583,7 +5682,7 @@ al/SIMetricsEval_Synthetic_wScaling.eps>
 (epstopdf)             \includegraphics on input line 382.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_wScaling-eps-converted-to.p
-df, id=3233, 1589.94pt x 650.43pt>
+df, id=3281, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_wScaling-eps-converted
 -to.pdf Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_wScaling-eps-converted-
@@ -5605,7 +5704,7 @@ rics_Eval/SIMetricsEval_Synthetic_RealER_wScaling.eps>
 (epstopdf)             \includegraphics on input line 389.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER_wScaling-eps-convert
-ed-to.pdf, id=3234, 1589.94pt x 650.43pt>
+ed-to.pdf, id=3282, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER_wScaling-eps-co
 nverted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER_wScaling-eps-con
@@ -5620,7 +5719,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[138 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_wScaling-eps-converted
+[139 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_wScaling-eps-converted
 -to.pdf>]
 Package epstopdf Info: Source file: <./figures/ch4/Metrics_Eval/SIMetricsEval_R
 eal_wScaling.eps>
@@ -5636,7 +5735,7 @@ MetricsEval_Real_wScaling.eps>
 (epstopdf)             \includegraphics on input line 396.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SIMetricsEval_Real_wScaling-eps-converted-to.pdf, i
-d=3247, 1589.94pt x 650.43pt>
+d=3295, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_Real_wScaling-eps-converted-to.p
 df Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SIMetricsEval_Real_wScaling-eps-converted-to.pd
@@ -5658,7 +5757,7 @@ _Eval/SIMetricsEval_TruncatedSAL_wScaling.eps>
 (epstopdf)             \includegraphics on input line 403.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL_wScaling-eps-converted-t
-o.pdf, id=3248, 1589.94pt x 650.43pt>
+o.pdf, id=3296, 1589.94pt x 650.43pt>
 File: ./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL_wScaling-eps-conver
 ted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL_wScaling-eps-convert
@@ -5673,14 +5772,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[139 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER_wScaling-eps-co
+[140 <./figures/ch4/Metrics_Eval/SIMetricsEval_Synthetic_RealER_wScaling-eps-co
 nverted-to.pdf> <./figures/ch4/Metrics_Eval/SIMetricsEval_Real_wScaling-eps-con
 verted-to.pdf>]
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figures/ch4/FinalMethod/Th
 esisExperimentMethod.pdf): PDF inclusion: found PDF version <1.7>, but at most 
 version <1.5> allowed
-<./figures/ch4/FinalMethod/ThesisExperimentMethod.pdf, id=3269, 1257.73882pt x 
+<./figures/ch4/FinalMethod/ThesisExperimentMethod.pdf, id=3318, 1257.73882pt x 
 765.82106pt>
 File: ./figures/ch4/FinalMethod/ThesisExperimentMethod.pdf Graphic file (type p
 df)
@@ -5704,16 +5803,16 @@ nthetic_NoNoise_C50_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_Synthetic_NoNoise_C50_v_T60-eps-converted-to.pdf ./figures/ch4/DA
 P_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_C50_v_T60.eps>
-(epstopdf)             \includegraphics on input line 435.
+(epstopdf)             \includegraphics on input line 437.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_C50_v_T60-eps-conver
-ted-to.pdf, id=3270, 722.7pt x 578.16pt>
+ted-to.pdf, id=3319, 722.7pt x 578.16pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_C50_v_T60-eps-c
 onverted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_C50_v_T60-eps-co
 nverted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNo
-ise_C50_v_T60-eps-converted-to.pdf  used on input line 435.
+ise_C50_v_T60-eps-converted-to.pdf  used on input line 437.
 (pdftex.def)             Requested size: 203.80193pt x 163.03937pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Sy
 nthetic_NoNoise_SI_v_T60.eps>
@@ -5726,16 +5825,16 @@ nthetic_NoNoise_SI_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_Synthetic_NoNoise_SI_v_T60-eps-converted-to.pdf ./figures/ch4/DAP
 _Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SI_v_T60.eps>
-(epstopdf)             \includegraphics on input line 439.
+(epstopdf)             \includegraphics on input line 441.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SI_v_T60-eps-convert
-ed-to.pdf, id=3271, 1517.67pt x 650.43pt>
+ed-to.pdf, id=3320, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SI_v_T60-eps-co
 nverted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SI_v_T60-eps-con
 verted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNo
-ise_SI_v_T60-eps-converted-to.pdf  used on input line 439.
+ise_SI_v_T60-eps-converted-to.pdf  used on input line 441.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Sy
 nthetic_NoNoise_SQ_v_T60.eps>
@@ -5748,16 +5847,16 @@ nthetic_NoNoise_SQ_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_Synthetic_NoNoise_SQ_v_T60-eps-converted-to.pdf ./figures/ch4/DAP
 _Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SQ_v_T60.eps>
-(epstopdf)             \includegraphics on input line 443.
+(epstopdf)             \includegraphics on input line 445.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SQ_v_T60-eps-convert
-ed-to.pdf, id=3272, 1517.67pt x 650.43pt>
+ed-to.pdf, id=3321, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SQ_v_T60-eps-co
 nverted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SQ_v_T60-eps-con
 verted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNo
-ise_SQ_v_T60-eps-converted-to.pdf  used on input line 443.
+ise_SQ_v_T60-eps-converted-to.pdf  used on input line 445.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -5765,7 +5864,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[140 <./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL_wScaling-eps-conver
+[141 <./figures/ch4/Metrics_Eval/SIMetricsEval_TruncatedSAL_wScaling-eps-conver
 ted-to.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -5773,8 +5872,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[141 <./figures/ch4/FinalMethod/ThesisExperimentMethod.pdf>]
-Overfull \hbox (2.84976pt too wide) in paragraph at lines 449--449
+[142 <./figures/ch4/FinalMethod/ThesisExperimentMethod.pdf>]
+Overfull \hbox (2.84976pt too wide) in paragraph at lines 451--451
 |[]\OT1/cmr/bx/n/17.28 Delay-and-Predict Dere-ver-ber-a-tion Eval-u-a-tion
  []
 
@@ -5789,16 +5888,16 @@ uncatedSAL_NoNoise_C50_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_NoNoise_C50_v_T60-eps-converted-to.pdf ./figures/ch4
 /DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_C50_v_T60.eps>
-(epstopdf)             \includegraphics on input line 457.
+(epstopdf)             \includegraphics on input line 459.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_C50_v_T60-eps-con
-verted-to.pdf, id=3299, 722.7pt x 578.16pt>
+verted-to.pdf, id=3347, 722.7pt x 578.16pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_C50_v_T60-ep
 s-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_C50_v_T60-eps
 -converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_N
-oNoise_C50_v_T60-eps-converted-to.pdf  used on input line 457.
+oNoise_C50_v_T60-eps-converted-to.pdf  used on input line 459.
 (pdftex.def)             Requested size: 203.80193pt x 163.03937pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Tr
 uncatedSAL_NoNoise_SI_v_T60.eps>
@@ -5811,16 +5910,16 @@ uncatedSAL_NoNoise_SI_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_NoNoise_SI_v_T60-eps-converted-to.pdf ./figures/ch4/
 DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SI_v_T60.eps>
-(epstopdf)             \includegraphics on input line 461.
+(epstopdf)             \includegraphics on input line 463.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SI_v_T60-eps-conv
-erted-to.pdf, id=3300, 1517.67pt x 650.43pt>
+erted-to.pdf, id=3348, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SI_v_T60-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SI_v_T60-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_N
-oNoise_SI_v_T60-eps-converted-to.pdf  used on input line 461.
+oNoise_SI_v_T60-eps-converted-to.pdf  used on input line 463.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Tr
 uncatedSAL_NoNoise_SQ_v_T60.eps>
@@ -5833,16 +5932,16 @@ uncatedSAL_NoNoise_SQ_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_NoNoise_SQ_v_T60-eps-converted-to.pdf ./figures/ch4/
 DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SQ_v_T60.eps>
-(epstopdf)             \includegraphics on input line 465.
+(epstopdf)             \includegraphics on input line 467.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SQ_v_T60-eps-conv
-erted-to.pdf, id=3301, 1517.67pt x 650.43pt>
+erted-to.pdf, id=3349, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SQ_v_T60-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_SQ_v_T60-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_N
-oNoise_SQ_v_T60-eps-converted-to.pdf  used on input line 465.
+oNoise_SQ_v_T60-eps-converted-to.pdf  used on input line 467.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -5850,7 +5949,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[142 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_C50_v_T60-eps-c
+[143 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_C50_v_T60-eps-c
 onverted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_NoNoise_SI_
 v_T60-eps-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Synthetic_
 NoNoise_SQ_v_T60-eps-converted-to.pdf>]
@@ -5860,14 +5959,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[143]
+[144]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[144 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_C50_v_T60-ep
+[145 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoise_C50_v_T60-ep
 s-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_NoNoi
 se_SI_v_T60-eps-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Trun
 catedSAL_NoNoise_SQ_v_T60-eps-converted-to.pdf>]
@@ -5882,16 +5981,16 @@ uncatedSAL_SNR12dB_C50_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_SNR12dB_C50_v_T60-eps-converted-to.pdf ./figures/ch4
 /DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_C50_v_T60.eps>
-(epstopdf)             \includegraphics on input line 483.
+(epstopdf)             \includegraphics on input line 485.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_C50_v_T60-eps-con
-verted-to.pdf, id=3363, 722.7pt x 578.16pt>
+verted-to.pdf, id=3411, 722.7pt x 578.16pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_C50_v_T60-ep
 s-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_C50_v_T60-eps
 -converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_S
-NR12dB_C50_v_T60-eps-converted-to.pdf  used on input line 483.
+NR12dB_C50_v_T60-eps-converted-to.pdf  used on input line 485.
 (pdftex.def)             Requested size: 203.80193pt x 163.03937pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Tr
 uncatedSAL_SNR12dB_SI_v_T60.eps>
@@ -5904,16 +6003,16 @@ uncatedSAL_SNR12dB_SI_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_SNR12dB_SI_v_T60-eps-converted-to.pdf ./figures/ch4/
 DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SI_v_T60.eps>
-(epstopdf)             \includegraphics on input line 487.
+(epstopdf)             \includegraphics on input line 489.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SI_v_T60-eps-conv
-erted-to.pdf, id=3364, 1517.67pt x 650.43pt>
+erted-to.pdf, id=3412, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SI_v_T60-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SI_v_T60-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_S
-NR12dB_SI_v_T60-eps-converted-to.pdf  used on input line 487.
+NR12dB_SI_v_T60-eps-converted-to.pdf  used on input line 489.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Tr
 uncatedSAL_SNR12dB_SQ_v_T60.eps>
@@ -5926,16 +6025,16 @@ uncatedSAL_SNR12dB_SQ_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_SNR12dB_SQ_v_T60-eps-converted-to.pdf ./figures/ch4/
 DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SQ_v_T60.eps>
-(epstopdf)             \includegraphics on input line 491.
+(epstopdf)             \includegraphics on input line 493.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SQ_v_T60-eps-conv
-erted-to.pdf, id=3365, 1517.67pt x 650.43pt>
+erted-to.pdf, id=3413, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SQ_v_T60-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_SQ_v_T60-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_S
-NR12dB_SQ_v_T60-eps-converted-to.pdf  used on input line 491.
+NR12dB_SQ_v_T60-eps-converted-to.pdf  used on input line 493.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 
 
@@ -5944,7 +6043,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[145]
+[146]
 Overfull \vbox (18.57938pt too high) has occurred while \output is active []
 
 
@@ -5954,7 +6053,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[146 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_C50_v_T60-ep
+[147 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12dB_C50_v_T60-ep
 s-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SNR12
 dB_SI_v_T60-eps-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Trun
 catedSAL_SNR12dB_SQ_v_T60-eps-converted-to.pdf>]
@@ -5970,16 +6069,16 @@ tionary_TruncatedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf>
 _EvalSNRSweepStationary_TruncatedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf ./f
 igures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_C50_v_SNR.e
 ps>
-(epstopdf)             \includegraphics on input line 503.
+(epstopdf)             \includegraphics on input line 505.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_C50_v_S
-NR-eps-converted-to.pdf, id=3398, 722.7pt x 578.16pt>
+NR-eps-converted-to.pdf, id=3447, 722.7pt x 578.16pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_C5
 0_v_SNR-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_C50
 _v_SNR-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_Trun
-catedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf  used on input line 503.
+catedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf  used on input line 505.
 (pdftex.def)             Requested size: 203.80193pt x 163.03937pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepSta
 tionary_TruncatedSAL_1000T60_SI_v_SNR.eps>
@@ -5993,16 +6092,16 @@ tionary_TruncatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf>
 _EvalSNRSweepStationary_TruncatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf ./fi
 gures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SI_v_SNR.eps
 >
-(epstopdf)             \includegraphics on input line 507.
+(epstopdf)             \includegraphics on input line 509.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SI_v_SN
-R-eps-converted-to.pdf, id=3399, 1517.67pt x 650.43pt>
+R-eps-converted-to.pdf, id=3448, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SI
 _v_SNR-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SI_
 v_SNR-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_Trun
-catedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf  used on input line 507.
+catedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf  used on input line 509.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepSta
 tionary_TruncatedSAL_1000T60_SQ_v_SNR.eps>
@@ -6016,16 +6115,16 @@ tionary_TruncatedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf>
 _EvalSNRSweepStationary_TruncatedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf ./fi
 gures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SQ_v_SNR.eps
 >
-(epstopdf)             \includegraphics on input line 511.
+(epstopdf)             \includegraphics on input line 513.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SQ_v_SN
-R-eps-converted-to.pdf, id=3400, 1517.67pt x 650.43pt>
+R-eps-converted-to.pdf, id=3449, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SQ
 _v_SNR-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SQ_
 v_SNR-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_Trun
-catedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf  used on input line 511.
+catedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf  used on input line 513.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 
 
@@ -6034,7 +6133,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[147]
+[148]
 Overfull \vbox (18.57938pt too high) has occurred while \output is active []
 
 
@@ -6044,7 +6143,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[148 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_C5
+[149 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationary_TruncatedSAL_1000T60_C5
 0_v_SNR-eps-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepStationar
 y_TruncatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf> <./figures/ch4/DAP_Eval/D
 AP_EvalSNRSweepStationary_TruncatedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf>]
@@ -6060,16 +6159,16 @@ Stationary_TruncatedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf>
 _EvalSNRSweepNonStationary_TruncatedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf 
 ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_C50_v
 _SNR.eps>
-(epstopdf)             \includegraphics on input line 523.
+(epstopdf)             \includegraphics on input line 525.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_C50_
-v_SNR-eps-converted-to.pdf, id=3434, 722.7pt x 578.16pt>
+v_SNR-eps-converted-to.pdf, id=3483, 722.7pt x 578.16pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60
 _C50_v_SNR-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_
 C50_v_SNR-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_T
-runcatedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf  used on input line 523.
+runcatedSAL_1000T60_C50_v_SNR-eps-converted-to.pdf  used on input line 525.
 (pdftex.def)             Requested size: 203.80193pt x 163.03937pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNon
 Stationary_TruncatedSAL_1000T60_SI_v_SNR.eps>
@@ -6083,16 +6182,16 @@ Stationary_TruncatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf>
 _EvalSNRSweepNonStationary_TruncatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf .
 /figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_SI_v_S
 NR.eps>
-(epstopdf)             \includegraphics on input line 527.
+(epstopdf)             \includegraphics on input line 529.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_SI_v
-_SNR-eps-converted-to.pdf, id=3435, 1517.67pt x 650.43pt>
+_SNR-eps-converted-to.pdf, id=3484, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60
 _SI_v_SNR-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_
 SI_v_SNR-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_T
-runcatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf  used on input line 527.
+runcatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf  used on input line 529.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNon
 Stationary_TruncatedSAL_1000T60_SQ_v_SNR.eps>
@@ -6106,16 +6205,16 @@ Stationary_TruncatedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf>
 _EvalSNRSweepNonStationary_TruncatedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf .
 /figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_SQ_v_S
 NR.eps>
-(epstopdf)             \includegraphics on input line 531.
+(epstopdf)             \includegraphics on input line 533.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_SQ_v
-_SNR-eps-converted-to.pdf, id=3436, 1517.67pt x 650.43pt>
+_SNR-eps-converted-to.pdf, id=3485, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60
 _SQ_v_SNR-eps-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_
 SQ_v_SNR-eps-converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_T
-runcatedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf  used on input line 531.
+runcatedSAL_1000T60_SQ_v_SNR-eps-converted-to.pdf  used on input line 533.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 
 
@@ -6124,7 +6223,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[149]
+[150]
 Overfull \vbox (4.07938pt too high) has occurred while \output is active []
 
 
@@ -6134,12 +6233,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[150 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60
+[151 <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60
 _C50_v_SNR-eps-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalSNRSweepNonSta
 tionary_TruncatedSAL_1000T60_SI_v_SNR-eps-converted-to.pdf> <./figures/ch4/DAP_
 Eval/DAP_EvalSNRSweepNonStationary_TruncatedSAL_1000T60_SQ_v_SNR-eps-converted-
 to.pdf>]
-Overfull \hbox (3.82974pt too wide) in paragraph at lines 536--536
+Overfull \hbox (3.82974pt too wide) in paragraph at lines 538--538
 |[]\OT1/cmr/bx/n/17.28 Impact of an In-ter-fer-ing Talker on Per-for-mance| 
  []
 
@@ -6154,16 +6253,16 @@ uncatedSAL_SIR12dB_C50_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_SIR12dB_C50_v_T60-eps-converted-to.pdf ./figures/ch4
 /DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_C50_v_T60.eps>
-(epstopdf)             \includegraphics on input line 547.
+(epstopdf)             \includegraphics on input line 549.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_C50_v_T60-eps-con
-verted-to.pdf, id=3470, 722.7pt x 578.16pt>
+verted-to.pdf, id=3518, 722.7pt x 578.16pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_C50_v_T60-ep
 s-converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_C50_v_T60-eps
 -converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_S
-IR12dB_C50_v_T60-eps-converted-to.pdf  used on input line 547.
+IR12dB_C50_v_T60-eps-converted-to.pdf  used on input line 549.
 (pdftex.def)             Requested size: 203.80193pt x 163.03937pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Tr
 uncatedSAL_SIR12dB_SI_v_T60.eps>
@@ -6176,16 +6275,16 @@ uncatedSAL_SIR12dB_SI_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_SIR12dB_SI_v_T60-eps-converted-to.pdf ./figures/ch4/
 DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SI_v_T60.eps>
-(epstopdf)             \includegraphics on input line 551.
+(epstopdf)             \includegraphics on input line 553.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SI_v_T60-eps-conv
-erted-to.pdf, id=3471, 1517.67pt x 650.43pt>
+erted-to.pdf, id=3519, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SI_v_T60-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SI_v_T60-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_S
-IR12dB_SI_v_T60-eps-converted-to.pdf  used on input line 551.
+IR12dB_SI_v_T60-eps-converted-to.pdf  used on input line 553.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 Package epstopdf Info: Source file: <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Tr
 uncatedSAL_SIR12dB_SQ_v_T60.eps>
@@ -6198,16 +6297,16 @@ uncatedSAL_SIR12dB_SQ_v_T60-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./figures/ch4/DAP_Eval/DAP
 _EvalT60Sweep_TruncatedSAL_SIR12dB_SQ_v_T60-eps-converted-to.pdf ./figures/ch4/
 DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SQ_v_T60.eps>
-(epstopdf)             \includegraphics on input line 555.
+(epstopdf)             \includegraphics on input line 557.
 Package epstopdf Info: Output file is already uptodate.
 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SQ_v_T60-eps-conv
-erted-to.pdf, id=3472, 1517.67pt x 650.43pt>
+erted-to.pdf, id=3520, 1517.67pt x 650.43pt>
 File: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SQ_v_T60-eps
 -converted-to.pdf Graphic file (type pdf)
 <use ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_SQ_v_T60-eps-
 converted-to.pdf>
 Package pdftex.def Info: ./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_S
-IR12dB_SQ_v_T60-eps-converted-to.pdf  used on input line 555.
+IR12dB_SQ_v_T60-eps-converted-to.pdf  used on input line 557.
 (pdftex.def)             Requested size: 398.9296pt x 170.96373pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -6215,7 +6314,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[151]
+[152]
 Overfull \vbox (33.07938pt too high) has occurred while \output is active []
 
 
@@ -6225,7 +6324,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[152 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_C50_v_T60-ep
+[153 <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12dB_C50_v_T60-ep
 s-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_TruncatedSAL_SIR12
 dB_SI_v_T60-eps-converted-to.pdf> <./figures/ch4/DAP_Eval/DAP_EvalT60Sweep_Trun
 catedSAL_SIR12dB_SQ_v_T60-eps-converted-to.pdf>])
@@ -6233,7 +6332,7 @@ catedSAL_SIR12dB_SQ_v_T60-eps-converted-to.pdf>])
 
  (./chap5.tex
 Chapter 5.
-) [153
+) [154
 
 
 
@@ -6241,7 +6340,7 @@ Chapter 5.
 ]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex) (./thesis.bbl [154
+ (./appendix.tex) (./thesis.bbl [155
 
 
 
@@ -6249,13 +6348,6 @@ Chapter 5.
 
 
 ]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[155]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -6311,14 +6403,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[163])
+[163]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[164] (./thesis.aux (./dedic.aux) (./lay.aux) (./definitions.aux) (./abstr.aux)
+[164])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[165] (./thesis.aux (./dedic.aux) (./lay.aux) (./definitions.aux) (./abstr.aux)
 (./acknowledgements.aux) (./notation.aux) (./chap1.aux) (./chap2.aux)
 (./chap3.aux) (./chap4.aux) (./chap5.aux) (./appendix.aux))
  ***********
@@ -6326,16 +6425,16 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F0A5EBFF28FF5C9C6AC29A49EA4C17C1;22664.
+(rerunfilecheck)             Checksum: EE0044AC55B0E9C0F4A3274B98C575BE;22910.
  ) 
 Here is how much of TeX's memory you used:
- 27711 strings out of 474116
- 713186 string characters out of 5743683
+ 27861 strings out of 474116
+ 719794 string characters out of 5743683
  1959187 words of memory out of 5000000
- 49254 multiletter control sequences out of 15000+600000
+ 49401 multiletter control sequences out of 15000+600000
  570448 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,16n,87p,1831b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,16n,87p,1831b,1168s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
@@ -6357,10 +6456,10 @@ ve/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texl
 ive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texliv
 e/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on thesis.pdf (190 pages, 9563541 bytes).
+Output written on thesis.pdf (191 pages, 10101366 bytes).
 PDF statistics:
- 3755 PDF objects out of 4296 (max. 8388607)
- 2978 compressed objects within 30 object streams
- 492 named destinations out of 1000 (max. 500000)
- 1607 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3805 PDF objects out of 4296 (max. 8388607)
+ 3014 compressed objects within 31 object streams
+ 495 named destinations out of 1000 (max. 500000)
+ 1635 words of extra memory for PDF output out of 10000 (max. 10000000)
 

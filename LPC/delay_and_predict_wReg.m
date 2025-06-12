@@ -42,7 +42,7 @@ apply_time_alignment    = false;
 % part of the reverb tail is often close in magnitude to the noise floor
 % and therefore is cancelled effectively by the algorithm (in fact the resulting
 % equalizer often introduces low energy reverb)
-reg_factor = 10^-5;
+reg_factor = 2*10^-5;
 
 % FFT/PSD params for plots
 Nfft = 4096;
@@ -59,7 +59,7 @@ fprintf(" - Source whitening order (p1) = %.0f\n", p1)
 fprintf(" - Multichannel Linear Prediction order (p2) = %.0f\n", p2)
 fprintf(" - Source whitening Enabled? = %.0f\n", s1_enable)
 fprintf(" - Source whitening on clean speech? = %.0f\n", s1_on_clean_speech)
-%fprintf(" - MC-LP Regularization Factor = %d (Currently unused)\n", reg_factor)
+fprintf(" - MC-LP Regularization Factor = %d\n", reg_factor)
 %fprintf(" - Time Alignment Applied? = %.0f\n\n", apply_time_alignment)
 
 %% LPC on clean speech (Not actually used in algo, just for reference)
@@ -108,7 +108,7 @@ varData = whos('R_s');
 memory_info.R_s_size  = size(R_s);
 memory_info.R_s_bytes = varData.bytes;
 memory_info.R_s_type  = varData.class;
-%memory_info.R_s_cond  = cond(R_s);
+memory_info.R_s_cond  = cond(R_s);
 clear R_s
 clear r_s
 clear phi_s
@@ -164,7 +164,7 @@ varData = whos('R_ym');
 memory_info.R_ym_size  = size(R_ym);
 memory_info.R_ym_bytes = varData.bytes;
 memory_info.R_ym_type  = varData.class;
-%memory_info.R_ym_cond  = cond(R_ym);
+memory_info.R_ym_cond  = cond(R_ym);
 clear R_ym
 clear r_ym
 clear phi_ym
@@ -421,7 +421,7 @@ while min(abs(h0)) < coeff_thresh
     memory_info.R_mc_size  = size(R_mc);
     memory_info.R_mc_bytes = varData.bytes;
     memory_info.R_mc_type  = varData.class;
-    %memory_info.R_mc_cond   = cond(R_mc);
+    memory_info.R_mc_cond   = cond(R_mc);
     clear R_mc
     clear r_mc
     clear phi_X
@@ -518,9 +518,6 @@ if apply_time_alignment
 end
 
 fprintf("Done")
-
-
-%fprintf("cond(R_mc) = %d\n", cond(R_mc));
 
 %% Create equalizer structure (for output)
 dap_equalizer_struct.H          = H;

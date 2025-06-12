@@ -574,6 +574,42 @@ Add discussion about linear combiner and why the weighting vector suggested by s
 \end{figure}
 
 
+\section{Autocorrelation Matrix Regularization}
+
+ Regularization Factor: Diagonal reg matrix=reg factor*I is applied to the autocorrelation matrices used in both linear-prediction stages (i.e., $R_{ym}$ and $R_{mc}$) to improve numerical stability of algorithm at the cost of reduced cancellation of lower energy reverb. This trade-off may be worth while since the low energy part of the reverb tail is often close in magnitude to the noise floor and therefore is cancelled effectively by the algorithm (in fact the resulting equalizer often introduces low energy reverb)
+ 
+ $reg factor = 10^-5$;
+ 
+ \begin{figure}[H]
+ 	\centering
+ 	% Without Regularization
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{EIR_500T60_NoRegularization}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{EDC_500T60_NoRegularization}
+	\end{subfigure}
+
+	% With Regularization
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{EIR_500T60_wRegularization}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{EDC_500T60_wRegularization}
+	\end{subfigure}
+ 	\caption{Impact of autocorrelation matrix regularization on dereverberation performance.}
+ 	\label{fig:params_regularization}
+ \end{figure}
+ 
+ 
+
+
 
 \section{Algorithmic Complexity Analysis}
 
