@@ -48,6 +48,19 @@ Brannmark, L.-J. and Ahl{\'e}n, A. (2009).
 \newblock {\em IEEE Transactions on Signal Processing}, {\bf 57}(5),
   1689--1702.
 
+\bibitem[Braun and Habets(2016)]{braun2016online}
+Braun, S. and Habets, E.~A. (2016).
+\newblock Online dereverberation for dynamic scenarios using a kalman filter
+  with an autoregressive model.
+\newblock {\em IEEE Signal Processing Letters}, {\bf 23}(12), 1741--1745.
+
+\bibitem[Braun {\em et~al.}(2013)]{braun2013informed}
+Braun, S., Jarrett, D.~P., Fischer, J., and Habets, E.~A. (2013).
+\newblock An informed spatial filter for dereverberation in the spherical
+  harmonic domain.
+\newblock In {\em 2013 IEEE International Conference on Acoustics, Speech and
+  Signal Processing}, pages 669--673. IEEE.
+
 \bibitem[Bronkhorst(2000)]{bronkhorst2000cocktail}
 Bronkhorst, A.~W. (2000).
 \newblock The cocktail party phenomenon: A review of research on speech
@@ -73,6 +86,12 @@ Clarkson, P.~M., Mourjopoulos, J., and Hammond, J. (1985).
 \newblock {\em Journal of the Audio Engineering Society}, {\bf 33}(3),
   127--132.
 
+\bibitem[Delcroix {\em et~al.}(2007)]{delcroix2007precise}
+Delcroix, M., Hikichi, T., and Miyoshi, M. (2007).
+\newblock Precise dereverberation using multichannel linear prediction.
+\newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
+  {\bf 15}(2), 430--440.
+
 \bibitem[Ding and Li(2018)]{ding2018blind}
 Ding, Z. and Li, Y. (2018).
 \newblock {\em Blind equalization and identification}.
@@ -85,26 +104,88 @@ Durlach, N. (1960).
 \newblock {\em The Journal of the Acoustical Society of America}, {\bf 32}(8),
   1075--1076.
 
+\bibitem[Elko(1996)]{elko1996microphone}
+Elko, G.~W. (1996).
+\newblock Microphone array systems for hands-free telecommunication.
+\newblock {\em Speech communication}, {\bf 20}(3-4), 229--240.
+
 \bibitem[Elliott and Nelson(1989)]{elliott1989multiple}
 Elliott, S.~J. and Nelson, P.~A. (1989).
 \newblock Multiple-point equalization in a room using adaptive digital filters.
 \newblock {\em Journal of the Audio Engineering Society}, {\bf 37}(11),
   899--907.
 
+\bibitem[Ephraim and Malah(1984)]{ephraim1984speech}
+Ephraim, Y. and Malah, D. (1984).
+\newblock Speech enhancement using a minimum-mean square error short-time
+  spectral amplitude estimator.
+\newblock {\em IEEE Transactions on acoustics, speech, and signal processing},
+  {\bf 32}(6), 1109--1121.
+
+\bibitem[Ephraim and Malah(1985)]{ephraim1985speech}
+Ephraim, Y. and Malah, D. (1985).
+\newblock Speech enhancement using a minimum mean-square error log-spectral
+  amplitude estimator.
+\newblock {\em IEEE transactions on acoustics, speech, and signal processing},
+  {\bf 33}(2), 443--445.
+
+\bibitem[Erkelens and Heusdens(2010)]{erkelens2010correlation}
+Erkelens, J.~S. and Heusdens, R. (2010).
+\newblock Correlation-based and model-based blind single-channel
+  late-reverberation suppression in noisy time-varying acoustical environments.
+\newblock {\em IEEE transactions on audio, speech, and language processing},
+  {\bf 18}(7), 1746--1765.
+
 \bibitem[Farhang-Boroujeny(2013)]{farhang2013adaptive}
 Farhang-Boroujeny, B. (2013).
 \newblock {\em Adaptive filters: theory and applications}.
 \newblock John wiley \& sons.
+
+\bibitem[Flanagan {\em et~al.}(1985)]{flanagan1985computer}
+Flanagan, J.~L., Johnston, J.~D., Zahn, R., and Elko, G.~W. (1985).
+\newblock Computer-steered microphone arrays for sound transduction in large
+  rooms.
+\newblock {\em The Journal of the Acoustical Society of America}, {\bf 78}(5),
+  1508--1518.
 
 \bibitem[Ford(1978)]{ford1978optimum}
 Ford, W.~T. (1978).
 \newblock Optimum mixed delay spiking filters.
 \newblock {\em Geophysics}, {\bf 43}(1), 125--132.
 
+\bibitem[Furuya and Kataoka(2007)]{furuya2007robust}
+Furuya, K. and Kataoka, A. (2007).
+\newblock Robust speech dereverberation using multichannel blind deconvolution
+  with spectral subtraction.
+\newblock {\em IEEE Transactions on audio, speech, and language processing},
+  {\bf 15}(5), 1579--1591.
+
 \bibitem[George {\em et~al.}(2010)]{george2010measuring}
 George, E.~L., Goverts, S.~T., Festen, J.~M., and Houtgast, T. (2010).
 \newblock Measuring the effects of reverberation and noise on sentence
   intelligibility for hearing-impaired listeners.
+
+\bibitem[Gesbert and Duhamel(1997)]{gesbert1997robust}
+Gesbert, D. and Duhamel, P. (1997).
+\newblock Robust blind channel identification and equalization based on
+  multi-step predictors.
+\newblock In {\em 1997 IEEE International Conference on Acoustics, Speech, and
+  Signal Processing}, volume~5, pages 3621--3624. IEEE.
+
+\bibitem[Giannakis and Mendel(1989)]{giannakis1989identification}
+Giannakis, G.~B. and Mendel, J.~M. (1989).
+\newblock Identification of nonminimum phase systems using higher order
+  statistics.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  {\bf 37}(3), 360--377.
+
+\bibitem[Gillespie {\em et~al.}(2001)]{gillespie2001speech}
+Gillespie, B.~W., Malvar, H.~S., and Flor{\^e}ncio, D.~A. (2001).
+\newblock Speech dereverberation via maximum-kurtosis subband adaptive
+  filtering.
+\newblock In {\em 2001 IEEE International Conference on Acoustics, Speech, and
+  Signal Processing. Proceedings (Cat. No. 01CH37221)}, volume~6, pages
+  3701--3704. IEEE.
 
 \bibitem[Godard(1980)]{godard1980self}
 Godard, D. (1980).
@@ -112,11 +193,36 @@ Godard, D. (1980).
   data communication systems.
 \newblock {\em IEEE transactions on communications}, {\bf 28}(11), 1867--1875.
 
+\bibitem[Grenier(2003)]{grenier2003time}
+Grenier, Y. (2003).
+\newblock Time-dependent arma modeling of nonstationary signals.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  {\bf 31}(4), 899--911.
+
+\bibitem[Gurelli and Nikias(1995)]{gurelli1995evam}
+Gurelli, M.~I. and Nikias, C.~L. (1995).
+\newblock Evam: An eigenvector-based algorithm for multichannel blind
+  deconvolution of input colored signals.
+\newblock {\em IEEE Transactions on Signal Processing}, {\bf 43}(1), 134--149.
+
 \bibitem[Haas(1951)]{haas1951einflubeta}
 Haas, H. (1951).
 \newblock {\"U}ber den einflu$\beta$ eines einfachechos auf die h{\"o}rsamkeit
   von sprache.
 \newblock {\em Acta Acustica united with Acustica}, {\bf 1}(2), 49--58.
+
+\bibitem[Habets(2005)]{habets2005multi}
+Habets, E.~A. (2005).
+\newblock Multi-channel speech dereverberation based on a statistical model of
+  late reverberation.
+\newblock In {\em Proceedings.(ICASSP'05). IEEE International Conference on
+  Acoustics, Speech, and Signal Processing, 2005.}, volume~4, pages iv--173.
+  IEEE.
+
+\bibitem[Habets(2007)]{habets2007single}
+Habets, E. A.~P. (2007).
+\newblock Single-and multi-microphone speech dereverberation using spectral
+  enhancement.
 
 \bibitem[Haneda {\em et~al.}(1997)]{haneda1997multiple}
 Haneda, Y., Makino, S., and Kaneda, Y. (1997).
@@ -149,11 +255,43 @@ Hines, A., Skoglund, J., Kokaram, A.~C., and Harte, N. (2015).
 \newblock {\em EURASIP Journal on Audio, Speech, and Music Processing}, {\bf
   2015}, 1--18.
 
+\bibitem[Hopgood(2005)]{hopgood2005models}
+Hopgood, J.~R. (2005).
+\newblock Models for blind speech dereverberation: A subband all-pole filtered
+  block stationary autoregressive process.
+\newblock In {\em 2005 13th European Signal Processing Conference}, pages 1--4.
+  IEEE.
+
+\bibitem[Huang and Benesty(2002)]{huang2002adaptive}
+Huang, Y. and Benesty, J. (2002).
+\newblock Adaptive blind channel identification: multi-channel least mean
+  square and newton algorithms.
+\newblock In {\em 2002 IEEE International Conference on Acoustics, Speech, and
+  Signal Processing}, volume~2, pages II--1637. IEEE.
+
+\bibitem[Huang and Benesty(2003)]{huang2003class}
+Huang, Y. and Benesty, J. (2003).
+\newblock A class of frequency-domain adaptive approaches to blind multichannel
+  identification.
+\newblock {\em IEEE Transactions on signal processing}, {\bf 51}(1), 11--24.
+
+\bibitem[Identification(1995)]{identification1995least}
+Identification, B.~C. (1995).
+\newblock A least—squares approach to.
+\newblock {\em IEEE TRANSACTIONS ON SIGNAL PROCESSING}, {\bf 43}(12).
+
 \bibitem[IEC 60268-16:2020(2003)]{iec2003sti}
 IEC 60268-16:2020 (2003).
 \newblock {Sound system equipment--Part 16: Objective rating of speech
   intelligibility by speech transmission index}.
 \newblock Standard, International Electrotechnical Commission.
+
+\bibitem[Inouye(1983)]{inouye1983modeling}
+Inouye, Y. (1983).
+\newblock Modeling of multichannel time series and extrapolation of
+  matrix-valued autocorrelation sequences.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  {\bf 31}(1), 45--55.
 
 \bibitem[ITU P.862(2001)]{itu2003pesq}
 ITU P.862 (2001).
@@ -174,6 +312,31 @@ Johansen, L.~G. and Rubak, P. (1996).
 \newblock In {\em Audio Engineering Society Convention 100}. Audio Engineering
   Society.
 
+\bibitem[Juki{\'c} {\em et~al.}(2015)]{jukic2015multi}
+Juki{\'c}, A., van Waterschoot, T., Gerkmann, T., and Doclo, S. (2015).
+\newblock Multi-channel linear prediction-based speech dereverberation with
+  sparse priors.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, {\bf 23}(9), 1509--1520.
+
+\bibitem[Juki{\'c} {\em et~al.}(2016)]{jukic2016adaptive}
+Juki{\'c}, A., van Waterschoot, T., and Doclo, S. (2016).
+\newblock Adaptive speech dereverberation using constrained sparse multichannel
+  linear prediction.
+\newblock {\em IEEE Signal Processing Letters}, {\bf 24}(1), 101--105.
+
+\bibitem[Jukic {\em et~al.}(2016)]{jukic2016general}
+Jukic, A., van Waterschoot, T., Gerkmann, T., and Doclo, S. (2016).
+\newblock A general framework for multi-channel speech dereverberation
+  exploiting sparsity.
+\newblock In {\em Proc. AES 60th Int. Conf., Leuven, Belgium}, pages 1--8.
+
+\bibitem[Kallinger and Mertins(2006)]{kallinger2006multi}
+Kallinger, M. and Mertins, A. (2006).
+\newblock Multi-channel room impulse response shaping-a study.
+\newblock In {\em 2006 IEEE International Conference on Acoustics Speech and
+  Signal Processing Proceedings}, volume~5, pages V--V. IEEE.
+
 \bibitem[Karjalainen and Paatero(2006)]{karjalainen2006equalization}
 Karjalainen, M. and Paatero, T. (2006).
 \newblock Equalization of loudspeaker and room responses using kautz filters:
@@ -188,11 +351,24 @@ Kates, J.~M. and Arehart, K.~H. (2022).
   hearing aids.
 \newblock {\em Hearing research}, {\bf 426}, 108608.
 
+\bibitem[Kinoshita {\em et~al.}(2007)]{kinoshita2007multi}
+Kinoshita, K., Delcroix, M., Nakatani, T., and Miyoshi, M. (2007).
+\newblock Multi-step linear prediction based speech dereverberation in noisy
+  reverberant environment.
+\newblock In {\em Interspeech}, pages 854--857.
+
 \bibitem[Kirkeby {\em et~al.}(1996)]{kirkeby1996fast}
 Kirkeby, O., Nelson, P.~A., Hamada, H., Orduna-Bustamante, F., and
   de~Acoustica, S. (1996).
 \newblock Fast deconvolution of multi-channel systems using regularisation.
 \newblock {\em PROCEEDINGS-INSTITUTE OF ACOUSTICS}, {\bf 18}, 2829--2832.
+
+\bibitem[Kodrasi and Doclo(2012)]{kodrasi2012robust}
+Kodrasi, I. and Doclo, S. (2012).
+\newblock Robust partial multichannel equalization techniques for speech
+  dereverberation.
+\newblock In {\em 2012 IEEE International Conference on Acoustics, Speech and
+  Signal Processing (ICASSP)}, pages 537--540. IEEE.
 
 \bibitem[Kormylo and Jain(1974)]{kormylo1974twopass}
 Kormylo, J. and Jain, V. (1974).
@@ -222,6 +398,12 @@ Lavandier, M., Kates, J., and Arehart, K. (2023).
 \newblock Towards a binaural hearing aid speech perception index (haspi):
   predictions of anechoic spatial release from masking for normal-hearing
   listeners.
+
+\bibitem[Lebart {\em et~al.}(2001)]{lebart2001new}
+Lebart, K., Boucher, J.-M., and Denbigh, P.~N. (2001).
+\newblock A new method based on spectral subtraction for speech
+  dereverberation.
+\newblock {\em Acta Acustica united with Acustica}, {\bf 87}(3), 359--366.
 
 \bibitem[Leclere {\em et~al.}(2015)]{leclere2015speech}
 Leclere, T., Lavandier, M., and Culling, J.~F. (2015).
@@ -302,6 +484,27 @@ Nakajima, H., Miyoshi, M., and Tohyama, M. (1997).
 \newblock {\em IEICE transactions on fundamentals of electronics,
   communications and computer sciences}, {\bf 80}(5), 821--824.
 
+\bibitem[Nakatani {\em et~al.}(2008)]{nakatani2008blind}
+Nakatani, T., Yoshioka, T., Kinoshita, K., Miyoshi, M., and Juang, B.-H.
+  (2008).
+\newblock Blind speech dereverberation with multi-channel linear prediction
+  based on short time fourier transform representation.
+\newblock In {\em 2008 IEEE International Conference on Acoustics, Speech and
+  Signal Processing}, pages 85--88. IEEE.
+
+\bibitem[Nakatani {\em et~al.}(2010)]{nakatani2010speech}
+Nakatani, T., Yoshioka, T., Kinoshita, K., Miyoshi, M., and Juang, B.-H.
+  (2010).
+\newblock Speech dereverberation based on variance-normalized delayed linear
+  prediction.
+\newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
+  {\bf 18}(7), 1717--1731.
+
+\bibitem[Naylor and Gaubitch(2010)]{naylor2010speech}
+Naylor, P.~A. and Gaubitch, N.~D. (2010).
+\newblock {\em Speech dereverberation}.
+\newblock Springer Science \& Business Media.
+
 \bibitem[Neely and Allen(1979)]{neely1979invertibility}
 Neely, S.~T. and Allen, J.~B. (1979).
 \newblock Invertibility of a room impulse response.
@@ -324,10 +527,26 @@ Omura, M., Yada, M., Saruwatari, H., Kajita, S., Takeda, K., and Itakura, F.
   Signal Processing. Proceedings. ICASSP99 (Cat. No. 99CH36258)}, volume~2,
   pages 941--944. IEEE.
 
+\bibitem[Oppenheim {\em et~al.}(1976)]{oppenheim1976digital}
+Oppenheim, A., Schafer, R., Rabiner, L., Gold, B., and Hunt, B. (1976).
+\newblock Digital signal processing and theory and application of digital
+  signal processing.
+
+\bibitem[Petropulu and Subramaniam(1994)]{petropulu1994cepstrum}
+Petropulu, A.~P. and Subramaniam, S. (1994).
+\newblock Cepstrum based deconvolution for speech dereverberation.
+\newblock In {\em Proceedings of ICASSP'94. IEEE International Conference on
+  Acoustics, Speech and Signal Processing}, volume~1, pages I--9. IEEE.
+
 \bibitem[Pickles(2013)]{pickles2013}
 Pickles, J.~O. (2013).
 \newblock {\em An introduction to the physiology of hearing}.
 \newblock Brill, Leiden ; Boston.
+
+\bibitem[Polack(1988)]{polack1988transmission}
+Polack, J.-D. (1988).
+\newblock {\em La transmission de l'{\'e}nergie sonore dans les salles}.
+\newblock Ph.D. thesis, Le Mans.
 
 \bibitem[Quatieri(2002)]{quatieri2002discrete}
 Quatieri, T.~F. (2002).
@@ -396,6 +615,13 @@ Schepker, H., Haeder, K., Rennies, J., and Holube, I. (2016).
   reverberation and noise for hearing-impaired listeners.
 \newblock {\em International journal of audiology}, {\bf 55}(12), 738--747.
 
+\bibitem[Schmid {\em et~al.}(2014)]{schmid2014variational}
+Schmid, D., Enzner, G., Malik, S., Kolossa, D., and Martin, R. (2014).
+\newblock Variational bayesian inference for multichannel dereverberation and
+  noise reduction.
+\newblock {\em IEEE/ACM transactions on audio, speech, and language
+  processing}, {\bf 22}(8), 1320--1335.
+
 \bibitem[Schroeder and Kuttruff(1962)]{schroeder1962frequency}
 Schroeder, M.~R. and Kuttruff, K. (1962).
 \newblock On frequency response curves in rooms. comparison of experimental,
@@ -403,6 +629,13 @@ Schroeder, M.~R. and Kuttruff, K. (1962).
   between maxima.
 \newblock {\em The Journal of the Acoustical Society of America}, {\bf 34}(1),
   76--80.
+
+\bibitem[Schwartz {\em et~al.}(2014)]{schwartz2014multi}
+Schwartz, O., Gannot, S., and Habets, E.~A. (2014).
+\newblock Multi-microphone speech dereverberation and noise reduction using
+  relative early transfer functions.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, {\bf 23}(2), 240--251.
 
 \bibitem[Shapiro {\em et~al.}(2021)]{shapiro2021hearing}
 Shapiro, S.~B., Noij, K.~S., Naples, J.~G., and Samy, R.~N. (2021).
@@ -414,6 +647,13 @@ Shields, C., Sladen, M., Bruce, I.~A., Kluk, K., and Nichani, J. (2023).
 \newblock Exploring the correlations between measures of listening effort in
   adults and children: a systematic review with narrative synthesis.
 \newblock {\em Trends in Hearing}, {\bf 27}, 23312165221137116.
+
+\bibitem[Slock(1994)]{slock1994blind}
+Slock, D.~T. (1994).
+\newblock Blind fractionally-spaced equalization, perfect-reconstruction filter
+  banks and multichannel linear prediction.
+\newblock In {\em Proceedings of ICASSP'94. IEEE International Conference on
+  Acoustics, Speech and Signal Processing}, volume~4, pages IV--585. IEEE.
 
 \bibitem[Srinivasan {\em et~al.}(2017)]{srinivasan2017role}
 Srinivasan, N.~K., Stansell, M., and Gallun, F.~J. (2017).
@@ -428,6 +668,27 @@ Taal, C.~H., Hendriks, R.~C., Heusdens, R., and Jensen, J. (2010).
   weighted noisy speech.
 \newblock In {\em 2010 IEEE international conference on acoustics, speech and
   signal processing}, pages 4214--4217. IEEE.
+
+\bibitem[Thiergart {\em et~al.}(2012)]{thiergart2012signal}
+Thiergart, O., Del~Galdo, G., and Habets, E.~A. (2012).
+\newblock Signal-to-reverberant ratio estimation based on the complex spatial
+  coherence between omnidirectional microphones.
+\newblock In {\em 2012 IEEE International Conference on Acoustics, Speech and
+  Signal Processing (ICASSP)}, pages 309--312. IEEE.
+
+\bibitem[Thiergart {\em et~al.}(2014)]{thiergart2014power}
+Thiergart, O., Ascherl, T., and Habets, E.~A. (2014).
+\newblock Power-based signal-to-diffuse ratio estimation using noisy
+  directional microphones.
+\newblock In {\em 2014 IEEE International Conference on Acoustics, Speech and
+  Signal Processing (ICASSP)}, pages 7440--7444. IEEE.
+
+\bibitem[Thomas {\em et~al.}(2007)]{thomas2007practical}
+Thomas, M.~R., Gaubitch, N.~D., Gudnason, J., and Naylor, P.~A. (2007).
+\newblock A practical multichannel dereverberation algorithm using multichannel
+  dypsa and spatiotemporal averaging.
+\newblock In {\em 2007 IEEE workshop on applications of signal processing to
+  audio and acoustics}, pages 50--53. IEEE.
 
 \bibitem[Toole and Olive(1988)]{toole1988modification}
 Toole, F.~E. and Olive, S.~E. (1988).
@@ -448,11 +709,36 @@ Treitel, S. and Robinson, E. (1966).
 \newblock {\em IEEE Transactions on geoscience Electronics}, {\bf 4}(1),
   25--38.
 
+\bibitem[Triki and Slock(2006)]{triki2006delay}
+Triki, M. and Slock, D.~T. (2006).
+\newblock Delay and predict equalization for blind speech dereverberation.
+\newblock In {\em 2006 IEEE International Conference on Acoustics Speech and
+  Signal Processing Proceedings}, volume~5, pages V--V. IEEE.
+
+\bibitem[Triki and Slock(2007)]{triki2007multivariate}
+Triki, M. and Slock, D.~T. (2007).
+\newblock Multivariate lp based mmse-zf equalizer design considerations and
+  application to multimicrophone dereverberation.
+\newblock In {\em 2007 IEEE International Conference on Acoustics, Speech and
+  Signal Processing-ICASSP'07}, volume~1, pages I--197. IEEE.
+
+\bibitem[Triki and Slock(2008)]{triki2008robust}
+Triki, M. and Slock, D.~T. (2008).
+\newblock Robust delay-\&-predict equalization for blind simo channel
+  dereverberation.
+\newblock In {\em 2008 Hands-Free Speech Communication and Microphone Arrays},
+  pages 248--251. IEEE.
+
 \bibitem[Tsironis {\em et~al.}(2024)]{tsironis2024adaptation}
 Tsironis, A., Vlahou, E., Kontou, P., Bagos, P., and Kop{\v{c}}o, N. (2024).
 \newblock Adaptation to reverberation for speech perception: A systematic
   review.
 \newblock {\em Trends in Hearing}, {\bf 28}, 23312165241273399.
+
+\bibitem[Van~Veen and Buckley(1988)]{van1988beamforming}
+Van~Veen, B.~D. and Buckley, K.~M. (1988).
+\newblock Beamforming: A versatile approach to spatial filtering.
+\newblock {\em IEEE assp magazine}, {\bf 5}(2), 4--24.
 
 \bibitem[van Wijngaarden and Drullman(2008)]{van2008binaural}
 van Wijngaarden, S.~J. and Drullman, R. (2008).
@@ -466,6 +752,12 @@ Wallach, H., Newman, E.~B., and Rosenzweig, M.~R. (1949).
 \newblock A precedence effect in sound localization.
 \newblock {\em The Journal of the Acoustical Society of America}, {\bf
   21}(4\_Supplement), 468--468.
+
+\bibitem[Whittle(1963)]{whittle1963fitting}
+Whittle, P. (1963).
+\newblock On the fitting of multivariate autoregressions, and the approximate
+  canonical factorization of a spectral density matrix.
+\newblock {\em Biometrika}, {\bf 50}(1-2), 129--134.
 
 \bibitem[Wiener(1949)]{wiener1949extrapolation}
 Wiener, N. (1949).
@@ -491,6 +783,18 @@ Xia, J., Xu, B., Pentony, S., Xu, J., and Swaminathan, J. (2018).
   normal-hearing and aided hearing-impaired listeners.
 \newblock {\em The Journal of the Acoustical Society of America}, {\bf 143}(3),
   1523--1533.
+
+\bibitem[Yegnanarayana and Murthy(2002)]{yegnanarayana2002enhancement}
+Yegnanarayana, B. and Murthy, P.~S. (2002).
+\newblock Enhancement of reverberant speech using lp residual signal.
+\newblock {\em IEEE Transactions on Speech and Audio Processing}, {\bf 8}(3),
+  267--281.
+
+\bibitem[Zhang {\em et~al.}(2010)]{zhang2010use}
+Zhang, W., Habets, E.~A., and Naylor, P.~A. (2010).
+\newblock On the use of channel shortening in multichannel acoustic system
+  equalization.
+\newblock In {\em Proc. Int. Workshop Acoust. Echo Noise Control (IWAENC)}.
 
 \bibitem[Zilany and Bruce(2007)]{zilany2007predictions}
 Zilany, M.~S. and Bruce, I.~C. (2007).

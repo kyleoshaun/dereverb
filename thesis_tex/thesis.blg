@@ -10,65 +10,57 @@ A level-1 auxiliary file: notation.aux
 A level-1 auxiliary file: chap1.aux
 A level-1 auxiliary file: chap2.aux
 A level-1 auxiliary file: chap3.aux
-A level-1 auxiliary file: chap4.aux
 A level-1 auxiliary file: chap5.aux
 A level-1 auxiliary file: appendix.aux
 The style file: natbib.bst
 Database file #1: references.bib
-Repeated entry---line 662 of file references.bib
- : @article{maamar2006partial
- :                           ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 683 of file references.bib
- : @article{haneda1997multiple
- :                            ,
-I'm skipping whatever remains of this entry
 Warning--empty author in ansi1997methods
 Warning--empty journal in george2010measuring
+Warning--empty journal in habets2007single
 Warning--empty author in iec2003sti
 Warning--empty author in itu2003pesq
 Warning--empty author in itu2011polqa
 Warning--empty journal in lavandier2023towards
 Warning--empty journal in roberts2003effects
-You've used 82 entries,
+You've used 129 entries,
             2150 wiz_defined-function locations,
-            984 strings with 18948 characters,
-and the built_in function-call counts, 34694 in all, are:
-= -- 3612
-> -- 1232
-< -- 55
-+ -- 368
-- -- 339
-* -- 2985
-:= -- 5774
-add.period$ -- 253
-call.type$ -- 82
-change.case$ -- 514
-chr.to.int$ -- 81
-cite$ -- 89
-duplicate$ -- 1495
-empty$ -- 2618
-format.name$ -- 469
-if$ -- 7078
+            1204 strings with 27654 characters,
+and the built_in function-call counts, 56487 in all, are:
+= -- 5951
+> -- 1963
+< -- 112
++ -- 580
+- -- 539
+* -- 4742
+:= -- 9249
+add.period$ -- 409
+call.type$ -- 129
+change.case$ -- 813
+chr.to.int$ -- 128
+cite$ -- 137
+duplicate$ -- 2504
+empty$ -- 4263
+format.name$ -- 754
+if$ -- 11701
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 86
-newline$ -- 410
-num.names$ -- 234
-pop$ -- 522
+missing$ -- 132
+newline$ -- 643
+num.names$ -- 375
+pop$ -- 872
 preamble$ -- 1
-purify$ -- 518
+purify$ -- 819
 quote$ -- 0
-skip$ -- 985
+skip$ -- 1692
 stack$ -- 0
-substring$ -- 2741
-swap$ -- 315
-text.length$ -- 10
+substring$ -- 4408
+swap$ -- 600
+text.length$ -- 38
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 476
-warning$ -- 7
-while$ -- 281
+type$ -- 756
+warning$ -- 8
+while$ -- 476
 width$ -- 0
-write$ -- 1062
-(There were 2 error messages)
+write$ -- 1691
+(There were 8 warnings)
