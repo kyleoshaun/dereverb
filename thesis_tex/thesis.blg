@@ -24,43 +24,43 @@ Warning--empty journal in lavandier2023towards
 Warning--empty journal in roberts2003effects
 You've used 129 entries,
             2150 wiz_defined-function locations,
-            1204 strings with 27654 characters,
-and the built_in function-call counts, 56487 in all, are:
-= -- 5951
+            1205 strings with 27624 characters,
+and the built_in function-call counts, 56581 in all, are:
+= -- 5964
 > -- 1963
 < -- 112
 + -- 580
 - -- 539
-* -- 4742
-:= -- 9249
+* -- 4758
+:= -- 9260
 add.period$ -- 409
 call.type$ -- 129
-change.case$ -- 813
+change.case$ -- 814
 chr.to.int$ -- 128
 cite$ -- 137
-duplicate$ -- 2504
-empty$ -- 4263
+duplicate$ -- 2505
+empty$ -- 4271
 format.name$ -- 754
-if$ -- 11701
+if$ -- 11719
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 132
+missing$ -- 131
 newline$ -- 643
 num.names$ -- 375
-pop$ -- 872
+pop$ -- 867
 preamble$ -- 1
 purify$ -- 819
 quote$ -- 0
-skip$ -- 1692
+skip$ -- 1693
 stack$ -- 0
-substring$ -- 4408
-swap$ -- 600
+substring$ -- 4433
+swap$ -- 601
 text.length$ -- 38
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 756
+type$ -- 758
 warning$ -- 8
-while$ -- 476
+while$ -- 478
 width$ -- 0
-write$ -- 1691
+write$ -- 1692
 (There were 8 warnings)

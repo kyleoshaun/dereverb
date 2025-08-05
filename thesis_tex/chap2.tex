@@ -360,7 +360,7 @@ Since the highest-order factor in Equation \ref{eq:wiener_quadratic}, i.e., $\bo
 	\boldsymbol{R} \boldsymbol{h} = \boldsymbol{p} \label{eq:wiener_hopf}
 \end{eqnarray}
 
-Equation \ref{eq:wiener_hopf} is referred to as the Wiener-Hopf equation and can be solved by any number of methods for solving systems of linear equations. This equation can also be viewed as a stochastic extension of the LS normal equations, and equivalently the Yule-Walker equations in linear prediction. I.e., the Wiener filter is optimal for known stationary processes, whereas the LS normal equations produce a filter that is optimal for a known set of data. 
+Equation \ref{eq:wiener_hopf} is referred to as the Wiener-Hopf equation and can be solved by any number of methods for solving systems of linear equations. Under the assumption that $x(n)$ is a WSS random process, $\boldsymbol{R}$ is a Toeplitz symmetric matrix, and thus Equation \ref{eq:wiener_hopf} can be solved efficiently via the Levinson-Durbin algorithm. This equation can also be viewed as a stochastic extension of the LS normal equations, and equivalently the Yule-Walker equations in linear prediction. I.e., the Wiener filter is optimal for known stationary processes, whereas the LS normal equations produce a filter that is optimal for a known set of data. 
 
 In practice the statistical correlation functions that make up $\boldsymbol{p}$ and $\boldsymbol{R}$ in the Wiener-Hopf equations must be estimated from a finite set of data, and given certain short-term estimation techniques, the Wiener-Hopf equations become identical to the LS normal equations.
 
@@ -692,7 +692,7 @@ Like in Section \ref{lp_autocor}, we define a mean-squared error cost function,
 \noindent
 where the definition of the estimator for the expectation operator, $E[\cdot]$, distinguishes between the autocorrelation method and the covariance method. The optimal prediction coefficients are derived by minimizing $J$ (i.e., by setting $\partial J/\partial \alpha_{l,m,k}=0$, where $l$ is the channel being predicted, $m$ is the channel being used in prediction, and $k$ is the delay). 
 
-Since each row of Eqauation \ref{eq:mc_lp_error_vec_parallel} represents the formulation of an independent Wiener Filter (Section \ref{wiener_filter}), assuming the microphone signals are stationary, the solution for each row of $\boldsymbol{A}_{\mathrm{mc}}$ (i.e., $\boldsymbol{\tilde{\alpha}}^T_m$) is given by
+Since each row of Eqauation \ref{eq:mc_lp_error_vec_parallel} represents the formulation of an independent Wiener Filter (Section \ref{wiener_filter}), the solution for each row of $\boldsymbol{A}_{\mathrm{mc}}$ (i.e., $\boldsymbol{\tilde{\alpha}}^T_m$) is given by
 
 \begin{eqnarray}
 	\boldsymbol{R}_{\boldsymbol{\tilde{y}}(n)\boldsymbol{\tilde{y}}(n)} \boldsymbol{\tilde{\alpha}}_m =
@@ -757,7 +757,7 @@ with
 \noindent
 where $\boldsymbol{R}_{\boldsymbol{yy}}(l)$ is the spatial correlation matrix of the microphone signals for lag $l$. I.e., 
 
-\noindent
+
 \begin{equation}
 	\boldsymbol{R}_{\boldsymbol{yy}}(l) = E[\boldsymbol{y}(n) \boldsymbol{y}^T(n)] = 
 	\begin{bmatrix} 
@@ -768,12 +768,14 @@ where $\boldsymbol{R}_{\boldsymbol{yy}}(l)$ is the spatial correlation matrix of
 	\end{bmatrix} \\
 \end{equation}
 
+tmp
+
 \noindent
 where $r_{y_i y_k}(l)=E[y_i(n) y_k(n-l)]$ is the cross-correlation between microphone signal $i$ and microphone signal $k$ at lag $l$. 
 
-Equation \ref{eq:mc_yule_walker} is known as the multichannel Yule-Walker equation. Note that the multichannel spatio-temporal correlation matrix, $\boldsymbol{R}_{\mathrm{mc}}$, has a block-toeplitz form due to the assumption that the microphone signals are stationary. This shape is dependent on the selection of space-first packing in the multichannel spatio-temporal data vector, $\boldsymbol{\tilde{y}}(n)$, and enables usage of the block Levinson algorithm \citep[i.e., the multichannel Levinson algorithm, ][]{whittle1963fitting} which is a generalization of the traditional Levinson-Durbin algorithm to block-toeplitz systems of linear equations.
+Equation \ref{eq:mc_yule_walker} is known as the multichannel Yule-Walker equation. Note that the multichannel spatio-temporal correlation matrix, $\boldsymbol{R}_{\mathrm{mc}}$, has a block-Toeplitz form due to an underlying assumption that the microphone signals are stationary. Although speech is highly non-stationary, it has been shown that speech signals can be modeled as long-term stationary, taking on a roughly Laplacian probability distribution \citep{gazor2003speech}. Long-term speech statistics are acceptable in this case because the goal is to estimate the RTF, not to model the speech production system. The analysis window used in computing the autocorrelation values is still limited, however, by the need to capture and track the time-varying RTF. The block-Toeplitz shape of  $\boldsymbol{R}_{\mathrm{mc}}$ is dependent on the selection of space-first packing in the multichannel spatio-temporal data vector, $\boldsymbol{\tilde{y}}(n)$, and enables usage of the block Levinson algorithm \citep[i.e., the multichannel Levinson algorithm, ][]{whittle1963fitting} which is a generalization of the traditional Levinson-Durbin algorithm to block-toeplitz systems of linear equations.
 
-Similar to traditional single-channel linear prediction, the formulation of the multichannel Yule-Walker equation using estimates of autocorrelation (i.e., the autocorrelation method) has been shown to produce a stable linear prediction inverse filter, $\frac{1}{\boldsymbol{A}_{\mathrm{mc}}(z)}$ \citep{inouye1983modeling}. While this does not imply that the individual scalar prediction filters are minimum phase, it does imply that the autocorrelation method is a constrained solution. Therefore, like single-channel linear prediction, the covariance method may produce a more accurate model of the system, at the cost of increased computational complexity.
+Similar to traditional single-channel linear prediction, the formulation of the multichannel Yule-Walker equation using estimates of short-term autocorrelation (i.e., the autocorrelation method) and the underlying stationary assumption have been shown to produce a stable linear prediction inverse filter, $\frac{1}{\boldsymbol{A}_{\mathrm{mc}}(z)}$ \citep{inouye1983modeling}. While this does not imply that the individual scalar prediction filters are minimum phase, it does imply that the autocorrelation method is a constrained solution. Therefore, like single-channel linear prediction, the covariance method may produce a more accurate model of the system, at the cost of increased computational complexity.
 
 As previously mentioned, the multichannel prediction error filter (Equation \ref{eq:mc_pe_filter}) can be applied to the microphone signals to blindly equalize the RTF, but will also whiten the source. Moreover, if an equalizer is designed based on one source signal ($s_1(n)$), and then applied to a different one ($s_2(n)$), the autoregressive parameters of $s_1(n)$  will greatly distort (rather than whiten) $s_2(n)$, potentially increasing the perceived amount of reverberation. To compensate this undesired effect, a number of algorithms have been proposed which leverage spatial diversity to estimate the autoregressive properties of the source, separate from the channel.  Of particular note, there are two seminal appraoches: delay and predict (i.e., DAP) dereverberation \citep{triki2006delay} and linear-predictive multiple-input equalization (i.e., LIME) \citep{delcroix2007precise}.
 
@@ -863,7 +865,7 @@ with
 	\boldsymbol{y}(n) - \sum_{k=1}^{p} A_k \boldsymbol{y}(n-k)
 \end{equation}
 
-\cite{triki2006delay} explained that the prediction order for the multichannel linear prediction stage ($p_2$) should be selected such that it meets the MINT requirements, i.e., $p_2=L_g/(M-1)$, where $L_g$ is the length of the FIR channels. It was suggested that the prediction order for the source-whitening stage ($p_1$) should be selected such that that the source is sufficiently undistorted by the multichannel prediction error filter. For a sample rate of \qty{8}{\kilo\hertz}, $p_1=100$ was considered sufficient. However, it should be noted that the higher order AR parameters of the source (i.e., higher than those reflected by $p_1$) will still be included in the multichannel prediction error filter, distorting the estimate of the true system inverse, which will limit its applicability to other source signals. Additionally, note that the source signal does not need to be stationary, but rather it is only important that the same window of speech is used in the estimation of the source AR parameters and the multichannel prediction coefficients. As such, it was recommended that the entire speech stimulus be used in analysis so as to reduce estimation variance.
+\cite{triki2006delay} explained that the prediction order for the multichannel linear prediction stage ($p_2$) should be selected such that it meets the MINT requirements, i.e., $p_2=L_g/(M-1)$, where $L_g$ is the length of the FIR channels. It was suggested that the prediction order for the source-whitening stage ($p_1$) should be selected such that that the source is sufficiently undistorted by the multichannel prediction error filter. For a sample rate of \qty{8}{\kilo\hertz}, $p_1=100$ was considered sufficient. However, it should be noted that the higher order AR parameters of the source (i.e., higher than those reflected by $p_1$) will still be included in the multichannel prediction error filter, distorting the estimate of the true system inverse, which will limit its applicability to other source signals. Additionally, note that the source signal does not need to be stationary (only long-term stationary), but rather it is only important that the same window of speech is used in the estimation of the source AR parameters and the multichannel prediction coefficients. As such, it was recommended that the entire speech stimulus be used in analysis so as to reduce estimation variance.
 
 
 In the LIME algorithm, the multichannel prediction coefficients are estimated directly from the reverberant microphone signals, $\{y_1(n), \dots, y_M(n)\}$. The multichannel prediction error filter thus whitens the source signal, and then an un-whitening filter is applied after. \cite{delcroix2007precise}, showed that under a certain matrix formulation, the multichannel prediction coefficients corresponding to the reverberant microphone signals and the source AR parameters can be independently extracted.

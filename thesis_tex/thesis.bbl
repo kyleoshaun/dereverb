@@ -160,6 +160,11 @@ Furuya, K. and Kataoka, A. (2007).
 \newblock {\em IEEE Transactions on audio, speech, and language processing},
   {\bf 15}(5), 1579--1591.
 
+\bibitem[Gazor and Zhang(2003)]{gazor2003speech}
+Gazor, S. and Zhang, W. (2003).
+\newblock Speech probability distribution.
+\newblock {\em IEEE Signal Processing Letters}, {\bf 10}(7), 204--207.
+
 \bibitem[George {\em et~al.}(2010)]{george2010measuring}
 George, E.~L., Goverts, S.~T., Festen, J.~M., and Houtgast, T. (2010).
 \newblock Measuring the effects of reverberation and noise on sentence
@@ -499,11 +504,6 @@ Nakatani, T., Yoshioka, T., Kinoshita, K., Miyoshi, M., and Juang, B.-H.
   prediction.
 \newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
   {\bf 18}(7), 1717--1731.
-
-\bibitem[Naylor and Gaubitch(2010)]{naylor2010speech}
-Naylor, P.~A. and Gaubitch, N.~D. (2010).
-\newblock {\em Speech dereverberation}.
-\newblock Springer Science \& Business Media.
 
 \bibitem[Neely and Allen(1979)]{neely1979invertibility}
 Neely, S.~T. and Allen, J.~B. (1979).

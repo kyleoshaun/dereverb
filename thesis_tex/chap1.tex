@@ -311,7 +311,7 @@ Posed as a prediction problem, the approximately AR model of speech motivates th
 Where $\{\alpha_k, k=1,\dots,p\}$ are referred to as the prediction coefficients. The corresponding prediction error (i.e., the prediction residual) is
 
 \begin{equation}
-	e(n)= \hat{s}(n)  - s(n) =  \hat{s}(n)  - \sum_{k=1}^{p}\alpha_k s(n-k) \label{eq:lpc_error}
+	e(n)= s(n) - \hat{s}(n) =  s(n)  - \sum_{k=1}^{p}\alpha_k s(n-k) \label{eq:lpc_error}
 \end{equation}
 
 
@@ -326,26 +326,34 @@ If the original speech signal is indeed an autoregressive process, if the predic
 	\end{cases}
 \end{equation}
 
-In estimation of the coefficients of the all-pole model, the optimal prediction coefficients are found by minimizing prediction error in a total squared-error sense, i.e.,
+In estimation of the coefficients of the all-pole model, the optimal prediction coefficients are found by minimizing prediction error in a mean squared error (MSE) sense. From a speech coding stand point, the MSE cost function is defined differentially when modeling voiced speech which is considered deterministic, and unvoiced fricative speech which is stochastic in nature. In the deterministic modeling case, MSE is defined as the total squared error over all time, i.e.,
 
 \begin{eqnarray}
-	E = \sum_{n=-\infty}^{\infty}e(n) \\ 
-	\{\alpha_k\} = \underset{\{\alpha_k\}}{\arg\min}\;E
+	J = \sum_{n=-\infty}^{\infty}e^2(n) = \sum_{n=-\infty}^{\infty} \left(s(n)  - \sum_{k=1}^{p}\alpha_k s(n-k)\right) ^2 \label{eq:lp_mse_deterministic}
+\end{eqnarray}
+
+Equivalently, in the stochastic modeling case, MSE is defined as the as the ensemble average (i.e., expectation) of the squared error process, i.e.,
+
+\begin{eqnarray}
+	J = E \left[ e^2(n) \right] = E\left[ \left(s(n)  - \sum_{k=1}^{p}\alpha_k s(n-k) \right) ^2\right]
 \end{eqnarray}
 
 \noindent
-It turns out that prediction error metric $E$ forms a $(p+1)$-dimensional error surface which is a quadradic function of the prediction coefficients, with exactly one global minimum corresponding to the optimal set of coefficients (i.e., a quadratic bowl). \textbf{TBD Explain if needed:} This can be shown by vector expansion, … , Leading to quadratic form, … Positive (semi?)definite implying a minimum. Therefore the optimal solution can be found by taking the partial derivative of the total squared error with respect to each prediction coefficient, and setting them equal to zero.
+which can be exactly computed by time-averaging over all time (i.e., is exactly equivalent to Equation \ref{eq:lp_mse_deterministic}) provided $s(n)$ is an ergodic random process. Under this condition, the two formulations, and thus the resulting solutions, are identical.
 
-\begin{equation}
-	    \frac{\partial E}{\partial \alpha_k}=0
-\end{equation}
+The MSE metric is ideally computed/averaged over all time. However, in practice minimization is done for a short-term signal frame (i.e., prediction error interval) due to availability of a finite amount of data, and/or due to time-varying nature of speech which makes it only short-time stationary. In both the stochastic and deterministic cases, the MSE is estimated in this way, and thus their formulations/solutions are indeed identical in practice. The specific definition of short-term MSE in the vicinity of time $n$, denoted $J_n$, differs for the autocorrelation method and covariance method which will be discussed in the next section.
 
-The total squared error above is computed over all time, which is theoretically ideal. However, in practice minimization is done for a short-term signal frame (i.e., prediction error interval) due to availability of a finite amount of data, and/or due to time-varying nature of speech which makes it only short-time stationary. The specific definition of short-term total squared error in the vicinity of time $n$, denoted $E_n$, differs for the autocorrelation method and covariance method which will be discussed in the next section.
+It turns out that the MSE cost function, $J$, forms a $(p+1)$-dimensional error surface which is a quadradic function of the prediction coefficients, with exactly one global minimum corresponding to the optimal set of coefficients (i.e., a quadratic bowl). \textbf{TBD Explain if needed:} This can be shown by vector expansion, … , Leading to quadratic form, … Positive (semi?)definite implying a minimum. Therefore the optimal solution, minimizing $J$, can be found by taking it's partial derivative with respect to each prediction coefficient, and setting it equal to zero.
+
+\begin{eqnarray}
+	\{\alpha_k\} = \underset{\{\alpha_k\}}{\arg\min} \; J \\
+	\frac{\partial J}{\partial \alpha_k}=0
+\end{eqnarray}
 
 From the orthogonality principle, the optimal solution will produce an error signal that is orthogonal to, and therefore uncorrelated with, the input signal except at a lag of zero (i.e., uncorrelated with a unit-delayed version of the speech signal). Since any autocorrelation in the residual also implies correlation between the residual and the input, the optimal prediction residual is also uncorrelated with itself except at a lag of zero. I.e.,
 
 \begin{eqnarray}
-	r_{es}(\tau) = E\left[e(n)s(n-\tau)\right]=\delta(\tau) & \tau=0,\dots,p \label{eq:optimal_r_es} \\
+	r_{es}(\tau) = E\left[e(n)s(n-\tau)\right] = 0 & \tau=0,\dots,p \label{eq:optimal_r_es} \\
 	r_{ee}(\tau) = E\left[e(n)e(n-\tau)\right]=\delta(\tau)  & \tau=0,\dots,p  \label{eq:optimal_r_ee}
 \end{eqnarray}
 
@@ -405,30 +413,32 @@ If however the system has zeros, the linear prediction solution will be forced a
 
 When the all-pole inverse filter, $1/A(z)$,  is used for resynthesis of the speech signal, careful attention must be given to ensure that it is stable (i.e., all poles must be inside the unit circle). This implies that the prediction error filter, generated by the optimization solution, must have all zeros inside the unit circle. If the real system is truly a physical all-pole system, it will be inherently causal and stable, and therefore the optimization process will be able to achieve perfect prediction with a minimum phase prediction error filter. However, if the system has zeros, the all-pole model will be approximate, and in some cases it may be optimal to incorporate some maximum phase zeros into the prediction error filter. Additionally, if the underlying process has acausal maximum phase poles (e.g., the left-sided glottal pulse shape in speech production, Equation \ref{eq:glottal_pulse_z}), the optimal prediction error filter would include zeros at these locations, even though the inverse filter would be unstable.
 
-To handle the issue of inverse filter stability, two different formulations of the optimization problem have been developed: the autocorrelation method and the covariance method. These two methods differ in their definition of the short-term total squared error metric, $E_n(n)$, to be minimized. 
+To handle the issue of inverse filter stability, two different formulations of the optimization problem have been developed: the autocorrelation method and the covariance method. These two methods differ in their definition of the short-term MSE metric, $E_n(n)$, to be minimized. 
 
+
+\textbf{TODO: Replace derivations uniquely in autocorrelation and covariance methods with simply subbing in different estimators of autocorrelation, and correlate them to the way error is defined, and subbing into expectation-based normal equations previously derived from a stochastic stand-point}
 
 \subsubsection{Autocorrelation Method} \label{lp_autocor}
 
-In the autocorrelation method, the speech signal is windowed to the prediction error interval $n \in [n, n+N_w-1]$ and the total squared error is computed using error samples over all time. I.e.,
+In the autocorrelation method, the speech signal is windowed to the prediction error interval $n \in [n, n+N_w-1]$ and the MSE is computed using error samples over all time. I.e.,
 
 \begin{eqnarray}
 	s_n(m) = s(m+n)w(m) \\
 	e_n(m) = s_n(m) - \hat{s}_n(m) = s_n(m) - \sum_{k=1}^{p} \alpha_k s(m-k) \\
-	E_n = \sum_{m=-\infty}^{\infty}e_n^2(m) = \sum_{m=0}^{N_w+p-1}e_n^2(m) \label{eq:autocorr_tse}
+	J_n = \sum_{m=-\infty}^{\infty}e_n^2(m) = \sum_{m=0}^{N_w+p-1}e_n^2(m) \label{eq:autocorr_tse}
 \end{eqnarray}
 
 \noindent
 where the subscript $n$ implies "in the vicinity of time n", and $w(n)$ is the length-$N_w$ window function, which is non-zero only in the range $n \in [0, N_w-1]$. The window function could be rectangular, or some other non-uniform window (e.g., hamming). Note that the reduction of the summation range in \ref{eq:autocorr_tse} is a result of the limited range of of non-zero elements in $e_n(n)$ due to the windowing of $s(n)$.
 
-Minimization of $E_n$ with respect to the prediction cofficients (i.e., setting $\partial E/\partial \alpha_k=0$) results in the so-called Yule-Walker equations. 
+Minimization of $J_n$ with respect to the prediction cofficients (i.e., setting $\partial J_n  /\partial \alpha_k=0$) results in the so-called Yule-Walker equations. 
 
 \begin{equation}
 	\sum_{k=1}^{p} \alpha_k r_n(i-k) = r_n(i), \;\; i=1,\dots,p
 \end{equation}
 
 \noindent
-Where $r_n(\tau) = \sum_{m=0}^{N_w-1-\tau}s_n(m)s_n(m-\tau)$ is the short-term autocorrelation function of $s(n)$. This is simply the least-squares normal equations applied to linear prediction. The autocorrelation function appears due to the infinite summation over the error signal, and implies an inherit assumption of stationary speech.
+Where $r_n(\tau) = \sum_{m=0}^{N_w-1-\tau}s_n(m)s_n(m-\tau)$ is the short-term autocorrelation function of $s(n)$. This is simply the least-squares normal equations applied to linear prediction. The short-term autocorrelation function, which relies only on the lag as opposed to absolute time, appears due to the infinite summation over the error signal, and implies an inherit assumption of stationary speech. I.e., the signal is inheritly assumed to be a realization of a wide-sense stationary (WSS) ergodic stochastic process. In speech coding, where the goal is to model and encode the time-varying speech production system, the duration of analysis window (i.e., $N_w$) is selected short enough that speech mayb be considered approximately stationary, typically 20-30 \unit{\milli\sec}. Note however some system identification problems where the system is assumed slower time-varying, a larger analysis window may be selected, in which case the statistics of speech are smoothed out and may be considered long-term stationary \citep{gazor2003speech}.
 
 The Yule-Walker equations can be restated in matrix form as
 
@@ -466,16 +476,16 @@ which can be solved by matrix inversion
 	 %\boldsymbol{R}_n^+ \boldsymbol{r}_n  = (\boldsymbol{R}_n^T \boldsymbol{R}_n)^{-1} \boldsymbol{R}_n^T  \boldsymbol{r}_n 
 \end{equation}
 
-The Toeplitz nature of the autocorrelation matrix additionally enables usage of the recursive Levinson-Durbin algorithm. This algorithm is highly efficient compared to other methods of solving systems of linear equations, but is known to be prone to numerical instability due to its inherit recursion when the autocorrelation matrix is ill-conditioned.
+The Toeplitz symmetric nature of the autocorrelation matrix, resulting from the underlying WSS assumption, additionally enables usage of the recursive Levinson-Durbin algorithm. This algorithm is highly efficient compared to other methods of solving systems of linear equations, but is known to be prone to numerical instability due to its inherit recursion when the autocorrelation matrix is ill-conditioned.
 
-It has been shown that due to the Toeplitz nature of the autocorrelation matrix $R_n$, the autocorrelation method produces a minimum phase prediction error filter. Therefore the resulting inverse filter used for speech resynthesis is a stable all-pole filter. It has also been shown that the autocorrelation method ($p$\textsuperscript{th} order LPC) produces a filter (i.e., the inverse filter) for which the first $p+1$ values of the autocorrelation function of the system impulse response, $h(n)=Z^{-1}\{H(z)\}$, is identical to the first $p+1$ autocorrelation values of the signal, i.e.,
+It has been shown that due to the Toeplitz symmetric nature of the autocorrelation matrix $R_n$, the autocorrelation method produces a minimum phase prediction error filter. Therefore the resulting inverse filter used for speech resynthesis is a stable all-pole filter. It has also been shown that the autocorrelation method ($p$\textsuperscript{th} order LPC) produces a filter (i.e., the inverse filter) for which the first $p+1$ values of the autocorrelation function of the system impulse response, $h(n)=Z^{-1}\{H(z)\}$, is identical to the first $p+1$ autocorrelation values of the signal, i.e.,
 
 \begin{eqnarray}
 	r_h(\tau) = r_s(\tau) \;\; \tau=0, \dots, p
 \end{eqnarray}
 
 \noindent
-Since the autocorrelation function completely defines the power spectral density (i.e.,PSD is the fourier transform of the autocorrelation function), it can be concluded that the magnitude response of the resulting filter is identical to that of the true system up to a spectral resolution defined by the prediction order. Therefore, for large enough prediction orders, the inverse filter resulting from the autocorrelation method represents the equivalent minimum phase representation of the true system. I.e., if real system, $H(z)$ is non-minimum phase and we decompose it into it's equivalent minimum phase and all-pass components,
+Since the autocorrelation function completely defines the power spectral density (i.e., PSD is the fourier transform of the autocorrelation function), it can be concluded that the magnitude response of the resulting filter is identical to that of the true system up to a spectral resolution defined by the prediction order. Therefore, for large enough prediction orders, the inverse filter resulting from the autocorrelation method represents the equivalent minimum phase representation of the true system. I.e., if real system, $H(z)$ is non-minimum phase and we decompose it into it's equivalent minimum phase and all-pass components,
 
 \begin{eqnarray}
 	H(z) = H_{\mathrm{min}}(z) H_{\mathrm{allpass}}(z) \\
@@ -491,7 +501,7 @@ Then as $p \rightarrow \infty$, $\frac{1}{A(z)} \rightarrow H_{\mathrm{min}}(z)$
 
 However the windowing of the speech signal prior to error calculation means that only part of the infinite-length system impulse response will be captured in the autocorrelation function. This can result in distortion of the estimated all-pole inverse filter, an effect that can be minimized but never avoided entirely by using a longer window. When attempting to model the vocal tract as an all-pole filter, the window must also be short enough that the signal is considered short-time stationary, otherwise the analyzed spectrum will be smoothed by the time-varying nature of speech. The window size thus represents a trade off between capturing short-time spectra and capturing the IIR system impulse response. 
 
-The effect of windowing the speech signal in the autocorrelation method can therefore be described as biasing the solution, the result being a potentially sub-optimal (in a total squared error sense) prediction error filter which is guaranteed to be minimum phase, and a stable minimum-phase inverse filter that matches the magntitude response of the true system up to a spectral resolution defined by the prediction order.
+The effect of windowing the speech signal in the autocorrelation method can therefore be described as biasing the solution, the result being a potentially sub-optimal (in an MSE sense) prediction error filter which is guaranteed to be minimum phase, and a stable minimum-phase inverse filter that matches the magntitude response of the true system up to a spectral resolution defined by the prediction order.
 
 
 \subsubsection{Covariance Method} \label{lp_cov}
@@ -501,17 +511,17 @@ In the covariance method, the speech signal is not windowed, but the prediction 
 \begin{eqnarray}
 	s_n(m) = s(m+n) \\
 	e_n(m) = s_n(m) - \hat{s}_n(m) = s_n(m) - \sum_{k=1}^{p} \alpha_k s(m-k) \\
-	E_n = \sum_{m=0}^{N_w-1} e_n^2(m) \label{eq:cov_tse}
+	J_n = \sum_{m=0}^{N_w-1} e_n^2(m) \label{eq:cov_tse}
 \end{eqnarray}
 
- Minimization of short-term total squared error, $E_n$, with respect to the prediction coefficients (i.e., setting $\partial E/\partial \alpha_k=0$) results in a different set of normal equations in terms of the short-term covariance function. 
+ Minimization of short-term MSE, $E_n$, with respect to the prediction coefficients (i.e., setting $\partial E/\partial \alpha_k=0$) results in a different set of normal equations in terms of the short-term covariance function. 
  
  \begin{equation}
  	\sum_{k=1}^{p} \alpha_k \phi_n(i,k) = \phi_n(i,0)
  \end{equation}
  
  \noindent
- Where $\phi_n(i,k) = \sum_{m=0}^{N_w-1} s_n(m-i) s_n(m-k)$ is the short-term covariance. It is important to note that by convention in signal processing theory, short-term covariance is not used to mean the short-term parallel of long-term covariance. While long-term covariance is formally defined as the autocorrelation function with it's mean removed, short-term covariance is defined as the short-term parallel of non-stationary correlation. In other words short-term correlation is a function of lag and implies analysis of stationary processes, while short-term correlation is a function of two time instances and implies analysis of non-stationary processes.
+ Where $\phi_n(i,k) = \sum_{m=0}^{N_w-1} s_n(m-i) s_n(m-k)$ is the short-term covariance. It is important to note that by convention in signal processing theory, short-term covariance is not used to mean the short-term parallel of long-term covariance. While long-term covariance is formally defined as the autocorrelation function with it's mean removed, short-term covariance is defined as the short-term parallel of non-stationary correlation. In other words short-term correlation is a function of lag and implies analysis of stationary processes, while short-term covariance is a function of two time instances and implies analysis of non-stationary processes.
  
  The covariance method normal equations can also be represented in matrix form.
  
