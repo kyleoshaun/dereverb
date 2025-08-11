@@ -22,45 +22,45 @@ Warning--empty author in itu2003pesq
 Warning--empty author in itu2011polqa
 Warning--empty journal in lavandier2023towards
 Warning--empty journal in roberts2003effects
-You've used 129 entries,
+You've used 132 entries,
             2150 wiz_defined-function locations,
-            1205 strings with 27624 characters,
-and the built_in function-call counts, 56581 in all, are:
-= -- 5964
-> -- 1963
-< -- 112
-+ -- 580
-- -- 539
-* -- 4758
-:= -- 9260
-add.period$ -- 409
-call.type$ -- 129
-change.case$ -- 814
-chr.to.int$ -- 128
-cite$ -- 137
-duplicate$ -- 2505
-empty$ -- 4271
-format.name$ -- 754
-if$ -- 11719
+            1218 strings with 28075 characters,
+and the built_in function-call counts, 57681 in all, are:
+= -- 6064
+> -- 2022
+< -- 113
++ -- 597
+- -- 556
+* -- 4851
+:= -- 9463
+add.period$ -- 418
+call.type$ -- 132
+change.case$ -- 831
+chr.to.int$ -- 131
+cite$ -- 140
+duplicate$ -- 2556
+empty$ -- 4346
+format.name$ -- 774
+if$ -- 11935
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 131
-newline$ -- 643
-num.names$ -- 375
-pop$ -- 867
+missing$ -- 135
+newline$ -- 658
+num.names$ -- 384
+pop$ -- 891
 preamble$ -- 1
-purify$ -- 819
+purify$ -- 837
 quote$ -- 0
-skip$ -- 1693
+skip$ -- 1725
 stack$ -- 0
-substring$ -- 4433
-swap$ -- 601
+substring$ -- 4475
+swap$ -- 610
 text.length$ -- 38
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 758
+type$ -- 774
 warning$ -- 8
-while$ -- 478
+while$ -- 485
 width$ -- 0
-write$ -- 1692
+write$ -- 1729
 (There were 8 warnings)

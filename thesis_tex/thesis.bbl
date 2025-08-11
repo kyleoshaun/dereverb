@@ -92,6 +92,12 @@ Delcroix, M., Hikichi, T., and Miyoshi, M. (2007).
 \newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
   {\bf 15}(2), 430--440.
 
+\bibitem[Dietzen {\em et~al.}(2023)]{dietzen2023myriad}
+Dietzen, T., Ali, R., Taseska, M., and van Waterschoot, T. (2023).
+\newblock Myriad: a multi-array room acoustic database.
+\newblock {\em EURASIP Journal on Audio, Speech, and Music Processing}, {\bf
+  2023}(1), 17.
+
 \bibitem[Ding and Li(2018)]{ding2018blind}
 Ding, Z. and Li, Y. (2018).
 \newblock {\em Blind equalization and identification}.
@@ -159,6 +165,12 @@ Furuya, K. and Kataoka, A. (2007).
   with spectral subtraction.
 \newblock {\em IEEE Transactions on audio, speech, and language processing},
   {\bf 15}(5), 1579--1591.
+
+\bibitem[Garofolo {\em et~al.}(1993)]{garofolo1993timit}
+Garofolo, J.~S., Lamel, L.~F., Fisher, W.~M., Pallett, D.~S., Dahlgren, N.~L.,
+  Zue, V., and Fiscus, J.~G. (1993).
+\newblock Timit acoustic-phonetic continuous speech corpus.
+\newblock {\em (No Title)}.
 
 \bibitem[Gazor and Zhang(2003)]{gazor2003speech}
 Gazor, S. and Zhang, W. (2003).
@@ -531,6 +543,11 @@ Omura, M., Yada, M., Saruwatari, H., Kajita, S., Takeda, K., and Itakura, F.
 Oppenheim, A., Schafer, R., Rabiner, L., Gold, B., and Hunt, B. (1976).
 \newblock Digital signal processing and theory and application of digital
   signal processing.
+
+\bibitem[Oppenheim(1999)]{oppenheim1999discrete}
+Oppenheim, A.~V. (1999).
+\newblock {\em Discrete-time signal processing}.
+\newblock Pearson Education India.
 
 \bibitem[Petropulu and Subramaniam(1994)]{petropulu1994cepstrum}
 Petropulu, A.~P. and Subramaniam, S. (1994).

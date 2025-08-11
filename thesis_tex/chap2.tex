@@ -777,7 +777,7 @@ Equation \ref{eq:mc_yule_walker} is known as the multichannel Yule-Walker equati
 
 Similar to traditional single-channel linear prediction, the formulation of the multichannel Yule-Walker equation using estimates of short-term autocorrelation (i.e., the autocorrelation method) and the underlying stationary assumption have been shown to produce a stable linear prediction inverse filter, $\frac{1}{\boldsymbol{A}_{\mathrm{mc}}(z)}$ \citep{inouye1983modeling}. While this does not imply that the individual scalar prediction filters are minimum phase, it does imply that the autocorrelation method is a constrained solution. Therefore, like single-channel linear prediction, the covariance method may produce a more accurate model of the system, at the cost of increased computational complexity.
 
-As previously mentioned, the multichannel prediction error filter (Equation \ref{eq:mc_pe_filter}) can be applied to the microphone signals to blindly equalize the RTF, but will also whiten the source. Moreover, if an equalizer is designed based on one source signal ($s_1(n)$), and then applied to a different one ($s_2(n)$), the autoregressive parameters of $s_1(n)$  will greatly distort (rather than whiten) $s_2(n)$, potentially increasing the perceived amount of reverberation. To compensate this undesired effect, a number of algorithms have been proposed which leverage spatial diversity to estimate the autoregressive properties of the source, separate from the channel.  Of particular note, there are two seminal appraoches: delay and predict (i.e., DAP) dereverberation \citep{triki2006delay} and linear-predictive multiple-input equalization (i.e., LIME) \citep{delcroix2007precise}.
+As previously mentioned, the multichannel prediction error filter (Equation \ref{eq:mc_pe_filter}) can be applied to the microphone signals to blindly equalize the RTF, but will also whiten the source (i.e., over-whitening). Moreover, if an equalizer is designed based on one source signal ($s_1(n)$), and then applied to a different one ($s_2(n)$), the autoregressive parameters of $s_1(n)$  will greatly distort (rather than whiten) $s_2(n)$, potentially increasing the perceived amount of reverberation. To compensate this undesired effect, a number of algorithms have been proposed which leverage spatial diversity to estimate the autoregressive properties of the source, separate from the channel.  Of particular note, there are two seminal appraoches: delay and predict (i.e., DAP) dereverberation \citep{triki2006delay} and linear-predictive multiple-input equalization (i.e., LIME) \citep{delcroix2007precise}.
 
 DAP dereverberation is described in Figure \ref{fig:dap_block_diagram}. 
 
@@ -829,7 +829,14 @@ Minimization of $J$ (i.e., setting $\frac{\partial J}{\partial \alpha_k} = 0$), 
 \end{eqnarray}
 
 \noindent
-where $\bar{r}_{yy}(l) = \sum_{m=1}^{M} r_{y_m y_m}(l) = \sum_{m=1}^{M} E[ y_m(n) y_m(n-l) ]$, i.e., the average autocorrelation accross all microphones.
+where 
+
+\begin{equation}
+	\bar{r}_{yy}(l) = \sum_{m=1}^{M} r_{y_m y_m}(l) = \sum_{m=1}^{M} E[ y_m(n) y_m(n-l) ] \label{eq:dap_avg_autocorr}
+\end{equation}
+
+\noindent
+i.e., $\bar{r}_{yy}(l)$ is the average autocorrelation accross all microphones. Thus the source-whitening stage blindly estimates the AR parameters of the source by smoothing autocorrelation values accross spatial sampling points to effectivelty average out the effects of the RTFs which are assumed not to share common AR parameters.
 
 In the dereverberation stage of the DAP algorithm, the actual multichannel equalizer filter, $\boldsymbol{H}(z)$, is computed as 
 
@@ -847,7 +854,7 @@ where $\boldsymbol{A}_{pe,mc}(z)$ is the multichannel prediction error filter co
 The final output of the DAP equalizer is thus computed as 
 
 \begin{equation}
-	\hat{S}(z) = \boldsymbol{H}(z) \boldsymbol{y}(z) 
+	\hat{S}(z) = \boldsymbol{H}(z) \boldsymbol{y}(z)  \label{eq:dap_eq_output}
 \end{equation}
 
 \noindent
