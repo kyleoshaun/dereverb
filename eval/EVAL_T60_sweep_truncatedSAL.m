@@ -10,51 +10,47 @@ code_folder = "../../";
 
 addpath(sprintf('%s/dereverb/LPC/', code_folder))
 addpath(sprintf('%s/dereverb/utilities/matlab', code_folder))
-addpath(sprintf('%s/metrics/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/', code_folder))
 
 addpath(sprintf('%s/samples', code_folder))
-addpath(sprintf('%s/RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/', code_folder))
-addpath(sprintf('%s/RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/office_II/', code_folder))
-addpath(sprintf('%s/RIR_Databases/HRIR_Universitat_Oldenburg/HRIR_database_mat/hrir/courtyard/', code_folder))
 
 % Integration of EC with BEZ model
-addpath(sprintf("%s/metrics/BSIM2020_EC_BEZ2018a_model/", code_folder))
+addpath(sprintf("%s/dereverb/metrics/BSIM2020_EC_BEZ2018a_model/", code_folder))
 
 % HASPI/HASQI
-addpath(sprintf("%s/metrics/HASPIv2_HASQIv2_HAAQIv1_Common/", code_folder))
+addpath(sprintf("%s/dereverb/metrics/HASPIv2_HASQIv2_HAAQIv1_Common/", code_folder))
 
 % BSIM
-addpath(sprintf('%s/metrics/BSIM_2020/', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/vad/', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/PreProc/', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/gammatonegram/', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/SRMRToolbox-master/libs/auditory/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/SRMRToolbox-master', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/SRMRToolbox-master/libs/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/SRMRToolbox-master/libs/vad/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/SRMRToolbox-master/libs/PreProc/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/SRMRToolbox-master/libs/gammatonegram/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/SRMRToolbox-master/libs/auditory/', code_folder))
 
 addpath(genpath(sprintf('%s/metrics/BSIM_2020/Anechoic/', code_folder)))
-addpath(sprintf('%s/metrics/BSIM_2020/functions/', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/functions/gammatonefilter/', code_folder))
-addpath(sprintf('%s/metrics/BSIM_2020/functions/ltfat/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/functions/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/functions/gammatonefilter/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BSIM_2020/functions/ltfat/', code_folder))
 
 % Model (BEZ2018a)
-addpath(sprintf('%s/metrics/BEZ2018a_model/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/BEZ2018a_model/', code_folder))
 
 % RIR Databases
-addpath(sprintf('%s/RIR_Databases', code_folder))
+addpath(sprintf('%s/dereverb/RIR_Databases', code_folder))
 
 % Other
-addpath(sprintf('%s/metrics/NSIM_Papers_ExampleCode 2/NSIMforBEZ2018a_model/', code_folder))
-addpath(sprintf('%s/metrics/STMI_Papers_ExampleCode 1/STMIforBEZ2018a_model', code_folder))
-
+addpath(sprintf('%s/dereverb/metrics/NSIM_Papers_ExampleCode 2/NSIMforBEZ2018a_model/', code_folder))
+addpath(sprintf('%s/dereverb/metrics/STMI_Papers_ExampleCode 1/STMIforBEZ2018a_model', code_folder))
 
 %% Shuffle and save seed for reproducibility
-rng('shuffle')
-seed = abs(round(randn(1,1) * 10000));
-rng(seed);
-rng(724); % Reproduce specific seed
-
+% rng('shuffle')
+% seed = abs(round(randn(1,1) * 10000));
+% rng(seed);
+% %rng(724); % Reproduce specific seed
+% fprintf("Using Random Seed = %d\n", seed);
 
 %% Simulation Parameters
 
@@ -199,7 +195,7 @@ for ch = 1:M
 
     % EDC_pre  = EDC(g_SAL_pre);
     % EDC_post = EDC(G_source(:,ch));
-    
+
     figure()
     subplot(2,1,1)
     plot((0:(length(g_SAL_pre)-1)) .* (1/fs), g_SAL_pre)
@@ -207,7 +203,7 @@ for ch = 1:M
     subplot(2,1,2)
     plot((0:(length(G_source(:,ch))-1)) .* (1/fs), G_source(:,ch))
     title(sprintf('Channel %d SAL RIR After Making early reflections weaker', ch))
-    
+
     % figure
     % subplot(2,1,1)
     % plot((0:(length(EDC_pre)-1)) .* (1/fs), 10*log10(EDC_pre));
@@ -248,10 +244,10 @@ S_noise = S_noise(1:length(s_source), :);
 %% Create results folder
 
 % Results can be saved in the Results Folder
-results_dir = sprintf("FINAL_RESULTS/EVAL_T60Sweep_TruncatedSAL_%.0fdB_SNR_%s_%s", SNR_dB, noise_memo, datetime("today"));
+results_dir = sprintf("FINAL_RESULTS/EVAL_T60_sweep_truncatedSAL_%s", datetime("today"));
 run_num = 1;
 while exist(results_dir, 'Dir')
-    results_dir = sprintf("FINAL_RESULTS/EVAL_T60Sweep_TruncatedSAL_%.0fdB_SNR_%s_%s_%d", SNR_dB, noise_memo, datetime("today"), run_num);
+    results_dir = sprintf("FINAL_RESULTS/EVAL_T60_sweep_truncatedSAL_%s_%d", datetime("today"), run_num);
     run_num = run_num + 1;
 end
 mkdir(results_dir)
@@ -313,7 +309,9 @@ ER_length   = round((50 / 1000) * fs); % first 50 msec are selected as "early re
 ER_length   = min(ER_length, length(G_source(:,1)));
 G_source_ER = G_source(1:ER_length, :);
 
-source_data.signal   = s_source;
+[s_eval,~] = audioread("SA2.WAV");
+
+source_data.signal   = s_eval;
 source_data.rir_data = G_source_ER;
 source_data.memo     = source_memo;
 source_data.rir_memo = "SAL_ERs";
@@ -335,13 +333,13 @@ interf_data.memo     = "None";
 
 teststim_ideal  = Y_ideal(:,1);
 
-[metrics_ideal_NH, ~] = run_all_metrics(refstim_ideal, teststim_ideal, fs, HL_NH, stimdb, h_ha_nocomp_24k);
+[metrics_ideal_NH, ~] = run_all_metrics(refstim_ideal, teststim_ideal, fs, HL_NH, stimdb, h_ha_nocomp_24k, results_dir);
 
 scale_STMI    = 1 / metrics_ideal_NH.STMI;
 scale_NSIM_FT = 1 / metrics_ideal_NH.NSIM_FT;
 scale_NSIM_MR = 1 / metrics_ideal_NH.NSIM_MR;
 scale_HASPI   = 1; % No scaling (already normalized to 0-1)
-scale_STOI    = 1; % No scaling (already normalized to 0-1)
+scale_STOI    = 1; % No xscaling (already normalized to 0-1)
 
 plot_scaling_data.metrics_ideal_NH = metrics_ideal_NH;
 plot_scaling_data.scale_STMI    = scale_STMI;
@@ -352,44 +350,46 @@ plot_scaling_data.scale_STOI    = scale_STOI;
 
 save(sprintf("%s/plot_scaling_data.mat", results_dir), 'plot_scaling_data');
 
-%% T60 Loop
+%% Iteration / T60 Loop
+
+NUM_ITER = 10; % For error bars
 
 T60_list = [0 100 250:250:2000] ./ 1000;
 
-STMI_list_NH_unproc    = zeros(length(T60_list),1); 
-NSIM_FT_list_NH_unproc = zeros(length(T60_list),1); 
-NSIM_MR_list_NH_unproc = zeros(length(T60_list),1); 
-HASPI_list_NH_unproc   = zeros(length(T60_list),1); 
-STOI_list_NH_unproc    = zeros(length(T60_list),1); 
-HASQI_list_NH_unproc   = zeros(length(T60_list),1); 
-VISQOL_list_NH_unproc  = zeros(length(T60_list),1); 
+STMI_list_NH_unproc    = zeros(length(T60_list),NUM_ITER); 
+NSIM_FT_list_NH_unproc = zeros(length(T60_list),NUM_ITER); 
+NSIM_MR_list_NH_unproc = zeros(length(T60_list),NUM_ITER); 
+HASPI_list_NH_unproc   = zeros(length(T60_list),NUM_ITER); 
+STOI_list_NH_unproc    = zeros(length(T60_list),NUM_ITER); 
+HASQI_list_NH_unproc   = zeros(length(T60_list),NUM_ITER); 
+VISQOL_list_NH_unproc  = zeros(length(T60_list),NUM_ITER); 
 
-STMI_list_HI_unproc    = zeros(length(T60_list),1); 
-NSIM_FT_list_HI_unproc = zeros(length(T60_list),1); 
-NSIM_MR_list_HI_unproc = zeros(length(T60_list),1); 
-HASPI_list_HI_unproc   = zeros(length(T60_list),1); 
-STOI_list_HI_unproc    = zeros(length(T60_list),1); 
-HASQI_list_HI_unproc   = zeros(length(T60_list),1); 
-VISQOL_list_HI_unproc  = zeros(length(T60_list),1); 
+STMI_list_HI_unproc    = zeros(length(T60_list),NUM_ITER); 
+NSIM_FT_list_HI_unproc = zeros(length(T60_list),NUM_ITER); 
+NSIM_MR_list_HI_unproc = zeros(length(T60_list),NUM_ITER); 
+HASPI_list_HI_unproc   = zeros(length(T60_list),NUM_ITER); 
+STOI_list_HI_unproc    = zeros(length(T60_list),NUM_ITER); 
+HASQI_list_HI_unproc   = zeros(length(T60_list),NUM_ITER); 
+VISQOL_list_HI_unproc  = zeros(length(T60_list),NUM_ITER); 
 
-STMI_list_NH_proc    = zeros(length(T60_list),1); 
-NSIM_FT_list_NH_proc = zeros(length(T60_list),1); 
-NSIM_MR_list_NH_proc = zeros(length(T60_list),1); 
-HASPI_list_NH_proc   = zeros(length(T60_list),1); 
-STOI_list_NH_proc    = zeros(length(T60_list),1); 
-HASQI_list_NH_proc   = zeros(length(T60_list),1); 
-VISQOL_list_NH_proc  = zeros(length(T60_list),1); 
+STMI_list_NH_proc    = zeros(length(T60_list),NUM_ITER); 
+NSIM_FT_list_NH_proc = zeros(length(T60_list),NUM_ITER); 
+NSIM_MR_list_NH_proc = zeros(length(T60_list),NUM_ITER); 
+HASPI_list_NH_proc   = zeros(length(T60_list),NUM_ITER); 
+STOI_list_NH_proc    = zeros(length(T60_list),NUM_ITER); 
+HASQI_list_NH_proc   = zeros(length(T60_list),NUM_ITER); 
+VISQOL_list_NH_proc  = zeros(length(T60_list),NUM_ITER); 
 
-STMI_list_HI_proc    = zeros(length(T60_list),1); 
-NSIM_FT_list_HI_proc = zeros(length(T60_list),1); 
-NSIM_MR_list_HI_proc = zeros(length(T60_list),1); 
-HASPI_list_HI_proc   = zeros(length(T60_list),1); 
-STOI_list_HI_proc    = zeros(length(T60_list),1); 
-HASQI_list_HI_proc   = zeros(length(T60_list),1); 
-VISQOL_list_HI_proc  = zeros(length(T60_list),1); 
+STMI_list_HI_proc    = zeros(length(T60_list),NUM_ITER); 
+NSIM_FT_list_HI_proc = zeros(length(T60_list),NUM_ITER); 
+NSIM_MR_list_HI_proc = zeros(length(T60_list),NUM_ITER); 
+HASPI_list_HI_proc   = zeros(length(T60_list),NUM_ITER); 
+STOI_list_HI_proc    = zeros(length(T60_list),NUM_ITER); 
+HASQI_list_HI_proc   = zeros(length(T60_list),NUM_ITER); 
+VISQOL_list_HI_proc  = zeros(length(T60_list),NUM_ITER); 
 
-C50_list_unproc  = zeros(length(T60_list),1); 
-C50_list_proc    = zeros(length(T60_list),1); 
+C50_list_unproc  = zeros(length(T60_list),NUM_ITER); 
+C50_list_proc    = zeros(length(T60_list),NUM_ITER); 
 
 % Compute mean EDC for SAL room
 EDC_list_SAL = zeros(size(G_source));
@@ -400,195 +400,210 @@ for ch = 1:M
 end
 EDC_SAL_dB = 10*log10(EDC_SAL / M);
 
-for T60_num = 1:length(T60_list)
-    T60 = T60_list(T60_num);
-    N60 = T60 * fs;
-    fprintf("\n====================================\n")
-    fprintf("T60 = %.0f msec\n", T60*1000)
-    fprintf("====================================\n")
-    
-    
-    % Channel        
-    if T60 == 0
-        G_source_trunc = [ones(1,M) ; zeros(1,M)];
-    else
+for iter = 1:NUM_ITER
 
-        % Compute Additional attenuation needed to get desired T60
-        SAL_atten_at_T60 = -1*EDC_SAL_dB(T60*fs);
-        added_atten_at_T60 = 60 - SAL_atten_at_T60;
-        added_atten_at_T60 = max(added_atten_at_T60, 0);
-    
-        % Exponential decay curve
-        N60       = T60 * fs;
-        %L_channel = min(round(N60*1.25), length(G_source(:,1)));
-        L_channel = min(round(N60*2), length(G_source(:,1)));
-        tau       = N60 / log(10^(added_atten_at_T60 / 20)); % -ln(10^(-60/20)) = ln(10^3)
+    % Shuffle seed
+    rng('shuffle')
+
+    % Create iteration results subfolder
+    % Results can be saved in the Results Folder
+    iter_results_dir = sprintf("%s/iteration_%.0f", results_dir, iter);
+    mkdir(iter_results_dir)
+
+
+    for T60_num = 1:length(T60_list)
+        T60 = T60_list(T60_num);
+        N60 = T60 * fs;
+        fprintf("\n====================================\n")
+        fprintf("T60 = %.0f msec\n", T60*1000)
+        fprintf("====================================\n")
         
-        % Apply synthetic exponential decay to 2.1sec MYRiAD real RIR
-        G_source_trunc = G_source(1:L_channel, :);
-        %figure()
-        for ch = 1:M
-            tof = tof_list(ch);
-            exp_decay = [ones(tof-1,1) ; exp(-1 .* (0:(L_channel-tof))' ./ tau)];
-            G_source_trunc(:,ch)  = G_source_trunc(:,ch)  .* exp_decay;   
-
-            g_SAL_ch      = G_source(:,ch);
-            g_SALtrunc_ch = G_source_trunc(:,ch);
+        
+        % Channel        
+        if T60 == 0
+            G_source_trunc = [ones(1,M) ; zeros(1,M)];
+        elseif T60 <= (50/1000)
+            G_source_trunc = G_source(1:N60, :);
+        else
+    
+            % Compute Additional attenuation needed to get desired T60
+            SAL_atten_at_T60 = -1*EDC_SAL_dB(T60*fs);
+            added_atten_at_T60 = 60 - SAL_atten_at_T60;
+            added_atten_at_T60 = max(added_atten_at_T60, 0);
+        
+            % Exponential decay curve
+            N60       = T60 * fs;
+            %L_channel = min(round(N60*1.25), length(G_source(:,1)));
+            L_channel = min(round(N60*2), length(G_source(:,1)));
+            tau       = N60 / log(10^(added_atten_at_T60 / 20)); % -ln(10^(-60/20)) = ln(10^3)
             
+            % Apply synthetic exponential decay to 2.1sec MYRiAD real RIR
+            G_source_trunc = G_source(1:L_channel, :);
+            %figure()
+            for ch = 1:M
+                tof = tof_list(ch);
+                exp_decay = [ones(tof-1,1) ; exp(-1 .* (0:(L_channel-tof))' ./ tau)];
+                G_source_trunc(:,ch)  = G_source_trunc(:,ch)  .* exp_decay;   
+    
+                g_SAL_ch      = G_source(:,ch);
+                g_SALtrunc_ch = G_source_trunc(:,ch);
+                
+                edc_SAL_ch      = EDC(g_SAL_ch);
+                edc_exp          = EDC(exp_decay);
+                edc_SALtrunc_ch4 = EDC(g_SALtrunc_ch);
+                
+                % subplot(M, 1, ch)
+                % plot((0:(length(edc_SALtrunc_ch4)-1)) .* (1/fs), 10*log10(edc_SALtrunc_ch4));
+                % grid on;
+                % xlabel('Time [sec]')
+                % ylabel('dB')
+                % plt_title = sprintf("EDC for Truncated SAL RIR (T60 = %.0f msec)", T60*1000);
+                % title(plt_title)
+                % ylim([-80 6])
+                % xlim([0 3])
+    
+            end
+    
+            figure()
+            for ch = 1:M
+                subplot(M,1,ch)
+                plot(G_source_trunc(:,ch))
+                xlabel('Time [samples]')
+                title(sprintf("RIR Channel %d", ch))
+                xlim([1 N60])
+            end
+        end
+    
+    
+        if enable_debug_plots == 1
+    
+    
+            g_SAL_ch      = G_source(:,4);
+            g_SALtrunc_ch = G_source_trunc(:,4);
+        
             edc_SAL_ch      = EDC(g_SAL_ch);
             edc_exp          = EDC(exp_decay);
             edc_SALtrunc_ch4 = EDC(g_SALtrunc_ch);
             
-            % subplot(M, 1, ch)
-            % plot((0:(length(edc_SALtrunc_ch4)-1)) .* (1/fs), 10*log10(edc_SALtrunc_ch4));
-            % grid on;
-            % xlabel('Time [sec]')
-            % ylabel('dB')
-            % plt_title = sprintf("EDC for Truncated SAL RIR (T60 = %.0f msec)", T60*1000);
-            % title(plt_title)
-            % ylim([-80 6])
-            % xlim([0 3])
-
-        end
-
-        figure()
-        for ch = 1:M
-            subplot(M,1,ch)
-            plot(G_source_trunc(:,ch))
-            xlabel('Time [samples]')
-            title(sprintf("RIR Channel %d", ch))
-            xlim([1 N60])
-        end
-    end
-
-
-    if enable_debug_plots == 1
-
-
-        g_SAL_ch      = G_source(:,4);
-        g_SALtrunc_ch = G_source_trunc(:,4);
-    
-        edc_SAL_ch      = EDC(g_SAL_ch);
-        edc_exp          = EDC(exp_decay);
-        edc_SALtrunc_ch4 = EDC(g_SALtrunc_ch);
+            figure()
+            subplot(3,1,1)
+            plot((0:(length(g_SAL_ch)-1)) .* (1/fs), g_SAL_ch);
+            title('SAL RIR (T60 = 2100 msec)')
+            xlabel('Time [sec]')
+            xlim([0 3])
+            subplot(3,1,2)
+            plot((0:(length(exp_decay)-1)) .* (1/fs), exp_decay);
+            title('Applied Exponential Decay Function')
+            xlabel('Time [sec]')
+            xlim([0 3])
+            subplot(3,1,3)
+            plot((0:(length(g_SALtrunc_ch)-1)) .* (1/fs), g_SALtrunc_ch);
+            plt_title = sprintf("Truncated SAL RIR (T60 = %.0f msec)", T60 * 1000);
+            title(plt_title)
+            xlabel('Time [sec]')
+            xlim([0 3])
         
-        figure()
-        subplot(3,1,1)
-        plot((0:(length(g_SAL_ch)-1)) .* (1/fs), g_SAL_ch);
-        title('SAL RIR (T60 = 2100 msec)')
-        xlabel('Time [sec]')
-        xlim([0 3])
-        subplot(3,1,2)
-        plot((0:(length(exp_decay)-1)) .* (1/fs), exp_decay);
-        title('Applied Exponential Decay Function')
-        xlabel('Time [sec]')
-        xlim([0 3])
-        subplot(3,1,3)
-        plot((0:(length(g_SALtrunc_ch)-1)) .* (1/fs), g_SALtrunc_ch);
-        plt_title = sprintf("Truncated SAL RIR (T60 = %.0f msec)", T60 * 1000);
-        title(plt_title)
-        xlabel('Time [sec]')
-        xlim([0 3])
+            figure()
+            subplot(3,1,1)
+            plot((0:(length(edc_SAL_ch)-1)) .* (1/fs), 10*log10(edc_SAL_ch));
+            grid on;
+            xlabel('Time [sec]')
+            ylabel('dB')
+            title('EDC for SAL RIR (T60 = 2100 msec)')
+            ylim([-80 6])
+            xlim([0 3])
+            subplot(3,1,2)
+            plot((0:(length(edc_exp)-1)) .* (1/fs), 10*log10(edc_exp));
+            grid on;
+            xlabel('Time [sec]')
+            ylabel('dB')
+            title('EDC for Applied Exponential Decay Function')
+            ylim([-80 6])
+            xlim([0 3])
+            subplot(3,1,3)
+            plot((0:(length(edc_SALtrunc_ch4)-1)) .* (1/fs), 10*log10(edc_SALtrunc_ch4));
+            grid on;
+            xlabel('Time [sec]')
+            ylabel('dB')
+            plt_title = sprintf("EDC for Truncated SAL RIR (T60 = %.0f msec)", T60*1000);
+            title(plt_title)
+            ylim([-80 6])
+            xlim([0 3])
     
-        figure()
-        subplot(3,1,1)
-        plot((0:(length(edc_SAL_ch)-1)) .* (1/fs), 10*log10(edc_SAL_ch));
-        grid on;
-        xlabel('Time [sec]')
-        ylabel('dB')
-        title('EDC for SAL RIR (T60 = 2100 msec)')
-        ylim([-80 6])
-        xlim([0 3])
-        subplot(3,1,2)
-        plot((0:(length(edc_exp)-1)) .* (1/fs), 10*log10(edc_exp));
-        grid on;
-        xlabel('Time [sec]')
-        ylabel('dB')
-        title('EDC for Applied Exponential Decay Function')
-        ylim([-80 6])
-        xlim([0 3])
-        subplot(3,1,3)
-        plot((0:(length(edc_SALtrunc_ch4)-1)) .* (1/fs), 10*log10(edc_SALtrunc_ch4));
-        grid on;
-        xlabel('Time [sec]')
-        ylabel('dB')
-        plt_title = sprintf("EDC for Truncated SAL RIR (T60 = %.0f msec)", T60*1000);
-        title(plt_title)
-        ylim([-80 6])
-        xlim([0 3])
-
+        end
+        
+        source_data.signal   = s_source;
+        source_data.rir_data = G_source_trunc;
+        source_data.memo     = source_memo;
+        source_data.rir_memo = room_memo;
+        source_data.rir_desc = rir_desc;
+        source_data.stimdb   = stimdb;
+        
+        noise_data.enable    = enable_noise;
+        noise_data.signals   = S_noise;
+        noise_data.SNR_dB    = SNR_dB;
+        noise_data.memo      = noise_memo;
+        
+        interf_data.enable   = 0;
+        interf_data.signal   = [0];
+        interf_data.rir_data = [0];
+        interf_data.SIR_dB   = Inf;
+        interf_data.memo     = "None";
+        
+        [metrics] = run_eval(source_data, ...
+                             noise_data,  ...
+                             interf_data, ...
+                             fs, ...
+                             N60, ...
+                             s1_enable, ...
+                             s1_on_clean_speech, ...
+                             HL_NH, ...
+                             HL_HI, ...
+                             h_ha_nocomp_24k, ...
+                             h_ha_nalr_24k, ...
+                             iter_results_dir);
+    
+        % Save to buffers
+        STMI_list_NH_unproc(T60_num,iter)    = metrics.metrics_unproc_NH.STMI;
+        NSIM_FT_list_NH_unproc(T60_num,iter) = metrics.metrics_unproc_NH.NSIM_FT;
+        NSIM_MR_list_NH_unproc(T60_num,iter) = metrics.metrics_unproc_NH.NSIM_MR;
+        HASPI_list_NH_unproc(T60_num,iter)   = metrics.metrics_unproc_NH.HASPI;
+        STOI_list_NH_unproc(T60_num,iter)    = metrics.metrics_unproc_NH.STOI;
+        HASQI_list_NH_unproc(T60_num,iter)   = metrics.metrics_unproc_NH.HASQI;
+        VISQOL_list_NH_unproc(T60_num,iter)  = metrics.metrics_unproc_NH.VISQOL;
+    
+        STMI_list_HI_unproc(T60_num,iter)    = metrics.metrics_unproc_HI.STMI;
+        NSIM_FT_list_HI_unproc(T60_num,iter) = metrics.metrics_unproc_HI.NSIM_FT;
+        NSIM_MR_list_HI_unproc(T60_num,iter) = metrics.metrics_unproc_HI.NSIM_MR;
+        HASPI_list_HI_unproc(T60_num,iter)   = metrics.metrics_unproc_HI.HASPI;
+        STOI_list_HI_unproc(T60_num,iter)    = metrics.metrics_unproc_HI.STOI;
+        HASQI_list_HI_unproc(T60_num,iter)   = metrics.metrics_unproc_HI.HASQI;
+        VISQOL_list_HI_unproc(T60_num,iter)  = metrics.metrics_unproc_HI.VISQOL;
+    
+        STMI_list_NH_proc(T60_num,iter)    = metrics.metrics_proc_NH.STMI;
+        NSIM_FT_list_NH_proc(T60_num,iter) = metrics.metrics_proc_NH.NSIM_FT;
+        NSIM_MR_list_NH_proc(T60_num,iter) = metrics.metrics_proc_NH.NSIM_MR;
+        HASPI_list_NH_proc(T60_num,iter)   = metrics.metrics_proc_NH.HASPI;
+        STOI_list_NH_proc(T60_num,iter)    = metrics.metrics_proc_NH.STOI;
+        HASQI_list_NH_proc(T60_num,iter)   = metrics.metrics_proc_NH.HASQI;
+        VISQOL_list_NH_proc(T60_num,iter)  = metrics.metrics_proc_NH.VISQOL;
+    
+        STMI_list_HI_proc(T60_num,iter)    = metrics.metrics_proc_HI.STMI;
+        NSIM_FT_list_HI_proc(T60_num,iter) = metrics.metrics_proc_HI.NSIM_FT;
+        NSIM_MR_list_HI_proc(T60_num,iter) = metrics.metrics_proc_HI.NSIM_MR;
+        HASPI_list_HI_proc(T60_num,iter)   = metrics.metrics_proc_HI.HASPI;
+        STOI_list_HI_proc(T60_num,iter)    = metrics.metrics_proc_HI.STOI;
+        HASQI_list_HI_proc(T60_num,iter)   = metrics.metrics_proc_HI.HASQI;
+        VISQOL_list_HI_proc(T60_num,iter)  = metrics.metrics_proc_HI.VISQOL;
+    
+        C50_list_unproc(T60_num,iter) = metrics.metrics_physical_unproc.C50;
+        C50_list_proc(T60_num,iter)   = metrics.metrics_physical_proc.C50;
+         
     end
-    
-    source_data.signal   = s_source;
-    source_data.rir_data = G_source_trunc;
-    source_data.memo     = source_memo;
-    source_data.rir_memo = room_memo;
-    source_data.rir_desc = rir_desc;
-    source_data.stimdb   = stimdb;
-    
-    noise_data.enable    = enable_noise;
-    noise_data.signals   = S_noise;
-    noise_data.SNR_dB    = SNR_dB;
-    noise_data.memo      = noise_memo;
-    
-    interf_data.enable   = 0;
-    interf_data.signal   = [0];
-    interf_data.rir_data = [0];
-    interf_data.SIR_dB   = Inf;
-    interf_data.memo     = "None";
-    
-    [metrics] = run_eval(source_data, ...
-                         noise_data,  ...
-                         interf_data, ...
-                         fs, ...
-                         N60, ...
-                         s1_enable, ...
-                         s1_on_clean_speech, ...
-                         HL_NH, ...
-                         HL_HI, ...
-                         h_ha_nocomp_24k, ...
-                         h_ha_nalr_24k, ...
-                         results_dir);
 
-    % Save to buffers
-    STMI_list_NH_unproc(T60_num)    = metrics.metrics_unproc_NH.STMI;
-    NSIM_FT_list_NH_unproc(T60_num) = metrics.metrics_unproc_NH.NSIM_FT;
-    NSIM_MR_list_NH_unproc(T60_num) = metrics.metrics_unproc_NH.NSIM_MR;
-    HASPI_list_NH_unproc(T60_num)   = metrics.metrics_unproc_NH.HASPI;
-    STOI_list_NH_unproc(T60_num)    = metrics.metrics_unproc_NH.STOI;
-    HASQI_list_NH_unproc(T60_num)   = metrics.metrics_unproc_NH.HASQI;
-    VISQOL_list_NH_unproc(T60_num)  = metrics.metrics_unproc_NH.VISQOL;
-
-    STMI_list_HI_unproc(T60_num)    = metrics.metrics_unproc_HI.STMI;
-    NSIM_FT_list_HI_unproc(T60_num) = metrics.metrics_unproc_HI.NSIM_FT;
-    NSIM_MR_list_HI_unproc(T60_num) = metrics.metrics_unproc_HI.NSIM_MR;
-    HASPI_list_HI_unproc(T60_num)   = metrics.metrics_unproc_HI.HASPI;
-    STOI_list_HI_unproc(T60_num)    = metrics.metrics_unproc_HI.STOI;
-    HASQI_list_HI_unproc(T60_num)   = metrics.metrics_unproc_HI.HASQI;
-    VISQOL_list_HI_unproc(T60_num)  = metrics.metrics_unproc_HI.VISQOL;
-
-    STMI_list_NH_proc(T60_num)    = metrics.metrics_proc_NH.STMI;
-    NSIM_FT_list_NH_proc(T60_num) = metrics.metrics_proc_NH.NSIM_FT;
-    NSIM_MR_list_NH_proc(T60_num) = metrics.metrics_proc_NH.NSIM_MR;
-    HASPI_list_NH_proc(T60_num)   = metrics.metrics_proc_NH.HASPI;
-    STOI_list_NH_proc(T60_num)    = metrics.metrics_proc_NH.STOI;
-    HASQI_list_NH_proc(T60_num)   = metrics.metrics_proc_NH.HASQI;
-    VISQOL_list_NH_proc(T60_num)  = metrics.metrics_proc_NH.VISQOL;
-
-    STMI_list_HI_proc(T60_num)    = metrics.metrics_proc_HI.STMI;
-    NSIM_FT_list_HI_proc(T60_num) = metrics.metrics_proc_HI.NSIM_FT;
-    NSIM_MR_list_HI_proc(T60_num) = metrics.metrics_proc_HI.NSIM_MR;
-    HASPI_list_HI_proc(T60_num)   = metrics.metrics_proc_HI.HASPI;
-    STOI_list_HI_proc(T60_num)    = metrics.metrics_proc_HI.STOI;
-    HASQI_list_HI_proc(T60_num)   = metrics.metrics_proc_HI.HASQI;
-    VISQOL_list_HI_proc(T60_num)  = metrics.metrics_proc_HI.VISQOL;
-
-    C50_list_unproc(T60_num) = metrics.metrics_physical_unproc.C50;
-    C50_list_proc(T60_num)   = metrics.metrics_physical_proc.C50;
-     
 end
 
-%% PLOTS
+%% PLOTS With Error Bars
 
 test_memo_NH   = sprintf("(SAL RIR truncated, SNR = %.0f dB, Stimulus = %.0f dBSPL, HL = [%.0f %.0f %.0f %.0f %.0f %.0f], No HA Gain)", SNR_dB, stimdb, HL_NH(1), HL_NH(2), HL_NH(3), HL_NH(4), HL_NH(5), HL_NH(6));
 test_memo_HI   = sprintf("(SAL RIR truncated, SNR = %.0f dB, Stimulus = %.0f dBSPL, HL = [%.0f %.0f %.0f %.0f %.0f %.0f], NAL-R Gain)", SNR_dB, stimdb, HL_HI(1), HL_HI(2), HL_HI(3), HL_HI(4), HL_HI(5), HL_HI(6));
@@ -601,17 +616,17 @@ plot_colours = get(gca,'colororder');
 figure()
 set(gcf,'Position',fig_size)
 subplot(1,2,1)
-plot(T60_list, STMI_list_NH_unproc,    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+errorbar(T60_list, mean(STMI_list_NH_unproc,2),    std(STMI_list_NH_unproc,0,2), 'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
 hold on;
-plot(T60_list, STMI_list_NH_proc,      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
-plot(T60_list, NSIM_FT_list_NH_unproc, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
-plot(T60_list, NSIM_FT_list_NH_proc,   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
-plot(T60_list, NSIM_MR_list_NH_unproc, 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
-plot(T60_list, NSIM_MR_list_NH_proc,   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
-plot(T60_list, HASPI_list_NH_unproc,   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
-plot(T60_list, HASPI_list_NH_proc,     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
-plot(T60_list, STOI_list_NH_unproc,    'Color', plot_colours(5,:), 'LineStyle', '--', 'Marker', '+')
-plot(T60_list, STOI_list_NH_proc,      'Color', plot_colours(5,:), 'LineStyle', '-',  'Marker', '+')
+errorbar(T60_list, mean(STMI_list_NH_proc,2),      std(STMI_list_NH_proc,0,2), 'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+errorbar(T60_list, mean(NSIM_FT_list_NH_unproc,2), std(NSIM_FT_list_NH_unproc,0,2), 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+errorbar(T60_list, mean(NSIM_FT_list_NH_proc,2),   std(NSIM_FT_list_NH_proc,0,2), 'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+errorbar(T60_list, mean(NSIM_MR_list_NH_unproc,2), std(NSIM_MR_list_NH_unproc,0,2), 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+errorbar(T60_list, mean(NSIM_MR_list_NH_proc,2),   std(NSIM_MR_list_NH_proc,0,2), 'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+errorbar(T60_list, mean(HASPI_list_NH_unproc,2),   std(HASPI_list_NH_unproc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+errorbar(T60_list, mean(HASPI_list_NH_proc,2),     std(HASPI_list_NH_proc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+errorbar(T60_list, mean(STOI_list_NH_unproc,2),    std(STOI_list_NH_unproc,0,2), 'Color', plot_colours(5,:), 'LineStyle', '--', 'Marker', '+')
+errorbar(T60_list, mean(STOI_list_NH_proc,2),      std(STOI_list_NH_proc,0,2), 'Color', plot_colours(5,:), 'LineStyle', '-',  'Marker', '+')
 ylim([0 Inf])
 xlabel('T60 (sec)')
 legend("STMI (unprocessed)",    "STMI (processed)", ...
@@ -622,15 +637,15 @@ legend("STMI (unprocessed)",    "STMI (processed)", ...
 title("Speech Intelligibility Predictors", test_memo_NH)
 
 subplot(1,2,2)
-plot(T60_list, STMI_list_HI_unproc,    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+errorbar(T60_list, mean(STMI_list_HI_unproc,2),    std(STMI_list_HI_unproc,0,2), 'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
 hold on;
-plot(T60_list, STMI_list_HI_proc,      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
-plot(T60_list, NSIM_FT_list_HI_unproc, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
-plot(T60_list, NSIM_FT_list_HI_proc,   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
-plot(T60_list, NSIM_MR_list_HI_unproc, 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
-plot(T60_list, NSIM_MR_list_HI_proc,   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
-plot(T60_list, HASPI_list_HI_unproc,   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
-plot(T60_list, HASPI_list_HI_proc,     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+errorbar(T60_list, mean(STMI_list_HI_proc,2),      std(STMI_list_HI_proc,0,2), 'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+errorbar(T60_list, mean(NSIM_FT_list_HI_unproc,2), std(NSIM_FT_list_HI_unproc,0,2), 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+errorbar(T60_list, mean(NSIM_FT_list_HI_proc,2),   std(NSIM_FT_list_HI_proc,0,2), 'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+errorbar(T60_list, mean(NSIM_MR_list_HI_unproc,2), std(NSIM_MR_list_HI_unproc,0,2), 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+errorbar(T60_list, mean(NSIM_MR_list_HI_proc,2),   std(NSIM_MR_list_HI_proc,0,2), 'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+errorbar(T60_list, mean(HASPI_list_HI_unproc,2),   std(HASPI_list_HI_unproc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+errorbar(T60_list, mean(HASPI_list_HI_proc,2),     std(HASPI_list_HI_proc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
 ylim([0 Inf])
 xlabel('T60 (sec)')
 legend("STMI (unprocessed)",    "STMI (processed)", ...
@@ -641,22 +656,22 @@ ylim([0 Inf])
 xlabel('T60 (sec)')
 title("Speech Intelligibility Predictors", test_memo_HI)
 
-saveas(gcf, sprintf('%s/SI_v_T60.fig', results_dir));
+saveas(gcf, sprintf('%s/SI_v_T60_wEB.fig', results_dir));
 
 figure()
 set(gcf,'Position',fig_size)
 subplot(1,2,1)
-plot(T60_list, STMI_list_NH_unproc .* scale_STMI,    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+errorbar(T60_list, mean(STMI_list_NH_unproc,2) .* scale_STMI,    std(STMI_list_NH_unproc,0,2) .* scale_STMI, 'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
 hold on;
-plot(T60_list, STMI_list_NH_proc .* scale_STMI,      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
-plot(T60_list, NSIM_FT_list_NH_unproc .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
-plot(T60_list, NSIM_FT_list_NH_proc .* scale_NSIM_FT,   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
-plot(T60_list, NSIM_MR_list_NH_unproc .* scale_NSIM_MR, 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
-plot(T60_list, NSIM_MR_list_NH_proc .* scale_NSIM_MR,   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
-plot(T60_list, HASPI_list_NH_unproc .* scale_HASPI,   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
-plot(T60_list, HASPI_list_NH_proc .* scale_HASPI,     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
-plot(T60_list, STOI_list_NH_unproc .* scale_STOI,    'Color', plot_colours(5,:), 'LineStyle', '--', 'Marker', '+')
-plot(T60_list, STOI_list_NH_proc .* scale_STOI,      'Color', plot_colours(5,:), 'LineStyle', '-',  'Marker', '+')
+errorbar(T60_list, mean(STMI_list_NH_proc,2) .* scale_STMI,      std(STMI_list_NH_proc,0,2) .* scale_STMI, 'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+errorbar(T60_list, mean(NSIM_FT_list_NH_unproc,2) .* scale_NSIM_FT, std(NSIM_FT_list_NH_unproc,0,2) .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+errorbar(T60_list, mean(NSIM_FT_list_NH_proc,2) .* scale_NSIM_FT,   std(NSIM_FT_list_NH_proc,0,2) .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+errorbar(T60_list, mean(NSIM_MR_list_NH_unproc,2) .* scale_NSIM_MR, std(NSIM_MR_list_NH_unproc,0,2) .* scale_NSIM_MR,'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+errorbar(T60_list, mean(NSIM_MR_list_NH_proc,2) .* scale_NSIM_MR,   std(NSIM_MR_list_NH_proc,0,2) .* scale_NSIM_MR, 'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+errorbar(T60_list, mean(HASPI_list_NH_unproc,2) .* scale_HASPI,   std(HASPI_list_NH_unproc,0,2) .* scale_HASPI, 'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+errorbar(T60_list, mean(HASPI_list_NH_proc,2) .* scale_HASPI,     std(HASPI_list_NH_proc,0,2) .* scale_HASPI, 'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+errorbar(T60_list, mean(STOI_list_NH_unproc,2) .* scale_STOI,    std(STOI_list_NH_unproc,0,2) .* scale_STOI, 'Color', plot_colours(5,:), 'LineStyle', '--', 'Marker', '+')
+errorbar(T60_list, mean(STOI_list_NH_proc,2) .* scale_STOI,      std(STOI_list_NH_proc,0,2) .* scale_STOI, 'Color', plot_colours(5,:), 'LineStyle', '-',  'Marker', '+')
 ylim([0 Inf])
 xlabel('T60 (sec)')
 legend("STMI (unprocessed)",    "STMI (processed)", ...
@@ -667,15 +682,15 @@ legend("STMI (unprocessed)",    "STMI (processed)", ...
 title("Scaled Speech Intelligibility Predictors", test_memo_NH)
 
 subplot(1,2,2)
-plot(T60_list, STMI_list_HI_unproc .* scale_STMI,    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+errorbar(T60_list, mean(STMI_list_HI_unproc,2) .* scale_STMI,       std(STMI_list_HI_unproc,0,2) .* scale_STMI, 'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
 hold on;
-plot(T60_list, STMI_list_HI_proc .* scale_STMI,      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
-plot(T60_list, NSIM_FT_list_HI_unproc .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
-plot(T60_list, NSIM_FT_list_HI_proc .* scale_NSIM_FT,   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
-plot(T60_list, NSIM_MR_list_HI_unproc .* scale_NSIM_MR, 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
-plot(T60_list, NSIM_MR_list_HI_proc .* scale_NSIM_MR,   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
-plot(T60_list, HASPI_list_HI_unproc .* scale_HASPI,   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
-plot(T60_list, HASPI_list_HI_proc .* scale_HASPI,     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+errorbar(T60_list, mean(STMI_list_HI_proc,2) .* scale_STMI,         std(STMI_list_HI_proc,0,2) .* scale_STMI, 'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+errorbar(T60_list, mean(NSIM_FT_list_HI_unproc,2) .* scale_NSIM_FT, std(NSIM_FT_list_HI_unproc,0,2) .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+errorbar(T60_list, mean(NSIM_FT_list_HI_proc,2) .* scale_NSIM_FT,   std(NSIM_FT_list_HI_proc,0,2) .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+errorbar(T60_list, mean(NSIM_MR_list_HI_unproc,2) .* scale_NSIM_MR, std(NSIM_MR_list_HI_unproc,0,2) .* scale_NSIM_MR, 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+errorbar(T60_list, mean(NSIM_MR_list_HI_proc,2) .* scale_NSIM_MR,   std(NSIM_MR_list_HI_proc,0,2) .* scale_NSIM_MR, 'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+errorbar(T60_list, mean(HASPI_list_HI_unproc,2) .* scale_HASPI,     std(HASPI_list_HI_unproc,0,2) .* scale_HASPI, 'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+errorbar(T60_list, mean(HASPI_list_HI_proc,2) .* scale_HASPI,       std(HASPI_list_HI_proc,0,2) .* scale_HASPI, 'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
 ylim([0 Inf])
 xlabel('T60 (sec)')
 legend("STMI (unprocessed)",    "STMI (processed)", ...
@@ -686,7 +701,7 @@ ylim([0 Inf])
 xlabel('T60 (sec)')
 title("Scaled Speech Intelligibility Predictors", test_memo_HI)
 
-saveas(gcf, sprintf('%s/SI_v_T60_scaled.fig', results_dir));
+saveas(gcf, sprintf('%s/SI_v_T60_scaled_wEB.fig', results_dir));
 
 % SPEECH QUALITY vs T60
 
@@ -696,11 +711,11 @@ ylim_SQ = max_SQ*1.1;
 figure()
 set(gcf,'Position',fig_size)
 subplot(1,2,1)
-plot(T60_list, HASQI_list_NH_unproc,  'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+errorbar(T60_list, mean(HASQI_list_NH_unproc,2),  std(HASQI_list_NH_unproc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
 hold on;
-plot(T60_list, HASQI_list_NH_proc,    'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
-plot(T60_list, VISQOL_list_NH_unproc, 'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'diamond')
-plot(T60_list, VISQOL_list_NH_proc,   'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'diamond')
+errorbar(T60_list, mean(HASQI_list_NH_proc,2),    std(HASQI_list_NH_proc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+errorbar(T60_list, mean(VISQOL_list_NH_unproc,2), std(VISQOL_list_NH_unproc,0,2), 'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'diamond')
+errorbar(T60_list, mean(VISQOL_list_NH_proc,2),   std(VISQOL_list_NH_proc,0,2), 'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'diamond')
 ylim([0 ylim_SQ])
 
 xlabel('T60 (sec)')
@@ -709,29 +724,29 @@ legend("HASQI (unprocessed)",  "HASQI (processed)", ...
 title("Speech Quality Predictors", test_memo_NH)
 
 subplot(1,2,2)
-plot(T60_list, HASQI_list_HI_unproc,  'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+errorbar(T60_list, mean(HASQI_list_HI_unproc,2),  std(HASQI_list_HI_unproc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
 hold on;
-plot(T60_list, HASQI_list_HI_proc,    'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+errorbar(T60_list, mean(HASQI_list_HI_proc,2),    std(HASQI_list_HI_proc,0,2), 'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
 xlabel('T60 (sec)')
 legend("HASQI (unprocessed)", "HASQI (processed)")
 title("Speech Quality Predictors", test_memo_HI)
 ylim([0 ylim_SQ])
 
-saveas(gcf, sprintf('%s/SQ_v_T60.fig', results_dir));
+saveas(gcf, sprintf('%s/SQ_v_T60_wEB.fig', results_dir));
 
 % CLARITY vs T60
 
 figure()
 %set(gcf,'Position',fig_size)
-plot(T60_list, 10*log10(C50_list_unproc), "--square")
+errorbar(T60_list, mean(10*log10(C50_list_unproc),2), std(10*log10(C50_list_unproc),0,2), "--square")
 hold on;
-plot(T60_list, 10*log10(C50_list_proc), "-square")
+errorbar(T60_list, mean(10*log10(C50_list_proc),2), std(10*log10(C50_list_proc),0,2), "-square")
 xlabel('T60 (sec)')
 ylabel('dB')
 legend("C50 (unprocessed)", "C50 (processed)")
 title("Clarity (C50)", test_memo_phys)
 
-saveas(gcf, sprintf('%s/C50_v_T60.fig', results_dir));
+saveas(gcf, sprintf('%s/C50_v_T60_wEB.fig', results_dir));
 
 save(sprintf("%s/STMI_list_NH_unproc.mat", results_dir), 'STMI_list_NH_unproc');
 save(sprintf("%s/NSIM_FT_list_NH_unproc.mat", results_dir), 'NSIM_FT_list_NH_unproc');
@@ -763,3 +778,142 @@ save(sprintf("%s/HASQI_list_HI_proc.mat", results_dir), 'HASQI_list_HI_proc');
 
 save(sprintf("%s/C50_list_unproc.mat", results_dir), 'C50_list_unproc');
 save(sprintf("%s/C50_list_proc.mat", results_dir), 'C50_list_proc');
+
+%% PLOTS Without Error Bars
+
+% SPEECH INTELLIGIBILITY vs T60
+
+figure()
+set(gcf,'Position',fig_size)
+subplot(1,2,1)
+plot(T60_list, mean(STMI_list_NH_unproc,2),    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+hold on;
+plot(T60_list, mean(STMI_list_NH_proc,2),      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+plot(T60_list, mean(NSIM_FT_list_NH_unproc,2), 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+plot(T60_list, mean(NSIM_FT_list_NH_proc,2),   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+plot(T60_list, mean(NSIM_MR_list_NH_unproc,2), 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+plot(T60_list, mean(NSIM_MR_list_NH_proc,2),   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+plot(T60_list, mean(HASPI_list_NH_unproc,2),   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+plot(T60_list, mean(HASPI_list_NH_proc,2),     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+plot(T60_list, mean(STOI_list_NH_unproc,2),    'Color', plot_colours(5,:), 'LineStyle', '--', 'Marker', '+')
+plot(T60_list, mean(STOI_list_NH_proc,2),      'Color', plot_colours(5,:), 'LineStyle', '-',  'Marker', '+')
+ylim([0 Inf])
+xlabel('T60 (sec)')
+legend("STMI (unprocessed)",    "STMI (processed)", ...
+       "NSIM FT (unprocessed)", "NSIM FT (processed)", ...
+       "NSIM MR (unprocessed)", "NSIM MR (processed)", ...
+       "HASPI (unprocessed)",   "HASPI (processed)", ...
+       "STOI (unprocessed)",    "STOI (processed)")
+title("Speech Intelligibility Predictors", test_memo_NH)
+
+subplot(1,2,2)
+plot(T60_list, mean(STMI_list_HI_unproc,2),    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+hold on;
+plot(T60_list, mean(STMI_list_HI_proc,2),      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+plot(T60_list, mean(NSIM_FT_list_HI_unproc,2), 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+plot(T60_list, mean(NSIM_FT_list_HI_proc,2),   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+plot(T60_list, mean(NSIM_MR_list_HI_unproc,2), 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+plot(T60_list, mean(NSIM_MR_list_HI_proc,2),   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+plot(T60_list, mean(HASPI_list_HI_unproc,2),   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+plot(T60_list, mean(HASPI_list_HI_proc,2),     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+ylim([0 Inf])
+xlabel('T60 (sec)')
+legend("STMI (unprocessed)",    "STMI (processed)", ...
+       "NSIM FT (unprocessed)", "NSIM FT (processed)", ...
+       "NSIM MR (unprocessed)", "NSIM MR (processed)", ...
+       "HASPI (unprocessed)",   "HASPI (processed)")
+ylim([0 Inf])
+xlabel('T60 (sec)')
+title("Speech Intelligibility Predictors", test_memo_HI)
+
+saveas(gcf, sprintf('%s/SI_v_T60.fig', results_dir));
+
+figure()
+set(gcf,'Position',fig_size)
+subplot(1,2,1)
+plot(T60_list, mean(STMI_list_NH_unproc,2) .* scale_STMI,    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+hold on;
+plot(T60_list, mean(STMI_list_NH_proc,2) .* scale_STMI,      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+plot(T60_list, mean(NSIM_FT_list_NH_unproc,2) .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+plot(T60_list, mean(NSIM_FT_list_NH_proc,2) .* scale_NSIM_FT,   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+plot(T60_list, mean(NSIM_MR_list_NH_unproc,2) .* scale_NSIM_MR, 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+plot(T60_list, mean(NSIM_MR_list_NH_proc,2) .* scale_NSIM_MR,   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+plot(T60_list, mean(HASPI_list_NH_unproc,2) .* scale_HASPI,   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+plot(T60_list, mean(HASPI_list_NH_proc,2) .* scale_HASPI,     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+plot(T60_list, mean(STOI_list_NH_unproc,2) .* scale_STOI,    'Color', plot_colours(5,:), 'LineStyle', '--', 'Marker', '+')
+plot(T60_list, mean(STOI_list_NH_proc,2) .* scale_STOI,      'Color', plot_colours(5,:), 'LineStyle', '-',  'Marker', '+')
+ylim([0 Inf])
+xlabel('T60 (sec)')
+legend("STMI (unprocessed)",    "STMI (processed)", ...
+       "NSIM FT (unprocessed)", "NSIM FT (processed)", ...
+       "NSIM MR (unprocessed)", "NSIM MR (processed)", ...
+       "HASPI (unprocessed)",   "HASPI (processed)", ...
+       "STOI (unprocessed)",    "STOI (processed)")
+title("Scaled Speech Intelligibility Predictors", test_memo_NH)
+
+subplot(1,2,2)
+plot(T60_list, mean(STMI_list_HI_unproc,2) .* scale_STMI,    'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'o')
+hold on;
+plot(T60_list, mean(STMI_list_HI_proc,2) .* scale_STMI,      'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'o')
+plot(T60_list, mean(NSIM_FT_list_HI_unproc,2) .* scale_NSIM_FT, 'Color', plot_colours(2,:), 'LineStyle', '--', 'Marker', '^')
+plot(T60_list, mean(NSIM_FT_list_HI_proc,2) .* scale_NSIM_FT,   'Color', plot_colours(2,:), 'LineStyle', '-',  'Marker', '^')
+plot(T60_list, mean(NSIM_MR_list_HI_unproc,2) .* scale_NSIM_MR, 'Color', plot_colours(3,:), 'LineStyle', '--', 'Marker', 'diamond')
+plot(T60_list, mean(NSIM_MR_list_HI_proc,2) .* scale_NSIM_MR,   'Color', plot_colours(3,:), 'LineStyle', '-',  'Marker', 'diamond')
+plot(T60_list, mean(HASPI_list_HI_unproc,2) .* scale_HASPI,   'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+plot(T60_list, mean(HASPI_list_HI_proc,2) .* scale_HASPI,     'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+ylim([0 Inf])
+xlabel('T60 (sec)')
+legend("STMI (unprocessed)",    "STMI (processed)", ...
+       "NSIM FT (unprocessed)", "NSIM FT (processed)", ...
+       "NSIM MR (unprocessed)", "NSIM MR (processed)", ...
+       "HASPI (unprocessed)",   "HASPI (processed)")
+ylim([0 Inf])
+xlabel('T60 (sec)')
+title("Scaled Speech Intelligibility Predictors", test_memo_HI)
+
+saveas(gcf, sprintf('%s/SI_v_T60_scaled.fig', results_dir));
+
+% SPEECH QUALITY vs T60
+
+max_SQ = max([max(HASQI_list_NH_unproc) max(HASQI_list_NH_proc) max(VISQOL_list_NH_unproc) max(VISQOL_list_NH_proc) max(HASQI_list_HI_unproc) max(HASQI_list_HI_proc)]);
+ylim_SQ = max_SQ*1.1;
+
+figure()
+set(gcf,'Position',fig_size)
+subplot(1,2,1)
+plot(T60_list, mean(HASQI_list_NH_unproc,2),  'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+hold on;
+plot(T60_list, mean(HASQI_list_NH_proc,2),    'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+plot(T60_list, mean(VISQOL_list_NH_unproc,2), 'Color', plot_colours(1,:), 'LineStyle', '--', 'Marker', 'diamond')
+plot(T60_list, mean(VISQOL_list_NH_proc,2),   'Color', plot_colours(1,:), 'LineStyle', '-',  'Marker', 'diamond')
+ylim([0 ylim_SQ])
+
+xlabel('T60 (sec)')
+legend("HASQI (unprocessed)",  "HASQI (processed)", ...
+       "VISQOL (unprocessed)", "VISQOL (processed)")
+title("Speech Quality Predictors", test_memo_NH)
+
+subplot(1,2,2)
+plot(T60_list, mean(HASQI_list_HI_unproc,2),  'Color', plot_colours(4,:), 'LineStyle', '--', 'Marker', 'square')
+hold on;
+plot(T60_list, mean(HASQI_list_HI_proc,2),    'Color', plot_colours(4,:), 'LineStyle', '-',  'Marker', 'square')
+xlabel('T60 (sec)')
+legend("HASQI (unprocessed)", "HASQI (processed)")
+title("Speech Quality Predictors", test_memo_HI)
+ylim([0 ylim_SQ])
+
+saveas(gcf, sprintf('%s/SQ_v_T60.fig', results_dir));
+
+% CLARITY vs T60
+
+figure()
+%set(gcf,'Position',fig_size)
+plot(T60_list, mean(10*log10(C50_list_unproc),2), "--square")
+hold on;
+plot(T60_list, mean(10*log10(C50_list_proc),2), "-square")
+xlabel('T60 (sec)')
+ylabel('dB')
+legend("C50 (unprocessed)", "C50 (processed)")
+title("Clarity (C50)", test_memo_phys)
+
+saveas(gcf, sprintf('%s/C50_v_T60.fig', results_dir));

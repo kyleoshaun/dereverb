@@ -45,6 +45,7 @@ addpath(sprintf('%s/dereverb/RIR_Databases', code_folder))
 addpath(sprintf('%s/dereverb/metrics/NSIM_Papers_ExampleCode 2/NSIMforBEZ2018a_model/', code_folder))
 addpath(sprintf('%s/dereverb/metrics/STMI_Papers_ExampleCode 1/STMIforBEZ2018a_model', code_folder))
 
+
 %% Shuffle and save seed for reproducibility
 % rng('shuffle')
 % seed = abs(round(randn(1,1) * 10000));
@@ -57,8 +58,8 @@ addpath(sprintf('%s/dereverb/metrics/STMI_Papers_ExampleCode 1/STMIforBEZ2018a_m
 M            = 4; % Number of Microphones
 fs           = 16000; % Sample rate (Hz)
 stimdb       = 65; % speech level in dB SPL 
-enable_noise = true;
-SNR_dB       = 6;
+enable_noise = false;
+SNR_dB       = Inf;
 source_length_sec = 10;
 
 % Simulation Flags
@@ -120,37 +121,143 @@ source_memo = sprintf("%s shaped with filter", source_memo);
 
 end
 
-%% Load real RIR data
+
+%% Load Real RIR Data
 
 rir_database = load('rir_databases_4micCombined_1noise.mat');
 rir_database = rir_database.rir_databases_4micCombined_1noise;
 
-if rir_database.fs ~= fs
+if rir_database.fs ~= Fs_stim
     error("RIR Database sample rate mismatch");
 end
 
-room_num       = 4; % SAL (T60 = 2.1 sec)
-G_source       = rir_database.rir_data.rir_list_0deg{room_num};
-tof_list       = rir_database.rir_data.tof_est_0deg{room_num};
-room_memo      = "SALtrunc";
-rir_desc       = sprintf("MYRiAD SAL Measured RIR (T60 = 2100 msec, Truncated Exponentially)");
+RIR_list_0deg  = rir_database.rir_data.rir_list_0deg;
+RIR_list_90deg = rir_database.rir_data.rir_list_90deg;
+room_memos     = rir_database.rir_data.rir_memos;
+T60_msec_list  = rir_database.rir_data.T60_msec_list;
+T60_list       = T60_msec_list ./ 1000;
+tof_list       = rir_database.rir_data.tof_est_0deg;
 
 % Manually align RIRs
-figure()
-for ch=1:M
-    tof = tof_list(ch);
-    G_source(:,ch) = [G_source(tof:end, ch) ; zeros(tof-1,1)];
-end
-tof_list = ones(size(tof_list));
-
-
-if strcmp(room_memo, 'SALtrunc') == 0
-    error('Something got messed up')
+for room_num = 1:length(RIR_list_0deg)
+    G_source = RIR_list_0deg{room_num};
+    tofs = tof_list{room_num};
+    for ch=1:M
+        tof = tofs(ch);
+        G_source(:,ch) = [G_source(tof:end, ch) ; zeros(tof-1,1)];
+    end
+    RIR_list_0deg{room_num} = G_source;
 end
 
-if rir_database.fs ~= fs
-    error('Somethings wrong')
+%% TEMP
+
+% G_source = RIR_list_0deg{4};
+% % Compute mean EDC for SAL room
+% EDC_list_SAL = zeros(size(G_source));
+% EDC_SAL      = zeros(length(G_source(:,1)), 1);
+% for ch = 1:M
+%     EDC_list_SAL(:, ch) = EDC(G_source(:,ch));
+%     EDC_SAL = EDC_SAL + EDC_list_SAL(:, ch);
+% end
+% EDC_SAL_dB = 10*log10(EDC_SAL / M);
+% 
+% % Compute Additional attenuation needed to get desired T60
+% T60 = 2;
+% SAL_atten_at_T60 = -1*EDC_SAL_dB(T60*fs);
+% added_atten_at_T60 = 60 - SAL_atten_at_T60;
+% added_atten_at_T60 = max(added_atten_at_T60, 0);
+% 
+% % Exponential decay curve
+% N60       = T60 * fs;
+% %L_channel = min(round(N60*1.25), length(G_source(:,1)));
+% L_channel = min(round(N60*2), length(G_source(:,1)));
+% tau       = N60 / log(10^(added_atten_at_T60 / 20)); % -ln(10^(-60/20)) = ln(10^3)
+% 
+% tof = 1;
+% exp_decay = [ones(tof-1,1) ; exp(-1 .* (0:(L_channel-tof))' ./ tau)];
+% for ch=1:M
+%     G_source(:,ch)  = G_source(:,ch)  .* exp_decay;   
+% end
+
+%% Optional: Reduce Magnitude of Early reflections
+% To make reverberant effect stronger
+
+if enable_reduction_of_ERs
+
+
+% Manual processing of RIR to make reverberation stronger:
+% Make direct sound weaker
+for room_num = 1:length(RIR_list_0deg)
+    G_source = RIR_list_0deg{room_num};
+    for ch = 1:M
+        g_SAL_pre    = G_source(:,ch);
+        G_source(1:50,ch) = G_source(1:50,ch) ./ 4;
+    
+        EDC_pre  = EDC(g_SAL_pre);
+        EDC_post = EDC(G_source(:,ch));
+        
+        figure()
+        subplot(2,1,1)
+        plot((0:(length(g_SAL_pre)-1)) .* (1/fs), g_SAL_pre)
+        title(sprintf('Channel %d SAL RIR Before Making early reflections weaker', ch))
+        subplot(2,1,2)
+        plot((0:(length(G_source(:,ch))-1)) .* (1/fs), G_source(:,ch))
+        title(sprintf('Channel %d SAL RIR After Making early reflections weaker', ch))
+        
+        figure
+        subplot(2,1,1)
+        plot((0:(length(EDC_pre)-1)) .* (1/fs), 10*log10(EDC_pre));
+        grid on;
+        xlabel('Time [sec]')
+        ylabel('dB')
+        title('EDC for SAL RIR Before Making early reflections weaker')
+        ylim([-65 6])
+        subplot(2,1,2)
+        plot((0:(length(EDC_post)-1)) .* (1/fs), 10*log10(EDC_post));
+        grid on;
+        xlabel('Time [sec]')
+        ylabel('dB')
+        title('EDC for SAL RIR After Making early reflections weaker')
+        ylim([-65 6])
+    
+    end
+    RIR_list_0deg{room_num} = G_source;
 end
+
+
+end
+
+%% Load real RIR data
+
+% rir_database = load('rir_databases_4micCombined_1noise.mat');
+% rir_database = rir_database.rir_databases_4micCombined_1noise;
+% 
+% if rir_database.fs ~= fs
+%     error("RIR Database sample rate mismatch");
+% end
+% 
+% room_num       = 4; % SAL (T60 = 2.1 sec)
+% G_source       = rir_database.rir_data.rir_list_0deg{room_num};
+% tof_list       = rir_database.rir_data.tof_est_0deg{room_num};
+% room_memo      = "SALtrunc";
+% rir_desc       = sprintf("MYRiAD SAL Measured RIR (T60 = 2100 msec, Truncated Exponentially)");
+% 
+% % Manually align RIRs
+% figure()
+% for ch=1:M
+%     tof = tof_list(ch);
+%     G_source(:,ch) = [G_source(tof:end, ch) ; zeros(tof-1,1)];
+% end
+% tof_list = ones(size(tof_list));
+% 
+% 
+% if strcmp(room_memo, 'SALtrunc') == 0
+%     error('Something got messed up')
+% end
+% 
+% if rir_database.fs ~= fs
+%     error('Somethings wrong')
+% end
 
 %% Optional: Synthetic RIRs
 
@@ -181,50 +288,6 @@ end
 
 end
 
-%% Optional: Reduce Magnitude of Early reflections
-% To make reverberant effect stronger
-
-if enable_reduction_of_ERs
-
-
-% Manual processing of RIR to make reverberation stronger:
-% Make direct sound weaker
-for ch = 1:M
-    g_SAL_pre    = G_source(:,ch);
-    G_source(1:70,ch) = G_source(1:70,ch) ./ 4;
-
-    % EDC_pre  = EDC(g_SAL_pre);
-    % EDC_post = EDC(G_source(:,ch));
-    
-    figure()
-    subplot(2,1,1)
-    plot((0:(length(g_SAL_pre)-1)) .* (1/fs), g_SAL_pre)
-    title(sprintf('Channel %d SAL RIR Before Making early reflections weaker', ch))
-    subplot(2,1,2)
-    plot((0:(length(G_source(:,ch))-1)) .* (1/fs), G_source(:,ch))
-    title(sprintf('Channel %d SAL RIR After Making early reflections weaker', ch))
-    
-    % figure
-    % subplot(2,1,1)
-    % plot((0:(length(EDC_pre)-1)) .* (1/fs), 10*log10(EDC_pre));
-    % grid on;
-    % xlabel('Time [sec]')
-    % ylabel('dB')
-    % title('EDC for SAL RIR Before Making early reflections weaker')
-    % ylim([-65 6])
-    % subplot(2,1,2)
-    % plot((0:(length(EDC_post)-1)) .* (1/fs), 10*log10(EDC_post));
-    % grid on;
-    % xlabel('Time [sec]')
-    % ylabel('dB')
-    % title('EDC for SAL RIR After Making early reflections weaker')
-    % ylim([-65 6])
-
-end
-
-
-end
-
 %% Spatial Noise Data
 
 % Spatial noise
@@ -244,10 +307,10 @@ S_noise = S_noise(1:length(s_source), :);
 %% Create results folder
 
 % Results can be saved in the Results Folder
-results_dir = sprintf("FINAL_RESULTS/EVAL_T60_sweep_truncatedSAL_wNoise_%s", datetime("today"));
+results_dir = sprintf("FINAL_RESULTS/EVAL_RealRIRs_%s", datetime("today"));
 run_num = 1;
 while exist(results_dir, 'Dir')
-    results_dir = sprintf("FINAL_RESULTS/EVAL_T60_sweep_truncatedSAL_wNoise_%s_%d", datetime("today"), run_num);
+    results_dir = sprintf("FINAL_RESULTS/EVAL_RealRIRs_%s_%d", datetime("today"), run_num);
     run_num = run_num + 1;
 end
 mkdir(results_dir)
@@ -352,9 +415,7 @@ save(sprintf("%s/plot_scaling_data.mat", results_dir), 'plot_scaling_data');
 
 %% Iteration / T60 Loop
 
-NUM_ITER = 10; % For error bars
-
-T60_list = [0 100 250:250:2000] ./ 1000;
+NUM_ITER = 1; % For error bars
 
 STMI_list_NH_unproc    = zeros(length(T60_list),NUM_ITER); 
 NSIM_FT_list_NH_unproc = zeros(length(T60_list),NUM_ITER); 
@@ -410,7 +471,8 @@ for iter = 1:NUM_ITER
     iter_results_dir = sprintf("%s/iteration_%.0f", results_dir, iter);
     mkdir(iter_results_dir)
 
-    for T60_num = 1:length(T60_list)
+
+    for T60_num = 4:length(T60_list)
         T60 = T60_list(T60_num);
         N60 = T60 * fs;
         fprintf("\n====================================\n")
@@ -419,117 +481,10 @@ for iter = 1:NUM_ITER
         
         
         % Channel        
-        if T60 == 0
-            G_source_trunc = [ones(1,M) ; zeros(1,M)];
-        elseif T60 <= (50/1000)
-            G_source_trunc = G_source(1:N60, :);
-        else
-    
-            % Compute Additional attenuation needed to get desired T60
-            SAL_atten_at_T60 = -1*EDC_SAL_dB(T60*fs);
-            added_atten_at_T60 = 60 - SAL_atten_at_T60;
-            added_atten_at_T60 = max(added_atten_at_T60, 0);
-        
-            % Exponential decay curve
-            N60       = T60 * fs;
-            %L_channel = min(round(N60*1.25), length(G_source(:,1)));
-            L_channel = min(round(N60*2), length(G_source(:,1)));
-            tau       = N60 / log(10^(added_atten_at_T60 / 20)); % -ln(10^(-60/20)) = ln(10^3)
-            
-            % Apply synthetic exponential decay to 2.1sec MYRiAD real RIR
-            G_source_trunc = G_source(1:L_channel, :);
-            %figure()
-            for ch = 1:M
-                tof = tof_list(ch);
-                exp_decay = [ones(tof-1,1) ; exp(-1 .* (0:(L_channel-tof))' ./ tau)];
-                G_source_trunc(:,ch)  = G_source_trunc(:,ch)  .* exp_decay;   
-    
-                g_SAL_ch      = G_source(:,ch);
-                g_SALtrunc_ch = G_source_trunc(:,ch);
-                
-                edc_SAL_ch      = EDC(g_SAL_ch);
-                edc_exp          = EDC(exp_decay);
-                edc_SALtrunc_ch4 = EDC(g_SALtrunc_ch);
-                
-                % subplot(M, 1, ch)
-                % plot((0:(length(edc_SALtrunc_ch4)-1)) .* (1/fs), 10*log10(edc_SALtrunc_ch4));
-                % grid on;
-                % xlabel('Time [sec]')
-                % ylabel('dB')
-                % plt_title = sprintf("EDC for Truncated SAL RIR (T60 = %.0f msec)", T60*1000);
-                % title(plt_title)
-                % ylim([-80 6])
-                % xlim([0 3])
-    
-            end
-    
-            figure()
-            for ch = 1:M
-                subplot(M,1,ch)
-                plot(G_source_trunc(:,ch))
-                xlabel('Time [samples]')
-                title(sprintf("RIR Channel %d", ch))
-                xlim([1 N60])
-            end
-        end
-    
-    
-        if enable_debug_plots == 1
-    
-    
-            g_SAL_ch      = G_source(:,4);
-            g_SALtrunc_ch = G_source_trunc(:,4);
-        
-            edc_SAL_ch      = EDC(g_SAL_ch);
-            edc_exp          = EDC(exp_decay);
-            edc_SALtrunc_ch4 = EDC(g_SALtrunc_ch);
-            
-            figure()
-            subplot(3,1,1)
-            plot((0:(length(g_SAL_ch)-1)) .* (1/fs), g_SAL_ch);
-            title('SAL RIR (T60 = 2100 msec)')
-            xlabel('Time [sec]')
-            xlim([0 3])
-            subplot(3,1,2)
-            plot((0:(length(exp_decay)-1)) .* (1/fs), exp_decay);
-            title('Applied Exponential Decay Function')
-            xlabel('Time [sec]')
-            xlim([0 3])
-            subplot(3,1,3)
-            plot((0:(length(g_SALtrunc_ch)-1)) .* (1/fs), g_SALtrunc_ch);
-            plt_title = sprintf("Truncated SAL RIR (T60 = %.0f msec)", T60 * 1000);
-            title(plt_title)
-            xlabel('Time [sec]')
-            xlim([0 3])
-        
-            figure()
-            subplot(3,1,1)
-            plot((0:(length(edc_SAL_ch)-1)) .* (1/fs), 10*log10(edc_SAL_ch));
-            grid on;
-            xlabel('Time [sec]')
-            ylabel('dB')
-            title('EDC for SAL RIR (T60 = 2100 msec)')
-            ylim([-80 6])
-            xlim([0 3])
-            subplot(3,1,2)
-            plot((0:(length(edc_exp)-1)) .* (1/fs), 10*log10(edc_exp));
-            grid on;
-            xlabel('Time [sec]')
-            ylabel('dB')
-            title('EDC for Applied Exponential Decay Function')
-            ylim([-80 6])
-            xlim([0 3])
-            subplot(3,1,3)
-            plot((0:(length(edc_SALtrunc_ch4)-1)) .* (1/fs), 10*log10(edc_SALtrunc_ch4));
-            grid on;
-            xlabel('Time [sec]')
-            ylabel('dB')
-            plt_title = sprintf("EDC for Truncated SAL RIR (T60 = %.0f msec)", T60*1000);
-            title(plt_title)
-            ylim([-80 6])
-            xlim([0 3])
-    
-        end
+        room_memo      = room_memos{T60_num};
+        rir_desc       = room_memo;
+        G_source       = RIR_list_0deg{T60_num};
+        G_source_trunc = G_source; % No exponential windowind
         
         source_data.signal   = s_source;
         source_data.rir_data = G_source_trunc;
@@ -597,8 +552,9 @@ for iter = 1:NUM_ITER
     
         C50_list_unproc(T60_num,iter) = metrics.metrics_physical_unproc.C50;
         C50_list_proc(T60_num,iter)   = metrics.metrics_physical_proc.C50;
-   
+         
     end
+
 end
 
 %% PLOTS With Error Bars
@@ -606,8 +562,6 @@ end
 test_memo_NH   = sprintf("(SAL RIR truncated, SNR = %.0f dB, Stimulus = %.0f dBSPL, HL = [%.0f %.0f %.0f %.0f %.0f %.0f], No HA Gain)", SNR_dB, stimdb, HL_NH(1), HL_NH(2), HL_NH(3), HL_NH(4), HL_NH(5), HL_NH(6));
 test_memo_HI   = sprintf("(SAL RIR truncated, SNR = %.0f dB, Stimulus = %.0f dBSPL, HL = [%.0f %.0f %.0f %.0f %.0f %.0f], NAL-R Gain)", SNR_dB, stimdb, HL_HI(1), HL_HI(2), HL_HI(3), HL_HI(4), HL_HI(5), HL_HI(6));
 test_memo_phys = sprintf("(SAL RIR truncated, SNR = %.0f dB, Stimulus = %.0f dBSPL)", SNR_dB, stimdb);
-
-plot_colours = get(gca,'colororder');
 
 plot_colours = get(gca,'colororder');
 

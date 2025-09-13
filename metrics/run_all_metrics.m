@@ -1,11 +1,11 @@
-function [metrics, nalr_struct] = run_all_metrics(refstim, teststim, Fs_stim, HL, stimdb, h_ha_24k)
+function [metrics, nalr_struct] = run_all_metrics(refstim, teststim, Fs_stim, HL, stimdb, h_ha_24k, results_dir)
 % Computes several monaural predictors of speech intelligibility (SI) and speech quality (SQ)
 % Note: A NAL-R filter is applied to the test stimuli to compensate the impact
 %       of hearing loss on audibility (i.e., to focus our attention on degraded
 %       representations which are less easy to compensate)  
 %
 % Syntax:
-%   [metrics, nalr_struct] = run_all_metrics(refstim, teststim, Fs_stim, HL, stimdb)
+%   [metrics, nalr_struct] = run_all_metrics(refstim, teststim, Fs_stim, HL, stimdb, h_ha_24k, results_dir)
 %
 % Inputs:
 % - refstim: Reference Signal in Pa (Clean, undistorted, unprocessed)
@@ -14,6 +14,7 @@ function [metrics, nalr_struct] = run_all_metrics(refstim, teststim, Fs_stim, HL
 % - HL: Hearing loss vector. dB loss at 6 audiometric frequencies: [250 500 1000 2000 4000 6000] Hz
 % - stimdb: Acoustic level of clean stimulus (dB SPL). 
 % - h_ha_24k: Hearing Aid gain filter (FIR) applied to the test signal for a sample rate of fs = 24 kHz
+% - results_dir: Directory for saving results
 %   Note: Both test signals and the reference signals should be pre-calibrated 
 % %       to the specified dB SPL.
 %         If test signals include noise etc, the signal level should be 
@@ -49,11 +50,19 @@ nfir   = length(h_ha_24k) - 1;
 teststim_nalr_24k = conv(teststim_24k,  h_ha_24k);
 
 % Apply Delay compensation
-teststim_nalr_24k = teststim_nalr_24k(nfir+1:nfir+nsamp);
+%teststim_nalr_24k = teststim_nalr_24k(nfir+1:nfir+nsamp);
+pd_ha = phasedelay(h_ha_24k, 1);
+pd_ha = pd_ha(2:end); % Remove DC
+mean_delay = round(mean(pd_ha));
+teststim_nalr_24k = teststim_nalr_24k(mean_delay+1:nfir+nsamp);
 
 % Re-sample from 24kHz back to original stimulus sample rate
 teststim_nalr = resample(teststim_nalr_24k,  Fs_stim, fsamp);
 
+% Manuall Time-Align teststim and refstim
+%[xc,lags] = xcorr(teststim_nalr, refstim);
+%delay = lags(find(abs(xc) == max(abs(xc))));
+%teststim_nalr = teststim_nalr(delay:end);
 
 % Save NAL-R Filter Parameters
 nalr_struct.h_nalr             = h_ha_24k;
@@ -89,7 +98,7 @@ nalr_struct.teststim_post_nalr = teststim_nalr;
 
 %% Compute NSIM/STMI
 
-[STMI, NSIM_FT, NSIM_MR] = nsim_and_stmi(teststim_nalr, refstim, Fs_stim, HL);
+[STMI, NSIM_FT, NSIM_MR] = nsim_and_stmi(teststim_nalr, refstim, Fs_stim, HL, stimdb, results_dir);
 
 % Bypass to speed up execution for debug purposes
 %STMI = 1;

@@ -1,4 +1,4 @@
-function [STMI, NSIM_FT, NSIM_MR] = nsim_and_stmi(teststim, refstim, Fs_stim, HL)
+function [STMI, NSIM_FT, NSIM_MR] = nsim_and_stmi(teststim, refstim, Fs_stim, HL, stimdb, results_dir)
 % Computes Spectro-Temporal Modulation Index (STMI) and 
 % Mean-Rate/Fine-Timing Neurogram Similarity Index Measure (MR NSIM / FT NSIM)
 %
@@ -12,13 +12,15 @@ function [STMI, NSIM_FT, NSIM_MR] = nsim_and_stmi(teststim, refstim, Fs_stim, HL
 % - HL: Hearing Loss Vector following HASPI convention
 % 	    (1,6) vector of hearing loss at the 6 audiometric frequencies
 %	    [250, 500, 1000, 2000, 4000, 6000] Hz.
+% - stimdb: Stimulus level in dB SPL
+% - results_dir: Directory for saving results
 %
 % Outputs:
 % - STMI: Spectro-Temporal Modulation Index
 % - NSIM_FT: Fine-Timing Neurogram Similarity Index
 % - NSIM_MR: Mean-Rate Neurogram Similarity Index
 
-enable_plots = false;
+enable_plots = true;
 
 %% Init Model (BEZ2018a)
 
@@ -72,7 +74,7 @@ sv = 2.^(-2:0.5:3); % cortical (spectral) modulation filter scales
 % rau_b3 = 0.00598;
 
 
-%% FT NSIM
+%% NSIM
 
 % SETUP
 
@@ -100,8 +102,8 @@ response_endtime = length(refstim)/Fs_stim+10e-3; % Calculate end time of the ne
 [tmp, ind_ft] = min(abs(t_ft-response_endtime)); % Find the corresponding time index in the ft neurogram
 
 % Scaling method used by Hines and Harte (Speech Comm 2010, 2012)
-% scl_mr = 255/max(max(neurogram_mr_ref(:,1:ind_mr)));
-% scl_ft = 255/max(max(neurogram_ft_ref(:,1:ind_ft)));
+%scl_mr = 255/max(max(neurogram_mr_ref(:,1:ind_mr)));
+%scl_ft = 255/max(max(neurogram_ft_ref(:,1:ind_ft)));
 
 % New scaling method developed by M. R. Wirtzfeld (see Wirtzfeld et al., JARO 2017)
 scl_mr = 1/50/t_mr(2);
@@ -167,6 +169,14 @@ if enable_plots
     caxis([0 20])
     title(['Fine-timing Neurogram for Test Stimulus: NSIM\_FT = ' num2str(NSIM_FT)])
     xlim(xl)
+
+    if any(HL)
+        sgtitle("NSIM Neurograms (HI Listener)")
+        saveas(gcf, sprintf('%s/NSIM_Neurograms_HI.fig', results_dir));
+    else
+        sgtitle("NSIM Neurograms (NH Listener)")
+        saveas(gcf, sprintf('%s/NSIM_Neurograms_NH.fig', results_dir));
+    end
 end
 
 
@@ -263,8 +273,22 @@ if enable_plots
     caxis([0 200])
     title(['STMI Neurogram for Test Stimulus: STMI = ' num2str(STMI)])
     xlim(xl)
+
+    if any(HL)
+        sgtitle("STMI Neurograms (HI Listener)")
+        saveas(gcf, sprintf('%s/STMI_Neurograms_HI.fig', results_dir));
+    else
+        sgtitle("STMI Neurograms (NH Listener)")
+        saveas(gcf, sprintf('%s/STMI_Neurograms_NH.fig', results_dir));
+    end
 end
 
+%% Half-wave Rectify NSIM to account for potential negative numbers 
+%  Note: Negative numbers occur somtimes in structure term of SSIM in 
+%  cross-covariance term
+
+NSIM_FT = max(0, NSIM_FT);
+NSIM_MR = max(0, NSIM_MR);
 
 %% Synthesize NSIM/STMI
 % Regression of Fine-Timing NSIM + STMI performed by Rationalized Arcsine Transformation (RAU)

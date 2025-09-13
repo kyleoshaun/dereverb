@@ -3,7 +3,7 @@ function [metrics] = run_eval(source_data, noise_data, interf_data, fs, N60, s1_
 % and compute all SI/SQ metrics for the resulting unprocessed/processed signals.
 %
 % Syntax:
-%   [metrics] = run_eval(source_data, noise_data, interf_data, fs, N60, enable_source_whitening, HL_NH, HL_HI)
+%   [metrics] = run_eval(source_data, noise_data, interf_data, fs, N60, s1_enable, s1_on_clean_speech, HL_NH, HL_HI, h_ha_NH, h_ha_HI, results_dir)
 %
 % Inputs:
 % - source_data.signal:   Clean Speech Signal
@@ -34,6 +34,7 @@ function [metrics] = run_eval(source_data, noise_data, interf_data, fs, N60, s1_
 % - HL_HI: Hearing loss vector for hearing impaired listener. dB loss at 6 audiometric frequencies: [250 500 1000 2000 4000 6000] Hz
 % - h_ha_NH: Hearing Aid gain (FIR Filter, fs = 24 kHz) for NH listener
 % - h_ha_HI: Hearing Aid gain (FIR Filter, fs = 24 kHz) for HI listener
+% - run_memo: Descriptor for test/run which is added to plot titles
 % - results_dir: Directory for saving results
 %
 % Outputs:
@@ -117,7 +118,7 @@ else
 end
 
 % Prediction Orders
-T60_max = 1000 / 1000;
+T60_max = 500 / 1000;
 N60_max = T60_max * fs;
 p2 = round(N60_max / (M-1)); % Stage 2 MC-LPC order (Fixed)
 %p2 = round(N60 / (M-1)); % Stage 2 MC-LPC order (Adaptive)
@@ -208,7 +209,7 @@ audiowrite(sprintf('%s/s_est_training.wav', results_dir), s_est .* (0.5 / max(ab
 
 %% MINT: Ideal solution based on known RIRs
 
-run_MINT = 1;
+run_MINT = 0;
 if run_MINT
     fprintf("Running MINT (USING SAME L_g = p2+1) ... ");
     tau = 0;
@@ -634,13 +635,13 @@ audiowrite(sprintf('%s/y_test_SA2.wav',     results_dir), Y(:,1) .* (0.5 / max(a
 audiowrite(sprintf('%s/s_test_est_SA2.wav', results_dir), s_est .* (0.5 / max(abs(s_est))),  fs);
 
 % Compute MINT Signal Results
-% s_est_MINT = apply_dap_equalizer(dap_equalizer_struct, Y);
-s_est_MINT = zeros(size(Y(:, 1)));
-for ch_idx = 1:M
-    y_ch       = Y(:, ch_idx);
-    h_mint_ch  = H_mint(:, ch_idx);
-    s_est_MINT = s_est_MINT + filter(h_mint_ch, 1, y_ch);
-end
+% % s_est_MINT = apply_dap_equalizer(dap_equalizer_struct, Y);
+% s_est_MINT = zeros(size(Y(:, 1)));
+% for ch_idx = 1:M
+%     y_ch       = Y(:, ch_idx);
+%     h_mint_ch  = H_mint(:, ch_idx);
+%     s_est_MINT = s_est_MINT + filter(h_mint_ch, 1, y_ch);
+% end
 
 
 % Spectrogram Parameters
@@ -653,7 +654,7 @@ window = hamming(N_window);
 [S_spec, f_S, t_S] = spectrogram(refstim, window, N_overlap, N_fft, fs);
 [Y_spec, f_Y, t_Y] = spectrogram(Y(:,1), window, N_overlap, N_fft, fs);
 [S_est_spec, f_S_est, t_S_est] = spectrogram(s_est, window, N_overlap, N_fft, fs);
-[S_est_MINT_spec, f_S_est_MINT, t_S_est_MINT] = spectrogram(s_est_MINT, window, N_overlap, N_fft, fs);
+%[S_est_MINT_spec, f_S_est_MINT, t_S_est_MINT] = spectrogram(s_est_MINT, window, N_overlap, N_fft, fs);
 
 figure()
 subplot(3,1,1)
@@ -686,35 +687,35 @@ saveas(gcf, sprintf('%s/Spectrogram_reappliedToSA2.fig', results_dir));
 my_export_gcf(sprintf('%s/Spectrogram_reappliedToSA2.eps', results_dir), "SPECTROGRAM")
 
 % MINT Spectrogram Results
-figure()
-subplot(3,1,1)
-imagesc(t_S*1000, f_S/1e3, 20*log10(abs(S_spec)/sum(window)*sqrt(2)/20e-6));
-axis xy; axis tight;
-hcb = colorbar;
-set(get(hcb,'ylabel'),'string','SPL')
-xlabel('Time [msec]')
-ylabel('Frequency [kHz]')
-title('Clean Speech')
-subplot(3,1,2)
-imagesc(t_Y*1000, f_Y/1e3, 20*log10(abs(Y_spec)/sum(window)*sqrt(2)/20e-6));
-axis xy; axis tight;
-hcb = colorbar;
-set(get(hcb,'ylabel'),'string','SPL')
-xlabel('Time [msec]')
-ylabel('Frequency [kHz]')
-title('Reverberant Speech')
-subplot(3,1,3)
-imagesc(t_S_est_MINT*1000, f_S_est_MINT/1e3, 20*log10(abs(S_est_MINT_spec)/sum(window)*sqrt(2)/20e-6));
-axis xy; axis tight;
-hcb = colorbar;
-set(get(hcb,'ylabel'),'string','SPL')
-xlabel('Time [msec]')
-ylabel('Frequency [kHz]')
-title('De-reverberated Speech (MINT)')
-sgtitle('MINT Dereverberation Results (Reapplied DAP-EQ to SA2.wav, without noise)')
-
-saveas(gcf, sprintf('%s/Spectrogram_MINT_reappliedToSA2.fig', results_dir));
-my_export_gcf(sprintf('%s/Spectrogram_MINT_reappliedToSA2.eps', results_dir), "SPECTROGRAM")
+% figure()
+% subplot(3,1,1)
+% imagesc(t_S*1000, f_S/1e3, 20*log10(abs(S_spec)/sum(window)*sqrt(2)/20e-6));
+% axis xy; axis tight;
+% hcb = colorbar;
+% set(get(hcb,'ylabel'),'string','SPL')
+% xlabel('Time [msec]')
+% ylabel('Frequency [kHz]')
+% title('Clean Speech')
+% subplot(3,1,2)
+% imagesc(t_Y*1000, f_Y/1e3, 20*log10(abs(Y_spec)/sum(window)*sqrt(2)/20e-6));
+% axis xy; axis tight;
+% hcb = colorbar;
+% set(get(hcb,'ylabel'),'string','SPL')
+% xlabel('Time [msec]')
+% ylabel('Frequency [kHz]')
+% title('Reverberant Speech')
+% subplot(3,1,3)
+% imagesc(t_S_est_MINT*1000, f_S_est_MINT/1e3, 20*log10(abs(S_est_MINT_spec)/sum(window)*sqrt(2)/20e-6));
+% axis xy; axis tight;
+% hcb = colorbar;
+% set(get(hcb,'ylabel'),'string','SPL')
+% xlabel('Time [msec]')
+% ylabel('Frequency [kHz]')
+% title('De-reverberated Speech (MINT)')
+% sgtitle('MINT Dereverberation Results (Reapplied DAP-EQ to SA2.wav, without noise)')
+% 
+% saveas(gcf, sprintf('%s/Spectrogram_MINT_reappliedToSA2.fig', results_dir));
+% my_export_gcf(sprintf('%s/Spectrogram_MINT_reappliedToSA2.eps', results_dir), "SPECTROGRAM")
 
 
 %% Compute SI/SQ Metrics (Without noise)
@@ -724,11 +725,11 @@ Fs_stim         = fs;
 test_reverb     = Y(:,1);
 test_processed  = s_est;
 
-[metrics_unproc_NH, ~] = run_all_metrics(refstim, test_reverb,    Fs_stim, HL_NH, stimdb, h_ha_NH);
-[metrics_proc_NH,   ~] = run_all_metrics(refstim, test_processed, Fs_stim, HL_NH, stimdb, h_ha_NH);
+[metrics_unproc_NH, ~] = run_all_metrics(refstim, test_reverb,    Fs_stim, HL_NH, stimdb, h_ha_NH, results_dir);
+[metrics_proc_NH,   ~] = run_all_metrics(refstim, test_processed, Fs_stim, HL_NH, stimdb, h_ha_NH, results_dir);
 
-[metrics_unproc_HI, ~] = run_all_metrics(refstim, test_reverb,    Fs_stim, HL_HI, stimdb, h_ha_HI);
-[metrics_proc_HI,   ~] = run_all_metrics(refstim, test_processed, Fs_stim, HL_HI, stimdb, h_ha_HI);
+[metrics_unproc_HI, ~] = run_all_metrics(refstim, test_reverb,    Fs_stim, HL_HI, stimdb, h_ha_HI, results_dir);
+[metrics_proc_HI,   ~] = run_all_metrics(refstim, test_processed, Fs_stim, HL_HI, stimdb, h_ha_HI, results_dir);
 
 % audiowrite(sprintf('%s/ec_out_unproc.wav', results_dir), ec_out_unproc .* (0.5 / max(abs(ec_out_unproc))), fs);
 % audiowrite(sprintf('%s/ec_out_proc.wav',   results_dir), ec_out_proc .* (0.5 / max(abs(ec_out_proc))),   fs);

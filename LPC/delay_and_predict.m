@@ -2,7 +2,7 @@ function [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs,
 % Run Delay-and-Predict dereverberation with parallelized for loops
 %
 % Syntax
-%   [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs, s1_enable, results_dir)
+%   [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs, s1_enable, s1_on_clean_speech, results_dir)
 %
 % Inputs:
 % - Y: Reverberant microphone signal matrix (Each column is a different microphone signal)
@@ -13,6 +13,7 @@ function [s_est, dap_equalizer_struct] = delay_and_predict(Y, s_ref, p1, p2, fs,
 % - s1_enable: Set to true to enable stage 1 of delay-and-predict (source whitening)
 % - s1_on_clean_speech: Set to true to compute source whitening filter using clean speech (not blind)
 % - results_dir: Directory to save results
+%
 % Outputs:
 % - s_est: Estimate of clean speech (Blind etimate of s_ref from Y)
 % - dap_equalizer_struct.H: Equalizer filters (Each column is the filter applied to the corresponding microphone signal)
@@ -34,6 +35,20 @@ M = size(Y,2); % Number of channels = number of columns (number of reverberant s
 % Script Modes
 apply_time_alignment    = false;
 
+% Regularization Factor
+% Diagonal reg_matrix=reg_factor*I is applied to the autocorrelation matrices
+% used in both linear-prediction stages (i.e., R_ym and R_mc)
+% to improve numerical stability of algorithm at the cost of reduced cancellation
+% of lower energy reverb. This trade-off may be worth while since the low energy
+% part of the reverb tail is often close in magnitude to the noise floor
+% and therefore is cancelled effectively by the algorithm (in fact the resulting
+% equalizer often introduces low energy reverb)
+reg_factor = 5*10^-5; % T60_max = 1 sec
+reg_factor = 2.5*10^-5; % T60_max = 500 msec
+%reg_factor = 0;
+reg_factor_1 = reg_factor;
+reg_factor_2 = reg_factor;
+
 % FFT/PSD params for plots
 Nfft = 4096;
 Nfft_welch  = 2^(nextpow2(length(s_ref)));
@@ -49,8 +64,9 @@ fprintf(" - Source whitening order (p1) = %.0f\n", p1)
 fprintf(" - Multichannel Linear Prediction order (p2) = %.0f\n", p2)
 fprintf(" - Source whitening Enabled? = %.0f\n", s1_enable)
 fprintf(" - Source whitening on clean speech? = %.0f\n", s1_on_clean_speech)
-%fprintf(" - MC-LP Regularization Factor = %d (Currently unused)\n", reg_factor)
-%fprintf(" - Time Alignment Applied? = %.0f\n\n", apply_time_alignment)
+fprintf(" - Regularization Factor for Source Whitening = %d\n", reg_factor_1)
+fprintf(" - Regularization Factor for MC-LP = %d\n", reg_factor_2)
+fprintf(" - Time Alignment Applied? = %.0f\n\n", apply_time_alignment)
 
 %% LPC on clean speech (Not actually used in algo, just for reference)
 
@@ -76,6 +92,10 @@ idx_lag0    = find(lags==0);
 
 R_s = toeplitz(phi_s(idx_lag0:(idx_lag0+p1-1)));
 r_s = phi_s((idx_lag0+1):(idx_lag0+p1));
+
+% Apply regularization factor to autocorrelation matrix
+reg_matrix = reg_factor_1 .* eye(size(R_s));
+R_s       = R_s + reg_matrix;
 
 alpha_s = R_s \ r_s; % Option 1: Solve by gaussian elimination
 %alpha_s = pinv(R_s) * r_s; % Option 2: Solve by pseudo-inverse
@@ -127,6 +147,10 @@ phi_ym = sum(phi_Y, 2); % Avg: Sum all autocorrelation functions (sum columns)
 
 R_ym = toeplitz(phi_ym(idx_lag0:(idx_lag0+p1-1)));
 r_ym = phi_ym((idx_lag0+1):(idx_lag0+p1));
+
+% Apply regularization factor to autocorrelation matrix
+reg_matrix = reg_factor_1 .* eye(size(R_ym));
+R_ym       = R_ym + reg_matrix;
 
 alpha_ym = R_ym \ r_ym; % Option 1: Solve by Gaussian elimination
 %alpha_ym = pinv(R_ym) * r_ym; % Option 2: Solve by pseudo-inverse
@@ -385,6 +409,10 @@ while min(abs(h0)) < coeff_thresh
         r_mc(:, col_0:col_1) = R_xx_k;
         k = k+1;
     end
+
+    % Apply regularization factor to autocorrelation matrix
+    reg_matrix = reg_factor_2 .* eye(size(R_mc));
+    R_mc       = R_mc + reg_matrix;
     
     % Solve Multichannel Normal Equations
     % Note row formulation of system is used here, so aR = r (rather than Ra = r)
