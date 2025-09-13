@@ -3,99 +3,106 @@
 \contentsline {chapter}{Acknowledgements}{vi}{chapter*.3}%
 \contentsline {chapter}{Notation and abbreviations}{vii}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Introduction and Background}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Acoustics of Reverberation}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Sound}{1}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Room Acoustics}{5}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Early and Late Reflections}{7}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Numerical Properties of Room Impulse Reponses}{10}{subsection.1.1.4}%
-\contentsline {section}{\numberline {1.2}The Auditory System}{11}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}The Outer and Middle Ear}{11}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}The Inner Ear}{12}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Tuning, Non-Linearities and Active Amplification in the Cochlea}{14}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Sound Localization}{16}{subsection.1.2.4}%
-\contentsline {section}{\numberline {1.3}Hearing Loss}{19}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Overview of Hearing Loss}{19}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Perceptual Impacts of Sensorineural Hearing Loss}{21}{subsection.1.3.2}%
-\contentsline {section}{\numberline {1.4}Speech Production}{22}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Anatomy of Speech Production}{22}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Classification of Speech Sounds}{24}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Discrete-Time Speech Production Model}{25}{subsection.1.4.3}%
-\contentsline {section}{\numberline {1.5}Linear Prediction}{28}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}Signal Prediction Perspective}{29}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}System Identification / Inverse Filtering Perspective}{32}{subsection.1.5.2}%
-\contentsline {subsubsection}{\numberline {1.5.2.1}Autocorrelation Method}{35}{subsubsection.1.5.2.1}%
-\contentsline {subsubsection}{\numberline {1.5.2.2}Covariance Method}{39}{subsubsection.1.5.2.2}%
-\contentsline {subsection}{\numberline {1.5.3}Spectral Estimation / Spectral Whitening Perspective}{42}{subsection.1.5.3}%
-\contentsline {section}{\numberline {1.6}Speech Perception in Adverse Conditions}{43}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Characterizing Speech Perception}{43}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Impact of Reverberation on Speech Cues}{45}{subsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.6.3}Impact of Reverberation on Speech Intelligibility and Listening Effort}{46}{subsection.1.6.3}%
-\contentsline {subsection}{\numberline {1.6.4}Impact of Reverberation on Spatial Cues}{48}{subsection.1.6.4}%
-\contentsline {subsection}{\numberline {1.6.5}Perceptual Adaptation to Reverberation and Noise}{48}{subsection.1.6.5}%
-\contentsline {subsubsection}{\numberline {1.6.5.1}The Precedence Effect}{48}{subsubsection.1.6.5.1}%
-\contentsline {subsubsection}{\numberline {1.6.5.2}Spatial Release From Masking}{51}{subsubsection.1.6.5.2}%
-\contentsline {section}{\numberline {1.7}Hearing Aids}{52}{section.1.7}%
-\contentsline {section}{\numberline {1.8}Metrics of Speech Perception}{53}{section.1.8}%
-\contentsline {subsection}{\numberline {1.8.1}Objective Predictors of Speech Intelligibility}{54}{subsection.1.8.1}%
-\contentsline {subsubsection}{\numberline {1.8.1.1}Neurologically-Motivated Objective Predictors of Speech Intelligibility}{58}{subsubsection.1.8.1.1}%
-\contentsline {subsection}{\numberline {1.8.2}Objective Predictors of Listening Effort}{61}{subsection.1.8.2}%
-\contentsline {subsection}{\numberline {1.8.3}Objective Predictors of Speech Quality}{62}{subsection.1.8.3}%
-\contentsline {section}{\numberline {1.9}Summary and Motivation}{62}{section.1.9}%
-\contentsline {chapter}{\numberline {2}De-Reverberation Literature Review}{63}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Reverberation Suppression}{64}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Beamforming}{64}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Linear Prediction Residual Enhancement}{65}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Statistical Speech Enhancement Methods}{66}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Reverberation Cancellation}{67}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Room Response Equalization}{67}{subsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.1}Invertibility of Room Impulse Response}{67}{subsubsection.2.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.2}Homomorphic Approaches to Room Response Equalization}{72}{subsubsection.2.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.2.1.3}Linear Prediction Approaches to Room Response Equalization}{73}{subsubsection.2.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.2.1.4}Frequency Domain Approaches to Room Response Equalization}{75}{subsubsection.2.2.1.4}%
-\contentsline {subsubsection}{\numberline {2.2.1.5}Least Squares Optimization Approaches to Room Response Equalization}{76}{subsubsection.2.2.1.5}%
-\contentsline {subsubsection}{\numberline {2.2.1.6}Multiple Input-Output Inverse Theorem (MINT)}{77}{subsubsection.2.2.1.6}%
-\contentsline {subsubsection}{\numberline {2.2.1.7}Perceptually Motivated Room Response Equalization}{82}{subsubsection.2.2.1.7}%
-\contentsline {subsection}{\numberline {2.2.2}Blind Deconvolution Problem}{83}{subsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.2.1}The Wiener Filter (Supervised Optimal Filtering)}{83}{subsubsection.2.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2.2}Supervised Adaptive Filtering}{86}{subsubsection.2.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.2.3}Blind Deconvolution Challenges}{89}{subsubsection.2.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.2.4}Practical Blind Deconvolution in Wireless Systems}{91}{subsubsection.2.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.2.5}SOS and HOS Methods for Blind System Identification}{92}{subsubsection.2.2.2.5}%
-\contentsline {subsubsection}{\numberline {2.2.2.6}Multichannel SOS Methods for Blind System Identification}{94}{subsubsection.2.2.2.6}%
-\contentsline {subsection}{\numberline {2.2.3}Multichannel SOS Methods for Reverberation Cancellation}{95}{subsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.3.1}Homomorphic Deconvolution}{96}{subsubsection.2.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.2.3.2}Subspace Methods}{97}{subsubsection.2.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.2.3.3}Multichannel Linear Prediction Methods}{98}{subsubsection.2.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.2.3.4}Blind System Identification Using Estimation Theory}{112}{subsubsection.2.2.3.4}%
-\contentsline {section}{\numberline {2.3}Summary and Thesis Goals}{114}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Delay and Predict Dereverberation Parameters}{116}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Multichannel Linear Prediction Order}{117}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}MINT Inverse Filtering Results}{117}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Multichannel Linear Prediction Inverse Filtering Results}{120}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Source Whitening Linear Prediction Order}{124}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Blind Deconvolution Performance}{126}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Source Properties}{129}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Source Data Length}{130}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Source Spectrum}{133}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Time Alignment of RIRs and Linear Combiner}{136}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Algorithmic Complexity Analysis}{139}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Conclusions}{142}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Appendices}{144}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}MC-LP Order}{144}{subsection.3.8.1}%
-\contentsline {subsection}{\numberline {3.8.2}Source Whitening Order}{146}{subsection.3.8.2}%
-\contentsline {chapter}{\numberline {4}Methods and Results}{151}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Evaluation of Proposed SI/LE Prediction Method for Reverberation}{151}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Proposed Method}{151}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Analysis of RIR Databases}{153}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Evaluation of Equalization-Cancellation Front-End}{156}{subsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.3.1}SRM}{156}{subsubsection.4.1.3.1}%
-\contentsline {subsubsection}{\numberline {4.1.3.2}PE: Does EC capture any of the benefits of early reflections?}{161}{subsubsection.4.1.3.2}%
-\contentsline {subsection}{\numberline {4.1.4}Hearing Aid Gain Comparison}{162}{subsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.1.5}Evaluation of Monaural Speech Intelligibility Metrics In Context of Reverberation}{165}{subsection.4.1.5}%
-\contentsline {section}{\numberline {4.2}Final Method Used}{171}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Delay-and-Predict Dereverberation Evaluation with Synthetic Reverberation}{173}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Delay-and-Predict Dereverberation Evaluation with Realistic Reverberation}{176}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Impact of Noise on Performance}{177}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Impact of an Interfering Talker on Performance}{178}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Discussion and Conclusions}{180}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Future Work Notes}{180}{section.5.1}%
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Acoustics of Reverberation}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Room Acoustics}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Early and Late Reflections}{6}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}The Auditory System}{11}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}The Outer and Middle Ear}{12}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}The Inner Ear}{13}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Tuning, Non-Linearities and Active Amplification in the Cochlea}{16}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Sound Localization}{19}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}Hearing Loss}{21}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Overview of Hearing Loss}{21}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Perceptual Impacts of Sensorineural Hearing Loss}{23}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Speech Production}{25}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Anatomy of Speech Production}{25}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Classification of Speech Sounds}{27}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Discrete-Time Speech Production Model}{28}{subsection.1.5.3}%
+\contentsline {section}{\numberline {1.6}Speech Perception in Reverberation}{31}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Characterizing Speech Perception}{31}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Neural Encoding of Acoustic Speech Cues}{34}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}Impact of Reverberation on Speech Cues}{36}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}Impact of Reverberation on Speech Intelligibility and Listening Effort}{37}{subsection.1.6.4}%
+\contentsline {subsection}{\numberline {1.6.5}Impact of Reverberation on Spatial Cues}{39}{subsection.1.6.5}%
+\contentsline {subsection}{\numberline {1.6.6}Perceptual Adaptation to Reverberation and Noise}{40}{subsection.1.6.6}%
+\contentsline {subsubsection}{\numberline {1.6.6.1}The Precedence Effect}{40}{subsubsection.1.6.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.6.2}Spatial Release From Masking}{42}{subsubsection.1.6.6.2}%
+\contentsline {section}{\numberline {1.7}Metrics of Speech Perception}{44}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Objective Predictors of Speech Intelligibility}{45}{subsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.1.1}Neurologically-Motivated Objective Predictors of Speech Intelligibility}{50}{subsubsection.1.7.1.1}%
+\contentsline {subsection}{\numberline {1.7.2}Objective Predictors of Listening Effort}{54}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Objective Predictors of Speech Quality}{55}{subsection.1.7.3}%
+\contentsline {section}{\numberline {1.8}Linear Prediction}{56}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Signal Prediction Perspective}{57}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}System Identification / Inverse Filtering Perspective}{60}{subsection.1.8.2}%
+\contentsline {subsubsection}{\numberline {1.8.2.1}Autocorrelation Method}{63}{subsubsection.1.8.2.1}%
+\contentsline {subsubsection}{\numberline {1.8.2.2}Covariance Method}{67}{subsubsection.1.8.2.2}%
+\contentsline {subsection}{\numberline {1.8.3}Spectral Estimation / Spectral Whitening Perspective}{70}{subsection.1.8.3}%
+\contentsline {chapter}{\numberline {2}Dereverberation Literature Review}{72}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Reverberation Suppression}{72}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Beamforming}{73}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Linear Prediction Residual Enhancement}{74}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Statistical Speech Enhancement Methods}{75}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Reverberation Cancellation}{76}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Room Response Equalization}{76}{subsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.1}Invertibility of Room Impulse Response}{76}{subsubsection.2.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.2}Homomorphic Approaches to Room Response Equalization}{80}{subsubsection.2.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.2.1.3}Linear Prediction Approaches to Room Response Equalization}{82}{subsubsection.2.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.2.1.4}Frequency Domain Approaches to Room Response Equalization}{83}{subsubsection.2.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.2.1.5}Least Squares Optimization Approaches to Room Response Equalization}{84}{subsubsection.2.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.2.1.6}Multiple Input-Output Inverse Theorem (MINT)}{85}{subsubsection.2.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.2.1.7}Perceptually Motivated Room Response Equalization}{91}{subsubsection.2.2.1.7}%
+\contentsline {subsection}{\numberline {2.2.2}Blind Deconvolution Problem}{92}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}The Wiener Filter (Supervised Optimal Filtering)}{92}{subsubsection.2.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2.2}Supervised Adaptive Filtering}{95}{subsubsection.2.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.3}Blind Deconvolution Challenges}{98}{subsubsection.2.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.2.4}Practical Blind Deconvolution in Wireless Systems}{100}{subsubsection.2.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.2.5}SOS and HOS Methods for Blind System Identification}{101}{subsubsection.2.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.2.6}Multichannel SOS Methods for Blind System Identification}{103}{subsubsection.2.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.3}Multichannel SOS Methods for Reverberation Cancellation}{104}{subsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.3.1}Homomorphic Deconvolution}{105}{subsubsection.2.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.2.3.2}Subspace Methods}{106}{subsubsection.2.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.2.3.3}Multichannel Linear Prediction Methods}{107}{subsubsection.2.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.2.3.4}Blind System Identification Using Estimation Theory}{123}{subsubsection.2.2.3.4}%
+\contentsline {section}{\numberline {2.3}Summary and Thesis Goals}{124}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Delay and Predict Dereverberation Parameters}{127}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Multichannel Linear Prediction Order}{128}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}MINT Inverse Filtering Results}{128}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Multichannel Linear Prediction Inverse Filtering Results}{131}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Source Whitening Linear Prediction Order}{136}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Blind Deconvolution Performance}{139}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Number of Microphones}{142}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Source Properties}{144}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Source Data Length}{145}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Source Spectrum}{148}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Time Alignment of RIRs and Linear Combiner}{152}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Algorithmic Complexity Analysis}{155}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Conclusions}{158}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Methods and Results}{161}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Evaluation of Proposed SI/LE Prediction Method for Reverberation}{162}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Proposed Method}{162}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Analysis of RIR Databases}{164}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Evaluation of Equalization-Cancellation Front-End}{167}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}Spatial Release from Noise Masking}{167}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}Spatial Release from Reverberation Masking}{171}{subsubsection.4.1.3.2}%
+\contentsline {subsection}{\numberline {4.1.4}Hearing Aid Gain Comparison}{172}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Evaluation of Monaural Speech Intelligibility Metrics In Context of Reverberation}{177}{subsection.4.1.5}%
+\contentsline {section}{\numberline {4.2}Final Method Used}{186}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Delay-and-Predict Dereverberation Evaluation in Variable Reverberation}{193}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Delay-and-Predict Dereverberation Evaluation with Several Real RIR Measurements}{203}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Impact of Noise on Performance}{208}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Impact of an Interfering Talker on Performance}{211}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Discussion and Conclusions}{214}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusion}{214}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Delay-and-Predict Dereverberation Parameter Conclusions}{215}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Conclusions on Methods for Evaluating the Perceptual Benefit of Dereverberation Algorithms}{217}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Conclusions on the Perceptual Benefit of Delay-and-Predict Dereverberation}{219}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Future Work}{219}{section.5.2}%
+\contentsline {chapter}{\numberline {A}Additional Results Figures}{223}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Chapter 3 Additional Figures}{223}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}MC-LP Order}{223}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Source Whitening Order}{226}{subsection.A.1.2}%
+\contentsline {section}{\numberline {A.2}Chapter 4 Additional Figures}{230}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}EC Evaluation}{230}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Higher Order Delay-and-Predict Dereverberation Evaluation in Variable Reverberation with regularization}{234}{subsection.A.2.2}%

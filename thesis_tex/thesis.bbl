@@ -41,6 +41,11 @@ Beutelmann, R. and Brand, T. (2006).
 \newblock {\em The Journal of the Acoustical Society of America}, {\bf 120}(1),
   331--342.
 
+\bibitem[Bisgaard {\em et~al.}(2010)]{bisgaard2010standard}
+Bisgaard, N., Vlaming, M.~S., and Dahlquist, M. (2010).
+\newblock Standard audiograms for the iec 60118-15 measurement procedure.
+\newblock {\em Trends in amplification}, {\bf 14}(2), 113--120.
+
 \bibitem[Brannmark and Ahl{\'e}n(2009)]{brannmark2009spatially}
 Brannmark, L.-J. and Ahl{\'e}n, A. (2009).
 \newblock Spatially robust audio compensation based on simo feedforward
@@ -67,11 +72,22 @@ Bronkhorst, A.~W. (2000).
   intelligibility in multiple-talker conditions.
 \newblock {\em Acta acustica united with acustica}, {\bf 86}(1), 117--128.
 
+\bibitem[Bruce {\em et~al.}(2017)]{bruce2017physiologically}
+Bruce, I.~C., Bondy, J., Haykin, S., and Becker, S. (2017).
+\newblock Physiologically based predictors of speech intelligibility.
+\newblock {\em Acoustics Today}, {\bf 13}(1), 28--35.
+
 \bibitem[Bruce {\em et~al.}(2018)]{bruce2018phenomenological}
 Bruce, I.~C., Erfani, Y., and Zilany, M.~S. (2018).
 \newblock A phenomenological model of the synapse between the inner hair cell
   and auditory nerve: Implications of limited neurotransmitter release sites.
 \newblock {\em Hearing research}, {\bf 360}, 40--54.
+
+\bibitem[Byrne and Dillon(1986)]{byrne1986national}
+Byrne, D. and Dillon, H. (1986).
+\newblock The national acoustic laboratories'(nal) new procedure for selecting
+  the gain and frequency response of a hearing aid.
+\newblock {\em Ear and hearing}, {\bf 7}(4), 257--265.
 
 \bibitem[Cherry(1953)]{cherry1953some}
 Cherry, E.~C. (1953).
@@ -98,10 +114,21 @@ Dietzen, T., Ali, R., Taseska, M., and van Waterschoot, T. (2023).
 \newblock {\em EURASIP Journal on Audio, Speech, and Music Processing}, {\bf
   2023}(1), 17.
 
+\bibitem[Dillon(2012)]{dillon2012hearing}
+Dillon, H. (2012).
+\newblock {\em Hearing aids}.
+\newblock Thieme Medical Publishers.
+
 \bibitem[Ding and Li(2018)]{ding2018blind}
 Ding, Z. and Li, Y. (2018).
 \newblock {\em Blind equalization and identification}.
 \newblock CRC press.
+
+\bibitem[Durbin(1960)]{durbin1960fitting}
+Durbin, J. (1960).
+\newblock The fitting of time-series models.
+\newblock {\em Revue de l'Institut International de Statistique}, pages
+  233--244.
 
 \bibitem[Durlach(1960)]{durlach1960note}
 Durlach, N. (1960).
@@ -292,15 +319,15 @@ Huang, Y. and Benesty, J. (2003).
   identification.
 \newblock {\em IEEE Transactions on signal processing}, {\bf 51}(1), 11--24.
 
-\bibitem[Identification(1995)]{identification1995least}
-Identification, B.~C. (1995).
-\newblock A least—squares approach to.
-\newblock {\em IEEE TRANSACTIONS ON SIGNAL PROCESSING}, {\bf 43}(12).
-
 \bibitem[IEC 60268-16:2020(2003)]{iec2003sti}
 IEC 60268-16:2020 (2003).
 \newblock {Sound system equipment--Part 16: Objective rating of speech
   intelligibility by speech transmission index}.
+\newblock Standard, International Electrotechnical Commission.
+
+\bibitem[IEC 61672-1(2003)]{iec2003Aweighting}
+IEC 61672-1 (2003).
+\newblock {Electroacoustics - Sound level meters - Part 1: Specifications}.
 \newblock Standard, International Electrotechnical Commission.
 
 \bibitem[Inouye(1983)]{inouye1983modeling}
@@ -367,6 +394,14 @@ Kates, J.~M. and Arehart, K.~H. (2022).
   intelligibility and speech quality for normal hearing, hearing loss, and
   hearing aids.
 \newblock {\em Hearing research}, {\bf 426}, 108608.
+
+\bibitem[Kayser {\em et~al.}(2009)]{kayser2009database}
+Kayser, H., Ewert, S.~D., Anem{\"u}ller, J., Rohdenburg, T., Hohmann, V., and
+  Kollmeier, B. (2009).
+\newblock Database of multichannel in-ear and behind-the-ear head-related and
+  binaural room impulse responses.
+\newblock {\em EURASIP Journal on advances in signal processing}, {\bf
+  2009}(1), 298605.
 
 \bibitem[Kinoshita {\em et~al.}(2007)]{kinoshita2007multi}
 Kinoshita, K., Delcroix, M., Nakatani, T., and Miyoshi, M. (2007).
@@ -517,6 +552,11 @@ Nakatani, T., Yoshioka, T., Kinoshita, K., Miyoshi, M., and Juang, B.-H.
 \newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
   {\bf 18}(7), 1717--1731.
 
+\bibitem[Naylor and Gaubitch(2010)]{naylor2010speech}
+Naylor, P.~A. and Gaubitch, N.~D. (2010).
+\newblock {\em Speech dereverberation}.
+\newblock Springer Science \& Business Media.
+
 \bibitem[Neely and Allen(1979)]{neely1979invertibility}
 Neely, S.~T. and Allen, J.~B. (1979).
 \newblock Invertibility of a room impulse response.
@@ -577,6 +617,11 @@ Radlovic, B.~D. and Kennedy, R.~A. (2000).
   acoustics.
 \newblock {\em IEEE Transactions on Speech and Audio Processing}, {\bf 8}(6),
   728--737.
+
+\bibitem[Reilly(2025)]{reilly2025fundamentals}
+Reilly, J. (2025).
+\newblock {\em Fundamentals of Linear Algebra for Signal Processing}.
+\newblock Springer.
 
 \bibitem[Reinhart and Souza(2018)]{reinhart2018listener}
 Reinhart, P.~N. and Souza, P.~E. (2018).
@@ -654,6 +699,11 @@ Schwartz, O., Gannot, S., and Habets, E.~A. (2014).
 \newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
   Processing}, {\bf 23}(2), 240--251.
 
+\bibitem[Shannon {\em et~al.}(1995)]{shannon1995speech}
+Shannon, R.~V., Zeng, F.-G., Kamath, V., Wygonski, J., and Ekelid, M. (1995).
+\newblock Speech recognition with primarily temporal cues.
+\newblock {\em Science}, {\bf 270}(5234), 303--304.
+
 \bibitem[Shapiro {\em et~al.}(2021)]{shapiro2021hearing}
 Shapiro, S.~B., Noij, K.~S., Naples, J.~G., and Samy, R.~N. (2021).
 \newblock Hearing loss and tinnitus.
@@ -671,6 +721,11 @@ Slock, D.~T. (1994).
   banks and multichannel linear prediction.
 \newblock In {\em Proceedings of ICASSP'94. IEEE International Conference on
   Acoustics, Speech and Signal Processing}, volume~4, pages IV--585. IEEE.
+
+\bibitem[Smith {\em et~al.}(2002)]{smith2002chimaeric}
+Smith, Z.~M., Delgutte, B., and Oxenham, A.~J. (2002).
+\newblock Chimaeric sounds reveal dichotomies in auditory perception.
+\newblock {\em Nature}, {\bf 416}(6876), 87--90.
 
 \bibitem[Srinivasan {\em et~al.}(2017)]{srinivasan2017role}
 Srinivasan, N.~K., Stansell, M., and Gallun, F.~J. (2017).
@@ -800,6 +855,11 @@ Xia, J., Xu, B., Pentony, S., Xu, J., and Swaminathan, J. (2018).
   normal-hearing and aided hearing-impaired listeners.
 \newblock {\em The Journal of the Acoustical Society of America}, {\bf 143}(3),
   1523--1533.
+
+\bibitem[Xu {\em et~al.}(1995)]{identification1995least}
+Xu, G., Liu, H., Tong, L., and Kailath, T. (1995).
+\newblock A least-squares approach blind channel identification.
+\newblock {\em IEEE TRANSACTIONS ON SIGNAL PROCESSING}, {\bf 43}(12).
 
 \bibitem[Yegnanarayana and Murthy(2002)]{yegnanarayana2002enhancement}
 Yegnanarayana, B. and Murthy, P.~S. (2002).

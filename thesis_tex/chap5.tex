@@ -1,21 +1,80 @@
 \chapter{Discussion and Conclusions}
 
-* Big picture discussion of what we've learned, how doesa it compare to the literature, what are limitations, what would future directions
+\section{Conclusion}
 
-\section{Future Work Notes}
+% TODO
+% Big picture discussion of what we've learned, how doesa it compare to the literature, what are limitations, what would future directions
 
-Covariance method for LP/MC-LP
+In this thesis, three topics were explored. First in Chapter 3 the impact of various parameters of the delay-and-predict (DAP) dereverberation algorithm \citep{triki2006delay}, and the impact of various signal/acoustic conditions on dereverberation performance were analyzed. In chapter 4, recent advancements in auditory modeling and predictors of speech intelligibility (SI), listening effort (LE) and speech quality (SQ) were leveraged to define a physiologically motivated method for analyzing the impacts of reverberation, and the components of this method were analyzed for perceptual validity. Lastly, the evaluation method, test conditions and DAP algorithm parameters were configured according to these findings, and an evaluation of the perceptual performance of DAP dereverberation was conducted under a range of practical conditions.
 
-Alternate minimization norm (not MSE, maybe something better suited perceptually).
+\subsection{Delay-and-Predict Dereverberation Parameter Conclusions}
 
-Multi-Step/Delayed Linear Prediction to avoid cancellation of early reflections (and minimize overwhitening distortions)
+In Chapter 3, it was discussed that DAP dereverberation is a blind estimate of the mean-squared-error-optimal MC-LP inverse filter (i.e., the ``supervised DAP"), which is itself an estimate of the ideal multichannel equalizer for a set of known RIRs \citep[i.e., the MINT equalizer][]{miyoshi1986inverse, miyoshi1988inverse}. It was shown that while the MINT equalizer is indeed capable of providing nearly perfect RTF equalization, the performance of the DAP equalizer is severely limited due to the source-filter ambiguities of the blind system identification problem and due to numerical error involved in solving the high order multichannel Yule-Walker/normal equations. In particular it was shown that significant estimation error arises due to increased autocorrelation variance for the very long lags and due to the very low reverberant energy to noise ratio of the later reflections in the RIR. This estimation error increases with prediction order since longer lags are required, and while it can be reduced by increasing the amount of source data used in training, this is practically limited by computational constraints and by the time window over which the RTF may be considered stationary. Since estimation variance  increases for longer autocorrelation lags, the dereverberation performance of the algorithm decreases for longer reflection delays, and can even make the late reverberant tail worse. However it was shown in Chapter 4, that by introducing a small amount of autocorrelation regularization to both stages of linear prediction, the negative impact of DAP on the late part to the RIR can be completely removed with minimal reduction of the benefit of DAP in the earlier part of the RIR. Assuming the RTF can be considered stationary for \qty{10}{\sec}, it was shown that this amount of data is only sufficient to support MC-LP orders up to approximately 2000-3000.
 
-Adaptive/STFT/Subband implementations (reduced complexity and better tracking at cost of worse convergence, maybe not big of a hit within the context of how much were actually able to acheive / including the amount of regularization im adding). What about a combination of the two? Impact of time-varying acoustics on DAP w/ and w/out adaptation
+It was also shown that the performance of DAP dereverberation is highly dependent on the performance of the source-whitening stage which estimates/removes the AR properties of the source by spatially averaging autocorrelation accross a finite number of microphones. It was shown that to maximize performance of algorithm, the source-whitening prediction order should be set to $p_1 \geq p_2 \cdot (M-1)$, where $p_2$ is the MC-LP order so that the spectral resolution of the source-whitening filter matches the effective spectral resolution of the MC-LP prediction error filter. While DAP performance approaches that of the supervised DAP algorithm as the number of microphones is increased, this is practically limited by the number of microphones available. For a lower number of microphones there is an increased likelihood of common or numerically similar RTF channel poles (i.e., the ``effective poles" of the approximate all-pole model of the RTFs), which will be wrongly whitened by the source-whitening stage. 
 
-Evaluation in combination with statistical speech enhancement method.
+Due to these practical limitations of the algorithm, it was shown that for \qty{10}{\sec} of training data, 4 microphones, a stationary RTF and in absense of noise, DAP dereverberation can only achieve supression of the earlier part of the RIR by approximately 6 -- 8 \unit{\decibel}. In particular, it was found the algorithm was only able to provide any reverberation suppression up to the point where the original EDC has decayed by approximately \qty{30}{\decibel} or for reflection delays up to approximately \qty{250}{\milli\sec} (whichever comes first). Any further suppression would require an increased number of microphones or more training data.
 
-Compare LIME to DAP on a perceptual basis
+In Chapter 4, the performance DAP dereverberation in the presence of stationary noise, non-stationary noise and a secondary talker in the same room was evaluated. Dereverberation performance was found to drop off for very low SNRs in stationary noise environments or even for moderately low SNRs in highly non-stationary environments such as babble noise or the presence of a secondary talker. This presents a severe practical limitation of the algorithm and must be managed by methods such as a state-machine for choosing which data to use in training or estimation and subtraction of the autocorrelation properties of the interfering noise.
 
-Metrics work (review that section): Better binaural front-end (perceptual adaptations, impact of hearing loss), ...
+\subsection{Conclusions on Methods for Evaluating the Perceptual Benefit of Dereverberation Algorithms}
+
+In Chapter 4, it was first demonstrated that the equalization-cancellation (EC) algorithm proposed by \cite{durlach1960note} provides a reasonable modeling of binaural perceptual adaptations to noise masking, but it did not appear to be applicable for modeling spatial release from reverberation masking. This was intended to be used as a binaural front-end for monaural predictors of SI, but was abandoned for this reason. 
+
+Next, the perceptual validity of various predictors of SI in the context of reverberation were evaluated. In general, it was demonstrated that a combination of the FT-NSIM, MR-NSIM and STMI metrics provide a more complete picture of the perceptual impacts of reverberation, as compared to HASPI. While HASPI was shown to produce similar estimates of SI to those found in the subjective evaluations conducted by \cite{george2010measuring}, its relatively simplisitic auditory modeling and the saturation of predicted SI in regions where LE may continue to vary produce limited perspective. Conversely, FT-NSIM and MR-NSIM/STMI were respectively found to demonstrate the impacts of reverberation on TFS acoustic cues and ENV acoustic cues. In particular, it was shown that for short reverberation times MR-NSIM remains high while FT-NSIM drops substantially, depicting the impact of small amounts of reverberation on TFS cues which impacts LE. Additionally these metrics have no explicit saturation which allowed them to be used to predict changes to LE in typical reverberant conditions where SI is already saturated.
+
+FT-NSIM, MR-NSIM and STMI were shown to provide insights into the impacts of linear hearing aids gains and reverberation on speech perception that were aligned with the aligned with the literature. However, since the NSIM predictor involves a pixel-by-pixel comparison of neurograms (i.e., via the SSIM metric), it was found to be highly sensitive to phase distortions. This was found to result in a high degree of variance in FT-NSIM results when evaluating the impact of algorithms such as DAP dereverberation that have undeterministic non-linear phase responses. It is unclear whether these reductions FT-NSIM represent distortions that are perceptually relevant.
+
+Lastly, while reverberation time (e.g., T60) is a commonly used metric in acoustics/signal processing fields, it was confirmed in this thesis to provide an incomplete picture of the effects of reverberation. Since the early decay region and late decay region have different impacts of TFS and ENV acoustic cues, a combination of EDT and reverberation time is much more perceptually descriptive.
+
+\subsection{Conclusions on the Perceptual Benefit of Delay-and-Predict Dereverberation}
+
+In the perceptual evaluation of the DAP algorithm, it was shown via HASPI performance analysis that even though the reverberation cancellation provided by the algorithm is limited, the benefit is sufficient to restore a substantial amount of SI in some practical rooms. Additionally, a clear benefit of the algorithm on MR-NSIM and STMI performance was observed accross the majority of reverberant conditions, which represents the restoration of ENV acoustic cues which have a severe impact on SI and LE. While the algorithm was generally found to provide an improvement in FT-NSIM performance, suggesting restoration of TFS cues, the variance in FT-NSIM due to phase-distortions partially obscured these results as discussed above. Lastly, it was shown that the perceptual benefit of the DAP algorithm is highly dependent on the distribution of energy between the earlier region in which cancellation is effective, and the later region in which very little cancellation is achieved. DAP performs best in rooms that have substantial energy in the earlier region, and could be paired with a speech enhancement stage to help reduce the residual late reverberation.
+
+
+
+
+% Extra notes
+%
+% - "Overwhitening" effect can actually create an added reverberant effect when the DAP equalizer is applied to a different speech signal (different from what was explained by triki and slock) --> Important to set source-whitening order to the effective spectral resolution of the MC-LP stage
+%
+
+
+\section{Future Work}
+
+In this thesis, the classical delay-and-predict (DAP) algorithm presented by \cite{triki2006delay} was enhanced with a regularization factor to improve numerical stability in the multichannel Yule-Walker / normal equations solution. There are many other enhancements which could be explored and evaluated via the physiologically-motivated evaluation method defined in this thesis. 
+
+One potential enhancement to the DAP algorithm would be to use delayed MC-LP as described in Section \ref{section:other_mc_lp_approaches}. Using delayed linear prediction has the potential perceptual benefit of avoiding cancellation of early reflections. Delayed linear prediction also has potential to safeguard against non-time-aligned RIRs, and may even allow the necessary time-alignment procedure of DAP to be omitted entirely. Recall that time-alignment is primarily required so that MC-LP remains formulated as the prediction of current data from past data as described in Section \ref{section_dap}.
+
+Another enhancement that could be explored, is the implications of using the covariance method for MC-LP instead of the autocorrelation method. As described in Section \ref{section_dap}, the autocorrelation method for MC-LP is constrained such that the MC-LP inverse filter is stable, and therefore the prediction error filter may be sub-optimal in a mean-squared error sense. Since only the MC-LP inverse filter is not needed in this application, it may be beneficial to use the covariance method. 
+
+Additionally, while classical linear prediction and Wiener filtering in general is formulated as a minimzation of mean-squared-error (i.e., minization of the L2 Norm or Euclidian norm). This formulation is beneficial in its simplicity and due the fact that its cost function produces an error surface with a single global minimum, but other norms may be more perceptually optimal.
+
+Lastly, an adaptive version of DAP and other related algorithms could be explored. This could be done by employing recursive minimization of mean-squared-error using, for example, recursive least squares or least-mean-squares adaptation. Implementation of these adaptive algorithms in the STFT or subband domains could also be explored to improve convergence behaviour as described in Section \ref{section:adaptive_filter}.
+
+There are also several existing extensions and variations of the delay-and-predict algorithm that could be explored using the designed evaluation method. One such algorithm which has been the foundation of many practical dereverberation strategies is the weighted prediction error (WPE) algorithm as described in Section \ref{section:bsi_estimation_theory}. As described in Section \ref{section:other_mc_lp_approaches}, many practical algorithms use a lower order MC-LP approach (such as low order WPE) to cancel the early/stronger part of the RIR, and include a speech enhancement post-processing stage to suppress the later/weaker reverberation. Evaluation of two-stage algorithms with the methodology defined in this thesis could be explored in a future study.
+
+There are also several improvements which could be made to the evaluation method itself in future work. Most importantly, a better binaural front-end could be developed and incorporated to model the perceptual adaptations to reverberation described in Section \ref{perceptual_adaptations}, and to model how these adaptations deteorate with hearing loss. As explained in Section \ref{section_dap}, if DAP is applied as-is to all microphones on a binaural pair of hearing aids, the output will be a single monaural signal thus losing binaural cues which are important for speech perception in adverse conditions. This aspect was not reflected in the studies conducted in this thesis, and is an important consideration. One option to improve algorithm performance by using more microphones, which could potentiually avoid sacrificing binaural cues, would be to use all microphones from a binaural pair for the source-whitening stage, but to perform the MC-LP stage on the two devices separately. In this way, more spatial averaging would be exploited in the blind estimation of the source AR parameters, which would benefit the two separate MC-LP processes. This was also left for a future study. 
+
+Additionally, as discussed in Section \ref{section:dap_eval_truncSAL}, it is at this point unclear how impactful the phase distortions imposed by DAP dereverberation, which are heavily penalized by the FT-NSIM, have on perception. More research is needed into the separate impacts of TFS phase distortions and the blurring/masking of the TFS structure within each CF. This research question creates potential motivation to create two separate FT-NSIMs: one that is phase-sensitive, and one that is not. The phase insensitive one could be done for example by shifting each row (i.e., each CF) of the test neurogram such that its correlation with the corresponding reference neurogram is maximized. The two FT-NSIMs could be weighted and combined to provide a more perceptually relevant metric of the distortion of TFS cues.
+
+
+%\section{Future Work Notes}
+
+%Covariance method for LP/MC-LP
+
+%Alternate minimization norm (not MSE, maybe something better suited perceptually).
+
+%Multi-Step/Delayed Linear Prediction to avoid cancellation of early reflections (and minimize overwhitening distortions)
+
+%Adaptive/STFT/Subband implementations (reduced complexity and better tracking at cost of worse convergence, maybe not big of a hit within the context of how much were actually able to acheive / including the amount of regularization im adding). What about a combination of the two? Impact of time-varying acoustics on DAP w/ and w/out adaptation
+
+%Evaluation in combination with statistical speech enhancement method.
+
+%Compare LIME to DAP on a perceptual basis. WPE performance, and other more recent algorithms.
+
+%Metrics work (review that section): Better binaural front-end (perceptual adaptations, impact of hearing loss), ...
+
+%Preservation of spatial cues by removing or constraining linear combiner
 
 

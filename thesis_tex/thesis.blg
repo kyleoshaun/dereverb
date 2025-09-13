@@ -10,6 +10,7 @@ A level-1 auxiliary file: notation.aux
 A level-1 auxiliary file: chap1.aux
 A level-1 auxiliary file: chap2.aux
 A level-1 auxiliary file: chap3.aux
+A level-1 auxiliary file: chap4.aux
 A level-1 auxiliary file: chap5.aux
 A level-1 auxiliary file: appendix.aux
 The style file: natbib.bst
@@ -18,49 +19,50 @@ Warning--empty author in ansi1997methods
 Warning--empty journal in george2010measuring
 Warning--empty journal in habets2007single
 Warning--empty author in iec2003sti
+Warning--empty author in iec2003Aweighting
 Warning--empty author in itu2003pesq
 Warning--empty author in itu2011polqa
 Warning--empty journal in lavandier2023towards
 Warning--empty journal in roberts2003effects
-You've used 132 entries,
+You've used 143 entries,
             2150 wiz_defined-function locations,
-            1218 strings with 28075 characters,
-and the built_in function-call counts, 57681 in all, are:
-= -- 6064
-> -- 2022
-< -- 113
-+ -- 597
-- -- 556
-* -- 4851
-:= -- 9463
-add.period$ -- 418
-call.type$ -- 132
-change.case$ -- 831
-chr.to.int$ -- 131
-cite$ -- 140
-duplicate$ -- 2556
-empty$ -- 4346
-format.name$ -- 774
-if$ -- 11935
+            1277 strings with 29860 characters,
+and the built_in function-call counts, 62096 in all, are:
+= -- 6510
+> -- 2197
+< -- 118
++ -- 650
+- -- 605
+* -- 5232
+:= -- 10214
+add.period$ -- 451
+call.type$ -- 143
+change.case$ -- 897
+chr.to.int$ -- 142
+cite$ -- 152
+duplicate$ -- 2751
+empty$ -- 4670
+format.name$ -- 837
+if$ -- 12828
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 135
-newline$ -- 658
-num.names$ -- 384
-pop$ -- 891
+missing$ -- 148
+newline$ -- 713
+num.names$ -- 414
+pop$ -- 966
 preamble$ -- 1
-purify$ -- 837
+purify$ -- 905
 quote$ -- 0
-skip$ -- 1725
+skip$ -- 1854
 stack$ -- 0
-substring$ -- 4475
-swap$ -- 610
-text.length$ -- 38
+substring$ -- 4774
+swap$ -- 652
+text.length$ -- 39
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 774
-warning$ -- 8
-while$ -- 485
+type$ -- 834
+warning$ -- 9
+while$ -- 519
 width$ -- 0
-write$ -- 1729
-(There were 8 warnings)
+write$ -- 1869
+(There were 9 warnings)
