@@ -79,78 +79,17 @@ In the context of dereverberation for speech perception, it is also important to
 
 It is also important to make a distinction between the problem of equalizing the RTF at a certain location by preprocessing the signal sent to a spatially separated loudspeaker, and equalizing the RTF locally at the microphone (e.g., on a hearing aid).
 
-%\subsubsection{Single Channel Room Response Equalization}
+\subsubsection{Single Channel Room Response Equalization}
 
-%While it is strictly impossible to perfectly equalize an RTF with a single-channel causal/stable FIR filter, a number of approaches have been developed which aim to provide partial equalization. 
+While it is strictly impossible to perfectly equalize an RTF with a single-channel causal/stable FIR filter, a number of approaches have been developed which aim to provide partial equalization. 
 
-\subsubsection{Homomorphic Approaches to Room Response Equalization} \label{homomorphic_eq}
+The first approach to equalization of a non-minimum phase RTF, proposed by \cite{neely1979invertibility}, decomposed the RTF into its minimum phase and allpass mixed phase components, and designed an equalizer by inverting only the minimum-phase component. The authors modeled the RTF with a FIR RIR, and extracted an estimate of the minimum phase component from the cepstrum of the RIR. For a review of homomorphic signal processing which underlies this method, refer to \cite{quatieri2002discrete}. This approach perfectly equalizes the magnitude response of the channel, but the residual phase response has been shown to contain most of the reverberant energy and as such is not perceptually negligible \citep{johansen1996excess}. In other words, the allpass mixed-phase component is responsible for the temporal smearing of reverberation. The significant peceptual impact of this can be explained by the fact that the short term frequency spectral analysis performed by the human auditory system is sensitive to excess phase. The shortcomings of this approach motivate the need for an alternative form of partial equalization which emphasizes the importance of phase equalization, i.e., makes trade off between magnitude and phase equalization.
 
-The first approach to equalization of a non-minimum phase RTF, proposed by \cite{neely1979invertibility}, decomposed the RTF, $G(z)$, into its minimum phase and allpass mixed phase components, 
+An alternative method for coming up with an estimate of the minimum phase component of the RTF is accomplished via linear prediction. This idea has been explored by several authors, such as \cite{mourjopoulos1991pole} and \cite{haneda1997multiple}. In this approach the RTF is modeled as an all-pole filter and a FIR equalizer is designed by minimization of the modeling error between the actual RIR and a predicted autoregressive model of the RIR. By using the autocorrelation method for linear prediction, the minimum phase component of the RTF is estimated and is equalized by the prediction error filter. Modeling the RTF as an all-pole filter generally results in a lower order equalizer which does a better job of modeling/canceling high energy spectral peaks \citep{toole1988modification}. Additionally, by focusing less on modeling the RTF notches, the all-pole model is less sensitive to their high spatial/time variance  \citep{mourjopoulos1985variation}, which is especially impactful on avoiding over amplification of noise at the frequencies of deep spectral notches (i.e., the tonal artifacts reported by \cite{neely1979invertibility}). 
 
-\begin{equation}
-	G(z)=G_{\mathrm{min}}(z)G_{\mathrm{allpass}}(z)
-\end{equation}
+To better account for the importance of the all-pass component in terms of reverberant energy, several authors \citep[e.g., ][]{clarkson1985spectral} have proposed the usage of least-squares optimization to minimize the error energy between the desired EIR and the acheived EIR.  The desired EIR is set to a delayed impulse to enable partial implementation of the acausal portion of the ideal RTF inverse. Several authors have proposed methods for determining the optimal delay which trades off between equalizer performance and undesireable effects such as pre-ringing/pre-echo \citep{clarkson1985spectral, ford1978optimum}. Since this method does not constrain the equalizer to be minimum-phase, it has been shown to outperform the above methods in terms of excess reverberant energy \citep{mourjopoulos1982comparative}.
 
-\noindent
-and designed an equalizer, $H(z)$, by inverting only the minimum-phase component. 
-
-\begin{equation}
-	H(z)=\frac{1}{G_{\mathrm{min}}(z)}
-\end{equation}
-
-\noindent
-The resulting EIR, $D(z)$, is
-
-\begin{equation}
-	D(z)=G(z)H(z)=G_{\mathrm{allpass}}(z)
-\end{equation}
-
-The authors modeled the RTF with a FIR RIR, and estimated the minimum phase component by computing the cepstrum (i.e., the real cepstrum) of the RIR, and flipping/adding the negative quefrency cepstral coefficients with the positive quefrency coefficients. For a review of homomorphic signal processing which underlies the cepstrum, refer to \cite{quatieri2002discrete}. The processed cepstrum is returned to the time domain by an inverse complex cepstrum transformation. Since the real cepstrum represents a magnitude response (i.e., zero phase) and a right-sided complex cepstrum represents a minimum phase sequence, the resulting time-domain sequence represents the equivalent minimum phase representation of the original RIR. This process uses the inverse DFT to compute the equalizer, therefore the DFT size must be large enough to minimize distortions due to time domain aliasing. 
-
-This approach perfectly equalizes the magnitude response of the channel, but the excess phase response of the allpass component, $G_{\mathrm{allpass}}(z)$,  and as such is referred to as magnitude equalization or excess phase equalization. The residual phase is visible in the group delay, which is flat except for significant deviations near the maximum phase zeros. However it has been shown that the excess phase in the allpass component contain most of the reverberant energy and as such is not perceptually negligible \citep{johansen1996excess}. In other words, the allpass component is responsible for the temporal smearing of reverberation. The significant peceptual impact of this can be explained by the fact that the short term frequency spectral analysis performed by the human auditory system is sensitive to excess phase.
-
-Perfect equalization to a delay is theoreticallys possible by convolving the output of the magnitude equalizer through a time-reversed version of the all-pass component (i.e., matched filter). However, for an IIR filter this will impose infinite delay, and is equivalent to the modeling delay discussed in the previous section.
-
-The shortcomings of the excess phase equalizer proposed by \cite{neely1979invertibility} motivates the need for an alternative form of partial equalization which emphasizes the importance of phase equalization, i.e., makes trade off between magnitude and phase equalization. \cite{radlovic2000nonminimum} and subsequently \cite{maamar2006partial}, proposed iteratively flattening the magnitude response while monitoring the excess phase response as a means to trade off the two.
-
-\subsubsection{Linear Prediction Approaches to Room Response Equalization}
-
-An alternative method for coming up with an estimate of the minimum phase component discussed in the previous section is accomplished via linear prediction. This idea has been explored by several authors, such as \cite{mourjopoulos1991pole} and \cite{haneda1997multiple}. In this approach, the RTF is modeled as an all-pole filter, and a FIR equalizer is designed by minimization of the error $e(n)$ between the actual channel RIR $g(n)$ and a predicted autoregressive model of the RIR $\hat{g}(n)$, i.e.,
-
-\begin{eqnarray}
-	e(n)= g(n) - \hat{g}(n) \\
-	=  g(n) - \sum_{k=1}^{p}\alpha_k g(n-k) \\
-	\boldsymbol{\alpha}=\begin{bmatrix} \alpha_1 & \alpha_2 & \dots & \alpha_p \end{bmatrix} = \underset{\boldsymbol{\alpha}}{\arg\min}\;e(n)
-\end{eqnarray}
-
-By using the autocorrelation method for linear prediction, the minimum phase component of the RTF is estimated and is equalized by the prediction error filter. Since poles ring longer than zeros, the method also generally produces a lower order model of the RTF peaks, and therefore also produces lower order equalizer. Compared to the FIR model in the previous section all-pole modeling of the RTF is more perceptually relevant since it does a better job of modeling high energy spectral peaks \citep{toole1988modification}. Additionally, by focusing less on modeling the RTF notches, the all-pole model is less sensitive to their high spatial/time variance  \citep{mourjopoulos1985variation}, which is especially impactful on avoiding over amplification of noise at the frequencies of deep spectral notches (i.e., the tonal artifacts reported by \cite{neely1979invertibility}). The linear prediction approach also enables usage of the computationally efficient Levinson Durbin algorithm, and is a more numerically stable technique due shorter equalizer filter lengths and avoidance of temporal aliasing due to the DFT used in cepstral analysis. However, unlike the homomorphic method which separately predicts the minimum phase and all-pass components, linear prediction only predicts the minimum phase component. Therefore to equalize the excess phase (e.g., via a matched filter), the excess all-pass phase response must be estimated by other means. 
-
-\subsubsection{Frequency Domain Approaches to Room Response Equalization}
-
-Perhaps the most obvious approach to RTF inversion is to take the DFT of the RIR, compute its inverse, and then take the inverse DFT to compute the FIR equalizer coefficients. Authors such as \cite{kulp1988digital} have explored this topic and the challenges and design considerations associated with it. Most importantly, DFT size must be carefully selected to minimize distortions due to temporal aliasing. Since the inverse of an RTF is generally infinite in length, aliasing cannot be completely avoided, but the amount of aliased energy can be reduced. Many authors have suggested RIR pre-processing techniques to further mitigate this issue, such as applying a window function to emphasize key parts of the RIR \citep{kulp1988digital} and using regularization to reduce depth of spectral notches with the goal of reducing noise amplification \citep{bean1989loudspeaker, kirkeby1996fast}. As in preivous methods, delay can be introduced to partially shift the acausal portion of the RTF inverse to the causal side. Unlike the minimum phase equalization method discussed already, the frequency domain inversion directly computes the inverse to the full RTF and in absense of RIR pre-processing is not constrained. As such, it has been shown that with sufficient delay and a large enough DFT size, perfect equalization of a non-minimum phase system can be effectively acheived. Computing the inverse filter in the frequency domain additionally makes it possible to perform the deconvolution filtering process in the frequency domain, i.e., using an FFT to perform fast convolution. However, this approach is still always approximate, and is still susceptible to the issues of RTF variation in space and time, and artifacts such as noise amplification, pre-ringing and pre-echo.
-
-\subsubsection{Least Squares Optimization Approaches to Room Response Equalization}
-
-To better account for the importance of the all-pass component in terms of reverberant energy, several authors \citep[e.g., ][]{clarkson1985spectral} have proposed the usage of least-squares optimization to minimize the error energy between the desired EIR $\tilde{y}(n)$ and the acheived EIR $y(n)=h(n)*g(n)$.  The desired EIR is set to a delayed impulse, i.e., $\tilde{y}(n)=\delta(n-d)$ to enable partial cancelation of the acausal portion of the ideal RTF inverse. The modeling error is thus
-
-\begin{equation}
-	e(n) = \tilde{y}(n)  - y(n) = \delta(n-d) - h(n)*g(n)
-\end{equation}
-
-\noindent
-and the equalizer is designed to minimize the modeling error enery, i.e.,
-
-\begin{eqnarray}
-I = \sum_{n=0}^{N}e^2(n) \\
-h(n) = \underset{h(n)}{\arg\min}\;I
-\end{eqnarray}
-
-\noindent
-which is solved via the well known normal equations already discussed.
-
-As previously mentioned, the selection of the delay is represents a trade off between equalizer performance, and undesirable perceptual effects such as delay and pre-ringing/pre-echo. Several authors have proposed methods for determining the optimal delay in this regard \citep{clarkson1985spectral, ford1978optimum}.
-
-Where the previously discussed approaches come up with a specific deterministic minimum-phase approximation of the non-minimum phase inverse, this approach uses least squares to directly minimize the modeling error, without constraining the implications on the magnitude and phase responses. The least squares approach has been shown to outperform the minimum-phase qualization in terms of excess reverberant energy \citep{mourjopoulos1982comparative}.
+Perhaps the most obvious approach to RTF inversion, as explored by authors such as \cite{kulp1988digital}, is to take the DFT of the RIR, compute its inverse, and then take the inverse DFT to compute the FIR equalizer coefficients. Since the inverse of an RTF is generally infinite in length, time domain aliasing occurs regardless of DFT size. To mitigate this issue, several RIR pre-processing methods have been proposed such as applying a window function to emphasize key parts of the RIR \citep{kulp1988digital} or using regularization to reduce depth of spectral notches with the goal of reducing noise amplification \citep{bean1989loudspeaker, kirkeby1996fast}. As in preivous methods, delay can be introduced to partially shift the acausal portion of the RTF inverse to the causal side. Since frequency domain inversion is not constrained to be minimum-phase, it has been shown that with sufficient delay and a large enough DFT size, near-perfect equalization of a non-minimum phase system can be effectively acheived. However, this approach is still always approximate, and is still susceptible to the issues of RTF variation in space and time, and artifacts such as noise amplification, pre-ringing and pre-echo.
 
 %\textbf{add proof that EQ of FIR channel with FIR filter is numerically impossibhle (matrix inversion dimensions dont work -- see note on paper)}
 
